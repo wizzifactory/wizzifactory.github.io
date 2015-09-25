@@ -161,7 +161,7 @@ h3 {
         color: #EC7600 ;
     }
     .kwd {
-        color: darkred ;
+        color: #f79256 ;
     }
     .com {
         color: #66747B ;
@@ -172,8 +172,8 @@ h3 {
     .lit {
         color: #FACD22 ;
     }
-    .pun, .opn, .clo {
-        color: #F1F2F3 ;
+    .mix {
+        color: #ff0040 ;
     }
     .tag {
         color: #8AC763 ;
@@ -184,8 +184,8 @@ h3 {
     .atv {
         color: #EC7600 ;
     }
-    .dec, .var {
-        color: #purple ;
+    .expr {
+        color: #f3e877 ;
     }
     .fun {
         color: red ;
