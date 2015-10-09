@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The Wizzi Factory</title>
+        <link href="normalize.css" rel="stylesheet">
+        <link href="wizzifactory.css" rel="stylesheet">
+    </head>
+    <body>
+        <header class="header" role="banner">
+            <div class="header-logo">
+                <a href="index.html"><img src="logo.svg">
+                </a>
+            </div>
+            <nav role="navigation" class="header-items">
+                <a class="header-item" href="getting-started.html">Getting started</a>
+                <a class="header-item" href="documentation.html">Documentation</a>
+                <a class="header-item" href="api.html">API</a>
+                <a class="header-item" href="resources.html">Resources</a>
+                <a class="header-item" href="project.html">Project</a>
+                <a class="header-item" href="contributing.html">Contributing</a>
+            </nav>
+        </header>
+        <main>
+            <h1>Project</h1>
+            <h2>Main Wizzi Factory Roadmap</h2>
+            <div class="summary"></div>
+            <h2>Todos</h2>
+            <div>Implement a line continuation character</div>
+            <div class="summary">
+                    <p>Long node values looks better when in a new line. the blackslash at the beginning of the line should be fine. At the beginning of the continuation line, not at the end of the continued line, is more Wizzi style.</p></div>
+            <div>Implement multi node mixin call Ittf statement in the Ittf prettifier</div>
+            <div class="summary"></div>
+            <div>Manage the close paren of mixin call Ittf statement in the Ittf prettifier</div>
+            <div class="summary"></div>
+            <div>Correctly implement comments in the Ittf prettifier</div>
+            <div class="summary"></div>
+            <div>Add node documentation support to the Ittf prettifier</div>
+            <div class="summary">
+                    <p>The Ittf prettifier could be implementaed also as a Wizzi model loader feature.</p>    <p>Ittf nodes could be beautified and have a popup linked to the Wizzi schema documentation of the node semantics.</p></div>
+            <div>Ha ve a look at http://redcloth.org/textile for ideas evolving the @docs@ Wizzi schema.</div>
+            <div class="summary"></div>
+            <h2>Issues</h2>
+            <div>IttfInclude. $param root node in included document</div>
+            <div class="summary">
+                    <p>If the root node of the included document is a $params node the loading must fail and the error must be logged</p></div>
+            <div>Error messages sometimes are obscure or incorrect</div>
+            <div class="summary">
+                    <p>We need a better strategy to print the exact file, and line of code where an error occurred</p></div>
+            <div>IttfLoader - Mixins. Error loop when passing object arguments to a mixin.</div>
+            <div class="summary">
+                    <p>When a mixin has an object param and calls another mixin passing an object argument the loading loops</p></div>
+        </main>
+        <script src="wizzifactory.js"></script>
+    </body>
+
+</html>
