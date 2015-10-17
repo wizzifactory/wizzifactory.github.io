@@ -4,6 +4,11 @@ body {
     font-family: verdana, tahoma, arial ;
     font-size: 13px ;
 }
+p img {
+    border: none ;
+    display: block ;
+    margin: 0 auto ;
+}
 .top-header {
     position: fixed ;
     margin-left: 5% ;
@@ -27,7 +32,7 @@ body {
     top: 80px ;
     margin-left: 30% ;
     height: 80% ;
-    width: 50% ;
+    width: 70% ;
     position: fixed ;
     overflow: auto ;
     z-index: 1 ;
@@ -57,10 +62,20 @@ body {
 }
 .header-item {
     float: left ;
-    padding: 15px 30px ;
+    padding: 10px 20px ;
     font-size: 22px ;
+    height: 40px ;
     text-decoration: none ;
     color: #222 ;
+}
+.selected-header-item {
+    float: left ;
+    padding: 10px 20px ;
+    font-size: 22px ;
+    height: 40px ;
+    text-decoration: none ;
+    color: #fff ;
+    background-color: red ;
 }
 .toc {
     list-style: none ;

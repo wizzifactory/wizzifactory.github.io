@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html ---exportName="html">
+    <head>
+        <title>The Wizzi Factory</title>
+        <link href="normalize.css" rel="stylesheet">
+        <link href="wizzifactory.css" rel="stylesheet">
+    </head>
+    <body>
+        <header class="header" role="banner">
+            <div class="header-logo">
+                <a href="index.html"><img src="logo.svg">
+                </a>
+            </div>
+            <nav role="navigation" class="header-items">
+                <a class="header-item" href="overview.html">View</a>
+                <a class="header-item" href="starter.html">Starter</a>
+                <a class="header-item" href="docs.html">Docs</a>
+                <a class="selected-header-item" href="specs.html">Specifications</a>
+                <a class="header-item" href="labs.html">Labs</a>
+                <a class="header-item" href="project.html">Project</a>
+                <a class="header-item" href="contribs.html">Contribs</a>
+            </nav>
+        </header>
+        <main>
+            <div class="main-sidebar-left">
+                <section id="main-toc" class="toc">
+                    <h3>Contents:</h3>
+                    <ol>
+                        <li><a href="#object-1">The WizziSchema wizzischema</a>
+                        </li>
+                        <li><a href="#object-2">The WizziSchema wfjob</a>
+                        </li>
+                        <li><a href="#object-3">The js LanguageWizziSchema</a>
+                        </li>
+                    </ol>
+                </section>
+            </div>
+            <div class="main-content">
+                <section>
+                    <h2 id="object-1">The WizziSchema wizzischema</h2>
+                    <div class="summary"></div>
+                    <h2 id="object-2">The WizziSchema wfjob</h2>
+                    <div class="summary"></div>
+                    <h2 id="object-3">The js LanguageWizziSchema</h2>
+                    <div class="summary">
+                            <div><h3>var node {ittf-tag var}</h3></div>    <h4>var nodes accept as children nodes</h4>        <ul><li>jsPropertyOrValue nodes {ittf-tag @}    </li>        <li>jsObject nodes {ittf-tag {}    </li>        <li>jsArray nodes {ittf-tag [}    </li>        <li>function nodes {ittf-tag function}    </li>        <li>call nodes {ittf-tag _}    </li>        <li>decl nodes {ittf-tag decl}    </li>    </ul>            <table><tr><td style="width=50%; vertical-align:top;"><pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl" /><span class="tag" /><span class="pln"> </span></li><li class="L2"><span class="pnl">    </span><span class="tag">var</span><span class="pln"> a</span></li><li class="L3"><span class="pnl">    </span><span class="tag">var</span><span class="pln"> x = 1</span></li><li class="L4"><span class="pnl">    </span><span class="tag">var</span><span class="pln"> y</span></li><li class="L5"><span class="pnl">        </span><span class="tag">{</span><span class="pln"> </span></li><li class="L6"><span class="pnl">            </span><span class="tag">@</span><span class="pln"> name stefi</span></li><li class="L7"><span class="pnl">            </span><span class="tag">@</span><span class="pln"> age 58</span></li><li class="L8"><span class="pnl">    </span><span class="tag">var</span><span class="pln"> fxDouble</span></li><li class="L9"><span class="pnl">        </span><span class="tag">function</span><span class="pln"> </span></li><li class="L0"><span class="pnl">            </span><span class="tag">arg</span><span class="pln"> x</span></li><li class="L1"><span class="pnl">            </span><span class="tag">return</span><span class="pln"> x * 2</span></li><li class="L2"><span class="pnl">    </span><span class="tag">var</span><span class="pln"> </span></li><li class="L3"><span class="pnl">        </span><span class="tag">decl</span><span class="pln"> b</span></li><li class="L4"><span class="pnl">        </span><span class="tag">decl</span><span class="pln"> z = 1</span></li><li class="L5"><span class="pnl">        </span><span class="tag">decl</span><span class="pln"> t</span></li><li class="L6"><span class="pnl">            </span><span class="tag">{</span><span class="pln"> </span></li><li class="L7"><span class="pnl">                </span><span class="tag">@</span><span class="pln"> name annie</span></li><li class="L8"><span class="pnl">                </span><span class="tag">@</span><span class="pln"> age 58</span></li><li class="L9"><span class="pnl">        </span><span class="tag">decl</span><span class="pln"> fyHalve</span></li><li class="L0"><span class="pnl">            </span><span class="tag">function</span><span class="pln"> </span></li><li class="L1"><span class="pnl">                </span><span class="tag">arg</span><span class="pln"> y</span></li><li class="L2"><span class="pnl">                </span><span class="tag">return</span><span class="pln"> y / 2</span></li></ol></pre>        </td>            <td style="width=50%; vertical-align:top; border: 1px solid #555;">    <pre class="prettyprint-js">
+    
+    var a;
+    var x = 1;
+    var y = {
+        name: 'stefi',
+        age: 58
+    };
+    var fxDouble = function(x) {
+        return x * 2;
+    };
+    var b,
+        z = 1,
+        t = {
+            name: 'annie',
+            age: 58
+        },
+        fyHalve = function(y) {
+            return y / 2;
+        };
+        </td>            </tr>    </table>    <div><h3>set node {ittf-tag set}</h3></div>    <h4>set nodes accept as children nodes</h4>        <ul><li>jsObject nodes {ittf-tag {}    </li>        <li>jsArray nodes {ittf-tag [}    </li>        <li>function nodes {ittf-tag function}    </li>        <li>call nodes {ittf-tag _}    </li>    </ul>            <table><tr><td style="width=50%; vertical-align:top;"><pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl" /><span class="tag" /><span class="pln"> </span></li><li class="L2"><span class="pnl">    </span><span class="tag">set</span><span class="pln"> x = 1</span></li><li class="L3"><span class="pnl">    </span><span class="tag">set</span><span class="pln"> y</span></li><li class="L4"><span class="pnl">        </span><span class="tag">{</span><span class="pln"> </span></li><li class="L5"><span class="pnl">            </span><span class="tag">@</span><span class="pln"> property hello</span></li><li class="L6"><span class="pnl">    </span><span class="tag">set</span><span class="pln"> z</span></li><li class="L7"><span class="pnl">        </span><span class="tag">[</span><span class="pln"> </span></li><li class="L8"><span class="pnl">            </span><span class="tag">@</span><span class="pln"> arrayItem1</span></li><li class="L9"><span class="pnl">            </span><span class="tag">@</span><span class="pln"> arrayItem2</span></li><li class="L0"><span class="pnl">    </span><span class="tag">set</span><span class="pln"> k</span></li><li class="L1"><span class="pnl">        </span><span class="tag">function</span><span class="pln"> </span></li><li class="L2"><span class="pnl">            </span><span class="tag">#</span><span class="pln"> ... statements ...</span></li><li class="L3"><span class="pnl">    </span><span class="tag">set</span><span class="pln"> j</span></li><li class="L4"><span class="pnl">        </span><span class="tag">_</span><span class="pln"> retrieveValue</span></li><li class="L5"><span class="pnl">            </span><span class="tag">@</span><span class="pln"> argument</span></li></ol></pre>        </td>            <td style="width=50%; vertical-align:top; border: 1px solid #555;">    <pre class="prettyprint-js">
+    
+    x = 1;
+    
+    y = {
+        property: 'hello'
+    };
+    
+    z = [
+        arrayItem1,
+        arrayItem2
+    ];
+    
+    k = function() {
+        // ... statements ...
+    }
+    
+    j = retrieveValue(argument));
+        </td>            </tr>    </table>    <div><h3>object node {ittf-tag {}</h3></div>            <table><tr><td style="width=50%; vertical-align:top;"><pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl" /><span class="tag">var</span><span class="pln"> person</span></li><li class="L2"><span class="pnl">    </span><span class="tag">{</span><span class="pln"> </span></li><li class="L3"><span class="pnl">        </span><span class="tag">@</span><span class="pln"> name stefi</span></li><li class="L4"><span class="pnl">        </span><span class="tag">@</span><span class="pln"> age 58</span></li></ol></pre>        </td>            <td style="width=50%; vertical-align:top; border: 1px solid #555;">    <pre class="prettyprint-js">
+    var person = { name: 'stefi', age: 58 };
+        </td>            </tr>    </table>    <div><h3>array node {ittf-tag [}</h3></div>            <table><tr><td style="width=50%; vertical-align:top;"><pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl" /><span class="tag">var</span><span class="pln"> people</span></li><li class="L2"><span class="pnl">    </span><span class="tag">[</span><span class="pln"> </span></li><li class="L3"><span class="pnl">        </span><span class="tag">{</span><span class="pln"> </span></li><li class="L4"><span class="pnl">            </span><span class="tag">@</span><span class="pln"> name stefi</span></li><li class="L5"><span class="pnl">            </span><span class="tag">@</span><span class="pln"> age 58</span></li><li class="L6"><span class="pnl">        </span><span class="tag">{</span><span class="pln"> </span></li><li class="L7"><span class="pnl">            </span><span class="tag">@</span><span class="pln"> name annie</span></li><li class="L8"><span class="pnl">            </span><span class="tag">@</span><span class="pln"> age 58</span></li></ol></pre>        </td>            <td style="width=50%; vertical-align:top; border: 1px solid #555;">    <pre class="prettyprint-js">
+    var people = [
+        { name: 'stefi', age: 58 },
+        { name: 'annie', age: 58 }
+    ];
+        </td>            </tr>    </table>    <div><h3>function node {ittf-tag function}</h3></div>            <table><tr><td style="width=50%; vertical-align:top;"><pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl" /><span class="tag" /><span class="pln"> </span></li><li class="L2"><span class="pnl">    </span><span class="tag">function</span><span class="pln"> sayHello</span></li><li class="L3"><span class="pnl">        </span><span class="tag">arg</span><span class="pln"> name</span></li><li class="L4"><span class="pnl">        </span><span class="tag">arg</span><span class="pln"> style</span></li><li class="L5"><span class="pnl">        </span><span class="tag">if</span><span class="pln"> style === bold</span></li><li class="L6"><span class="pnl">            </span><span class="tag">return</span><span class="pln"> Hello &lt;b&gt; + name + &lt;/b&gt;</span></li><li class="L7"><span class="pnl">        </span><span class="tag">else</span><span class="pln"> </span></li><li class="L8"><span class="pnl">            </span><span class="tag">return</span><span class="pln"> Hello  + name</span></li><li class="L9"><span class="pnl">    </span><span class="tag" /><span class="pln"> </span></li><li class="L0"><span class="pnl">    </span><span class="tag">function</span><span class="pln"> Animal</span></li><li class="L1"><span class="pnl">        </span><span class="tag">arg</span><span class="pln"> kind</span></li><li class="L2"><span class="pnl">        </span><span class="tag">arg</span><span class="pln"> legs</span></li><li class="L3"><span class="pnl">        </span><span class="tag">arg</span><span class="pln"> actionFunction</span></li><li class="L4"><span class="pnl">    </span><span class="tag" /><span class="pln"> </span></li><li class="L5"><span class="pnl">    </span><span class="tag">var</span><span class="pln"> obj</span></li><li class="L6"><span class="pnl">        </span><span class="tag">new</span><span class="pln"> Animal</span></li><li class="L7"><span class="pnl">            </span><span class="tag">@</span><span class="pln"> dog</span></li><li class="L8"><span class="pnl">            </span><span class="tag">@</span><span class="pln"> 4</span></li><li class="L9"><span class="pnl">            </span><span class="tag">function</span><span class="pln"> </span></li><li class="L0"><span class="pnl">                </span><span class="tag">return</span><span class="pln"> I bark</span></li></ol></pre>        </td>            <td style="width=50%; vertical-align:top; border: 1px solid #555;">    <pre class="prettyprint-js">
+    
+    function sayHello(name, style) {
+        if (style === 'bold') {
+            return 'Hello &lt;b&gt;' + name + '&lt;/b&gt;';
+        }
+        else {
+            return 'Hello ' + name;
+        }
+    }
+    
+    function Animal(kind, legs, actionFunction) {
+    }
+    
+    var obj = new Animal('dog', 4, function() {
+        return 'I bark';
+    });
+        </td>            </tr>    </table>    <div><h3>call node {ittf-tag _}</h3></div>    <h4>call nodes accept as children nodes</h4>        <ul><li>jsPropertyOrValue nodes {ittf-tag @}    </li>        <li>jsObject nodes {ittf-tag {}    </li>        <li>jsArray nodes {ittf-tag [}    </li>        <li>function nodes {ittf-tag function}    </li>        <li>call nodes {ittf-tag _}    </li>    </ul>            <table><tr><td style="width=50%; vertical-align:top;"><pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl" /><span class="tag" /><span class="pln"> </span></li><li class="L2"><span class="pnl">    </span><span class="tag">_</span><span class="pln"> execute</span></li><li class="L3"><span class="pnl">        </span><span class="tag">@</span><span class="pln"> argument</span></li><li class="L4"><span class="pnl">        </span><span class="tag">{</span><span class="pln"> </span></li><li class="L5"><span class="pnl">            </span><span class="tag">@</span><span class="pln"> property hello</span></li><li class="L6"><span class="pnl">        </span><span class="tag">[</span><span class="pln"> </span></li><li class="L7"><span class="pnl">            </span><span class="tag">@</span><span class="pln"> arrayItem1</span></li><li class="L8"><span class="pnl">            </span><span class="tag">@</span><span class="pln"> arrayItem2</span></li><li class="L9"><span class="pnl">        </span><span class="tag">function</span><span class="pln"> </span></li><li class="L0"><span class="pnl">            </span><span class="tag">#</span><span class="pln"> ... statements ...</span></li><li class="L1"><span class="pnl">        </span><span class="tag">_</span><span class="pln"> retrieveValue</span></li><li class="L2"><span class="pnl">            </span><span class="tag">@</span><span class="pln"> argument</span></li></ol></pre>        </td>            <td style="width=50%; vertical-align:top; border: 1px solid #555;">    <pre class="prettyprint-js">
+    execute(argument, {
+        property: 'hello'
+    }, [
+        arrayItem1,
+        arrayItem2
+    ], function() {
+        // ... statements ...
+    }, retrieveValue(argument));
+        </td>            </tr>    </table>    <div><h3>control flow nodes</h3></div>            <table><tr><td style="width=50%; vertical-align:top;"><pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl" /><span class="tag" /><span class="pln"> </span></li><li class="L2"><span class="pnl">    </span><span class="tag">#</span><span class="pln"> if [ elif [ elif [ ... ]]] [ else ] node statements</span></li><li class="L3"><span class="pnl">    </span><span class="tag">if</span><span class="pln"> condition</span></li><li class="L4"><span class="pnl">        </span><span class="tag">#</span><span class="pln"> statements</span></li><li class="L5"><span class="pnl">    </span><span class="tag">elif</span><span class="pln"> condition</span></li><li class="L6"><span class="pnl">        </span><span class="tag">#</span><span class="pln"> statements</span></li><li class="L7"><span class="pnl">    </span><span class="tag">else</span><span class="pln"> </span></li><li class="L8"><span class="pnl">        </span><span class="tag">#</span><span class="pln"> statements</span></li><li class="L9"><span class="pnl">    </span><span class="tag" /><span class="pln"> </span></li><li class="L0"><span class="pnl">    </span><span class="tag">#</span><span class="pln"> while node statement</span></li><li class="L1"><span class="pnl">    </span><span class="tag">while</span><span class="pln"> condition</span></li><li class="L2"><span class="pnl">        </span><span class="tag">#</span><span class="pln"> statements</span></li><li class="L3"><span class="pnl">    </span><span class="tag" /><span class="pln"> </span></li><li class="L4"><span class="pnl">    </span><span class="tag">#</span><span class="pln"> do node statement</span></li><li class="L5"><span class="pnl">    </span><span class="tag">do</span><span class="pln"> condition</span></li><li class="L6"><span class="pnl">        </span><span class="tag">#</span><span class="pln"> statements</span></li><li class="L7"><span class="pnl">    </span><span class="tag" /><span class="pln"> </span></li><li class="L8"><span class="pnl">    </span><span class="tag">#</span><span class="pln"> for node statement</span></li><li class="L9"><span class="pnl">    </span><span class="tag">for</span><span class="pln"> jsExpression</span></li><li class="L0"><span class="pnl">        </span><span class="tag">#</span><span class="pln"> statements</span></li><li class="L1"><span class="pnl">    </span><span class="tag" /><span class="pln"> </span></li><li class="L2"><span class="pnl">    </span><span class="tag">#</span><span class="pln"> foreach node statement</span></li><li class="L3"><span class="pnl">    </span><span class="tag">foreach</span><span class="pln"> item-var in jsExpression</span></li><li class="L4"><span class="pnl">        </span><span class="tag">#</span><span class="pln"> statements</span></li><li class="L5"><span class="pnl">    </span><span class="tag" /><span class="pln"> </span></li></ol></pre>        </td>            <td style="width=50%; vertical-align:top; border: 1px solid #555;">    <pre class="prettyprint-js">
+    // if [ elif [ elif [ ... ]]] [ else ] node statements
+    if (condition) {
+        // statements
+    }
+    else if (condition) {
+        // statements
+    }
+    else {
+        // statements
+    }
+    
+    // while node statement
+    while (condition) {
+        // statements
+    }
+    
+    // do node statement
+    do {
+        // statements
+    } while (condition)
+    
+    // for node statement
+    for (jsExpression) {
+        // statements
+    }
+    
+    // foreach node statement
+    var i, i_len=jsExpression.length, item-var;
+    for (i=0; i&lt;i_len; i++) {
+        item-var = jsExpression[i];
+        // statements
+    }
+        </td>            </tr>    </table>    <div><h3>class node {ittf-tag class}</h3></div>    <p>A pseudo-class for javascript OOP.</p>            <table><tr><td style="width=50%; vertical-align:top;"><pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl" /><span class="tag" /><span class="pln"> </span></li><li class="L2"><span class="pnl">    </span><span class="tag">class</span><span class="pln"> Animal</span></li><li class="L3"><span class="pnl">        </span><span class="tag">ctor</span><span class="pln"> </span></li><li class="L4"><span class="pnl">            </span><span class="tag">arg</span><span class="pln"> kind</span></li><li class="L5"><span class="pnl">            </span><span class="tag">arg</span><span class="pln"> legs</span></li><li class="L6"><span class="pnl">            </span><span class="tag">#</span><span class="pln"> ... statements ...</span></li><li class="L7"><span class="pnl">    </span><span class="tag">class</span><span class="pln"> Dog</span></li><li class="L8"><span class="pnl">        </span><span class="tag">super</span><span class="pln"> Animal</span></li><li class="L9"><span class="pnl">        </span><span class="tag">ctor</span><span class="pln"> </span></li><li class="L0"><span class="pnl">            </span><span class="tag">arg</span><span class="pln"> name</span></li><li class="L1"><span class="pnl">            </span><span class="tag">base</span><span class="pln"> dog</span></li><li class="L2"><span class="pnl">            </span><span class="tag">base</span><span class="pln"> 4</span></li><li class="L3"><span class="pnl">        </span><span class="tag">m</span><span class="pln"> run</span></li><li class="L4"><span class="pnl">            </span><span class="tag">arg</span><span class="pln"> time</span></li><li class="L5"><span class="pnl">            </span><span class="tag">arg</span><span class="pln"> velocity</span></li><li class="L6"><span class="pnl">            </span><span class="tag">#</span><span class="pln"> ... statements ...</span></li><li class="L7"><span class="pnl">        </span><span class="tag">m</span><span class="pln"> getDistanceRun</span></li><li class="L8"><span class="pnl">            </span><span class="tag">#</span><span class="pln"> ... statements ...</span></li></ol></pre>        </td>            <td style="width=50%; vertical-align:top; border: 1px solid #555;">    <pre class="prettyprint-js">
+    // Animal class
+    Animal = function(kind, legs) {
+        // ... statements ...
+    }
+    
+    // Dog class
+    Dog = function(name) {
+        Animal.call(this, 'dog', 4);
+    }
+    util.inherits(Dog, Animal);
+    
+    Dog.prototype.run = function(time, velocity) {
+        // ... statements ...
+    }
+    Dog.prototype.getDistanceRun = function() {
+        // ... statements ...
+    }
+        </td>            </tr>    </table>    <div><h3>logging nodes</h3></div>            <table><tr><td style="width=50%; vertical-align:top;"><pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl" /><span class="tag" /><span class="pln"> </span></li><li class="L2"><span class="pnl">    </span><span class="tag">log</span><span class="pln"> commaSeparatedExpressionList</span></li><li class="L3"><span class="pnl">    </span><span class="tag" /><span class="pln"> </span></li><li class="L4"><span class="pnl">    </span><span class="tag">log?</span><span class="pln"> objectExpression</span></li><li class="L5"><span class="pnl">    </span><span class="tag" /><span class="pln"> </span></li><li class="L6"><span class="pnl">    </span><span class="tag">chalk</span><span class="pln"> color commaSeparatedExpressionList</span></li></ol></pre>        </td>            <td style="width=50%; vertical-align:top; border: 1px solid #555;">    <pre class="prettyprint-js">
+    
+    console.log( commaSeparatedExpressionList );
+    
+    console.log( util.inspect( objectExpression, { depth: null } ));
+    
+    console.log(chalk.green(commaSeparatedExpressionList));
+        </td>            </tr>    </table></div>
+                </section>
+            </div>
+        </main>
+        <script src="wizzifactory.js"></script>
+    </body>
+
+</html>
