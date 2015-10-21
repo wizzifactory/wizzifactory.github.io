@@ -108,6 +108,13 @@ h3 {
     color: #000 ;
     padding: 3px 1px ;
 }
+.pretty-table {
+    border: 1px solid #333 ;
+    width: 100% ;
+}
+.pretty-table th, .pretty-table td {
+    border: 1px solid #666 ;
+}
 .wz-ui-tabs-container {
     clear: both ;
     float: left ;

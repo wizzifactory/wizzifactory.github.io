@@ -26,19 +26,21 @@
                 <section id="main-toc" class="toc">
                     <h3>Contents:</h3>
                     <ol>
-                        <li><a href="#object-1">The First WizziPackage</a>
+                        <li><a href="#object-1">Starter Lab Tutorial</a>
                         </li>
-                        <li><a href="#object-2">The First WizziFactoryProduction</a>
+                        <li><a href="#object-2">myhtml - the first WizziSchema</a>
                         </li>
                     </ol>
                 </section>
             </div>
             <div class="main-content">
                 <section>
-                    <h2 id="object-1">The First WizziPackage</h2>
-                    <div class="summary"></div>
-                    <h2 id="object-2">The First WizziFactoryProduction</h2>
-                    <div class="summary"></div>
+                    <h2 id="object-1">Starter Lab Tutorial</h2>
+                    <div class="summary">
+                            <p>In this breaf tutorial we will build a minimal WizziFactoryPackage.</p>    <p>The package will expose:</p>        <ul><li>an ultra-trivialized myhtml LanguageWizziSchema    </li>        <li>a myhtml/document CodeWriteArtifactGenerator    </li>    </ul>    <p>It will contain a schemas.js module for launching the WizziModelProductions for the package WizziSchemas.</p>    <p>Then we will create a MyHelloSite folder with a myhtml IttfDocument 'Hello world' page that will be transformed to html by a WizziFactoryProductionJob.</p></div>
+                    <h2 id="object-2">myhtml - the first WizziSchema</h2>
+                    <div class="summary">
+                            <p>We want to exploit the power of the Ittf template engine for building html pages, without the need to detail all the tags of the html specification in a WizziSchema.</p>    <p>We would like to write</p>    <pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl" /><span class="tag">html</span><span class="pln"> </span></li><li class="L2"><span class="pnl">    </span><span class="tag"><</span><span class="pln"> body</span></li><li class="L3"><span class="pnl">        </span><span class="tag"><</span><span class="pln"> div Hello world in many colors</span></li><li class="L4"><span class="pnl">        </span><span class="kwd">$</span><span class="expr"> var i = 10</span></li><li class="L5"><span class="pnl">        </span><span class="kwd">$while</span><span class="pln"> i &lt;= 360</span></li><li class="L6"><span class="pnl">            </span><span class="tag"><</span><span class="pln"> div Hello world</span></li><li class="L7"><span class="pnl">                </span><span class="tag">@</span><span class="pln"> style color: hsl(${i}, 100%, 50%);</span></li><li class="L8"><span class="pnl">            </span><span class="kwd">$</span><span class="expr"> i++;</span></li></ol></pre><p>We need a very simple schema with three elements only:</p>        <ul><li>the html root node    </li>        <li>the element/< element for html element tags    </li>        <li>the attribute/@ element for html attributes    </li>    </ul>    <p>A first draft of the WizziSchema could be:</p>    <pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl" /><span class="tag">wizzischema</span><span class="pln"> myhtml</span></li><li class="L2"><span class="pnl">    </span><span class="tag">e</span><span class="pln"> html</span></li><li class="L3"><span class="pnl">        </span><span class="tag">r</span><span class="pln"> attribute/s</span></li><li class="L4"><span class="pnl">        </span><span class="tag">r</span><span class="pln"> element/s</span></li><li class="L5"><span class="pnl">    </span><span class="tag">e</span><span class="pln"> element</span></li><li class="L6"><span class="pnl">        </span><span class="tag">tag</span><span class="pln"> &lt;</span></li><li class="L7"><span class="pnl">        </span><span class="tag">r</span><span class="pln"> attribute/s</span></li><li class="L8"><span class="pnl">        </span><span class="tag">r</span><span class="pln"> element/s</span></li><li class="L9"><span class="pnl">    </span><span class="tag">e</span><span class="pln"> attribute</span></li><li class="L0"><span class="pnl">        </span><span class="tag">tag</span><span class="pln"> @</span></li></ol></pre><p>It will work but there is a redundancy. We may derive the root html element from di element element.</p><pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl" /><span class="tag">wizzischema</span><span class="pln"> myhtml</span></li><li class="L2"><span class="pnl">    </span><span class="tag">e</span><span class="pln"> html : element</span></li><li class="L3"><span class="pnl">    </span><span class="tag">e</span><span class="pln"> element</span></li><li class="L4"><span class="pnl">        </span><span class="tag">tag</span><span class="pln"> &lt;</span></li><li class="L5"><span class="pnl">        </span><span class="tag">r</span><span class="pln"> attribute/s</span></li><li class="L6"><span class="pnl">        </span><span class="tag">r</span><span class="pln"> element/s</span></li><li class="L7"><span class="pnl">    </span><span class="tag">e</span><span class="pln"> attribute</span></li><li class="L8"><span class="pnl">        </span><span class="tag">tag</span><span class="pln"> @</span></li></ol></pre></div>
                 </section>
             </div>
         </main>
