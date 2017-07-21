@@ -1,239 +1,267 @@
 body {
-    margin: 0 ;
-    padding: 0 ;
-    font-family: verdana, tahoma, arial ;
-    font-size: 13px ;
+    margin: 0;
+    padding: 0;
+    font-family: roboto, verdana, tahoma, arial;
+    font-size: 15px;
 }
 p img {
-    border: none ;
-    display: block ;
-    margin: 0 auto ;
+    border: none;
+    display: block;
+    margin: 0 auto;
+}
+a {
+    text-decoration: none;
+    color: #666;
+}
+a:hover {
+    text-decoration: none;
+    color: #000;
 }
 .top-header {
-    position: fixed ;
-    margin-left: 5% ;
-    top: 10px ;
-    left: 0 ;
-    width: 90% ;
-    height: 30px ;
-    background: #555 ;
-    color: #eee ;
+    position: fixed;
+    top: 10px;
+    left: 0;
+    width: 90%;
+    height: 30px;
+    background: #555;
+    color: #eee;
 }
 .main-sidebar-left {
-    position: fixed ;
-    margin-left: 5% ;
-    top: 80px ;
-    width: 20% ;
-    height: 80% ;
-    background: #eee ;
-    overflow: auto ;
+    position: fixed;
+    top: 60px;
+    width: 25%;
+    height: 90%;
+    background: #eee;
+    overflow: auto;
+    padding: 10px;
 }
 .main-content {
-    top: 80px ;
-    margin-left: 30% ;
-    height: 80% ;
-    width: 70% ;
-    position: fixed ;
-    overflow: auto ;
-    z-index: 1 ;
+    margin-top: 80px;
+    margin-left: 30%;
+    width: 60%;
+    z-index: 1;
 }
 .header {
-    display: flex ;
-    width: 100% ;
-    height: 60px ;
-    background: #ece ;
+    position: fixed;
+    display: flex;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    background: #555;
 }
 .header-logo {
-    display: flex ;
-    min-width: 290px ;
-    justify-content: center ;
-    align-items: center ;
+    display: flex;
+    width: 25%;
+    justify-content: center;
+    align-items: center;
 }
 .header-logo .logo {
-    display: block ;
-    width: 100% ;
-    max-width: 200px ;
-    height: 60px ;
-    background: url('logo.svg') center left no-repeat ;
-    background-size: contain ;
-    font-size: 0 ;
+    font-size: 36px;
+    font-weight: bold;
+    font-family: impact;
+    color: #fff;
 }
 .header-items {
 }
 .header-item {
-    float: left ;
-    padding: 10px 20px ;
-    font-size: 22px ;
-    height: 40px ;
-    text-decoration: none ;
-    color: #222 ;
+    float: left;
+    padding: 10px 20px;
+    font-size: 22px;
+    height: 40px;
+    text-decoration: none;
+    color: #ddd;
 }
 .selected-header-item {
-    float: left ;
-    padding: 10px 20px ;
-    font-size: 22px ;
-    height: 40px ;
-    text-decoration: none ;
-    color: #fff ;
-    background-color: red ;
+    float: left;
+    padding: 10px 20px;
+    font-size: 22px;
+    height: 40px;
+    text-decoration: none;
+    color: #555;
+    background-color: #ddd;
 }
 .toc {
-    list-style: none ;
-    margin-bottom: 20px ;
+    list-style: none;
+    margin-bottom: 20px;
 }
 .toc li {
-    overflow: hidden ;
-    padding-bottom: 2px ;
+    overflow: hidden;
+    padding-bottom: 2px;
 }
 .toc a {
-    text-decoration: none ;
-    display: inline-block ;
-    background: #fff ;
-    color: #039 ;
-    position: relative ;
-    bottom: -4px ;
+    text-decoration: none;
+    display: inline-block;
+    background: #fff;
+    color: #666;
+    position: relative;
+    bottom: -4px;
+}
+.toc a:hover {
+    color: #000;
 }
 section h1 {
-    background: #444 ;
-    color: #eee ;
-    padding: 10px 5px ;
+    background: #444;
+    color: #eee;
+    padding: 10px 5px;
 }
 section h2 {
-    background: #ddd ;
-    color: #000 ;
-    padding: 5px 2px ;
+    background: #ddd;
+    color: #000;
+    padding: 15px 5px;
+    margin: 10px 0;
 }
 h3 {
-    background: #eee ;
-    color: #000 ;
-    padding: 3px 1px ;
+    background: #eee;
+    color: #000;
+    padding: 3px 1px;
 }
 .pretty-table {
-    border: 1px solid #333 ;
-    width: 100% ;
+    border: 1px solid #333;
+    width: 100%;
 }
-.pretty-table th, .pretty-table td {
-    border: 1px solid #666 ;
+.pretty-table th,  .pretty-table td {
+    border: 1px solid #666;
+}
+.cli-command {
+    background: #333;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    color: #f0f0f0;
+    padding: .75em 1.2em;
+    font-family: courier;
+    font-size: .8em;
 }
 .wz-ui-tabs-container {
-    clear: both ;
-    float: left ;
-    width: 100% ;
-    overflow: hidden ;
+    clear: both;
+    float: left;
+    width: 100%;
+    overflow: hidden;
 }
 .wz-ui-tabs {
-    padding: 0 ;
-    margin: 0 auto ;
-    list-style-type: none ;
-    float: left ;
-    position: relative ;
-    left: 50% ;
-    height: 70px ;
+    padding: 0;
+    margin: 0 auto;
+    list-style-type: none;
+    float: left;
+    position: relative;
+    left: 50%;
+    height: 70px;
 }
 .wz-ui-tabs li {
-    float: left ;
-    position: relative ;
-    right: 50% ;
+    float: left;
+    position: relative;
+    right: 50%;
 }
 .wz-ui-tabs li a {
-    width: auto ;
-    display: block ;
-    padding: 4px 16px ;
-    color: #fff ;
-    background: #aaa ;
-    border: 1px solid #fff ;
-    text-decoration: none ;
-    cursor: pointer ;
+    width: auto;
+    display: block;
+    padding: 4px 16px;
+    color: #fff;
+    background: #aaa;
+    border: 1px solid #fff;
+    text-decoration: none;
+    cursor: pointer;
 }
 .wz-ui-tabs .wz-ui-selected {
-    background: #000 ;
+    background: #000;
 }
 .wz-ui-tabs .wz-ui-unselected li a:hover {
-    color: #000 ;
-    background: #d4d4d4 ;
+    color: #000;
+    background: #d4d4d4;
 }
 .wz-ui-page {
-    clear: both ;
+    clear: both;
 }
 .wz-ui-tv-container {
-    clear: both ;
-    width: 100% ;
-    overflow: hidden ;
-    border: 1px solid #000 ;
-    background: #000 ;
-    color: #ddd ;
+    clear: both;
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid #000;
+    background: #000;
+    color: #ddd;
 }
 .wz-ui-tv-documents {
-    padding: 0 ;
-    margin: 0 auto ;
-    list-style-type: none ;
-    position: relative ;
+    padding: 0;
+    margin: 0 auto;
+    list-style-type: none;
+    position: relative;
 }
 .wz-ui-tv-documents img {
-    width: 14px ;
-    height: 14px ;
-    vertical-align: middle ;
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
 }
 .wz-ui-tv-document-selected {
-    color: #f00 ;
+    color: #f00;
 }
 .pln {
-    color: #F1F2F3 ;
+    color: #F1F2F3;
 }
 @media screen{
     .str {
-        color: #EC7600 ;
+        color: #EC7600;
     }
     .kwd {
-        color: #f79256 ;
+        color: #f79256;
     }
     .com {
-        color: #66747B ;
+        color: #66747B;
     }
     .typ {
-        color: #678CB1 ;
+        color: #678CB1;
     }
     .lit {
-        color: #FACD22 ;
+        color: #FACD22;
     }
     .mix {
-        color: #ff0040 ;
+        color: #ff0040;
     }
     .tag {
-        color: #8AC763 ;
+        color: #8AC763;
     }
     .atn {
-        color: #E0E2E4 ;
+        color: #E0E2E4;
     }
     .atv {
-        color: #EC7600 ;
+        color: #EC7600;
     }
     .expr {
-        color: #f3e877 ;
+        color: #f3e877;
     }
     .fun {
-        color: red ;
+        color: red;
     }
 }
 pre {
-    margin: 0 ;
+    margin: 0;
 }
 pre.prettyprint {
-    padding: 2px ;
-    border: 0px solid #888 ;
+    padding: 8px;
+    border: 0px solid #888;
 }
 .prettyprint {
-    background: #000 ;
+    background: #000;
 }
 ol.linenums {
-    margin-top: 0 ;
-    margin-bottom: 0 ;
+    margin-top: 0;
+    margin-bottom: 0;
 }
-li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9 {
-    color: #555 ;
-    list-style-type: decimal ;
+li.L0,  li.L1,  li.L2,  li.L3,  li.L4,  li.L5,  li.L6,  li.L7,  li.L8,  li.L9 {
+    color: #666;
+    list-style-type: decimal;
 }
-/*Alternate shading for lines */
-li.L1, li.L3, li.L5, li.L7, li.L9 {
-    background: #111 ;
+#Alternate shading for lines {
+}
+li.L1,  li.L3,  li.L5,  li.L7,  li.L9 {
+    background: #222;
+}
+.prettyprint-js {
+    background: #fff;
+}
+#Alternate shading for lines {
+}
+li.J1,  li.J3,  li.J5,  li.J7,  li.J9 {
+    background: #ddd;
 }

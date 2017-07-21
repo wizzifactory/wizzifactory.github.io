@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: verdana, tahoma, arial;
+    font-family: roboto, verdana, tahoma, arial;
     font-size: 13px;
 }
 p img {
@@ -199,38 +199,38 @@ h3 {
 .pln {
     color: #F1F2F3;
 }
-@media undefined{
-    screen .str {
+@media screen{
+    .str {
         color: #EC7600;
     }
-    screen .kwd {
+    .kwd {
         color: #f79256;
     }
-    screen .com {
+    .com {
         color: #66747B;
     }
-    screen .typ {
+    .typ {
         color: #678CB1;
     }
-    screen .lit {
+    .lit {
         color: #FACD22;
     }
-    screen .mix {
+    .mix {
         color: #ff0040;
     }
-    screen .tag {
+    .tag {
         color: #8AC763;
     }
-    screen .atn {
+    .atn {
         color: #E0E2E4;
     }
-    screen .atv {
+    .atv {
         color: #EC7600;
     }
-    screen .expr {
+    .expr {
         color: #f3e877;
     }
-    screen .fun {
+    .fun {
         color: red;
     }
 }
