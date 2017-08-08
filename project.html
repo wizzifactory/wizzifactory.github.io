@@ -1,82 +1,188 @@
-<!DOCTYPE html>
-<html ---exportName="html">
+<!doctype html>
+<html VERSION-5="5" VERSION-4="4" version="5">
     <head>
         <title>The Wizzi Factory</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link href="normalize.css" rel="stylesheet">
         <link href="wizzifactory.css" rel="stylesheet">
     </head>
     <body>
-        <header class="header" role="banner">
-            <div class="header-logo">
-                <a href="index.html"><img src="logo.svg">
-                </a>
-            </div>
-            <nav role="navigation" class="header-items">
-                <a class="header-item" href="overview.html">View</a>
-                <a class="header-item" href="starter.html">Starter</a>
-                <a class="header-item" href="docs.html">Docs</a>
-                <a class="header-item" href="specs.html">Specs</a>
-                <a class="header-item" href="labs.html">Labs</a>
-                <a class="selected-header-item" href="project.html">Project</a>
-                <a class="header-item" href="contribs.html">Contribs</a>
-            </nav>
-        </header>
-        <main>
-            <div class="main-sidebar-left">
-                <section id="main-toc" class="toc">
-                    <h3>Contents:</h3>
-                    <ol>
-                        <li><a href="#roadmap-1">Main Wizzi Factory Roadmap</a>
-                        </li>
-                        <li><a href="project-todos">Todos</a>
-                        </li>
-                        <li><a href="project-issues">Issues</a>
-                        </li>
-                    </ol>
-                </section>
-            </div>
-            <div class="main-content">
-                <section>
-                    <h2 id="roadmap-1">Main Wizzi Factory Roadmap</h2>
-                    <div class="summary"></div>
-                    <h2 id="project-todos">Todos</h2>
-                    <div>Implement a line continuation character</div>
-                    <div class="summary">
-                            <p>Long node values looks better when in a new line. the blackslash at the beginning of the line should be fine. At the beginning of the continuation line, not at the end of the continued line, is more Wizzi style.</p></div>
-                    <div>Implement multi node mixin call Ittf statement in the Ittf prettifier</div>
-                    <div class="summary"></div>
-                    <div>Manage the close paren of mixin call Ittf statement in the Ittf prettifier</div>
-                    <div class="summary"></div>
-                    <div>Correctly implement comments in the Ittf prettifier</div>
-                    <div class="summary"></div>
-                    <div>Add node documentation support to the Ittf prettifier</div>
-                    <div class="summary">
-                            <p>The Ittf prettifier could be implementaed also as a Wizzi model loader feature.</p>    <p>Ittf nodes could be beautified and have a popup linked to the Wizzi schema documentation of the node semantics.</p></div>
-                    <div>Have a look at http://redcloth.org/textile for ideas evolving the @docs@ Wizzi schema.</div>
-                    <div class="summary"></div>
-                    <div>Implement an is-root attribute on a the WizziMetaSchema Element element</div>
-                    <div class="summary">
-                            <p>Allow the first element on the schema not be the root element</p></div>
-                    <div>Implement the xml-tag attribute on the WizziMetaSchema Attribute element</div>
-                    <div class="summary"></div>
-                    <div>In js-wizzi-schema the throw node should accept child arguments</div>
-                    <div class="summary"></div>
-                    <h2 id="project-issues">Issues</h2>
-                    <div>IttfInclude. $param root node in included document</div>
-                    <div class="summary">
-                            <p>If the root node of the included document is a $params node the loading must fail and the error must be logged</p></div>
-                    <div>Error messages sometimes are obscure or incorrect</div>
-                    <div class="summary">
-                            <p>We need a better strategy to print the exact file, and line of code where an error occurred</p></div>
-                    <div>IttfLoader - Mixins. Error loop when passing object arguments to a mixin.</div>
-                    <div class="summary">
-                            <p>When a mixin has an object param and calls another mixin passing an object argument the loading loops</p></div>
-                    <div>The role of the require element of the wizzischema is unclear</div>
-                    <div class="summary">
-                            <p>Should be node-js require only or may be used to require features.</p></div>
-                </section>
-            </div>
-        </main>
+        <div class="site">
+            <header class="navigation">
+                <div class="container navigation__inner">
+                    <div class="logo">
+                        <span class="logo-w">W</span>
+                        <span class="logo-i1">i</span>
+                        <span class="logo-z1">z</span>
+                        <span class="logo-z2">z</span>
+                        <span class="logo-i2">i</span>
+                        <span>&nbsp;</span>
+                        <span class="logo-f">f</span>
+                        <span class="logo-a">a</span>
+                        <span class="logo-c">c</span>
+                        <span class="logo-t">t</span>
+                        <span class="logo-o">o</span>
+                        <span class="logo-r">r</span>
+                        <span class="logo-y">y</span>
+                    </div>
+                    <nav class="navigation__links">
+                        <a title="project concepts" href="concepts.html" class="navigation__link">Concepts</a>
+                        <a title="project docs" href="docs.html" class="navigation__link">Docs</a>
+                        <a title="project api" href="api.html" class="navigation__link">Api</a>
+                        <a title="project code" href="code/wizzi.html" class="navigation__link">Code</a>
+                        <a title="project starters" href="starters.html" class="navigation__link">Starters</a>
+                        <a title="project project" href="project.html" class="navigation__link navigation__link--active">Project</a>
+                    </nav>
+                    <div class="navigation__search">
+                        <span class="algolia-autocomplete" style="position: relative; display: inline-block; direction: ltr;">
+                            <input type="text" class="navigation__search-input ds-input" placeholder="Search documentation…" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0" dir="auto" style="position: relative; vertical-align: top;">
+                            <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: Arial; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; word-spacing: 0px; letter-spacing: normal; text-indent: 7px; text-rendering: auto; text-transform: none;"></pre>
+                            <span class="ds-dropdown-menu" role="listbox" id="algolia-autocomplete-listbox-0" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;">
+                                <div class="ds-dataset-1"></div>
+                            </span>
+                        </span>
+                        <button class="navigation__search-icon icon-search"></button>
+                        <button class="navigation__search-icon icon-cross"></button>
+                    </div>
+                    <a href="https://github.com/wizzifactory" target="_blank" class="navigation__icon" title="GitHub Repository"><i class="sidecar__icon icon-github"></i>
+                    </a>
+                    <a href="https://stackoverflow.com/questions/tagged/wizzifactory" target="_blank" class="navigation__icon" title="See Questions on Stack Overflow"><i class="sidecar__icon icon-stackoverflow"></i>
+                    </a>
+                    <a href="#" target="_blank" class="navigation__icon" title="Follow on twitter"><i class="sidecar__icon icon-twitter"></i>
+                    </a>
+                    <a href="#" target="_blank" class="navigation__icon" title="Follow on facebook"><i class="sidecar__icon icon-facebook"></i>
+                    </a>
+                </div>
+            </header>
+            <main id="main-content">
+                <div class="main-sidebar-left" style="max-height: 648px; position: fixed; top: 120px; width: 280px;">
+                    <section id="main-toc" class="toc">
+                        <h3>Contents:</h3>
+                        <ol>
+                            <li><a href="#roadmap-1">Roadmap</a>
+                            </li>
+                            <li><a href="project-todos">Todos</a>
+                            </li>
+                            <li><a href="project-issues">Issues</a>
+                            </li>
+                        </ol>
+                    </section>
+                </div>
+                <div class="main-content">
+                    <section>
+                        <h2 id="roadmap-1">Roadmap</h2>
+                        <div class="summary"></div>
+                        <table class="pretty-table">
+                            <tr>
+                                <td>
+                                    <h4>Publish the first Wizzi starter to begin playing with schemas, ittf documents and artifact generators.</h4>
+                                    <div class="summary">
+                                        </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4>wizzi factory v4 (0.4.0 pre-release)</h4>
+                                    <div class="summary">
+                                        </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <h2 id="project-todos">Todos</h2>
+                        <table class="pretty-table">
+                            <tr>
+                                <td>Implement a line continuation character
+                                    <div class="summary">
+                                        <p>Long node values looks better when in a new line. the blackslash at the beginning of the line should be fine. At the beginning of the continuation line, not at the end of the continued line, is more Wizzi style.</p></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Implement multi node mixin call Ittf statement in the Ittf prettifier
+                                    <div class="summary"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Manage the close paren of mixin call Ittf statement in the Ittf prettifier
+                                    <div class="summary"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Correctly implement comments in the Ittf prettifier
+                                    <div class="summary"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Add node documentation support to the Ittf prettifier
+                                    <div class="summary">
+                                        <p>The Ittf prettifier could be implementaed also as a Wizzi model loader feature.</p><p>Ittf nodes could be beautified and have a popup linked to the Wizzi schema documentation of the node semantics.</p></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Have a look at http://redcloth.org/textile for ideas evolving the @docs@ Wizzi schema.
+                                    <div class="summary"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Implement an is-root attribute on a the WizziMetaSchema Element element
+                                    <div class="summary">
+                                        <p>Allow the first element on the schema not be the root element</p></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Implement the xml-tag attribute on the WizziMetaSchema Attribute element
+                                    <div class="summary"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>In js-wizzi-schema the throw node should accept child arguments
+                                    <div class="summary"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>How to test root reached in a directory findUp
+                                    <div class="summary">
+                                        <p>How to test that base path is the root (drive) : set basePath = path.dirname(basePath)</p><p>if (basePath.length > 3) { // TODO limit to app root</p><p>Search t folder (wizzi-ittf)</p><p>Find package (wizzi-factory)</p></div>
+                                </td>
+                            </tr>
+                        </table>
+                        <h2 id="project-issues">Issues</h2>
+                        <table class="pretty-table">
+                            <tr>
+                                <td>wizzi-mtree.loader. Missing value on a context model replaced arbitrarily
+                                    <div class="summary">
+                                        <p>If a collection item in a context model has a property with a value in some items and no value in others, when has no value a casual value is returned instead of empty.</p></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>IttfInclude. $param root node in included document
+                                    <div class="summary">
+                                        <p>If the root node of the included document is a $params node the loading must fail and the error must be logged</p></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Error messages sometimes are obscure or incorrect
+                                    <div class="summary">
+                                        <p>We need a better strategy to print the exact file, and line of code where an error occurred</p></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>IttfLoader - Mixins. Error loop when passing object arguments to a mixin.
+                                    <div class="summary">
+                                        <p>When a mixin has an object param and calls another mixin passing an object argument the loading loops</p></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>The role of the require element of the wizzischema is unclear
+                                    <div class="summary">
+                                        <p>Should be node-js require only or may be used to require features.</p></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </section>
+                </div>
+            </main>
+        </div>
+        <script src="jquery-3.2.1.js"></script>
         <script src="wizzifactory.js"></script>
     </body>
 

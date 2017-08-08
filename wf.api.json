@@ -1,10 +1,7 @@
 {
     "wzName": "wizzifactory",
-    "license": "MIT",
     "comments": [],
-    "buildCwds": [],
-    "schemas": [],
-    "generatedPackages": [],
+    "packages": [],
     "apis": [
         {
             "wzTag": "api",
