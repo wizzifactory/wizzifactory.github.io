@@ -3,8 +3,8 @@
     <head>
         <title>The Wizzi Factory</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        <link href="normalize.css" rel="stylesheet">
-        <link href="wizzifactory.css" rel="stylesheet">
+        <link href="../normalize.css" rel="stylesheet">
+        <link href="../wizzifactory.css" rel="stylesheet">
     </head>
     <body>
         <div class="site">
@@ -26,12 +26,12 @@
                         <span class="logo-y">y</span>
                     </div>
                     <nav class="navigation__links">
-                        <a title="starters concepts" href="concepts.html" class="navigation__link">Concepts</a>
-                        <a title="starters docs" href="docs.html" class="navigation__link">Docs</a>
-                        <a title="starters api" href="api.html" class="navigation__link">Api</a>
-                        <a title="starters code" href="code/intro.html" class="navigation__link">Code</a>
-                        <a title="starters starters" href="starters.html" class="navigation__link navigation__link--active">Starters</a>
-                        <a title="starters project" href="project.html" class="navigation__link">Project</a>
+                        <a title="code concepts" href="../concepts.html" class="navigation__link">Concepts</a>
+                        <a title="code docs" href="../docs.html" class="navigation__link">Docs</a>
+                        <a title="code api" href="../api.html" class="navigation__link">Api</a>
+                        <a title="code code" href="../code/wizzi.html" class="navigation__link navigation__link--active">Code</a>
+                        <a title="code starters" href="../starters.html" class="navigation__link">Starters</a>
+                        <a title="code project" href="../project.html" class="navigation__link">Project</a>
                     </nav>
                     <div class="navigation__search">
                         <span class="algolia-autocomplete" style="position: relative; display: inline-block; direction: ltr;">
@@ -53,33 +53,29 @@
                     <a href="#" target="_blank" class="navigation__icon" title="Follow on facebook"><i class="sidecar__icon icon-facebook"></i>
                     </a>
                 </div>
+                <div class="navigation__bottom">
+                    <div class="container navigation__inner">
+                        <a class="navigation__child" href="wizzi.html">wizzi</a>
+                        <a class="navigation__child" href="wizzi-mtree.html">wizzi-mtree</a>
+                        <a class="navigation__child" href="wizzi-repo.html">wizzi-repo</a>
+                        <a class="navigation__child" href="wizzi-mongodb.html">wizzi-mongodb</a>
+                        <a class="navigation__child" href="wizzi-utils.html">wizzi-utils</a>
+                        <a class="navigation__child" href="wizzi-core.html">wizzi-core</a>
+                        <a class="navigation__child" href="wizzi-meta.html">wizzi-meta</a>
+                        <a class="navigation__child" href="wizzi-demo.html">wizzi-demo</a>
+                    </div>
+                </div>
             </header>
             <main id="main-content">
-                <div class="main-sidebar-left" style="max-height: 648px; position: fixed; top: 120px; width: 280px;">
-                    <section id="main-toc" class="toc">
-                        <h3>Contents:</h3>
-                        <ol>
-                            <li><a href="#object-1">Getting started</a>
-                            </li>
-                            <li><a href="#object-2">Wizzi-demo starter package</a>
-                            </li>
-                        </ol>
-                    </section>
-                </div>
+                <nav class="sidebar" style="max-height: 648px; position: fixed; top: 120px; width: 280px;"></nav>
                 <div class="main-content">
-                    <section>
-                        <h2 id="object-1">Getting started</h2>
-                        <div class="summary">
-                            <p>You have to be really motivated, beyond what I can imagine, for wanting to start using the wizzi factory.</p><p>I don't want to incourage you making you believe that you can quickly get started and run. Accordingly this getting started section will be quite scarce.</p><p>At the current time the main problem with the wizzi factory is error detection. You can get an error that does not clearly show where it has occurred.</p><p>So the only way to get started is dive into code and help me to implement a better error tracking.</p><p>But i don't want to let the brave and the reckless without an option on where to start.</p><p>The package wizzi-demo, that can be installed from npm, is the playground where we are concentrating our efforts to make the wizzi factory usable beyond its main purpose, that, you should remember, is the generation of its next improved version.</p><p>If you dare to try playing with the wizzi-demo we promise to do our best to give help.</p></div>
-                        <h2 id="object-2">Wizzi-demo starter package</h2>
-                        <div class="summary">
-                            <h3>Installation</h3><p>Install the package from nom</p><p class="cli-command">$ npm install wizzi-demo</p></div>
-                    </section>
+                    <div class="summary">
+                        <p>The code section allow the browsing of the kernel modules of the wizzi factory and two core plugins.</p><p>Since version v3 (0.3.x pre-release) the source of the wizzi factory code is made of wizzi models, so browsing the source helps to better understand thing explained by the documentation.</p><h4>Ittf notation legend</h4><pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl"></span><span class="tag">nodename</span><span class="pln"> nodevalue</span></li><li class="L2"><span class="pnl">  </span><span class="kwd">$nodecommand</span><span class="pln"> parameters</span></li><li class="L3"><span class="pnl">  </span><span class="mix">mixinCall(</span><span class="pln"> param-1, param-2, ... )</span></li></ol></pre><p>'nodename' in green is a semantic node name. The meaning of nodename is given by the wizzi schema, if the ittf document is schemed, or is a free meaning, given by the document author.</p></div>
                 </div>
             </main>
         </div>
         <script src="jquery-3.2.1.js"></script>
-        <script src="wizzifactory.js"></script>
+        <script src="../wizzifactory.js"></script>
     </body>
 
 </html>

@@ -29,7 +29,7 @@
                         <a title="project concepts" href="concepts.html" class="navigation__link">Concepts</a>
                         <a title="project docs" href="docs.html" class="navigation__link">Docs</a>
                         <a title="project api" href="api.html" class="navigation__link">Api</a>
-                        <a title="project code" href="code/wizzi.html" class="navigation__link">Code</a>
+                        <a title="project code" href="code/intro.html" class="navigation__link">Code</a>
                         <a title="project starters" href="starters.html" class="navigation__link">Starters</a>
                         <a title="project project" href="project.html" class="navigation__link navigation__link--active">Project</a>
                     </nav>
@@ -59,120 +59,93 @@
                     <section id="main-toc" class="toc">
                         <h3>Contents:</h3>
                         <ol>
-                            <li><a href="#roadmap-1">Roadmap</a>
+                            <li><a href="#roadmap-1">Status</a>
                             </li>
-                            <li><a href="project-todos">Todos</a>
+                            <li><a href="#roadmap-2">Roadmap</a>
                             </li>
-                            <li><a href="project-issues">Issues</a>
+                            <li><a href="#project-todos">Current tasks</a>
+                            </li>
+                            <li><a href="#project-issues">Issues</a>
                             </li>
                         </ol>
                     </section>
                 </div>
                 <div class="main-content">
                     <section>
-                        <h2 id="roadmap-1">Roadmap</h2>
-                        <div class="summary"></div>
+                        <h2 id="roadmap-1">Status</h2>
+                        <div class="summary">
+                            <p>Development of functionalities is satisfactory. Model definitions and generation processes are reaching a fluid and mature status. But engeneering, tests and tracking errors in source documents are Achille heels.    <br>        <span>This project comes from interests in economy and biology. We hope we will get engineers on board soon.</span><br>        </br>    </br></p></div>
+                        <section>
+                            <h3>At august 2017</h3>
+                            <div class="summary">
+                                <ul>    <li>We are in version v3 (0.3.x pre-release).</li><li>The entire wizzi factory is auto generated from ittf documents except images and fonts. <br>This is a major milestone.    </li><li>The kernel functions begin to be quite stable.    </li><li>But error checking of source documents is awful.    </li><li><b> The wizzi factory is not yet usable</b>.    </li><li><b>WORK IN PROGRESS</b> will be there at least until v5 (0.5.x pre-release).    </li></ul></div>
+                        </section>
+                        <h2 id="roadmap-2">Roadmap</h2>
+                        <div class="summary">
+                            <p>The roadmap is a living document, and can change at any time, but the list below should give some indication of our plans for the near future.    <br>        <br></br>    </br></p></div>
+                        <section>
+                            <h3>End of august 2017: first partial pre-release</h3>
+                            <div class="summary">
+                                <h5>'wizzi-demo' package</h5><ul>    <li>First documented pre-release.    </li><li>Announce on facebook and twitter with caution for weak error checking.    </li></ul><h5>'wizzi-docs' package</h5><ul>    <li>Continues the documentation effort.    </li><li>First release of complete Api and Code sections.    </li></ul><br>    <br>    </br></br></div>
+                        </section>
+                        <section>
+                            <h3>End of september 2017: wizzi factory v4 (0.4.0 pre-release)</h3>
+                            <div class="summary">
+                                <h5>jsWizzi and mTree loading</h5><ul>    <li>Complete test coverage of jsWizzi and mTree loading.    </li></ul><h5>'js' language schema and 'js/module' artifact</h5><ul>    <li>Automatic type check of function arguments when code is generate in debug mode. A new notation for declaring parameters will be implemented.<pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl"></span><span class="tag">function</span><span class="pln"> alfa</span></li><li class="L2"><span class="pnl">  </span><span class="tag">string</span><span class="pln"> beta</span></li><li class="L3"><span class="pnl">    </span><span class="tag">required</span><span class="pln"> </span></li><li class="L4"><span class="pnl">  </span><span class="tag">{</span><span class="pln"> options</span></li><li class="L5"><span class="pnl">    </span><span class="tag">boolean</span><span class="pln"> gamma</span></li><li class="L6"><span class="pnl">      </span><span class="tag">required</span><span class="pln"> </span></li></ol></pre>    </li><li>A js/preprocess model transformer (optional).        <div>It will consent to avoid the clumsy 'set' and '_' node tags when not needed for some specific mTree build-up purpose.        </div>    </li></ul><h5>'wizzi-demo' package</h5><ul>    <li>Plenty of examples.    </li></ul><br>    <br>    </br></br></div>
+                        </section>
+                        <section>
+                            <h3>End of november 2017: wizzi factory v5 (0.5.0 pre-release)</h3>
+                            <div class="summary">
+                                <p>We hope that starting from this version the wizzi factory will be usable without the risk of losing time for bad error tracking.    <br>        <span>Every effort will be put on tests, documentation and a neat error message system for loading and generation failures.</span>    </br><h5>jsWizzi and mTree loading    </h5><br>        <br>        </br>    </br></p></div>
+                        </section>
+                        <section>
+                            <h3>Year 2018: wizzi studio and plugins development</h3>
+                            <div class="summary">
+                                <p>The year 2018 will be dedicated to the development of a web application for managing ittf documents of models, transformers and artifact generators.</p><p>We will be able to monitor interactively the buildup of an mTree and its transformations.</p><p>The visitor pattern will be implemented to support model transformations.</p><p>We will focus on the automation of generation tasks based on the [#schema(wfjob)] schema.</p><p>New plugins will be developed for data management, form building, rest server apis and single page applications.</p></div>
+                        </section>
+                        <h2 id="project-todos">Current tasks</h2>
                         <table class="pretty-table">
                             <tr>
                                 <td>
-                                    <h4>Publish the first Wizzi starter to begin playing with schemas, ittf documents and artifact generators.</h4>
+                                    <h4>Documentation</h4>
                                     <div class="summary">
-                                        </div>
+                                        <p>We are completing the sections    <a href="https://wizzifactory.github.io/docs">Docs</a><span>,    </span><a href="https://wizzifactory.github.io/api">Api    </a><span>and    </span><a href="https://wizzifactory.github.io/code/wizzi">Code    </a><span>of the project site on    </span><a href="https://wizzifactory.github.io">github    </a><span>.    </span></p><p>A new section    <a href="https://wizzifactory.github.io/plugins">Plugins    </a><span>, is under development. It will contain the generated documentation of plugins already developed.    </span></p></div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <h4>wizzi factory v4 (0.4.0 pre-release)</h4>
+                                    <h4>Testing</h4>
                                     <div class="summary">
-                                        </div>
-                                </td>
-                            </tr>
-                        </table>
-                        <h2 id="project-todos">Todos</h2>
-                        <table class="pretty-table">
-                            <tr>
-                                <td>Implement a line continuation character
-                                    <div class="summary">
-                                        <p>Long node values looks better when in a new line. the blackslash at the beginning of the line should be fine. At the beginning of the continuation line, not at the end of the continued line, is more Wizzi style.</p></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Implement multi node mixin call Ittf statement in the Ittf prettifier
-                                    <div class="summary"></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Manage the close paren of mixin call Ittf statement in the Ittf prettifier
-                                    <div class="summary"></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Correctly implement comments in the Ittf prettifier
-                                    <div class="summary"></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Add node documentation support to the Ittf prettifier
-                                    <div class="summary">
-                                        <p>The Ittf prettifier could be implementaed also as a Wizzi model loader feature.</p><p>Ittf nodes could be beautified and have a popup linked to the Wizzi schema documentation of the node semantics.</p></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Have a look at http://redcloth.org/textile for ideas evolving the @docs@ Wizzi schema.
-                                    <div class="summary"></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Implement an is-root attribute on a the WizziMetaSchema Element element
-                                    <div class="summary">
-                                        <p>Allow the first element on the schema not be the root element</p></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Implement the xml-tag attribute on the WizziMetaSchema Attribute element
-                                    <div class="summary"></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>In js-wizzi-schema the throw node should accept child arguments
-                                    <div class="summary"></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>How to test root reached in a directory findUp
-                                    <div class="summary">
-                                        <p>How to test that base path is the root (drive) : set basePath = path.dirname(basePath)</p><p>if (basePath.length > 3) { // TODO limit to app root</p><p>Search t folder (wizzi-ittf)</p><p>Find package (wizzi-factory)</p></div>
+                                        <p>The mTree loader and the production manager are under heavy testing.</p></div>
                                 </td>
                             </tr>
                         </table>
                         <h2 id="project-issues">Issues</h2>
                         <table class="pretty-table">
                             <tr>
-                                <td>wizzi-mtree.loader. Missing value on a context model replaced arbitrarily
+                                <td>
+                                    <h4>wizzi-mtree.loader. Missing value on a context model replaced arbitrarily</h4>
                                     <div class="summary">
                                         <p>If a collection item in a context model has a property with a value in some items and no value in others, when has no value a casual value is returned instead of empty.</p></div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>IttfInclude. $param root node in included document
-                                    <div class="summary">
-                                        <p>If the root node of the included document is a $params node the loading must fail and the error must be logged</p></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Error messages sometimes are obscure or incorrect
+                                <td>
+                                    <h4>Error messages sometimes are obscure or incorrect</h4>
                                     <div class="summary">
                                         <p>We need a better strategy to print the exact file, and line of code where an error occurred</p></div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>IttfLoader - Mixins. Error loop when passing object arguments to a mixin.
+                                <td>
+                                    <h4>IttfLoader - Mixins. Error loop when passing object arguments to a mixin.</h4>
                                     <div class="summary">
                                         <p>When a mixin has an object param and calls another mixin passing an object argument the loading loops</p></div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>The role of the require element of the wizzischema is unclear
+                                <td>
+                                    <h4>The role of the require element of the wfschema is unclear</h4>
                                     <div class="summary">
                                         <p>Should be node-js require only or may be used to require features.</p></div>
                                 </td>
