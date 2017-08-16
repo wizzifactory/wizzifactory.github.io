@@ -1,0 +1,100 @@
+<!doctype html>
+<html VERSION-5="5" VERSION-4="4" version="5">
+    <head>
+        <title>The Wizzi Factory</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link href="../normalize.css" rel="stylesheet">
+        <link href="../wizzifactory.css" rel="stylesheet">
+    </head>
+    <body class="docs-intro">
+        <div class="site">
+            <header class="navigation">
+                <div class="container navigation__inner">
+                    <div class="logo">
+                        <span class="logo-w">W</span>
+                        <span class="logo-i1">i</span>
+                        <span class="logo-z1">z</span>
+                        <span class="logo-z2">z</span>
+                        <span class="logo-i2">i</span>
+                        <span>&nbsp;</span>
+                        <span class="logo-f">f</span>
+                        <span class="logo-a">a</span>
+                        <span class="logo-c">c</span>
+                        <span class="logo-t">t</span>
+                        <span class="logo-o">o</span>
+                        <span class="logo-r">r</span>
+                        <span class="logo-y">y</span>
+                    </div>
+                    <nav class="navigation__links">
+                        <a title="docs concepts" href="../concepts.html" class="navigation__link">Concepts</a>
+                        <a title="docs docs" href="../docs/intro.html" class="navigation__link navigation__link--active">Docs</a>
+                        <a title="docs api" href="../api.html" class="navigation__link">Api</a>
+                        <a title="docs code" href="../code/intro.html" class="navigation__link">Code</a>
+                        <a title="docs starters" href="../starters.html" class="navigation__link">Starters</a>
+                        <a title="docs project" href="../project.html" class="navigation__link">Project</a>
+                    </nav>
+                    <div class="navigation__search">
+                        <span class="algolia-autocomplete" style="position: relative; display: inline-block; direction: ltr;">
+                            <input type="text" class="navigation__search-input ds-input" placeholder="Search documentation…" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0" dir="auto" style="position: relative; vertical-align: top;">
+                            <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: Arial; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; word-spacing: 0px; letter-spacing: normal; text-indent: 7px; text-rendering: auto; text-transform: none;"></pre>
+                            <span class="ds-dropdown-menu" role="listbox" id="algolia-autocomplete-listbox-0" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;">
+                                <div class="ds-dataset-1"></div>
+                            </span>
+                        </span>
+                        <button class="navigation__search-icon icon-search"></button>
+                        <button class="navigation__search-icon icon-cross"></button>
+                    </div>
+                    <a href="https://github.com/wizzifactory" target="_blank" class="navigation__icon" title="GitHub Repository"><i class="sidecar__icon icon-github"></i>
+                    </a>
+                    <a href="https://stackoverflow.com/questions/tagged/wizzifactory" target="_blank" class="navigation__icon" title="See Questions on Stack Overflow"><i class="sidecar__icon icon-stackoverflow"></i>
+                    </a>
+                    <a href="#" target="_blank" class="navigation__icon" title="Follow on twitter"><i class="sidecar__icon icon-twitter"></i>
+                    </a>
+                    <a href="#" target="_blank" class="navigation__icon" title="Follow on facebook"><i class="sidecar__icon icon-facebook"></i>
+                    </a>
+                </div>
+                <div class="navigation__bottom">
+                    <div class="container navigation__inner">
+                        <a class="navigation__child navigation__child--active" title="intro ittf source code" href="intro.html">intro</a>
+                        <a class="navigation__child" title="ittf ittf source code" href="ittf.html">ittf</a>
+                        <a class="navigation__child" title="jswizzi ittf source code" href="jswizzi.html">jswizzi</a>
+                        <a class="navigation__child" title="models ittf source code" href="models.html">models</a>
+                        <a class="navigation__child" title="schemas ittf source code" href="schemas.html">schemas</a>
+                        <a class="navigation__child" title="jobs ittf source code" href="jobs.html">jobs</a>
+                        <a class="navigation__child" title="wfschema ittf source code" href="wfschema.html">wfschema</a>
+                        <a class="navigation__child" title="wfjob ittf source code" href="wfjob.html">wfjob</a>
+                        <a class="navigation__child" title="wfpackage ittf source code" href="wfpackage.html">wfpackage</a>
+                        <a class="navigation__child" title="docs ittf source code" href="docs.html">docs</a>
+                        <a class="navigation__child" title="md ittf source code" href="md.html">md</a>
+                    </div>
+                </div>
+            </header>
+            <main id="main-content">
+                <nav class="main-sidebar-left" style="max-height: 648px; position: fixed; top: 90px; width: 280px;">
+                    <img src="../workinprogress.jpg">
+                    <section id="main-toc" class="toc toc sidebar__inner">
+                        <h3>Contents:</h3>
+                        <ol>
+                            <li><a href="#concept-1">Production manager and wizzi jobs</a>
+                            </li>
+                            <li><a href="#concept-2">The 'wfjob" schema</a>
+                            </li>
+                        </ol>
+                    </section>
+                </nav>
+                <div class="main-content">
+                    <h2 id="concept-1" class="concept">Production manager and wizzi jobs</h2>
+                    <div class="summary">
+                        </div>
+                    <h2 id="concept-2" class="concept">The 'wfjob" schema</h2>
+                    <div class="summary">
+                        <p>The wfjob schema, implemented by the wizzi-core plugin, is the configuration schema of the production manager, the wizzi task manager.</p><h4>The wfjob elements are</h4><ul>    <li>Wfjob    </li><li>Model    </li><li>ModelRef    </li><li>Line    </li><li>LineRef    </li><li>Artifact    </li><li>Production    </li></ul><h3>The wfjob schema</h3><pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl"></span><span class="tag">wfjob</span><span class="pln"> job-name</span></li><li class="L2"><span class="pnl">  </span><span class="tag">models-base-folder</span><span class="pln"> models-folder-path</span></li><li class="L3"><span class="pnl">  </span><span class="tag">dest-base-folder</span><span class="pln"> dest-folder-path</span></li><li class="L4"><span class="pnl">  </span><span class="tag">title</span><span class="pln"> short-job-description</span></li><li class="L5"><span class="pnl">  </span><span class="kwd">$$[0..n]<b><i>models</i></b></span><span class="pln"> </span></li><li class="L6"><span class="pnl">  </span><span class="kwd">$$[1..n]<b><i>lines</i></b></span><span class="pln"> </span></li><li class="L7"><span class="pnl">  </span><span class="kwd">$$[1..n]<b><i>productions</i></b></span><span class="pln"> </span></li></ol></pre><h3>Model element</h3><pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl"></span><span class="tag">...</span><span class="pln"> </span></li><li class="L2"><span class="pnl">  </span><span class="tag">model</span><span class="pln"> model-name</span></li><li class="L3"><span class="pnl">    </span><span class="tag">src</span><span class="pln"> src-path</span></li><li class="L4"><span class="pnl">    </span><span class="tag">schema</span><span class="pln"> schema-name</span></li><li class="L5"><span class="pnl">    </span><span class="tag">dumpFile</span><span class="pln"> path-of-json-model-dump</span></li><li class="L6"><span class="pnl">    </span><span class="kwd">$$[0..n]<b><i>modelRefs</i></b></span><span class="pln"> </span></li></ol></pre><h3>ModelRef element</h3><pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl"></span><span class="tag">...</span><span class="pln"> </span></li><li class="L2"><span class="pnl">  </span><span class="tag">model-ref</span><span class="pln"> model-name</span></li><li class="L3"><span class="pnl">    </span><span class="tag">export-name</span><span class="pln"> </span></li><li class="L4"><span class="pnl">    </span><span class="kwd">$$</span><span class="pln"> [0..n]&lt;b&gt;&lt;i&gt;transformers&lt;/i&gt;&lt;/b&gt;</span></li><li class="L5"><span class="pnl">    </span><span class="tag">transformer</span><span class="pln"> transformer-name</span></li><li class="L6"><span class="pnl">  </span><span class="tag"></span><span class="pln"> </span></li></ol></pre><h3>Line element</h3><pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl"></span><span class="tag">...</span><span class="pln"> </span></li><li class="L2"><span class="pnl">  </span><span class="tag">line</span><span class="pln"> line-name</span></li><li class="L3"><span class="pnl">    </span><span class="tag">cwd-folder</span><span class="pln"> cwd-folder-path</span></li><li class="L4"><span class="pnl">    </span><span class="tag">dest-folder</span><span class="pln"> dest-folder-path</span></li><li class="L5"><span class="pnl">    </span><span class="kwd">$$[1..n]<b><i>artifacts</i></b></span><span class="pln"> </span></li></ol></pre><h3>Artifact element</h3><pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl"></span><span class="tag">...</span><span class="pln"> </span></li><li class="L2"><span class="pnl">  </span><span class="tag">artifact</span><span class="pln"> artifact-name</span></li><li class="L3"><span class="pnl">    </span><span class="tag">#</span><span class="pln"> </span></li><li class="L4"><span class="pnl">      </span><span class="tag">#</span><span class="pln"> The path to the primary source document of the artifact.</span></li><li class="L5"><span class="pnl">      </span><span class="tag">#</span><span class="pln"> If relative, the base path is the cwdFolder of the parent line.</span></li><li class="L6"><span class="pnl">      </span><span class="tag">#</span><span class="pln"> Can be a glob pattern</span></li><li class="L7"><span class="pnl">      </span><span class="tag">#</span><span class="pln"> If the artifact is a code write artifact</span></li><li class="L8"><span class="pnl">      </span><span class="tag">#</span><span class="pln"> this attribute must not be declared.</span></li><li class="L9"><span class="pnl">    </span><span class="tag">src</span><span class="pln"> ittfdocument-path</span></li><li class="L0"><span class="pnl">    </span><span class="tag">#</span><span class="pln"> </span></li><li class="L1"><span class="pnl">      </span><span class="tag">#</span><span class="pln"> When the artifact source is an Ittf document, is the schema</span></li><li class="L2"><span class="pnl">      </span><span class="tag">#</span><span class="pln"> that will load and validate the Wizzi model instance.</span></li><li class="L3"><span class="pnl">      </span><span class="tag">#</span><span class="pln"> May be null if the artifact is a final artifact.</span></li><li class="L4"><span class="pnl">    </span><span class="tag">schema</span><span class="pln"> language-schema-name</span></li><li class="L5"><span class="pnl">    </span><span class="tag">#</span><span class="pln"> </span></li><li class="L6"><span class="pnl">      </span><span class="tag">#</span><span class="pln"> Files returned by the src pattern to be ignored</span></li><li class="L7"><span class="pnl">      </span><span class="tag">#</span><span class="pln"> Can be a glob pattern</span></li><li class="L8"><span class="pnl">    </span><span class="tag">ignore</span><span class="pln"> file-path-tobe-ignored</span></li><li class="L9"><span class="pnl">    </span><span class="tag">#</span><span class="pln"> </span></li><li class="L0"><span class="pnl">      </span><span class="tag">#</span><span class="pln"> When the artifact is a wizzi model, acting as a template</span></li><li class="L1"><span class="pnl">      </span><span class="tag">#</span><span class="pln"> is the name of the artifact generator that will transform the template.</span></li><li class="L2"><span class="pnl">      </span><span class="tag">#</span><span class="pln"> When the artifact is a code write generation or a final artifact must be omitted.</span></li><li class="L3"><span class="pnl">    </span><span class="tag">generation</span><span class="pln"> artifact-generator-name</span></li><li class="L4"><span class="pnl">    </span><span class="tag">#</span><span class="pln"> </span></li><li class="L5"><span class="pnl">      </span><span class="tag">#</span><span class="pln"> The artifact source file path (src attribute) is the default</span></li><li class="L6"><span class="pnl">      </span><span class="tag">#</span><span class="pln"> relative destination path of the generated artifact.</span></li><li class="L7"><span class="pnl">      </span><span class="tag">#</span><span class="pln"> When set, this attribute overrides the default.</span></li><li class="L8"><span class="pnl">      </span><span class="tag">#</span><span class="pln"> It may be an absolute path.</span></li><li class="L9"><span class="pnl">      </span><span class="tag">#</span><span class="pln"> If the artifact is a code write generation</span></li><li class="L0"><span class="pnl">      </span><span class="tag">#</span><span class="pln"> this attribute must be declared</span></li><li class="L1"><span class="pnl">    </span><span class="tag">dest-path</span><span class="pln"> artifact-file-path</span></li><li class="L2"><span class="pnl">    </span><span class="tag">#</span><span class="pln"> </span></li><li class="L3"><span class="pnl">      </span><span class="tag">#</span><span class="pln"> The document path extension of the generated artifact.</span></li><li class="L4"><span class="pnl">      </span><span class="tag">#</span><span class="pln"> Optional. The default, if presente, is the 'src' extension without the ending '.ittf' string.</span></li><li class="L5"><span class="pnl">    </span><span class="tag">extension</span><span class="pln"> artifact-file-extension</span></li><li class="L6"><span class="pnl">    </span><span class="tag">#</span><span class="pln"> Child elements</span></li><li class="L7"><span class="pnl">    </span><span class="kwd">$$</span><span class="pln"> [0..n]&lt;b&gt;&lt;i&gt;modelRefs&lt;/i&gt;&lt;/b&gt;</span></li></ol></pre><h3>Production element</h3><pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl"></span><span class="tag">...</span><span class="pln"> </span></li><li class="L2"><span class="pnl">  </span><span class="tag">production</span><span class="pln"> production-name</span></li><li class="L3"><span class="pnl">    </span><span class="tag">dest-folder</span><span class="pln"> dest-folder-path</span></li><li class="L4"><span class="pnl">    </span><span class="kwd">$$[1..n]<b><i>lineRefs</i></b></span><span class="pln"> </span></li></ol></pre><h3>LineRef element</h3><pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl"></span><span class="tag">...</span><span class="pln"> </span></li><li class="L2"><span class="pnl">  </span><span class="tag">line-ref</span><span class="pln"> line-name</span></li></ol></pre><h4>Example of the wizzi job that produces this documentation html page.</h4><pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl"></span><span class="tag">wfjob</span><span class="pln"> wizzi-docs-concepts</span></li><li class="L2"><span class="pnl">  </span><span class="kwd">$</span><span class="expr"> </span></li><li class="L3"><span class="pnl">    </span><span class="expr">var</span><span class="expr"> models_folder     = path.join(__dirname, 'models');</span></li><li class="L4"><span class="pnl">    </span><span class="expr">var</span><span class="expr"> html_folder       = path.join(__dirname, 'html');</span></li><li class="L5"><span class="pnl">    </span><span class="expr">var</span><span class="expr"> dest_folder       = "c:/my/wizzi/github/wizzifactory.github.io";</span></li><li class="L6"><span class="pnl">  </span><span class="tag">models-base-folder</span><span class="pln"> ${models_folder}</span></li><li class="L7"><span class="pnl">  </span><span class="tag">model</span><span class="pln"> concepts</span></li><li class="L8"><span class="pnl">    </span><span class="tag">src</span><span class="pln"> docs.docs.ittf</span></li><li class="L9"><span class="pnl">    </span><span class="tag">schema</span><span class="pln"> docs</span></li><li class="L0"><span class="pnl">  </span><span class="tag">line</span><span class="pln"> html</span></li><li class="L1"><span class="pnl">    </span><span class="tag">cwd-folder</span><span class="pln"> ${html_folder}</span></li><li class="L2"><span class="pnl">    </span><span class="mix">wfjob/art-wo-html(</span><span class="pln"> docs.html.ittf )</span></li><li class="L3"><span class="pnl">      </span><span class="tag">model-ref</span><span class="pln"> concepts</span></li><li class="L4"><span class="pnl">        </span><span class="tag">transformer</span><span class="pln"> docs/preprint</span></li><li class="L5"><span class="pnl">  </span><span class="tag">production</span><span class="pln"> </span></li><li class="L6"><span class="pnl">    </span><span class="tag">dest-folder</span><span class="pln"> ${dest_folder}</span></li><li class="L7"><span class="pnl">    </span><span class="tag">line-ref</span><span class="pln"> html</span></li></ol></pre></div>
+                    <section></section>
+                </div>
+            </main>
+        </div>
+        <script src="jquery-3.2.1.js"></script>
+        <script src="../wizzifactory.js"></script>
+    </body>
+
+</html>
