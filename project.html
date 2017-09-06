@@ -6,7 +6,7 @@
         <link href="normalize.css" rel="stylesheet">
         <link href="wizzifactory.css" rel="stylesheet">
     </head>
-    <body>
+    <body class="project">
         <div class="site">
             <header class="navigation">
                 <div class="container navigation__inner">
@@ -27,7 +27,7 @@
                     </div>
                     <nav class="navigation__links">
                         <a title="project concepts" href="concepts.html" class="navigation__link">Concepts</a>
-                        <a title="project docs" href="docs.html" class="navigation__link">Docs</a>
+                        <a title="project docs" href="docs/intro.html" class="navigation__link">Docs</a>
                         <a title="project api" href="api.html" class="navigation__link">Api</a>
                         <a title="project code" href="code/intro.html" class="navigation__link">Code</a>
                         <a title="project starters" href="starters.html" class="navigation__link">Starters</a>
@@ -92,7 +92,7 @@
                         <section>
                             <h3>End of september 2017: wizzi factory v4 (0.4.0 pre-release)</h3>
                             <div class="summary">
-                                <h5>jsWizzi and mTree loading</h5><ul>    <li>Complete test coverage of jsWizzi and mTree loading.    </li></ul><h5>'js' language schema and 'js/module' artifact</h5><ul>    <li>Automatic type check of function arguments when code is generate in debug mode. A new notation for declaring parameters will be implemented.<pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl"></span><span class="tag">function</span><span class="pln"> alfa</span></li><li class="L2"><span class="pnl">  </span><span class="tag">string</span><span class="pln"> beta</span></li><li class="L3"><span class="pnl">    </span><span class="tag">required</span><span class="pln"> </span></li><li class="L4"><span class="pnl">  </span><span class="tag">{</span><span class="pln"> options</span></li><li class="L5"><span class="pnl">    </span><span class="tag">boolean</span><span class="pln"> gamma</span></li><li class="L6"><span class="pnl">      </span><span class="tag">required</span><span class="pln"> </span></li></ol></pre>    </li><li>A js/preprocess model transformer (optional).        <div>It will consent to avoid the clumsy 'set' and '_' node tags when not needed for some specific mTree build-up purpose.        </div>    </li></ul><h5>'wizzi-demo' package</h5><ul>    <li>Plenty of examples.    </li></ul><br>    <br>    </br></br></div>
+                                <h5>jsWizzi and mTree loading</h5><ul>    <li>Complete test coverage of jsWizzi and mTree loading.    </li></ul><h5>'js' language schema and 'js/module' artifact</h5><ul>    <li>Automatic type check of function arguments when code is generate in debug mode. A new notation for declaring parameters will be implemented.<pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl"></span><span class="tag">function</span><span class="pln"> alfa</span></li><li class="L2"><span class="pnl">  </span><span class="tag">string</span><span class="pln"> beta</span></li><li class="L3"><span class="pnl">  </span><span class="tag">{</span><span class="pln"> options</span></li><li class="L4"><span class="pnl">    </span><span class="tag">boolean</span><span class="pln"> gamma</span></li><li class="L5"><span class="pnl">      </span><span class="tag">optional</span><span class="pln"> </span></li></ol></pre>    </li><li>A js/preprocess model transformer (optional).        <div>It will consent to avoid the clumsy 'set' and '_' node tags when not needed for some specific mTree build-up purpose.        </div>    </li></ul><h5>'wizzi-demo' package</h5><ul>    <li>Plenty of examples.    </li></ul><br>    <br>    </br></br></div>
                         </section>
                         <section>
                             <h3>End of november 2017: wizzi factory v5 (0.5.0 pre-release)</h3>
@@ -106,6 +106,13 @@
                         </section>
                         <h2 id="project-todos">Current tasks</h2>
                         <table class="pretty-table">
+                            <tr>
+                                <td>
+                                    <h4>Features</h4>
+                                    <div class="summary">
+                                        <h3>wfjob and production manager</h3><p>Implement transpiling of native and generated artifacts. Introduce a 'transpile' element in the 'wfjob' schema.</p></div>
+                                </td>
+                            </tr>
                             <tr>
                                 <td>
                                     <h4>Documentation</h4>
