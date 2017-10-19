@@ -1,0 +1,88 @@
+{
+    "wzName": "wizzifactory",
+    "comments": [],
+    "packages": [],
+    "apis": [
+        {
+            "wzTag": "api",
+            "wzName": "wizzi",
+            "kind": "kernel",
+            "comments": [],
+            "implementation": {
+                "wzName": "",
+                "type": "module",
+                "path": "wizzi/index.js",
+                "comments": []
+            },
+            "interface": null,
+            "type": {
+                "wzName": "",
+                "comments": [],
+                "properties": [],
+                "methods": [
+                    {
+                        "wzTag": "method",
+                        "wzName": "createFactory",
+                        "type": "facade-function",
+                        "isAsync": true,
+                        "isInternal": false,
+                        "implementedBy": "wizzi.wizziFactory.createFactory",
+                        "comments": [],
+                        "params": [
+                            {
+                                "wzTag": "param",
+                                "wzName": "userid",
+                                "type": "string",
+                                "isPOJO": false,
+                                "comments": [],
+                                "values": [],
+                                "xarguments": [],
+                                "properties": [],
+                                "items": [],
+                                "restrict": null
+                            },
+                            {
+                                "wzTag": "param",
+                                "wzName": "role",
+                                "type": "string",
+                                "isPOJO": false,
+                                "comments": [],
+                                "values": [],
+                                "xarguments": [],
+                                "properties": [],
+                                "items": [],
+                                "restrict": null
+                            },
+                            {
+                                "wzTag": "param",
+                                "wzName": "options",
+                                "type": "object",
+                                "isPOJO": false,
+                                "comments": [],
+                                "values": [],
+                                "xarguments": [],
+                                "properties": [],
+                                "items": [],
+                                "restrict": null
+                            },
+                            {
+                                "wzTag": "param",
+                                "wzName": "callback",
+                                "type": "callback-function",
+                                "isPOJO": false,
+                                "comments": [],
+                                "values": [],
+                                "xarguments": [],
+                                "properties": [],
+                                "items": [],
+                                "restrict": null
+                            }
+                        ],
+                        "return": null,
+                        "info": null
+                    }
+                ]
+            }
+        }
+    ]
+}
