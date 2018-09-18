@@ -32,10 +32,10 @@ h2 {
     margin: 32px 0 8px 0;
 }
 h3 {
-    margin: 16px 0 4px 0;
+    margin: 24px 0 4px 0;
 }
 h4 {
-    margin: 8px 0 2px 0;
+    margin: 16px 0 2px 0;
 }
 .header {
     position: fixed;
@@ -126,7 +126,8 @@ h4 {
     flex-direction: row;
     top: 66px;
     height: calc(100% - 106px);
-    width: 100%;
+    margin: 0 200px;
+    width: calc(100% - 400px);
 }
 #wrapper-sub {
     position: fixed;
@@ -135,7 +136,8 @@ h4 {
     flex-direction: row;
     top: 96px;
     height: calc(100% - 136px);
-    width: 100%;
+    margin: 0 200px;
+    width: calc(100% - 400px);
 }
 .main-sidebar-left {
     width: 280px;
@@ -795,7 +797,8 @@ pre {
 pre.prettyprint {
     padding: 0px 0px 20px 0px;
     border: 0px solid #888;
-    font-size: 1.1em;
+    font-size: 1em;
+    line-height: 1.1em;
     overflow: auto;
 }
 .prettyprint {
