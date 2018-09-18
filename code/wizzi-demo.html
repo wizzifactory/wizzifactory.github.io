@@ -1,0 +1,664 @@
+<!doctype html>
+<html VERSION-5="5" VERSION-4="4" version="5">
+<head>
+    <title>The Wizzi Factory</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+    <link href="../sanitize.css" rel="stylesheet" />
+    <link href="../wizzifactory.css" rel="stylesheet" />
+    <link href="styles.css" rel="stylesheet" />
+</head>
+<body class="code-wizzi-demo">
+    <div class="site">
+        <header class="navigation-sub">
+            <div class="container navigation__inner">
+                <a href="../index.html"><img width="100" height="44px" src="../logo.svg" />
+                </a>
+                <nav class="navigation__links">
+                    <a title="code concepts" href="../concepts.html" class="navigation__link">Concepts</a>
+                    <a title="code docs" href="../docs/intro.html" class="navigation__link">Docs</a>
+                    <a title="code api" href="../api.html" class="navigation__link">Api</a>
+                    <a title="code code" href="../code/intro.html" class="navigation__link navigation__link--active">Code</a>
+                    <a title="code starters" href="../starters.html" class="navigation__link">Starters</a>
+                    <a title="code project" href="../project.html" class="navigation__link">Project</a>
+                </nav>
+                <div class="navigation__search">
+                    <span class="algolia-autocomplete" style="position: relative; display: inline-block; direction: ltr;">
+                        <input type="text" class="navigation__search-input ds-input" placeholder="Search documentation…" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0" dir="auto" style="position: relative; vertical-align: top;" />
+                        <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: Arial; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; word-spacing: 0px; letter-spacing: normal; text-indent: 7px; text-rendering: auto; text-transform: none;"></pre>
+                        <span class="ds-dropdown-menu" role="listbox" id="algolia-autocomplete-listbox-0" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;">
+                            <div class="ds-dataset-1"></div>
+                        </span>
+                    </span>
+                    <button class="navigation__search-icon icon-search"></button>
+                    <button class="navigation__search-icon icon-cross"></button>
+                </div>
+                <a href="https://github.com/wizzifactory" target="_blank" class="navigation__icon" title="GitHub Repository"><i class="sidecar__icon icon-github"></i>
+                </a>
+                <a href="https://stackoverflow.com/questions/tagged/wizzifactory" target="_blank" class="navigation__icon" title="See Questions on Stack Overflow"><i class="sidecar__icon icon-stackoverflow"></i>
+                </a>
+                <a href="#" target="_blank" class="navigation__icon" title="Follow on twitter"><i class="sidecar__icon icon-twitter"></i>
+                </a>
+                <a href="#" target="_blank" class="navigation__icon" title="Follow on facebook"><i class="sidecar__icon icon-facebook"></i>
+                </a>
+            </div>
+            <div class="navigation__bottom">
+                <div class="container navigation__inner">
+                    <a class="navigation__child" title="intro ittf source code" href="intro.html">intro</a>
+                    <a class="navigation__child" title="wizzi ittf source code" href="wizzi.html">wizzi</a>
+                    <a class="navigation__child" title="wizzi-mtree ittf source code" href="wizzi-mtree.html">mtree</a>
+                    <a class="navigation__child" title="wizzi-repo ittf source code" href="wizzi-repo.html">repo</a>
+                    <a class="navigation__child" title="wizzi-utils ittf source code" href="wizzi-utils.html">utils</a>
+                    <a class="navigation__child" title="wizzi-core ittf source code" href="wizzi-core.html">core</a>
+                    <a class="navigation__child" title="wizzi-js ittf source code" href="wizzi-js.html">js</a>
+                    <a class="navigation__child" title="wizzi-web ittf source code" href="wizzi-web.html">web</a>
+                    <a class="navigation__child navigation__child--active" title="wizzi-demo ittf source code" href="wizzi-demo.html">demo</a>
+                </div>
+            </div>
+        </header>
+        <main id="wrapper-sub">
+            <nav class="main-sidebar-left main-sidebar-left-sub">
+                <img src="../workinprogress.jpg" />
+                <section id="main-toc" class="toc">
+                    <h3>wizzi-demo ittf source code:</h3>
+                    <div class="treeview">
+                        <ul>
+                            <li><input type="checkbox" checked id="f2" />
+                            <span></span>
+                            <label for="f2">src</label>
+                            <ul>
+                                <li><input type="checkbox" checked id="f3" />
+                                <span></span>
+                                <label for="f3">ittf</label>
+                                <ul>
+                                    <li><input type="checkbox" id="f4" />
+                                    <span></span>
+                                    <label for="f4">advanced</label>
+                                    <ul>
+                                        <li><input type="checkbox" id="f5" />
+                                        <span></span>
+                                        <label for="f5">essentials</label>
+                                        <ul>
+                                            <li><a href="#d1">index.js.ittf</a>
+                                            </li>
+                                        </ul>
+                                        </li>
+                                        <li><input type="checkbox" id="f6" />
+                                        <span></span>
+                                        <label for="f6">plugins</label>
+                                        <ul>
+                                            <li><a href="#d2">index.js.ittf</a>
+                                            </li>
+                                        </ul>
+                                        </li>
+                                    </ul>
+                                    </li>
+                                    <li><input type="checkbox" id="f7" />
+                                    <span></span>
+                                    <label for="f7">meta</label>
+                                    <ul>
+                                        <li><a href="#d3">index.json.ittf</a>
+                                        </li>
+                                    </ul>
+                                    </li>
+                                    <li><input type="checkbox" id="f8" />
+                                    <span></span>
+                                    <label for="f8">root</label>
+                                    <ul>
+                                        <li><input type="checkbox" id="f9" />
+                                        <span></span>
+                                        <label for="f9">t</label>
+                                        <ul>
+                                            <li><a href="#d4">readme_content.md.ittf</a>
+                                            </li>
+                                        </ul>
+                                        </li>
+                                        <li><a href="#d5">.gitignore.text.ittf</a>
+                                        </li>
+                                        <li><a href="#d6">index.js.ittf</a>
+                                        </li>
+                                        <li><a href="#d7">license.text.ittf</a>
+                                        </li>
+                                        <li><a href="#d8">package.json.ittf</a>
+                                        </li>
+                                        <li><a href="#d9">readme.md.ittf</a>
+                                        </li>
+                                    </ul>
+                                    </li>
+                                    <li><input type="checkbox" id="f10" />
+                                    <span></span>
+                                    <label for="f10">starter</label>
+                                    <ul>
+                                        <li><input type="checkbox" id="f11" />
+                                        <span></span>
+                                        <label for="f11">apps</label>
+                                        <ul>
+                                            <li><a href="#d10">index.js.ittf</a>
+                                            </li>
+                                        </ul>
+                                        </li>
+                                        <li><input type="checkbox" id="f12" />
+                                        <span></span>
+                                        <label for="f12">essentials</label>
+                                        <ul>
+                                            <li><input type="checkbox" id="f13" />
+                                            <span></span>
+                                            <label for="f13">generations</label>
+                                            <ul>
+                                                <li><input type="checkbox" id="f14" />
+                                                <span></span>
+                                                <label for="f14">ittf__copy</label>
+                                                <ul>
+                                                    <li><input type="checkbox" id="f15" />
+                                                    <span></span>
+                                                    <label for="f15">models</label>
+                                                    <ul>
+                                                        <li><a href="#d11">friends.html.ittf</a>
+                                                        </li>
+                                                    </ul>
+                                                    </li>
+                                                </ul>
+                                                </li>
+                                                <li><a href="#d12">index.js.ittf</a>
+                                                </li>
+                                            </ul>
+                                            </li>
+                                            <li><input type="checkbox" id="f16" />
+                                            <span></span>
+                                            <label for="f16">genfolder</label>
+                                            <ul>
+                                                <li><input type="checkbox" id="f17" />
+                                                <span></span>
+                                                <label for="f17">ittf__copy</label>
+                                                <ul>
+                                                    <li><input type="checkbox" id="f18" />
+                                                    <span></span>
+                                                    <label for="f18">sample</label>
+                                                    <ul>
+                                                        <li><input type="checkbox" id="f19" />
+                                                        <span></span>
+                                                        <label for="f19">html</label>
+                                                        <ul>
+                                                            <li><a href="#d13">friends.html.ittf</a>
+                                                            </li>
+                                                        </ul>
+                                                        </li>
+                                                        <li><a href="#d14">alpha.js.ittf</a>
+                                                        </li>
+                                                        <li><a href="#d15">basic.js.ittf</a>
+                                                        </li>
+                                                    </ul>
+                                                    </li>
+                                                </ul>
+                                                </li>
+                                                <li><a href="#d16">index.js.ittf</a>
+                                                </li>
+                                            </ul>
+                                            </li>
+                                            <li><input type="checkbox" id="f20" />
+                                            <span></span>
+                                            <label for="f20">jobs</label>
+                                            <ul>
+                                                <li><input type="checkbox" id="f21" />
+                                                <span></span>
+                                                <label for="f21">ittf__copy</label>
+                                                <ul>
+                                                    <li><input type="checkbox" id="f22" />
+                                                    <span></span>
+                                                    <label for="f22">jobs</label>
+                                                    <ul>
+                                                        <li><input type="checkbox" id="f23" />
+                                                        <span></span>
+                                                        <label for="f23">ittf</label>
+                                                        <ul>
+                                                            <li><input type="checkbox" id="f24" />
+                                                            <span></span>
+                                                            <label for="f24">lib</label>
+                                                            <ul>
+                                                                <li><a href="#d17">step_1.js.ittf</a>
+                                                                </li>
+                                                            </ul>
+                                                            </li>
+                                                        </ul>
+                                                        </li>
+                                                        <li><a href="#d18">step_1.wfjob.ittf</a>
+                                                        </li>
+                                                    </ul>
+                                                    </li>
+                                                </ul>
+                                                </li>
+                                                <li><a href="#d19">index.js.ittf</a>
+                                                </li>
+                                            </ul>
+                                            </li>
+                                            <li><input type="checkbox" id="f25" />
+                                            <span></span>
+                                            <label for="f25">jswizzi</label>
+                                            <ul>
+                                                <li><a href="#d20">index.js.ittf</a>
+                                                </li>
+                                            </ul>
+                                            </li>
+                                            <li><input type="checkbox" id="f26" />
+                                            <span></span>
+                                            <label for="f26">models</label>
+                                            <ul>
+                                                <li><input type="checkbox" id="f27" />
+                                                <span></span>
+                                                <label for="f27">ittf__copy</label>
+                                                <ul>
+                                                    <li><input type="checkbox" id="f28" />
+                                                    <span></span>
+                                                    <label for="f28">models</label>
+                                                    <ul>
+                                                        <li><input type="checkbox" id="f29" />
+                                                        <span></span>
+                                                        <label for="f29">complex</label>
+                                                        <ul>
+                                                            <li><a href="#d21">forms.html.ittf</a>
+                                                            </li>
+                                                            <li><a href="#d22">formsData.json.ittf</a>
+                                                            </li>
+                                                        </ul>
+                                                        </li>
+                                                        <li><a href="#d23">friends.html.ittf</a>
+                                                        </li>
+                                                    </ul>
+                                                    </li>
+                                                </ul>
+                                                </li>
+                                                <li><a href="#d24">index.js.ittf</a>
+                                                </li>
+                                            </ul>
+                                            </li>
+                                            <li><input type="checkbox" id="f30" />
+                                            <span></span>
+                                            <label for="f30">mtrees</label>
+                                            <ul>
+                                                <li><input type="checkbox" id="f31" />
+                                                <span></span>
+                                                <label for="f31">ittf__copy</label>
+                                                <ul>
+                                                    <li><input type="checkbox" id="f32" />
+                                                    <span></span>
+                                                    <label for="f32">mtrees</label>
+                                                    <ul>
+                                                        <li><a href="#d25">friends.html.ittf</a>
+                                                        </li>
+                                                    </ul>
+                                                    </li>
+                                                </ul>
+                                                </li>
+                                                <li><a href="#d26">index.js.ittf</a>
+                                                </li>
+                                            </ul>
+                                            </li>
+                                            <li><input type="checkbox" id="f33" />
+                                            <span></span>
+                                            <label for="f33">plugins</label>
+                                            <ul>
+                                                <li><a href="#d27">index.js.ittf</a>
+                                                </li>
+                                            </ul>
+                                            </li>
+                                            <li><input type="checkbox" id="f34" />
+                                            <span></span>
+                                            <label for="f34">schemas</label>
+                                            <ul>
+                                                <li><input type="checkbox" id="f35" />
+                                                <span></span>
+                                                <label for="f35">ittf__copy</label>
+                                                <ul>
+                                                    <li><input type="checkbox" id="f36" />
+                                                    <span></span>
+                                                    <label for="f36">schemas</label>
+                                                    <ul>
+                                                        <li><a href="#d28">friends.wfschema.ittf</a>
+                                                        </li>
+                                                    </ul>
+                                                    </li>
+                                                </ul>
+                                                </li>
+                                                <li><a href="#d29">index.js.ittf</a>
+                                                </li>
+                                            </ul>
+                                            </li>
+                                            <li><input type="checkbox" id="f37" />
+                                            <span></span>
+                                            <label for="f37">t</label>
+                                            <ul>
+                                                <li><a href="#d30">example-essentials.js.ittf</a>
+                                                </li>
+                                            </ul>
+                                            </li>
+                                            <li><a href="#d31">index.js.ittf</a>
+                                            </li>
+                                            <li><a href="#d32">package.json.ittf</a>
+                                            </li>
+                                        </ul>
+                                        </li>
+                                    </ul>
+                                    </li>
+                                    <li><input type="checkbox" id="f38" />
+                                    <span></span>
+                                    <label for="f38">t</label>
+                                    <ul>
+                                        <li><a href="#d33">f_cb_test.js.ittf</a>
+                                        </li>
+                                        <li><a href="#d34">f_cb_throw.js.ittf</a>
+                                        </li>
+                                        <li><a href="#d35">f_cb.js.ittf</a>
+                                        </li>
+                                    </ul>
+                                    </li>
+                                </ul>
+                                </li>
+                                <li><a href="#d36">generate.wfjob.ittf</a>
+                                </li>
+                            </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </nav>
+            <div class="main-content">
+                <div class="code-panel" id="d1">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/advanced/essentials/index.js.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-tag">module</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-tag">kind</span><span class="pp-pln"> jsfile</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">    </span><span class="pp-tag">function</span><span class="pp-pln"> exec</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">        </span><span class="pp-tag">param</span><span class="pp-pln"> callback</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">        </span><span class="pp-tag">log</span><span class="pp-pln"> 'The advanced/essentials demo is not implemented yet'</span></div><div class="L6"><span class="pp-ln">   6 </span><span class="pp-pln">        </span><span class="pp-tag">if</span><span class="pp-pln"> callback</span></div><div class="L7"><span class="pp-ln">   7 </span><span class="pp-pln">            </span><span class="pp-tag">_</span><span class="pp-pln"> callback</span></div><div class="L8"><span class="pp-ln">   8 </span><span class="pp-pln">                </span><span class="pp-tag">@</span><span class="pp-pln"> null</span></div><div class="L9"><span class="pp-ln">   9 </span><span class="pp-pln">                </span><span class="pp-tag">@</span><span class="pp-pln"> 'Advanced-essentials examples not executed'</span></div><div class="L0"><span class="pp-ln">  10 </span><span class="pp-pln">    </span><span class="pp-tag">set</span><span class="pp-pln"> module.exports</span></div><div class="L1"><span class="pp-ln">  11 </span><span class="pp-pln">        </span><span class="pp-tag">function</span></div><div class="L2"><span class="pp-ln">  12 </span><span class="pp-pln">            </span><span class="pp-tag">param</span><span class="pp-pln"> callback</span></div><div class="L3"><span class="pp-ln">  13 </span><span class="pp-pln">            </span><span class="pp-tag">_</span><span class="pp-pln"> exec(callback)</span></div><div class="L4"><span class="pp-ln">  14 </span><span class="pp-pln">    </span><span class="pp-tag">if</span><span class="pp-pln"> require.main === module</span></div><div class="L5"><span class="pp-ln">  15 </span><span class="pp-pln">        </span><span class="pp-tag">_</span><span class="pp-pln"> exec</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d2">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/advanced/plugins/index.js.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-tag">module</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-tag">kind</span><span class="pp-pln"> jsfile</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">    </span><span class="pp-tag">function</span><span class="pp-pln"> exec</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">        </span><span class="pp-tag">param</span><span class="pp-pln"> callback</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">        </span><span class="pp-tag">log</span><span class="pp-pln"> 'The advanced/plugins demo is not implemented yet'</span></div><div class="L6"><span class="pp-ln">   6 </span><span class="pp-pln">        </span><span class="pp-tag">if</span><span class="pp-pln"> callback</span></div><div class="L7"><span class="pp-ln">   7 </span><span class="pp-pln">            </span><span class="pp-tag">_</span><span class="pp-pln"> callback</span></div><div class="L8"><span class="pp-ln">   8 </span><span class="pp-pln">                </span><span class="pp-tag">@</span><span class="pp-pln"> null</span></div><div class="L9"><span class="pp-ln">   9 </span><span class="pp-pln">                </span><span class="pp-tag">@</span><span class="pp-pln"> 'Advanced-plugins examples not executed'</span></div><div class="L0"><span class="pp-ln">  10 </span><span class="pp-pln">    </span><span class="pp-tag">set</span><span class="pp-pln"> module.exports</span></div><div class="L1"><span class="pp-ln">  11 </span><span class="pp-pln">        </span><span class="pp-tag">function</span></div><div class="L2"><span class="pp-ln">  12 </span><span class="pp-pln">            </span><span class="pp-tag">param</span><span class="pp-pln"> callback</span></div><div class="L3"><span class="pp-ln">  13 </span><span class="pp-pln">            </span><span class="pp-tag">_</span><span class="pp-pln"> exec(callback)</span></div><div class="L4"><span class="pp-ln">  14 </span><span class="pp-pln">    </span><span class="pp-tag">if</span><span class="pp-pln"> require.main === module</span></div><div class="L5"><span class="pp-ln">  15 </span><span class="pp-pln">        </span><span class="pp-tag">_</span><span class="pp-pln"> exec</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d3">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/meta/index.json.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-tag">{</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-tag">name</span><span class="pp-pln"> 'wizzi-demo'</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">    </span><span class="pp-tag">version</span><span class="pp-pln"> '0.4.5'</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">    </span><span class="pp-tag">title</span><span class="pp-pln"> 'The most complete demo of the wizzi factory'</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">    </span><span class="pp-tag">license</span><span class="pp-pln"> 'MIT'</span></div><div class="L6"><span class="pp-ln">   6 </span><span class="pp-pln">    </span><span class="pp-tag">[</span><span class="pp-pln"> schemas</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d4">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/root/t/readme_content.md.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-kwd">$group</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d5">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/root/.gitignore.text.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-mix frag-to-link-a" data-frag-id="unknown">common/proj_gitignore(</span><span class="pp-mix">)</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d6">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/root/index.js.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-tag">module</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-tag">kind</span><span class="pp-pln"> jsfile</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">    </span><span class="pp-tag">var</span><span class="pp-pln"> starter_essentials = require('./starter/essentials')</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">    </span><span class="pp-tag">var</span><span class="pp-pln"> starter_apps = require('./starter/apps')</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">    </span><span class="pp-tag">var</span><span class="pp-pln"> advanced_essentials = require('./advanced/essentials')</span></div><div class="L6"><span class="pp-ln">   6 </span><span class="pp-pln">    </span><span class="pp-tag">var</span><span class="pp-pln"> advanced_plugins = require('./advanced/plugins')</span></div><div class="L7"><span class="pp-ln">   7 </span><span class="pp-pln">    </span><span class="pp-tag">var</span><span class="pp-pln"> request = process.argv.length &gt; 2 ? process.argv[2] : 'all'</span></div><div class="L8"><span class="pp-ln">   8 </span><span class="pp-pln">    </span><span class="pp-tag">if</span><span class="pp-pln"> request == 'se' || request == 'all'</span></div><div class="L9"><span class="pp-ln">   9 </span><span class="pp-pln">        </span><span class="pp-tag">_</span><span class="pp-pln"> starter_essentials()</span></div><div class="L0"><span class="pp-ln">  10 </span><span class="pp-pln">    </span><span class="pp-tag">if</span><span class="pp-pln"> request == 'sa' || request == 'all'</span></div><div class="L1"><span class="pp-ln">  11 </span><span class="pp-pln">        </span><span class="pp-tag">_</span><span class="pp-pln"> starter_apps()</span></div><div class="L2"><span class="pp-ln">  12 </span><span class="pp-pln">    </span><span class="pp-tag">if</span><span class="pp-pln"> request == 'ae' || request == 'all'</span></div><div class="L3"><span class="pp-ln">  13 </span><span class="pp-pln">        </span><span class="pp-tag">_</span><span class="pp-pln"> advanced_essentials()</span></div><div class="L4"><span class="pp-ln">  14 </span><span class="pp-pln">    </span><span class="pp-tag">if</span><span class="pp-pln"> request == 'ap' || request == 'all'</span></div><div class="L5"><span class="pp-ln">  15 </span><span class="pp-pln">        </span><span class="pp-tag">_</span><span class="pp-pln"> advanced_plugins()</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d7">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/root/license.text.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-mix frag-to-link-a" data-frag-id="unknown">common/mit_license(</span><span class="pp-arg"> 1982 - 2018 The Wizzi Team </span><span class="pp-mix">)</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d8">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/root/package.json.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-tag">{</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-tag">name</span><span class="pp-pln"> "wizzi-demo"</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">    </span><span class="pp-tag">version</span><span class="pp-pln"> "</span><span class="pp-kwd">${</span><span class="pp-expr">wfpackage.version</span><span class="pp-kwd">}</span><span class="pp-pln">"</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">    </span><span class="pp-tag">description</span><span class="pp-pln"> "</span><span class="pp-kwd">${</span><span class="pp-expr">wfpackage.title</span><span class="pp-kwd">}</span><span class="pp-pln">"</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">    </span><span class="pp-tag">author</span></div><div class="L6"><span class="pp-ln">   6 </span><span class="pp-pln">        </span><span class="pp-tag">{</span></div><div class="L7"><span class="pp-ln">   7 </span><span class="pp-pln">            </span><span class="pp-tag">name</span><span class="pp-pln"> "Stefano Bassoli"</span></div><div class="L8"><span class="pp-ln">   8 </span><span class="pp-pln">            </span><span class="pp-tag">email</span><span class="pp-pln"> "wizzi.team@gmail.com"</span></div><div class="L9"><span class="pp-ln">   9 </span><span class="pp-pln">    </span><span class="pp-tag">private</span><span class="pp-pln"> false</span></div><div class="L0"><span class="pp-ln">  10 </span><span class="pp-pln">    </span><span class="pp-tag">licenses</span></div><div class="L1"><span class="pp-ln">  11 </span><span class="pp-pln">        </span><span class="pp-tag">[</span></div><div class="L2"><span class="pp-ln">  12 </span><span class="pp-pln">            </span><span class="pp-kwd">$if</span><span class="pp-expr"> wfpackage.license == 'MIT'</span></div><div class="L3"><span class="pp-ln">  13 </span><span class="pp-pln">                </span><span class="pp-tag">{</span></div><div class="L4"><span class="pp-ln">  14 </span><span class="pp-pln">                    </span><span class="pp-tag">type</span><span class="pp-pln"> "MIT"</span></div><div class="L5"><span class="pp-ln">  15 </span><span class="pp-pln">                    </span><span class="pp-tag">url</span><span class="pp-pln"> "https://github.com/wizzifactory/wizzi-demo/blob/master/license.txt"</span></div><div class="L6"><span class="pp-ln">  16 </span><span class="pp-pln">    </span><span class="pp-tag">repository</span></div><div class="L7"><span class="pp-ln">  17 </span><span class="pp-pln">        </span><span class="pp-tag">{</span></div><div class="L8"><span class="pp-ln">  18 </span><span class="pp-pln">            </span><span class="pp-tag">type</span><span class="pp-pln"> "git"</span></div><div class="L9"><span class="pp-ln">  19 </span><span class="pp-pln">            </span><span class="pp-tag">url</span><span class="pp-pln"> "https://github.com/wizzifactory/wizzi-demo.git"</span></div><div class="L0"><span class="pp-ln">  20 </span><span class="pp-pln">    </span><span class="pp-tag">dependencies</span></div><div class="L1"><span class="pp-ln">  21 </span><span class="pp-pln">        </span><span class="pp-tag">{</span></div><div class="L2"><span class="pp-ln">  22 </span><span class="pp-pln">            </span><span class="pp-tag">async</span><span class="pp-pln"> "^2.1.5"</span></div><div class="L3"><span class="pp-ln">  23 </span><span class="pp-pln">            </span><span class="pp-tag">chalk</span><span class="pp-pln"> "^1.1.3"</span></div><div class="L4"><span class="pp-ln">  24 </span><span class="pp-pln">            </span><span class="pp-tag">object-inspect</span><span class="pp-pln"> "^1.2.2"</span></div><div class="L5"><span class="pp-ln">  25 </span><span class="pp-pln">            </span><span class="pp-tag">wizzi</span><span class="pp-pln"> "latest"</span></div><div class="L6"><span class="pp-ln">  26 </span><span class="pp-pln">            </span><span class="pp-tag">wizzi-core</span><span class="pp-pln"> "latest"</span></div><div class="L7"><span class="pp-ln">  27 </span><span class="pp-pln">            </span><span class="pp-tag">wizzi-js</span><span class="pp-pln"> "latest"</span></div><div class="L8"><span class="pp-ln">  28 </span><span class="pp-pln">            </span><span class="pp-tag">wizzi-web</span><span class="pp-pln"> "latest"</span></div><div class="L9"><span class="pp-ln">  29 </span><span class="pp-pln">    </span><span class="pp-tag">scripts</span></div><div class="L0"><span class="pp-ln">  30 </span><span class="pp-pln">        </span><span class="pp-tag">{</span></div><div class="L1"><span class="pp-ln">  31 </span><span class="pp-pln">            </span><span class="pp-tag">start</span><span class="pp-pln"> "node index"</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d9">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/root/readme.md.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-tag">md</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-tag">p</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">        </span><span class="pp-tag">@</span><span class="pp-pln"> align center</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">        </span><span class="pp-tag">a</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">            </span><span class="pp-tag">href</span><span class="pp-pln"> https://wizzifactory.github.io</span></div><div class="L6"><span class="pp-ln">   6 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> rel noopener</span></div><div class="L7"><span class="pp-ln">   7 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> target _blank</span></div><div class="L8"><span class="pp-ln">   8 </span><span class="pp-pln">            </span><span class="pp-tag">img</span></div><div class="L9"><span class="pp-ln">   9 </span><span class="pp-pln">                </span><span class="pp-tag">@</span><span class="pp-pln"> width 450</span></div><div class="L0"><span class="pp-ln">  10 </span><span class="pp-pln">                </span><span class="pp-tag">@</span><span class="pp-pln"> src https://wizzifactory.github.io/images/logo.svg</span></div><div class="L1"><span class="pp-ln">  11 </span><span class="pp-pln">                </span><span class="pp-tag">@</span><span class="pp-pln"> alt Wizzi</span></div><div class="L2"><span class="pp-ln">  12 </span><span class="pp-pln">    </span><span class="pp-tag">h1</span><span class="pp-pln"> Wizzi demo</span></div><div class="L3"><span class="pp-ln">  13 </span><span class="pp-pln">    </span><span class="pp-tag">p</span><span class="pp-pln"> The official examples and tutorials to get started with the wizzi factory.</span></div><div class="L4"><span class="pp-ln">  14 </span><span class="pp-pln">    </span><span class="pp-tag">h2</span><span class="pp-pln"> Installation</span></div><div class="L5"><span class="pp-ln">  15 </span><span class="pp-pln">    </span><span class="pp-tag">p</span><span class="pp-pln"> The wizzi demo is available as an [npm package](https://www.npmjs.com/package/wizzi-demo).</span></div><div class="L6"><span class="pp-ln">  16 </span><span class="pp-pln">    </span><span class="pp-tag">sh</span></div><div class="L7"><span class="pp-ln">  17 </span><span class="pp-pln">        </span><span class="pp-tag">+</span><span class="pp-pln"> npm install wizzi-demo</span></div><div class="L8"><span class="pp-ln">  18 </span><span class="pp-pln">    </span><span class="pp-tag">h2</span><span class="pp-pln"> Usage</span></div><div class="L9"><span class="pp-ln">  19 </span><span class="pp-pln">    </span><span class="pp-tag">sh</span></div><div class="L0"><span class="pp-ln">  20 </span><span class="pp-pln">        </span><span class="pp-tag">+</span><span class="pp-pln"> node index all|se|sa|ae|ap</span></div><div class="L1"><span class="pp-ln">  21 </span><span class="pp-pln">        </span><span class="pp-tag">+</span><span class="pp-pln"> # se = starter-essentials</span></div><div class="L2"><span class="pp-ln">  22 </span><span class="pp-pln">        </span><span class="pp-tag">+</span><span class="pp-pln"> # sa = starter-apps</span></div><div class="L3"><span class="pp-ln">  23 </span><span class="pp-pln">        </span><span class="pp-tag">+</span><span class="pp-pln"> # ae = advanced-essentials</span></div><div class="L4"><span class="pp-ln">  24 </span><span class="pp-pln">        </span><span class="pp-tag">+</span><span class="pp-pln"> # ap = advanced-plugins</span></div><div class="L5"><span class="pp-ln">  25 </span><span class="pp-pln">    </span><span class="pp-tag">h2</span><span class="pp-pln"> Starter</span></div><div class="L6"><span class="pp-ln">  26 </span><span class="pp-pln">    </span><span class="pp-tag">p</span><span class="pp-pln"> These examples use the default factory for a quick start.</span></div><div class="L7"><span class="pp-ln">  27 </span><span class="pp-pln">    </span><span class="pp-tag">p</span><span class="pp-pln"> The default factory is an internally configured factory, that uses a `filesystem` store and has three pre-loaded plugins: `wizzi-core`, `wizzi-js` and `wizzi-web`. It is a starter factory to play with, that targets common web technologies.</span></div><div class="L8"><span class="pp-ln">  28 </span><span class="pp-pln">    </span><span class="pp-tag">h3</span><span class="pp-pln"> Essentials</span></div><div class="L9"><span class="pp-ln">  29 </span><span class="pp-pln">    </span><span class="pp-tag">p</span><span class="pp-pln"> Contains [examples](https://github.com/wizzifactory/wizzi-demo/tree/master/starter/essentials) of essential methods of the wizzi factory API.</span></div><div class="L0"><span class="pp-ln">  30 </span><span class="pp-pln">    </span><span class="pp-tag">h3</span><span class="pp-pln"> Apps</span></div><div class="L1"><span class="pp-ln">  31 </span><span class="pp-pln">    </span><span class="pp-tag">p</span><span class="pp-pln"> Contains [examples](https://github.com/wizzifactory/wizzi-demo/tree/master/starter/apps) of using the default factory to build react/redux single page apps.</span></div><div class="L2"><span class="pp-ln">  32 </span><span class="pp-pln">    </span><span class="pp-tag">h2</span><span class="pp-pln"> Advanced</span></div><div class="L3"><span class="pp-ln">  33 </span><span class="pp-pln">    </span><span class="pp-tag">h3</span><span class="pp-pln"> Essentials</span></div><div class="L4"><span class="pp-ln">  34 </span><span class="pp-pln">    </span><span class="pp-tag">p</span><span class="pp-pln"> [This section](https://github.com/wizzifactory/wizzi-demo/tree/master/advanced/essentials) shows how to configure a wizzi factory instance with plugins and document stores of your choice, to accomplish essential tasks.</span></div><div class="L5"><span class="pp-ln">  35 </span><span class="pp-pln">    </span><span class="pp-tag">p</span><span class="pp-pln"> You will use the `filesystem`, `mongodb` and `jsonfs` document stores.</span></div><div class="L6"><span class="pp-ln">  36 </span><span class="pp-pln">    </span><span class="pp-tag">h4</span><span class="pp-pln"> Plugins</span></div><div class="L7"><span class="pp-ln">  37 </span><span class="pp-pln">    </span><span class="pp-tag">p</span><span class="pp-pln"> Explains how to create new [plugins](https://github.com/wizzifactory/wizzi-demo/tree/master/advanced/plugins).</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d10">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/starter/apps/index.js.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-tag">module</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-tag">kind</span><span class="pp-pln"> jsfile</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">    </span><span class="pp-tag">function</span><span class="pp-pln"> exec</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">        </span><span class="pp-tag">param</span><span class="pp-pln"> callback</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">        </span><span class="pp-tag">log</span><span class="pp-pln"> 'The starter/apps demo is not implemented yet'</span></div><div class="L6"><span class="pp-ln">   6 </span><span class="pp-pln">        </span><span class="pp-tag">if</span><span class="pp-pln"> callback</span></div><div class="L7"><span class="pp-ln">   7 </span><span class="pp-pln">            </span><span class="pp-tag">_</span><span class="pp-pln"> callback</span></div><div class="L8"><span class="pp-ln">   8 </span><span class="pp-pln">                </span><span class="pp-tag">@</span><span class="pp-pln"> null</span></div><div class="L9"><span class="pp-ln">   9 </span><span class="pp-pln">                </span><span class="pp-tag">@</span><span class="pp-pln"> 'Starter-apps examples not executed'</span></div><div class="L0"><span class="pp-ln">  10 </span><span class="pp-pln">    </span><span class="pp-tag">set</span><span class="pp-pln"> module.exports</span></div><div class="L1"><span class="pp-ln">  11 </span><span class="pp-pln">        </span><span class="pp-tag">function</span></div><div class="L2"><span class="pp-ln">  12 </span><span class="pp-pln">            </span><span class="pp-tag">param</span><span class="pp-pln"> callback</span></div><div class="L3"><span class="pp-ln">  13 </span><span class="pp-pln">            </span><span class="pp-tag">_</span><span class="pp-pln"> exec(callback)</span></div><div class="L4"><span class="pp-ln">  14 </span><span class="pp-pln">    </span><span class="pp-tag">if</span><span class="pp-pln"> require.main === module</span></div><div class="L5"><span class="pp-ln">  15 </span><span class="pp-pln">        </span><span class="pp-tag">_</span><span class="pp-pln"> exec</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d11">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/starter/essentials/generations/ittf__copy/models/friends.html.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-tag">html</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-tag">body</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">        </span><span class="pp-tag">h1</span><span class="pp-pln"> My two Friends</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">        </span><span class="pp-kwd">$foreach</span><span class="pp-pln"> friend in friends</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">            </span><span class="pp-tag">h2</span><span class="pp-kwd"> ${</span><span class="pp-expr">friend</span><span class="pp-kwd">}</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d12">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/starter/essentials/generations/index.js.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-mix frag-to-link-a" data-frag-id="d30">example-essentials(</span><span class="pp-mix">)</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-tag">var</span><span class="pp-pln"> htmlFriendsPath</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">        </span><span class="pp-tag">_</span><span class="pp-pln"> path.join</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> __dirname</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> 'ittf'</span></div><div class="L6"><span class="pp-ln">   6 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> 'models'</span></div><div class="L7"><span class="pp-ln">   7 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> 'friends.html.ittf'</span></div><div class="L8"><span class="pp-ln">   8 </span><span class="pp-pln">    </span><span class="pp-tag">#</span><span class="pp-pln"> Generate the html document artifact.</span></div><div class="L9"><span class="pp-ln">   9 </span><span class="pp-pln">        </span><span class="pp-tag">#</span><span class="pp-pln"> No options, the default artifact generator</span></div><div class="L0"><span class="pp-ln">  10 </span><span class="pp-pln">        </span><span class="pp-tag">#</span><span class="pp-pln"> for the html schema will be used.</span></div><div class="L1"><span class="pp-ln">  11 </span><span class="pp-pln">    </span><span class="pp-tag">_</span><span class="pp-pln"> wizzi.gen</span></div><div class="L2"><span class="pp-ln">  12 </span><span class="pp-pln">        </span><span class="pp-tag">@</span><span class="pp-pln"> htmlFriendsPath</span></div><div class="L3"><span class="pp-ln">  13 </span><span class="pp-pln">        </span><span class="pp-tag">{</span></div><div class="L4"><span class="pp-ln">  14 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> friends friendsArray</span></div><div class="L5"><span class="pp-ln">  15 </span><span class="pp-pln">        </span><span class="pp-mix frag-to-link-a" data-frag-id="d33">f_cb_test(</span><span class="pp-arg"> artifactText</span><span class="pp-mix">)</span></div><div class="L6"><span class="pp-ln">  16 </span><span class="pp-pln">            </span><span class="pp-tag">log</span><span class="pp-pln"> 'artifactText friends\n', artifactText</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d13">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/starter/essentials/genfolder/ittf__copy/sample/html/friends.html.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-tag">html</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-tag">body</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">        </span><span class="pp-tag">h1</span><span class="pp-pln"> My two Friends</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">        </span><span class="pp-kwd">$foreach</span><span class="pp-pln"> friend in friends</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">            </span><span class="pp-tag">h2</span><span class="pp-kwd"> ${</span><span class="pp-expr">friend</span><span class="pp-kwd">}</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d14">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/starter/essentials/genfolder/ittf__copy/sample/alpha.js.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-tag">module</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-tag">kind</span><span class="pp-pln"> jsfile</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">    </span><span class="pp-tag">var</span><span class="pp-pln"> i = 0</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d15">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/starter/essentials/genfolder/ittf__copy/sample/basic.js.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-tag">module</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-tag">kind</span><span class="pp-pln"> jsfile</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">    </span><span class="pp-tag">class</span><span class="pp-pln"> Hello</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">        </span><span class="pp-tag">m</span><span class="pp-pln"> sayHello</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">            </span><span class="pp-tag">param</span><span class="pp-pln"> name</span></div><div class="L6"><span class="pp-ln">   6 </span><span class="pp-pln">            </span><span class="pp-tag">log</span><span class="pp-pln"> 'Hello ' + name</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d16">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/starter/essentials/genfolder/index.js.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-mix frag-to-link-a" data-frag-id="d30">example-essentials(</span><span class="pp-mix">)</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-tag">var</span><span class="pp-pln"> genFolderPath</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">        </span><span class="pp-tag">_</span><span class="pp-pln"> path.join</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> __dirname</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> 'ittf'</span></div><div class="L6"><span class="pp-ln">   6 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> 'genfolder'</span></div><div class="L7"><span class="pp-ln">   7 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> 'index.js.ittf'</span></div><div class="L8"><span class="pp-ln">   8 </span><span class="pp-pln">    </span><span class="pp-tag">var</span><span class="pp-pln"> genFolderDest</span></div><div class="L9"><span class="pp-ln">   9 </span><span class="pp-pln">        </span><span class="pp-tag">_</span><span class="pp-pln"> path.join</span></div><div class="L0"><span class="pp-ln">  10 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> __dirname</span></div><div class="L1"><span class="pp-ln">  11 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> 'genfolder_out'</span></div><div class="L2"><span class="pp-ln">  12 </span><span class="pp-pln">    </span><span class="pp-tag">#</span><span class="pp-pln"> Generate all the artifacts in a folder</span></div><div class="L3"><span class="pp-ln">  13 </span><span class="pp-pln">    </span><span class="pp-tag">_</span><span class="pp-pln"> wizzi.genFolder</span></div><div class="L4"><span class="pp-ln">  14 </span><span class="pp-pln">        </span><span class="pp-tag">@</span><span class="pp-pln"> genFolderPath</span></div><div class="L5"><span class="pp-ln">  15 </span><span class="pp-pln">        </span><span class="pp-tag">{</span></div><div class="L6"><span class="pp-ln">  16 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> friends friendsArray</span></div><div class="L7"><span class="pp-ln">  17 </span><span class="pp-pln">        </span><span class="pp-tag">{</span></div><div class="L8"><span class="pp-ln">  18 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> destFolder genFolderDest</span></div><div class="L9"><span class="pp-ln">  19 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> copyInclude ['*']</span></div><div class="L0"><span class="pp-ln">  20 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> copyExclude []</span></div><div class="L1"><span class="pp-ln">  21 </span><span class="pp-pln">        </span><span class="pp-mix frag-to-link-a" data-frag-id="d33">f_cb_test(</span><span class="pp-arg"> schemaPaths</span><span class="pp-mix">)</span></div><div class="L2"><span class="pp-ln">  22 </span><span class="pp-pln">            </span><span class="pp-tag">log</span><span class="pp-pln"> 'genFolder wrote generated and copied files to dest folder\n', schemaPaths</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d17">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/starter/essentials/jobs/ittf__copy/jobs/ittf/lib/step_1.js.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-tag">module</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-tag">kind</span><span class="pp-pln"> jsfile</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">    </span><span class="pp-tag">class</span><span class="pp-pln"> Animal</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">        </span><span class="pp-tag">m</span><span class="pp-pln"> sayHello</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">            </span><span class="pp-tag">log</span><span class="pp-pln"> this.cry, ', I am ', this.name</span></div><div class="L6"><span class="pp-ln">   6 </span><span class="pp-pln">    </span><span class="pp-tag">class</span><span class="pp-pln"> Horse</span></div><div class="L7"><span class="pp-ln">   7 </span><span class="pp-pln">        </span><span class="pp-tag">super</span><span class="pp-pln"> Animal</span></div><div class="L8"><span class="pp-ln">   8 </span><span class="pp-pln">        </span><span class="pp-tag">ctor</span></div><div class="L9"><span class="pp-ln">   9 </span><span class="pp-pln">            </span><span class="pp-tag">param</span><span class="pp-pln"> name</span></div><div class="L0"><span class="pp-ln">  10 </span><span class="pp-pln">            </span><span class="pp-tag">set</span><span class="pp-pln"> this.name = name</span></div><div class="L1"><span class="pp-ln">  11 </span><span class="pp-pln">            </span><span class="pp-tag">set</span><span class="pp-pln"> this.cry = 'Hiii'</span></div><div class="L2"><span class="pp-ln">  12 </span><span class="pp-pln">    </span><span class="pp-tag">var</span><span class="pp-pln"> horse = new Horse('Varenne')</span></div><div class="L3"><span class="pp-ln">  13 </span><span class="pp-pln">    </span><span class="pp-tag">_</span><span class="pp-pln"> horse.sayHello</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d18">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/starter/essentials/jobs/ittf__copy/jobs/step_1.wfjob.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-tag">wfjob</span><span class="pp-pln"> step_1</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-tag">#</span><span class="pp-pln"> Generates a javascript module</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">    </span><span class="pp-tag">#</span><span class="pp-pln"> from a single ittf document of schema `js`</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">    </span><span class="pp-kwd">$</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">        </span><span class="pp-expr frag-to-link-a">console.log(</span><span class="pp-arg"> 'Destination folder name: ' + options.destFolder</span><span class="pp-mix">)</span></div><div class="L6"><span class="pp-ln">   6 </span><span class="pp-pln">        </span><span class="pp-expr">var</span><span class="pp-expr"> ittf_lib_folder  = path.join(__dirname, 'ittf', 'lib');</span></div><div class="L7"><span class="pp-ln">   7 </span><span class="pp-pln">        </span><span class="pp-expr">var</span><span class="pp-expr"> dest_folder      = path.join(__dirname, options.destFolder);</span></div><div class="L8"><span class="pp-ln">   8 </span><span class="pp-pln">    </span><span class="pp-tag">line</span><span class="pp-pln"> lib</span></div><div class="L9"><span class="pp-ln">   9 </span><span class="pp-pln">        </span><span class="pp-tag">cwd-folder</span><span class="pp-kwd"> ${</span><span class="pp-expr">ittf_lib_folder</span><span class="pp-kwd">}</span></div><div class="L0"><span class="pp-ln">  10 </span><span class="pp-pln">        </span><span class="pp-tag">#</span><span class="pp-pln"> Generates a single javascript module</span></div><div class="L1"><span class="pp-ln">  11 </span><span class="pp-pln">        </span><span class="pp-tag">artifact</span><span class="pp-pln"> step_1_javascript_module</span></div><div class="L2"><span class="pp-ln">  12 </span><span class="pp-pln">            </span><span class="pp-tag">src</span><span class="pp-pln"> step_1.js.ittf</span></div><div class="L3"><span class="pp-ln">  13 </span><span class="pp-pln">            </span><span class="pp-tag">schema</span><span class="pp-pln"> js</span></div><div class="L4"><span class="pp-ln">  14 </span><span class="pp-pln">            </span><span class="pp-tag">generator</span><span class="pp-pln"> js/module</span></div><div class="L5"><span class="pp-ln">  15 </span><span class="pp-pln">            </span><span class="pp-tag">extension</span><span class="pp-pln"> js</span></div><div class="L6"><span class="pp-ln">  16 </span><span class="pp-pln">    </span><span class="pp-tag">production</span></div><div class="L7"><span class="pp-ln">  17 </span><span class="pp-pln">        </span><span class="pp-tag">dest-folder</span><span class="pp-kwd"> ${</span><span class="pp-expr">dest_folder</span><span class="pp-kwd">}</span></div><div class="L8"><span class="pp-ln">  18 </span><span class="pp-pln">        </span><span class="pp-tag">line-ref</span><span class="pp-pln"> lib</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d19">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/starter/essentials/jobs/index.js.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-mix frag-to-link-a" data-frag-id="d30">example-essentials(</span><span class="pp-mix">)</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-tag">var</span><span class="pp-pln"> jobsPath</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">        </span><span class="pp-tag">_</span><span class="pp-pln"> path.join</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> __dirname</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> 'ittf'</span></div><div class="L6"><span class="pp-ln">   6 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> 'jobs'</span></div><div class="L7"><span class="pp-ln">   7 </span><span class="pp-pln">    </span><span class="pp-tag">#</span><span class="pp-pln"> Execute a wizzi job</span></div><div class="L8"><span class="pp-ln">   8 </span><span class="pp-pln">    </span><span class="pp-tag">_</span><span class="pp-pln"> wizzi.job</span></div><div class="L9"><span class="pp-ln">   9 </span><span class="pp-pln">        </span><span class="pp-tag">_</span><span class="pp-pln"> path.join</span></div><div class="L0"><span class="pp-ln">  10 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> jobsPath</span></div><div class="L1"><span class="pp-ln">  11 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> 'step_1.wfjob.ittf'</span></div><div class="L2"><span class="pp-ln">  12 </span><span class="pp-pln">        </span><span class="pp-tag">{</span></div><div class="L3"><span class="pp-ln">  13 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> friends friendsArray</span></div><div class="L4"><span class="pp-ln">  14 </span><span class="pp-pln">        </span><span class="pp-tag">{</span></div><div class="L5"><span class="pp-ln">  15 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> name 'step_1'</span></div><div class="L6"><span class="pp-ln">  16 </span><span class="pp-pln">            </span><span class="pp-tag">{</span><span class="pp-pln"> jobContext</span></div><div class="L7"><span class="pp-ln">  17 </span><span class="pp-pln">                </span><span class="pp-tag">{</span><span class="pp-pln"> options</span></div><div class="L8"><span class="pp-ln">  18 </span><span class="pp-pln">                    </span><span class="pp-tag">@</span><span class="pp-pln"> destFolder 'output'</span></div><div class="L9"><span class="pp-ln">  19 </span><span class="pp-pln">            </span><span class="pp-tag">{</span><span class="pp-pln"> globalContext</span></div><div class="L0"><span class="pp-ln">  20 </span><span class="pp-pln">                </span><span class="pp-tag">{</span><span class="pp-pln"> options</span></div><div class="L1"><span class="pp-ln">  21 </span><span class="pp-pln">                    </span><span class="pp-tag">@</span><span class="pp-pln"> destFolder 'output'</span></div><div class="L2"><span class="pp-ln">  22 </span><span class="pp-pln">        </span><span class="pp-mix frag-to-link-a" data-frag-id="d33">f_cb_test(</span><span class="pp-arg"> jobResults</span><span class="pp-mix">)</span></div><div class="L3"><span class="pp-ln">  23 </span><span class="pp-pln">            </span><span class="pp-tag">log</span><span class="pp-pln"> 'results of job step_1\n', stringify(jobResults, null, 2)</span></div><div class="L4"><span class="pp-ln">  24 </span><span class="pp-pln">            </span><span class="pp-tag">return</span></div><div class="L5"><span class="pp-ln">  25 </span><span class="pp-pln">                </span><span class="pp-tag">_</span><span class="pp-pln"> callback</span></div><div class="L6"><span class="pp-ln">  26 </span><span class="pp-pln">                    </span><span class="pp-tag">@</span><span class="pp-pln"> null</span></div><div class="L7"><span class="pp-ln">  27 </span><span class="pp-pln">                    </span><span class="pp-tag">@</span><span class="pp-pln"> 'jobs example executed'</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d20">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/starter/essentials/jswizzi/index.js.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-tag">module</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-tag">kind</span><span class="pp-pln"> jsfile</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d21">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/starter/essentials/models/ittf__copy/models/complex/forms.html.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-tag">html</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-tag">body</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">        </span><span class="pp-kwd">$foreach</span><span class="pp-pln"> form in data.forms</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">            </span><span class="pp-tag">h2</span><span class="pp-kwd"> ${</span><span class="pp-expr">form.name</span><span class="pp-kwd">}</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">            </span><span class="pp-tag">form</span></div><div class="L6"><span class="pp-ln">   6 </span><span class="pp-pln">                </span><span class="pp-kwd">$foreach</span><span class="pp-pln"> c in form.controls</span></div><div class="L7"><span class="pp-ln">   7 </span><span class="pp-pln">                    </span><span class="pp-tag">label</span><span class="pp-kwd"> ${</span><span class="pp-expr">c.label</span><span class="pp-kwd">}</span></div><div class="L8"><span class="pp-ln">   8 </span><span class="pp-pln">                        </span><span class="pp-tag">for</span><span class="pp-kwd"> ${</span><span class="pp-expr">c.name</span><span class="pp-kwd">}</span></div><div class="L9"><span class="pp-ln">   9 </span><span class="pp-pln">                    </span><span class="pp-kwd">$if</span><span class="pp-expr"> c.type === 'text'</span></div><div class="L0"><span class="pp-ln">  10 </span><span class="pp-pln">                        </span><span class="pp-tag">input</span></div><div class="L1"><span class="pp-ln">  11 </span><span class="pp-pln">                            </span><span class="pp-tag">type</span><span class="pp-pln"> text</span></div><div class="L2"><span class="pp-ln">  12 </span><span class="pp-pln">                    </span><span class="pp-tag">br</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d22">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/starter/essentials/models/ittf__copy/models/complex/formsData.json.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-tag">{</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-tag">[</span><span class="pp-pln"> forms</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">        </span><span class="pp-tag">{</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">            </span><span class="pp-tag">name</span><span class="pp-pln"> "form1"</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">            </span><span class="pp-tag">[</span><span class="pp-pln"> controls</span></div><div class="L6"><span class="pp-ln">   6 </span><span class="pp-pln">                </span><span class="pp-tag">{</span></div><div class="L7"><span class="pp-ln">   7 </span><span class="pp-pln">                    </span><span class="pp-tag">name</span><span class="pp-pln"> "control1"</span></div><div class="L8"><span class="pp-ln">   8 </span><span class="pp-pln">                    </span><span class="pp-tag">label</span><span class="pp-pln"> "First control"</span></div><div class="L9"><span class="pp-ln">   9 </span><span class="pp-pln">                    </span><span class="pp-tag">type</span><span class="pp-pln"> "text"</span></div><div class="L0"><span class="pp-ln">  10 </span><span class="pp-pln">                </span><span class="pp-tag">{</span></div><div class="L1"><span class="pp-ln">  11 </span><span class="pp-pln">                    </span><span class="pp-tag">name</span><span class="pp-pln"> "control2"</span></div><div class="L2"><span class="pp-ln">  12 </span><span class="pp-pln">                    </span><span class="pp-tag">label</span><span class="pp-pln"> "Second control"</span></div><div class="L3"><span class="pp-ln">  13 </span><span class="pp-pln">                    </span><span class="pp-tag">type</span><span class="pp-pln"> "text"</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d23">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/starter/essentials/models/ittf__copy/models/friends.html.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-tag">html</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-tag">body</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">        </span><span class="pp-tag">h1</span><span class="pp-pln"> My two Friends</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">        </span><span class="pp-kwd">$foreach</span><span class="pp-pln"> friend in friends</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">            </span><span class="pp-tag">h2</span><span class="pp-kwd"> ${</span><span class="pp-expr">friend</span><span class="pp-kwd">}</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d24">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/starter/essentials/models/index.js.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-mix frag-to-link-a" data-frag-id="d30">example-essentials(</span><span class="pp-mix">)</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-tag">var</span><span class="pp-pln"> htmlFriendsPath</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">        </span><span class="pp-tag">_</span><span class="pp-pln"> path.join</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> __dirname</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> 'ittf'</span></div><div class="L6"><span class="pp-ln">   6 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> 'models'</span></div><div class="L7"><span class="pp-ln">   7 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> 'friends.html.ittf'</span></div><div class="L8"><span class="pp-ln">   8 </span><span class="pp-pln">    </span><span class="pp-tag">var</span><span class="pp-pln"> modelsComplexPath</span></div><div class="L9"><span class="pp-ln">   9 </span><span class="pp-pln">        </span><span class="pp-tag">_</span><span class="pp-pln"> path.join</span></div><div class="L0"><span class="pp-ln">  10 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> __dirname</span></div><div class="L1"><span class="pp-ln">  11 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> 'ittf'</span></div><div class="L2"><span class="pp-ln">  12 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> 'models'</span></div><div class="L3"><span class="pp-ln">  13 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> 'complex'</span></div><div class="L4"><span class="pp-ln">  14 </span><span class="pp-pln">    </span><span class="pp-tag">#</span><span class="pp-pln"> Load an html model.</span></div><div class="L5"><span class="pp-ln">  15 </span><span class="pp-pln">        </span><span class="pp-tag">#</span><span class="pp-pln"> The html schema is detected from the path.</span></div><div class="L6"><span class="pp-ln">  16 </span><span class="pp-pln">    </span><span class="pp-tag">_</span><span class="pp-pln"> wizzi.model</span></div><div class="L7"><span class="pp-ln">  17 </span><span class="pp-pln">        </span><span class="pp-tag">@</span><span class="pp-pln"> htmlFriendsPath</span></div><div class="L8"><span class="pp-ln">  18 </span><span class="pp-pln">        </span><span class="pp-tag">{</span></div><div class="L9"><span class="pp-ln">  19 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> friends friendsArray</span></div><div class="L0"><span class="pp-ln">  20 </span><span class="pp-pln">        </span><span class="pp-mix frag-to-link-a" data-frag-id="d33">f_cb_test(</span><span class="pp-arg"> wizziModel</span><span class="pp-mix">)</span></div><div class="L1"><span class="pp-ln">  21 </span><span class="pp-pln">            </span><span class="pp-tag">var</span><span class="pp-pln"> dump</span></div><div class="L2"><span class="pp-ln">  22 </span><span class="pp-pln">                </span><span class="pp-tag">_</span><span class="pp-pln"> stringify</span></div><div class="L3"><span class="pp-ln">  23 </span><span class="pp-pln">                    </span><span class="pp-tag">@</span><span class="pp-pln"> wizziModel.elements</span></div><div class="L4"><span class="pp-ln">  24 </span><span class="pp-pln">                    </span><span class="pp-tag">@</span><span class="pp-pln"> null</span></div><div class="L5"><span class="pp-ln">  25 </span><span class="pp-pln">                    </span><span class="pp-tag">@</span><span class="pp-pln"> 2</span></div><div class="L6"><span class="pp-ln">  26 </span><span class="pp-pln">            </span><span class="pp-tag">log</span><span class="pp-pln"> 'wizziModel friends\n', dump</span></div><div class="L7"><span class="pp-ln">  27 </span><span class="pp-pln">            </span><span class="pp-tag">#</span><span class="pp-pln"> Load a complex wizzi model passing a model description to the loader</span></div><div class="L8"><span class="pp-ln">  28 </span><span class="pp-pln">            </span><span class="pp-tag">_</span><span class="pp-pln"> wizzi.model</span></div><div class="L9"><span class="pp-ln">  29 </span><span class="pp-pln">                </span><span class="pp-tag">{</span></div><div class="L0"><span class="pp-ln">  30 </span><span class="pp-pln">                    </span><span class="pp-tag">@</span><span class="pp-pln"> src</span></div><div class="L1"><span class="pp-ln">  31 </span><span class="pp-pln">                        </span><span class="pp-tag">_</span><span class="pp-pln"> path.join</span></div><div class="L2"><span class="pp-ln">  32 </span><span class="pp-pln">                            </span><span class="pp-tag">@</span><span class="pp-pln"> modelsComplexPath</span></div><div class="L3"><span class="pp-ln">  33 </span><span class="pp-pln">                            </span><span class="pp-tag">@</span><span class="pp-pln"> 'forms.html.ittf'</span></div><div class="L4"><span class="pp-ln">  34 </span><span class="pp-pln">                    </span><span class="pp-tag">@</span><span class="pp-pln"> schema 'html'</span></div><div class="L5"><span class="pp-ln">  35 </span><span class="pp-pln">                    </span><span class="pp-tag">[</span><span class="pp-pln"> contexts</span></div><div class="L6"><span class="pp-ln">  36 </span><span class="pp-pln">                        </span><span class="pp-tag">{</span></div><div class="L7"><span class="pp-ln">  37 </span><span class="pp-pln">                            </span><span class="pp-tag">@</span><span class="pp-pln"> src</span></div><div class="L8"><span class="pp-ln">  38 </span><span class="pp-pln">                                </span><span class="pp-tag">_</span><span class="pp-pln"> path.join</span></div><div class="L9"><span class="pp-ln">  39 </span><span class="pp-pln">                                    </span><span class="pp-tag">@</span><span class="pp-pln"> modelsComplexPath</span></div><div class="L0"><span class="pp-ln">  40 </span><span class="pp-pln">                                    </span><span class="pp-tag">@</span><span class="pp-pln"> 'formsData.json.ittf'</span></div><div class="L1"><span class="pp-ln">  41 </span><span class="pp-pln">                            </span><span class="pp-tag">@</span><span class="pp-pln"> schema 'json'</span></div><div class="L2"><span class="pp-ln">  42 </span><span class="pp-pln">                            </span><span class="pp-tag">@</span><span class="pp-pln"> exportName 'data'</span></div><div class="L3"><span class="pp-ln">  43 </span><span class="pp-pln">                </span><span class="pp-mix frag-to-link-a" data-frag-id="d33">f_cb_test(</span><span class="pp-arg"> wizziModel</span><span class="pp-mix">)</span></div><div class="L4"><span class="pp-ln">  44 </span><span class="pp-pln">                    </span><span class="pp-tag">log</span><span class="pp-pln"> 'wizziModel.wzElement', wizziModel.wzElement</span></div><div class="L5"><span class="pp-ln">  45 </span><span class="pp-pln">                    </span><span class="pp-tag">_</span><span class="pp-pln"> wizzi.gen</span></div><div class="L6"><span class="pp-ln">  46 </span><span class="pp-pln">                        </span><span class="pp-tag">@</span><span class="pp-pln"> wizziModel</span></div><div class="L7"><span class="pp-ln">  47 </span><span class="pp-pln">                        </span><span class="pp-mix frag-to-link-a" data-frag-id="d33">f_cb_test(</span><span class="pp-arg"> artifactText</span><span class="pp-mix">)</span></div><div class="L8"><span class="pp-ln">  48 </span><span class="pp-pln">                            </span><span class="pp-tag">log</span><span class="pp-pln"> 'artifactText complex forms\n', artifactText</span></div><div class="L9"><span class="pp-ln">  49 </span><span class="pp-pln">                    </span><span class="pp-tag">return</span></div><div class="L0"><span class="pp-ln">  50 </span><span class="pp-pln">                        </span><span class="pp-tag">_</span><span class="pp-pln"> callback</span></div><div class="L1"><span class="pp-ln">  51 </span><span class="pp-pln">                            </span><span class="pp-tag">@</span><span class="pp-pln"> null</span></div><div class="L2"><span class="pp-ln">  52 </span><span class="pp-pln">                            </span><span class="pp-tag">@</span><span class="pp-pln"> 'models example executed'</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d25">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/starter/essentials/mtrees/ittf__copy/mtrees/friends.html.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-tag">html</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-tag">body</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">        </span><span class="pp-tag">h1</span><span class="pp-pln"> My two Friends</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">        </span><span class="pp-kwd">$foreach</span><span class="pp-pln"> friend in friends</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">            </span><span class="pp-tag">h2</span><span class="pp-kwd"> ${</span><span class="pp-expr">friend</span><span class="pp-kwd">}</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d26">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/starter/essentials/mtrees/index.js.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-mix frag-to-link-a" data-frag-id="d30">example-essentials(</span><span class="pp-mix">)</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-tag">var</span><span class="pp-pln"> htmlFriendsPath</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">        </span><span class="pp-tag">_</span><span class="pp-pln"> path.join</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> __dirname</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> 'ittf'</span></div><div class="L6"><span class="pp-ln">   6 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> 'mtrees'</span></div><div class="L7"><span class="pp-ln">   7 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> 'friends.html.ittf'</span></div><div class="L8"><span class="pp-ln">   8 </span><span class="pp-pln">    </span><span class="pp-tag">#</span><span class="pp-pln"> Load a magical tree from an ittf document and a context object.</span></div><div class="L9"><span class="pp-ln">   9 </span><span class="pp-pln">    </span><span class="pp-tag">_</span><span class="pp-pln"> wizzi.mtree</span></div><div class="L0"><span class="pp-ln">  10 </span><span class="pp-pln">        </span><span class="pp-tag">@</span><span class="pp-pln"> htmlFriendsPath</span></div><div class="L1"><span class="pp-ln">  11 </span><span class="pp-pln">        </span><span class="pp-tag">{</span></div><div class="L2"><span class="pp-ln">  12 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> friends friendsArray</span></div><div class="L3"><span class="pp-ln">  13 </span><span class="pp-pln">        </span><span class="pp-mix frag-to-link-a" data-frag-id="d33">f_cb_test(</span><span class="pp-arg"> mTreeModel</span><span class="pp-mix">)</span></div><div class="L4"><span class="pp-ln">  14 </span><span class="pp-pln">            </span><span class="pp-tag">var</span><span class="pp-pln"> dump</span></div><div class="L5"><span class="pp-ln">  15 </span><span class="pp-pln">                </span><span class="pp-tag">_</span><span class="pp-pln"> stringify</span></div><div class="L6"><span class="pp-ln">  16 </span><span class="pp-pln">                    </span><span class="pp-tag">_</span><span class="pp-pln"> mTreeModel.toIttf</span></div><div class="L7"><span class="pp-ln">  17 </span><span class="pp-pln">                    </span><span class="pp-tag">@</span><span class="pp-pln"> null</span></div><div class="L8"><span class="pp-ln">  18 </span><span class="pp-pln">                    </span><span class="pp-tag">@</span><span class="pp-pln"> 2</span></div><div class="L9"><span class="pp-ln">  19 </span><span class="pp-pln">            </span><span class="pp-tag">log</span><span class="pp-pln"> 'mTree friends\n', dump</span></div><div class="L0"><span class="pp-ln">  20 </span><span class="pp-pln">            </span><span class="pp-tag">return</span></div><div class="L1"><span class="pp-ln">  21 </span><span class="pp-pln">                </span><span class="pp-tag">_</span><span class="pp-pln"> callback</span></div><div class="L2"><span class="pp-ln">  22 </span><span class="pp-pln">                    </span><span class="pp-tag">@</span><span class="pp-pln"> null</span></div><div class="L3"><span class="pp-ln">  23 </span><span class="pp-pln">                    </span><span class="pp-tag">@</span><span class="pp-pln"> 'mtrees example executed'</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d27">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/starter/essentials/plugins/index.js.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-tag">module</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-tag">kind</span><span class="pp-pln"> jsfile</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d28">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/starter/essentials/schemas/ittf__copy/schemas/friends.wfschema.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-tag">wfschema</span><span class="pp-pln"> friends</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-kwd">$if</span><span class="pp-expr"> comments == true</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">        </span><span class="pp-tag">e</span><span class="pp-pln"> comment</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">            </span><span class="pp-tag">tag</span><span class="pp-pln"> #</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">            </span><span class="pp-tag">r</span><span class="pp-pln"> comment/s</span></div><div class="L6"><span class="pp-ln">   6 </span><span class="pp-pln">    </span><span class="pp-tag">e</span><span class="pp-pln"> friends </span><span class="pp-kwd">${</span><span class="pp-expr"> comments ? ': comment' : ''</span><span class="pp-kwd">}</span></div><div class="L7"><span class="pp-ln">   7 </span><span class="pp-pln">        </span><span class="pp-tag">is-root</span></div><div class="L8"><span class="pp-ln">   8 </span><span class="pp-pln">        </span><span class="pp-tag">r</span><span class="pp-pln"> friend/s</span></div><div class="L9"><span class="pp-ln">   9 </span><span class="pp-pln">    </span><span class="pp-tag">e</span><span class="pp-pln"> friend </span><span class="pp-kwd">${</span><span class="pp-expr"> comments ? ': comment' : ''</span><span class="pp-kwd">}</span></div><div class="L0"><span class="pp-ln">  10 </span><span class="pp-pln">        </span><span class="pp-tag">a</span><span class="pp-pln"> mobilePhone</span></div><div class="L1"><span class="pp-ln">  11 </span><span class="pp-pln">            </span><span class="pp-tag">tag</span><span class="pp-pln"> cell</span></div><div class="L2"><span class="pp-ln">  12 </span><span class="pp-pln">        </span><span class="pp-tag">a</span><span class="pp-pln"> phone</span></div><div class="L3"><span class="pp-ln">  13 </span><span class="pp-pln">        </span><span class="pp-tag">a</span><span class="pp-pln"> birthday</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d29">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/starter/essentials/schemas/index.js.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-mix frag-to-link-a" data-frag-id="d30">example-essentials(</span><span class="pp-mix">)</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-tag">var</span><span class="pp-pln"> schemaFriendsPath</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">        </span><span class="pp-tag">_</span><span class="pp-pln"> path.join</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> __dirname</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> 'ittf'</span></div><div class="L6"><span class="pp-ln">   6 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> 'schemas'</span></div><div class="L7"><span class="pp-ln">   7 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> 'friends.wfschema.ittf'</span></div><div class="L8"><span class="pp-ln">   8 </span><span class="pp-pln">    </span><span class="pp-tag">var</span><span class="pp-pln"> schemaFriendsOutputPath</span></div><div class="L9"><span class="pp-ln">   9 </span><span class="pp-pln">        </span><span class="pp-tag">_</span><span class="pp-pln"> path.join</span></div><div class="L0"><span class="pp-ln">  10 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> __dirname</span></div><div class="L1"><span class="pp-ln">  11 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> 'friendsplugin'</span></div><div class="L2"><span class="pp-ln">  12 </span><span class="pp-pln">    </span><span class="pp-tag">#</span><span class="pp-pln"> Generate the javascript modules of the 'friends' wizzi schema</span></div><div class="L3"><span class="pp-ln">  13 </span><span class="pp-pln">    </span><span class="pp-tag">_</span><span class="pp-pln"> wizzi.schema</span></div><div class="L4"><span class="pp-ln">  14 </span><span class="pp-pln">        </span><span class="pp-tag">@</span><span class="pp-pln"> schemaFriendsPath</span></div><div class="L5"><span class="pp-ln">  15 </span><span class="pp-pln">        </span><span class="pp-tag">{</span></div><div class="L6"><span class="pp-ln">  16 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> comments true</span></div><div class="L7"><span class="pp-ln">  17 </span><span class="pp-pln">        </span><span class="pp-tag">{</span></div><div class="L8"><span class="pp-ln">  18 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> outputPackagePath schemaFriendsOutputPath</span></div><div class="L9"><span class="pp-ln">  19 </span><span class="pp-pln">        </span><span class="pp-mix frag-to-link-a" data-frag-id="d33">f_cb_test(</span><span class="pp-arg"> schemaPaths</span><span class="pp-mix">)</span></div><div class="L0"><span class="pp-ln">  20 </span><span class="pp-pln">            </span><span class="pp-tag">log</span><span class="pp-pln"> 'schemaPaths of generated schema friends\n', schemaPaths</span></div><div class="L1"><span class="pp-ln">  21 </span><span class="pp-pln">            </span><span class="pp-tag">return</span></div><div class="L2"><span class="pp-ln">  22 </span><span class="pp-pln">                </span><span class="pp-tag">_</span><span class="pp-pln"> callback</span></div><div class="L3"><span class="pp-ln">  23 </span><span class="pp-pln">                    </span><span class="pp-tag">@</span><span class="pp-pln"> null</span></div><div class="L4"><span class="pp-ln">  24 </span><span class="pp-pln">                    </span><span class="pp-tag">@</span><span class="pp-pln"> 'models example executed'</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d30">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/starter/essentials/t/example-essentials.js.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-tag">module</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-tag">kind</span><span class="pp-pln"> jsfile</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">    </span><span class="pp-tag">import</span><span class="pp-pln"> path</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">    </span><span class="pp-tag">import</span><span class="pp-pln"> util</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">    </span><span class="pp-tag">var</span><span class="pp-pln"> stringify = require('json-stringify-safe')</span></div><div class="L6"><span class="pp-ln">   6 </span><span class="pp-pln">    </span><span class="pp-tag">var</span><span class="pp-pln"> wizzi = require('wizzi')</span></div><div class="L7"><span class="pp-ln">   7 </span><span class="pp-pln">    </span><span class="pp-tag">var</span><span class="pp-pln"> file = require('wizzi-utils').file</span></div><div class="L8"><span class="pp-ln">   8 </span><span class="pp-pln">    </span><span class="pp-tag">var</span><span class="pp-pln"> verify = require('wizzi-utils').verify</span></div><div class="L9"><span class="pp-ln">   9 </span><span class="pp-pln">    </span><span class="pp-tag">var</span><span class="pp-pln"> friendsArray</span></div><div class="L0"><span class="pp-ln">  10 </span><span class="pp-pln">        </span><span class="pp-tag">[</span></div><div class="L1"><span class="pp-ln">  11 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> 'arthur'</span></div><div class="L2"><span class="pp-ln">  12 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> 'mary'</span></div><div class="L3"><span class="pp-ln">  13 </span><span class="pp-pln">    </span><span class="pp-tag">set</span><span class="pp-pln"> module.exports</span></div><div class="L4"><span class="pp-ln">  14 </span><span class="pp-pln">        </span><span class="pp-tag">function</span><span class="pp-pln"> exec</span></div><div class="L5"><span class="pp-ln">  15 </span><span class="pp-pln">            </span><span class="pp-tag">param</span><span class="pp-pln"> callback</span></div><div class="L6"><span class="pp-ln">  16 </span><span class="pp-pln">            </span><span class="pp-kwd">$hook</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d31">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/starter/essentials/index.js.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-tag">module</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-tag">kind</span><span class="pp-pln"> jsfile</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">    </span><span class="pp-tag">import</span><span class="pp-pln"> async</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">    </span><span class="pp-tag">var</span><span class="pp-pln"> examples</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">        </span><span class="pp-tag">[</span></div><div class="L6"><span class="pp-ln">   6 </span><span class="pp-pln">            </span><span class="pp-tag">_</span><span class="pp-pln"> require('./mtrees')</span></div><div class="L7"><span class="pp-ln">   7 </span><span class="pp-pln">            </span><span class="pp-tag">_</span><span class="pp-pln"> require('./models')</span></div><div class="L8"><span class="pp-ln">   8 </span><span class="pp-pln">            </span><span class="pp-tag">_</span><span class="pp-pln"> require('./jobs')</span></div><div class="L9"><span class="pp-ln">   9 </span><span class="pp-pln">            </span><span class="pp-tag">_</span><span class="pp-pln"> require('./schemas')</span></div><div class="L0"><span class="pp-ln">  10 </span><span class="pp-pln">    </span><span class="pp-tag">function</span><span class="pp-pln"> exec</span></div><div class="L1"><span class="pp-ln">  11 </span><span class="pp-pln">        </span><span class="pp-tag">param</span><span class="pp-pln"> callback</span></div><div class="L2"><span class="pp-ln">  12 </span><span class="pp-pln">        </span><span class="pp-tag">_</span><span class="pp-pln"> async.mapSeries</span></div><div class="L3"><span class="pp-ln">  13 </span><span class="pp-pln">            </span><span class="pp-tag">@</span><span class="pp-pln"> examples</span></div><div class="L4"><span class="pp-ln">  14 </span><span class="pp-pln">            </span><span class="pp-tag">function</span></div><div class="L5"><span class="pp-ln">  15 </span><span class="pp-pln">                </span><span class="pp-tag">param</span><span class="pp-pln"> example</span></div><div class="L6"><span class="pp-ln">  16 </span><span class="pp-pln">                </span><span class="pp-tag">param</span><span class="pp-pln"> callback</span></div><div class="L7"><span class="pp-ln">  17 </span><span class="pp-pln">                </span><span class="pp-tag">_</span><span class="pp-pln"> example(callback)</span></div><div class="L8"><span class="pp-ln">  18 </span><span class="pp-pln">            </span><span class="pp-mix frag-to-link-a" data-frag-id="d33">f_cb_test(</span><span class="pp-arg"> results</span><span class="pp-mix">)</span></div><div class="L9"><span class="pp-ln">  19 </span><span class="pp-pln">                </span><span class="pp-tag">log</span><span class="pp-pln"> 'Starter-essentials examples results\n', results</span></div><div class="L0"><span class="pp-ln">  20 </span><span class="pp-pln">                </span><span class="pp-tag">if</span><span class="pp-pln"> callback</span></div><div class="L1"><span class="pp-ln">  21 </span><span class="pp-pln">                    </span><span class="pp-tag">_</span><span class="pp-pln"> callback</span></div><div class="L2"><span class="pp-ln">  22 </span><span class="pp-pln">                        </span><span class="pp-tag">@</span><span class="pp-pln"> null</span></div><div class="L3"><span class="pp-ln">  23 </span><span class="pp-pln">                        </span><span class="pp-tag">@</span><span class="pp-pln"> 'Starter-essentials examples executed'</span></div><div class="L4"><span class="pp-ln">  24 </span><span class="pp-pln">    </span><span class="pp-tag">set</span><span class="pp-pln"> module.exports</span></div><div class="L5"><span class="pp-ln">  25 </span><span class="pp-pln">        </span><span class="pp-tag">function</span></div><div class="L6"><span class="pp-ln">  26 </span><span class="pp-pln">            </span><span class="pp-tag">param</span><span class="pp-pln"> callback</span></div><div class="L7"><span class="pp-ln">  27 </span><span class="pp-pln">            </span><span class="pp-tag">_</span><span class="pp-pln"> exec(callback)</span></div><div class="L8"><span class="pp-ln">  28 </span><span class="pp-pln">    </span><span class="pp-tag">if</span><span class="pp-pln"> require.main === module</span></div><div class="L9"><span class="pp-ln">  29 </span><span class="pp-pln">        </span><span class="pp-tag">_</span><span class="pp-pln"> exec</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d32">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/starter/essentials/package.json.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-tag">{</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-tag">name</span><span class="pp-pln"> "wizzi-essential-examples"</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">    </span><span class="pp-tag">version</span><span class="pp-pln"> "0.0.1"</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">    </span><span class="pp-tag">private</span><span class="pp-pln"> false</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">    </span><span class="pp-tag">dependencies</span></div><div class="L6"><span class="pp-ln">   6 </span><span class="pp-pln">        </span><span class="pp-tag">{</span></div><div class="L7"><span class="pp-ln">   7 </span><span class="pp-pln">            </span><span class="pp-tag">wizzi</span><span class="pp-pln"> "latest"</span></div><div class="L8"><span class="pp-ln">   8 </span><span class="pp-pln">            </span><span class="pp-tag">wizzi-core</span><span class="pp-pln"> "latest"</span></div><div class="L9"><span class="pp-ln">   9 </span><span class="pp-pln">            </span><span class="pp-tag">wizzi-js</span><span class="pp-pln"> "latest"</span></div><div class="L0"><span class="pp-ln">  10 </span><span class="pp-pln">            </span><span class="pp-tag">wizzi-web</span><span class="pp-pln"> "latest"</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d33">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/t/f_cb_test.js.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-kwd">$group</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-kwd">$params</span><span class="pp-pln"> result|notUsed</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">    </span><span class="pp-tag">function</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">        </span><span class="pp-tag">param</span><span class="pp-pln"> err</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">        </span><span class="pp-tag">param</span><span class="pp-kwd"> ${</span><span class="pp-expr">result</span><span class="pp-kwd">}</span></div><div class="L6"><span class="pp-ln">   6 </span><span class="pp-pln">        </span><span class="pp-tag">log</span><span class="pp-pln"> 'err', err</span></div><div class="L7"><span class="pp-ln">   7 </span><span class="pp-pln">        </span><span class="pp-tag">if</span><span class="pp-pln"> err</span></div><div class="L8"><span class="pp-ln">   8 </span><span class="pp-pln">            </span><span class="pp-tag">throw</span></div><div class="L9"><span class="pp-ln">   9 </span><span class="pp-pln">                </span><span class="pp-tag">new</span><span class="pp-pln"> Error</span></div><div class="L0"><span class="pp-ln">  10 </span><span class="pp-pln">                    </span><span class="pp-tag">_</span><span class="pp-pln"> JSON.stringify</span></div><div class="L1"><span class="pp-ln">  11 </span><span class="pp-pln">                        </span><span class="pp-tag">@</span><span class="pp-pln"> err</span></div><div class="L2"><span class="pp-ln">  12 </span><span class="pp-pln">                        </span><span class="pp-tag">@</span><span class="pp-pln"> null</span></div><div class="L3"><span class="pp-ln">  13 </span><span class="pp-pln">                        </span><span class="pp-tag">@</span><span class="pp-pln"> 2</span></div><div class="L4"><span class="pp-ln">  14 </span><span class="pp-pln">        </span><span class="pp-kwd">$hook</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d34">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/t/f_cb_throw.js.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-kwd">$group</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-kwd">$params</span><span class="pp-pln"> result|notUsed</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">    </span><span class="pp-tag">function</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">        </span><span class="pp-tag">param</span><span class="pp-pln"> err</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">        </span><span class="pp-tag">param</span><span class="pp-kwd"> ${</span><span class="pp-expr">result</span><span class="pp-kwd">}</span></div><div class="L6"><span class="pp-ln">   6 </span><span class="pp-pln">        </span><span class="pp-tag">log</span><span class="pp-pln"> 'err', err</span></div><div class="L7"><span class="pp-ln">   7 </span><span class="pp-pln">        </span><span class="pp-tag">if</span><span class="pp-pln"> err</span></div><div class="L8"><span class="pp-ln">   8 </span><span class="pp-pln">            </span><span class="pp-tag">throw</span></div><div class="L9"><span class="pp-ln">   9 </span><span class="pp-pln">                </span><span class="pp-tag">new</span><span class="pp-pln"> Error</span></div><div class="L0"><span class="pp-ln">  10 </span><span class="pp-pln">                    </span><span class="pp-tag">_</span><span class="pp-pln"> JSON.stringify</span></div><div class="L1"><span class="pp-ln">  11 </span><span class="pp-pln">                        </span><span class="pp-tag">@</span><span class="pp-pln"> err</span></div><div class="L2"><span class="pp-ln">  12 </span><span class="pp-pln">                        </span><span class="pp-tag">@</span><span class="pp-pln"> null</span></div><div class="L3"><span class="pp-ln">  13 </span><span class="pp-pln">                        </span><span class="pp-tag">@</span><span class="pp-pln"> 2</span></div><div class="L4"><span class="pp-ln">  14 </span><span class="pp-pln">        </span><span class="pp-kwd">$hook</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d35">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/ittf/t/f_cb.js.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-kwd">$group</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-kwd">$params</span><span class="pp-pln"> result|notUsed</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">    </span><span class="pp-tag">function</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">        </span><span class="pp-tag">param</span><span class="pp-pln"> err</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">        </span><span class="pp-tag">param</span><span class="pp-kwd"> ${</span><span class="pp-expr">result</span><span class="pp-kwd">}</span></div><div class="L6"><span class="pp-ln">   6 </span><span class="pp-pln">        </span><span class="pp-tag">if</span><span class="pp-pln"> err</span></div><div class="L7"><span class="pp-ln">   7 </span><span class="pp-pln">            </span><span class="pp-tag">return</span></div><div class="L8"><span class="pp-ln">   8 </span><span class="pp-pln">                </span><span class="pp-tag">_</span><span class="pp-pln"> callback</span></div><div class="L9"><span class="pp-ln">   9 </span><span class="pp-pln">                    </span><span class="pp-tag">@</span><span class="pp-pln"> err</span></div><div class="L0"><span class="pp-ln">  10 </span><span class="pp-pln">        </span><span class="pp-kwd">$hook</span></div></pre>
+                    </div>
+                </div>
+                <div class="code-panel" id="d36">
+                    <div class="modal-view-container">
+                        <h4 class="d-h2">/src/generate.wfjob.ittf</h4>
+                        <pre class="prettyprint">
+
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-tag">wfjob</span><span class="pp-pln"> demo</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-kwd">$</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">        </span><span class="pp-expr">var</span><span class="pp-expr"> ittf_meta_folder      = path.join(__dirname, 'ittf', 'meta');</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">        </span><span class="pp-expr">var</span><span class="pp-expr"> ittf_root_folder      = path.join(__dirname, 'ittf', 'root');</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">        </span><span class="pp-expr">var</span><span class="pp-expr"> ittf_starter            = path.join(__dirname, 'ittf', 'starter');</span></div><div class="L6"><span class="pp-ln">   6 </span><span class="pp-pln">        </span><span class="pp-expr">var</span><span class="pp-expr"> ittf_advanced         = path.join(__dirname, 'ittf', 'advanced');</span></div><div class="L7"><span class="pp-ln">   7 </span><span class="pp-pln">        </span><span class="pp-expr">var</span><span class="pp-expr"> dest_folder           = path.join(__dirname, '..', 'dist');</span></div><div class="L8"><span class="pp-ln">   8 </span><span class="pp-pln">    </span><span class="pp-tag">model</span><span class="pp-pln"> meta</span></div><div class="L9"><span class="pp-ln">   9 </span><span class="pp-pln">        </span><span class="pp-tag">schema</span><span class="pp-pln"> json</span></div><div class="L0"><span class="pp-ln">  10 </span><span class="pp-pln">        </span><span class="pp-tag">src</span><span class="pp-kwd"> ${</span><span class="pp-expr">ittf_meta_folder</span><span class="pp-kwd">}</span><span class="pp-pln">/index.json.ittf</span></div><div class="L1"><span class="pp-ln">  11 </span><span class="pp-pln">    </span><span class="pp-kwd">$include</span><span class="pp-mix frag-to-link-a" data-frag-id="unknown"> wfjob/root</span></div><div class="L2"><span class="pp-ln">  12 </span><span class="pp-pln">    </span><span class="pp-tag">line</span><span class="pp-pln"> ittf-starter</span></div><div class="L3"><span class="pp-ln">  13 </span><span class="pp-pln">        </span><span class="pp-tag">cwd-folder</span><span class="pp-kwd"> ${</span><span class="pp-expr">ittf_starter</span><span class="pp-kwd">}</span></div><div class="L4"><span class="pp-ln">  14 </span><span class="pp-pln">        </span><span class="pp-tag">dest-folder</span><span class="pp-kwd"> ${</span><span class="pp-expr">dest_folder</span><span class="pp-kwd">}</span><span class="pp-pln">/starter</span></div><div class="L5"><span class="pp-ln">  15 </span><span class="pp-pln">        </span><span class="pp-mix frag-to-link-a" data-frag-id="unknown">wfjob/any_js(</span><span class="pp-mix">)</span></div><div class="L6"><span class="pp-ln">  16 </span><span class="pp-pln">            </span><span class="pp-tag">ignore</span><span class="pp-kwd"> ${</span><span class="pp-expr">ittf_starter</span><span class="pp-kwd">}</span><span class="pp-pln">/**/*__copy/**/*.js.ittf</span></div><div class="L7"><span class="pp-ln">  17 </span><span class="pp-pln">        </span><span class="pp-tag">artifact</span><span class="pp-pln"> any_ittf_inside___copy</span></div><div class="L8"><span class="pp-ln">  18 </span><span class="pp-pln">            </span><span class="pp-tag">src</span><span class="pp-kwd"> ${</span><span class="pp-expr">ittf_starter</span><span class="pp-kwd">}</span><span class="pp-pln">/**/*__copy/**/*.ittf</span></div><div class="L9"><span class="pp-ln">  19 </span><span class="pp-pln">            </span><span class="pp-tag">extension</span><span class="pp-pln"> ittf</span></div><div class="L0"><span class="pp-ln">  20 </span><span class="pp-pln">        </span><span class="pp-kwd">$include</span><span class="pp-mix frag-to-link-a" data-frag-id="unknown"> wfjob/any_md</span></div><div class="L1"><span class="pp-ln">  21 </span><span class="pp-pln">    </span><span class="pp-tag">line</span><span class="pp-pln"> ittf-advanced</span></div><div class="L2"><span class="pp-ln">  22 </span><span class="pp-pln">        </span><span class="pp-tag">cwd-folder</span><span class="pp-kwd"> ${</span><span class="pp-expr">ittf_advanced</span><span class="pp-kwd">}</span></div><div class="L3"><span class="pp-ln">  23 </span><span class="pp-pln">        </span><span class="pp-tag">dest-folder</span><span class="pp-kwd"> ${</span><span class="pp-expr">dest_folder</span><span class="pp-kwd">}</span><span class="pp-pln">/advanced</span></div><div class="L4"><span class="pp-ln">  24 </span><span class="pp-pln">        </span><span class="pp-mix frag-to-link-a" data-frag-id="unknown">wfjob/any_js(</span><span class="pp-mix">)</span></div><div class="L5"><span class="pp-ln">  25 </span><span class="pp-pln">            </span><span class="pp-tag">ignore</span><span class="pp-kwd"> ${</span><span class="pp-expr">ittf_advanced</span><span class="pp-kwd">}</span><span class="pp-pln">/**/*__copy/**/*.js.ittf</span></div><div class="L6"><span class="pp-ln">  26 </span><span class="pp-pln">        </span><span class="pp-tag">artifact</span><span class="pp-pln"> any_ittf_inside___copy</span></div><div class="L7"><span class="pp-ln">  27 </span><span class="pp-pln">            </span><span class="pp-tag">src</span><span class="pp-kwd"> ${</span><span class="pp-expr">ittf_advanced</span><span class="pp-kwd">}</span><span class="pp-pln">/**/*__copy/**/*.ittf</span></div><div class="L8"><span class="pp-ln">  28 </span><span class="pp-pln">            </span><span class="pp-tag">extension</span><span class="pp-pln"> ittf</span></div><div class="L9"><span class="pp-ln">  29 </span><span class="pp-pln">        </span><span class="pp-kwd">$include</span><span class="pp-mix frag-to-link-a" data-frag-id="unknown"> wfjob/any_md</span></div><div class="L0"><span class="pp-ln">  30 </span><span class="pp-pln">    </span><span class="pp-tag">production</span></div><div class="L1"><span class="pp-ln">  31 </span><span class="pp-pln">        </span><span class="pp-tag">dest-folder</span><span class="pp-kwd"> ${</span><span class="pp-expr">dest_folder</span><span class="pp-kwd">}</span></div><div class="L2"><span class="pp-ln">  32 </span><span class="pp-pln">        </span><span class="pp-tag">line-ref</span><span class="pp-pln"> ittf-root</span></div><div class="L3"><span class="pp-ln">  33 </span><span class="pp-pln">        </span><span class="pp-tag">line-ref</span><span class="pp-pln"> ittf-starter</span></div><div class="L4"><span class="pp-ln">  34 </span><span class="pp-pln">        </span><span class="pp-tag">line-ref</span><span class="pp-pln"> ittf-advanced</span></div></pre>
+                    </div>
+                </div>
+                <div id="frag-modal" class="modal">
+                    <div id="frag-modal-content" class="modal-content">
+                        <span class="modal-close">&times;</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../jquery-3.2.1.js"></script>
+    <script src="../wizzifactory.js"></script>
+</body>
+
+</html>

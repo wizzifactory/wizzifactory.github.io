@@ -3,22 +3,22 @@
 <head>
     <title>The Wizzi Factory</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
-    <link href="sanitize.css" rel="stylesheet" />
-    <link href="wizzifactory.css" rel="stylesheet" />
+    <link href="../sanitize.css" rel="stylesheet" />
+    <link href="../wizzifactory.css" rel="stylesheet" />
 </head>
-<body class="index">
+<body class="docs-intro">
     <div class="site">
-        <header class="navigation">
+        <header class="navigation-sub">
             <div class="container navigation__inner">
-                <a href="index.html"><img width="100" height="44px" src="logo.svg" />
+                <a href="../index.html"><img width="100" height="44px" src="../logo.svg" />
                 </a>
                 <nav class="navigation__links">
-                    <a title="index concepts" href="concepts.html" class="navigation__link">Concepts</a>
-                    <a title="index docs" href="docs/intro.html" class="navigation__link">Docs</a>
-                    <a title="index api" href="api.html" class="navigation__link">Api</a>
-                    <a title="index code" href="code/intro.html" class="navigation__link">Code</a>
-                    <a title="index starters" href="starters.html" class="navigation__link">Starters</a>
-                    <a title="index project" href="project.html" class="navigation__link">Project</a>
+                    <a title="docs concepts" href="../concepts.html" class="navigation__link">Concepts</a>
+                    <a title="docs docs" href="../docs/intro.html" class="navigation__link navigation__link--active">Docs</a>
+                    <a title="docs api" href="../api.html" class="navigation__link">Api</a>
+                    <a title="docs code" href="../code/intro.html" class="navigation__link">Code</a>
+                    <a title="docs starters" href="../starters.html" class="navigation__link">Starters</a>
+                    <a title="docs project" href="../project.html" class="navigation__link">Project</a>
                 </nav>
                 <div class="navigation__search">
                     <span class="algolia-autocomplete" style="position: relative; display: inline-block; direction: ltr;">
@@ -40,15 +40,33 @@
                 <a href="#" target="_blank" class="navigation__icon" title="Follow on facebook"><i class="sidecar__icon icon-facebook"></i>
                 </a>
             </div>
+            <div class="navigation__bottom">
+                <div class="container navigation__inner">
+                    <a class="navigation__child navigation__child--active" title="intro ittf source code" href="intro.html">intro</a>
+                    <a class="navigation__child" title="ittf ittf source code" href="ittf.html">ittf</a>
+                    <a class="navigation__child" title="jswizzi ittf source code" href="jswizzi.html">jswizzi</a>
+                    <a class="navigation__child" title="models ittf source code" href="models.html">models</a>
+                    <a class="navigation__child" title="artifacts ittf source code" href="artifacts.html">artifacts</a>
+                    <a class="navigation__child" title="jobs ittf source code" href="jobs.html">jobs</a>
+                    <a class="navigation__child" title="plugins ittf source code" href="plugins.html">plugins</a>
+                </div>
+            </div>
         </header>
-        <main id="wrapper">
-            <div style="position:absolute; margin: 350px 0 150px 0; width:100%;">
-                <img style="height: 100%; width:100%;" src="mario sironi - 1920 - paesaggio urbano e camion - 1920.jpg" alt="artistic factories" class="hero-img" />
+        <main id="wrapper-sub">
+            <nav class="main-sidebar-left main-sidebar-left-sub">
+                <img src="../workinprogress.jpg" />
+                <section id="main-toc" class="toc toc sidebar__inner">
+                    <h3>Contents:</h3>
+                    <ol></ol>
+                </section>
+            </nav>
+            <div class="main-content">
+                <section></section>
             </div>
         </main>
     </div>
     <script src="jquery-3.2.1.js"></script>
-    <script src="wizzifactory.js"></script>
+    <script src="../wizzifactory.js"></script>
 </body>
 
 </html>
