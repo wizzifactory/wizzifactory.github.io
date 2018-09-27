@@ -506,22 +506,22 @@ input[id^='mc-toggle-'] {
     }
     .mc-pane {
         display: none;
-        font-size: 1.3rem;
+        font-size: 1.1rem;
     }
     .mc-pane h2 {
-        font-size: 2rem;
-        margin: 1.8rem 0 0 0;
-    }
-    .mc-pane h3 {
         font-size: 1.6rem;
         margin: 1.5rem 0 0 0;
+    }
+    .mc-pane h3 {
+        font-size: 1.3rem;
+        margin: 1.2rem 0 0 0;
     }
     .mc-pane h4 {
         margin: 1rem 0 -3px 0;
     }
     .mc-pane p {
-        line-height: 1.6rem;
-        margin-bottom: 1rem;
+        line-height: 1.2rem;
+        margin-bottom: 0.8rem;
     }
     .mc-content {
         height: calc(100% - 60px);
