@@ -1,4 +1,4 @@
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1028px) {
     #mc-toggle-concept-0:checked ~ .mc-pane-concept-0 {
         display: block;
     }

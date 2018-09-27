@@ -4,17 +4,19 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
     <link href="sanitize.css" rel="stylesheet" />
     <link href="styles/main.css" rel="stylesheet" />
+    <link href="styles/index.css" rel="stylesheet" />
 </head>
 <body class="Index">
-    <input type="checkbox" id="menu-toggle" />
-    <nav class="navBar">
-        <nav class="navMain">
+    <!-- top navigation markup -->
+    <input type="checkbox" id="tn-input-toggle" />
+    <nav class="tn-bar">
+        <nav class="tn-main">
             <a href="index.html.ittf"><div class="logo">
                 <img width="100" height="45px" src="images/logo.svg" />
             </div>
             </a>
-            <label for="menu-toggle" class="label-toggle"></label>
-            <label for="menu-toggle" class="label-toggle-close">&times;</label>
+            <label for="tn-input-toggle" class="tn-label-toggle"></label>
+            <label for="tn-input-toggle" class="tn-label-toggle-close">&times;</label>
             <ul>
                 <li><a href="concepts.html">Concepts</a>
                 </li>
@@ -31,13 +33,9 @@
             </ul>
         </nav>
     </nav>
-    <main class="mainContent" id="wrapper">
-        <div style="position:absolute; margin: 350px 0 150px 0; width:100%;">
-            <img style="height: 100%; width:100%;" src="mario sironi - 1920 - paesaggio urbano e camion - 1920.jpg" alt="artistic factories" class="hero-img" />
-        </div>
-    </main>
-    <script src="jquery-3.2.1.js"></script>
-    <script src="wizzifactory.js"></script>
+    <div style="position:absolute; margin: 350px 0 150px 0; width:100%;">
+        <img style="height: 100%; width:100%;" src="mario sironi - 1920 - paesaggio urbano e camion - 1920.jpg" alt="artistic factories" class="hero-img" />
+    </div>
 </body>
 
 </html>
