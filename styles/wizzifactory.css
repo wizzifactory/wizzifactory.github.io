@@ -800,9 +800,11 @@ pre.prettyprint {
     font-size: 1rem;
     line-height: 1.4em;
     overflow: auto;
-}
-.prettyprint {
     background: #2B3A42;
+    margin-bottom: 1rem;
+}
+pre.prettyprint ol {
+    padding-left: 2rem;
 }
 .L0, .L1, .L2, .L3, .L4, .L5, .L6, .L7, .L8, .L9 {
     color: #777;

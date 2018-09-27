@@ -132,9 +132,11 @@ pre.prettyprint {
     font-size: 1rem;
     line-height: 1.4em;
     overflow: auto;
-}
-.prettyprint {
     background: #2B3A42;
+    margin-bottom: 1rem;
+}
+pre.prettyprint ol {
+    padding-left: 2rem;
 }
 .L0, .L1, .L2, .L3, .L4, .L5, .L6, .L7, .L8, .L9 {
     color: #777;
@@ -448,6 +450,10 @@ pre.prettyprint {
 .mc-pane p {
     line-height: 1.3rem;
     margin-bottom: 0.5rem;
+}
+.mc-pane ul {
+    list-style-type: disc;
+    padding-left: 2rem;
 }
 input[id^='mc-toggle-'] {
     display: none;
