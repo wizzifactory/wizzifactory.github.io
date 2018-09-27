@@ -1,72 +1,134 @@
 <!doctype html>
 <html VERSION-5="5" VERSION-4="4" version="5">
 <head>
-    <title>The Wizzi Factory</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
-    <link href="../sanitize.css" rel="stylesheet" />
-    <link href="../wizzifactory.css" rel="stylesheet" />
+    <link href="sanitize.css" rel="stylesheet" />
+    <link href="../styles/main.css" rel="stylesheet" />
+    <link href="../styles/documentation-intro.css" rel="stylesheet" />
 </head>
-<body class="docs-intro">
-    <div class="site">
-        <header class="navigation-sub">
-            <div class="container navigation__inner">
-                <a href="../index.html"><img width="100" height="44px" src="../logo.svg" />
-                </a>
-                <nav class="navigation__links">
-                    <a title="docs concepts" href="../concepts.html" class="navigation__link">Concepts</a>
-                    <a title="docs docs" href="../docs/intro.html" class="navigation__link navigation__link--active">Docs</a>
-                    <a title="docs api" href="../api.html" class="navigation__link">Api</a>
-                    <a title="docs code" href="../code/intro.html" class="navigation__link">Code</a>
-                    <a title="docs starters" href="../starters.html" class="navigation__link">Starters</a>
-                    <a title="docs project" href="../project.html" class="navigation__link">Project</a>
+<body class="Documentation-intro">
+    <!-- top navigation markup -->
+    <input type="checkbox" id="tn-input-toggle" />
+    <nav class="tn-bar">
+        <nav class="tn-main">
+            <a href="index.html.ittf"><div class="logo">
+                <img width="100" height="45px" src="../images/logo.svg" />
+            </div>
+            </a>
+            <label for="tn-input-toggle" class="tn-label-toggle"></label>
+            <label for="tn-input-toggle" class="tn-label-toggle-close">&times;</label>
+            <ul>
+                <li><a href="../concepts.html">Concepts</a>
+                </li>
+                <li class="tn-pageSelected"><a href="../docs/intro.html">Documentation</a>
+                <nav class="tn-subPages_mobile">
+                    <ul>
+                        <li><a href="../docs/intro.html">intro</a>
+                        </li>
+                        <li><a href="../docs/ittf.html">ittf</a>
+                        </li>
+                        <li><a href="../docs/jswizzi.html">jswizzi</a>
+                        </li>
+                        <li><a href="../docs/models.html">models</a>
+                        </li>
+                        <li><a href="../docs/artifacts.html">artifacts</a>
+                        </li>
+                        <li><a href="../docs/jobs.html">jobs</a>
+                        </li>
+                        <li><a href="../docs/plugins.html">plugins</a>
+                        </li>
+                    </ul>
                 </nav>
-                <div class="navigation__search">
-                    <span class="algolia-autocomplete" style="position: relative; display: inline-block; direction: ltr;">
-                        <input type="text" class="navigation__search-input ds-input" placeholder="Search documentation…" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0" dir="auto" style="position: relative; vertical-align: top;" />
-                        <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: Arial; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; word-spacing: 0px; letter-spacing: normal; text-indent: 7px; text-rendering: auto; text-transform: none;"></pre>
-                        <span class="ds-dropdown-menu" role="listbox" id="algolia-autocomplete-listbox-0" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;">
-                            <div class="ds-dataset-1"></div>
-                        </span>
-                    </span>
-                    <button class="navigation__search-icon icon-search"></button>
-                    <button class="navigation__search-icon icon-cross"></button>
-                </div>
-                <a href="https://github.com/wizzifactory" target="_blank" class="navigation__icon" title="GitHub Repository"><i class="sidecar__icon icon-github"></i>
-                </a>
-                <a href="https://stackoverflow.com/questions/tagged/wizzifactory" target="_blank" class="navigation__icon" title="See Questions on Stack Overflow"><i class="sidecar__icon icon-stackoverflow"></i>
-                </a>
-                <a href="#" target="_blank" class="navigation__icon" title="Follow on twitter"><i class="sidecar__icon icon-twitter"></i>
-                </a>
-                <a href="#" target="_blank" class="navigation__icon" title="Follow on facebook"><i class="sidecar__icon icon-facebook"></i>
-                </a>
+                </li>
+                <li><a href="../api.html">Api</a>
+                </li>
+                <li><a href="../code/intro.html">Code</a>
+                </li>
+                <li><a href="../starters.html">Starters</a>
+                </li>
+                <li><a href="../project.html">Project</a>
+                </li>
+            </ul>
+        </nav>
+        <nav class="tn-subPages">
+            <ul>
+                <li class="tn-subPageSelected"><a href="../docs/intro.html">intro</a>
+                </li>
+                <li><a href="../docs/ittf.html">ittf</a>
+                </li>
+                <li><a href="../docs/jswizzi.html">jswizzi</a>
+                </li>
+                <li><a href="../docs/models.html">models</a>
+                </li>
+                <li><a href="../docs/artifacts.html">artifacts</a>
+                </li>
+                <li><a href="../docs/jobs.html">jobs</a>
+                </li>
+                <li><a href="../docs/plugins.html">plugins</a>
+                </li>
+            </ul>
+        </nav>
+    </nav>
+    <!-- main content markup -->
+    <main id="mc-wrapper" class="mc-wrapper-layout-sub">
+        <input type="checkbox" id="mc-toggle-toc" />
+        <input type="checkbox" id="mc-toggle-toc-close" onchange="mc_toggle_toc_Close()" />
+        <div class="mc-frame">
+            <div class="mc-frame-bar">
+                <h1 class="mc-sidebar-left-title">intro</h1>
+                <h1>
+                    <label for="mc-toggle-toc-close" class="mc-label-toggle-close">&times;</label>
+                </h1>
             </div>
-            <div class="navigation__bottom">
-                <div class="container navigation__inner">
-                    <a class="navigation__child navigation__child--active" title="intro ittf source code" href="intro.html">intro</a>
-                    <a class="navigation__child" title="ittf ittf source code" href="ittf.html">ittf</a>
-                    <a class="navigation__child" title="jswizzi ittf source code" href="jswizzi.html">jswizzi</a>
-                    <a class="navigation__child" title="models ittf source code" href="models.html">models</a>
-                    <a class="navigation__child" title="artifacts ittf source code" href="artifacts.html">artifacts</a>
-                    <a class="navigation__child" title="jobs ittf source code" href="jobs.html">jobs</a>
-                    <a class="navigation__child" title="plugins ittf source code" href="plugins.html">plugins</a>
-                </div>
-            </div>
-        </header>
-        <main id="wrapper-sub">
-            <nav class="main-sidebar-left main-sidebar-left-sub">
-                <img src="../workinprogress.jpg" />
-                <section id="main-toc" class="toc toc sidebar__inner">
-                    <h3>Contents:</h3>
-                    <ol></ol>
-                </section>
+            <nav class="mc-sidebar-left">
+                <ul>
+                    <li><a href="#concept-intro" class="mc-item-link">Introduction</a>
+                    <label for="mc-toggle-concept-intro" class="mc-label-toggle">Introduction</label>
+                    </li>
+                </ul>
             </nav>
-            <div class="main-content">
-                <section></section>
+            <div class="mc-content">
+                <div>
+                    <input type="checkbox" id="mc-toggle-concept-intro" onchange="m_toggleChanged()" />
+                    <h1 class="mc-content-title" id="concept-intro">intro</h1>
+                    <div class="mc-pane mc-pane-concept-intro">
+                        <div class="summary"></div>
+                    </div>
+                </div>
             </div>
-        </main>
-    </div>
-    <script src="jquery-3.2.1.js"></script>
-    <script src="../wizzifactory.js"></script>
+        </div>
+    </main>
+    <script>
+        /*
+            artifact generator: C:\my\wizzi\v6\node_modules\wizzi-js\lib\artifacts\js\module\gen\main.js
+            primary source IttfDocument: c:\my\wizzi\v6\test\wizzi-docs\jobs\ittf\docs\html\docs.html.ittf
+            utc time: Thu, 27 Sep 2018 13:14:37 GMT
+        */
+        'use strict';
+        function m_toggleChanged() {
+            var el_toc = document.querySelector("input[id='mc-toggle-toc']");
+            var el_contents = document.querySelectorAll("input[id^='mc-toggle-concept-']");
+            var seenTrue = false;
+            var i, i_items=el_contents, i_len=el_contents.length, el;
+            for (i=0; i<i_len; i++) {
+                el = el_contents[i];
+                if (el.checked) {
+                    seenTrue = true;
+                }
+            }
+            el_toc.checked = seenTrue;
+        }
+        function mc_toggle_toc_Close() {
+            var el_toc = document.querySelector("input[id='mc-toggle-toc']");
+            var el_contents = document.querySelectorAll("input[id^='mc-toggle-concept-']");
+            var i, i_items=el_contents, i_len=el_contents.length, el;
+            for (i=0; i<i_len; i++) {
+                el = el_contents[i];
+                el.checked = false;
+            }
+            el_toc.checked = false;
+        }
+    </script>
 </body>
 
 </html>
