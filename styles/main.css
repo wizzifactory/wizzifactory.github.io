@@ -35,6 +35,8 @@ h2 {
 }
 .logo img:hover {
     background-color: #fff;
+    width: 100px;
+    height: 45px;
 }
 #tn-input-toggle {
     display: none;
@@ -58,6 +60,16 @@ h2 {
 }
 /** flex for logo and menu UL */
 /** space-between evenly distributes the child elements within the parent flex container */
+.tn-bar .tn-main .logo {
+    background-color: #fff;
+}
+.tn-bar .tn-main .logo img {
+    width: 100px;
+    height: 45px;
+}
+.tn-bar .tn-main .logo img:hover {
+    background-color: #066;
+}
 .tn-bar .tn-main ul {
     display: -ms-flexbox;
     display: flex;
@@ -150,6 +162,13 @@ h2 {
     .tn-bar .tn-main {
         display: block;
     }
+    .tn-bar .tn-main .logo {
+    }
+    .tn-bar .tn-main .logo img {
+        width: 200px;
+        height: 90px;
+        margin: -24px 0;
+    }
     .tn-bar .tn-main ul {
         background-color: #333;
         display: block;
@@ -158,6 +177,7 @@ h2 {
         text-align: center;
         width: 100%;
         display: none;
+        margin-top: 2rem;
     }
     .tn-bar .tn-main ul li {
         border-bottom: 2px solid #fff;
@@ -276,7 +296,6 @@ h2 {
 }
 .mc-sidebar-left-title {
     display: none;
-    padding-left: 30px;
 }
 .mc-content {
     padding: 20px 20px;
@@ -307,17 +326,17 @@ input[id^='mc-toggle-'] {
         margin: 10px;
     }
     #mc-wrapper .mc-frame .mc-sidebar-left ul li {
-        font-size: 1.5rem;
+        font-size: 3rem;
         border-bottom: 2px solid #000;
         padding: 2rem 0;
     }
     .mc-wrapper-layout {
-        top: 6rem;
-        height: calc(100% - 7rem);
+        top: 7rem;
+        height: calc(100% - 8rem);
     }
     .mc-wrapper-layout-sub {
-        top: 6rem;
-        height: calc(100% - 16rem);
+        top: 7rem;
+        height: calc(100% - 17rem);
     }
     .mc-frame-bar {
         display: -ms-flexbox;
@@ -333,6 +352,7 @@ input[id^='mc-toggle-'] {
     .mc-sidebar-left-title {
         display: block;
         padding-left: 0;
+        font-size: 3rem;
     }
     .mc-label-toggle {
         display: block;
@@ -342,6 +362,8 @@ input[id^='mc-toggle-'] {
     }
     .mc-pane {
         display: none;
+        font-size: 1.5rem;
+        line-height: 2rem;
     }
     .mc-content {
         height: calc(100% - 140px);
