@@ -154,6 +154,15 @@ pre.prettyprint {
 .linenums {
     color: #fff;
 }
+@media screen and (max-width: 1028px) {
+    pre.prettyprint {
+        padding: 1.2rem;
+        border-left: 5px solid #999;
+        font-size: 1.3rem;
+        line-height: 1.5em;
+        overflow: auto;
+    }
+}
 .logo {
     background-color: #fff;
 }
@@ -497,21 +506,21 @@ input[id^='mc-toggle-'] {
     }
     .mc-pane {
         display: none;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
     .mc-pane h2 {
-        font-size: 3rem;
-        margin: 2.5rem 0 0 0;
+        font-size: 2rem;
+        margin: 1.8rem 0 0 0;
     }
     .mc-pane h3 {
-        font-size: 2rem;
-        margin: 2rem 0 0 0;
+        font-size: 1.6rem;
+        margin: 1.5rem 0 0 0;
     }
     .mc-pane h4 {
         margin: 1rem 0 -3px 0;
     }
     .mc-pane p {
-        line-height: 2rem;
+        line-height: 1.6rem;
         margin-bottom: 1rem;
     }
     .mc-content {

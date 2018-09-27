@@ -822,6 +822,15 @@ pre.prettyprint {
 .linenums {
     color: #fff;
 }
+@media screen and (max-width: 1028px) {
+    pre.prettyprint {
+        padding: 1.2rem;
+        border-left: 5px solid #999;
+        font-size: 1.3rem;
+        line-height: 1.5em;
+        overflow: auto;
+    }
+}
 .modal {
     display: none;
     position: fixed;
