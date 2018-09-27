@@ -84,7 +84,7 @@ h2 {
     color: #999;
 }
 .pp-pln {
-    color: #BBB;
+    color: #CCC;
 }
 .pp-str {
     color: #EC7600;
@@ -157,11 +157,14 @@ pre.prettyprint ol {
     color: #fff;
 }
 @media screen and (max-width: 1028px) {
+    .pp-pln {
+        color: #FFF;
+    }
     pre.prettyprint {
         padding: 1.2rem;
         border-left: 5px solid #999;
-        font-size: 1.3rem;
-        line-height: 1.5em;
+        font-size: 1.8rem;
+        line-height: 2rem;
         overflow: auto;
     }
 }
