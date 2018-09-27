@@ -795,32 +795,32 @@ pre {
     margin: 0;
 }
 pre.prettyprint {
-    padding: 0px 0px 20px 0px;
-    border: 0px solid #888;
-    font-size: 1em;
-    line-height: 1.1em;
+    padding: 0.8rem;
+    border-left: 5px solid #999;
+    font-size: 1rem;
+    line-height: 1.4em;
     overflow: auto;
 }
 .prettyprint {
     background: #2B3A42;
 }
-div.L0,  div.L1,  div.L2,  div.L3,  div.L4,  div.L5,  div.L6,  div.L7,  div.L8,  div.L9 {
+.L0, .L1, .L2, .L3, .L4, .L5, .L6, .L7, .L8, .L9 {
     color: #777;
-    margin: 0;
-    padding-left: 5px;
+    margin-left: 1rem;
+    padding-left: 1rem;
     list-style-type: decimal;
 }
-div.L1,  div.L3,  div.L5,  div.L7,  div.L9 {
-    background: #444;
+.L1, .L3, .L5, .L7, .L9 {
+    background: #555;
 }
 .prettyprint-js {
     background: #fff;
 }
-div.J1,  div.J3,  div.J5,  div.J7,  div.J9 {
+.J1, .J3, .J5, .J7, .J9 {
     background: #ddd;
 }
 .linenums {
-    color: #eee;
+    color: #fff;
 }
 .modal {
     display: none;
