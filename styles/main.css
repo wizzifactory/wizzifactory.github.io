@@ -285,7 +285,7 @@ pre.prettyprint ol {
 }
 @media screen and (max-width: 1028px) {
     .tn-bar {
-        padding: 2rem 0;
+        padding: 2.5rem 0;
     }
     .tn-bar .logo {
         display: inline-block;
@@ -500,7 +500,7 @@ input[id^='mc-toggle-'] {
         background-color: #666;
         color: #fff;
         margin: 1rem;
-        padding: 2rem 1rem;
+        padding: 1.5rem 1rem;
     }
     .mc-sidebar-left-title {
         display: block;
