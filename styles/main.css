@@ -519,10 +519,12 @@ input[id^='mc-toggle-'] {
     }
     .mc-pane h2 {
         font-size: 1.6rem;
+        font-weight: 500;
         margin: 1.5rem 0 0 0;
     }
     .mc-pane h3 {
         font-size: 1.3rem;
+        font-weight: 500;
         margin: 1.2rem 0 0 0;
     }
     .mc-pane h4 {
