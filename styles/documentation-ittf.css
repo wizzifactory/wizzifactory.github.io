@@ -23,7 +23,4 @@
     #mc-toggle-concept-7:checked ~ .mc-pane-concept-7 {
         display: block;
     }
-    #mc-toggle-concept-8:checked ~ .mc-pane-concept-8 {
-        display: block;
-    }
 }

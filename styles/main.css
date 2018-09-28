@@ -528,10 +528,11 @@ input[id^='mc-toggle-'] {
         margin: 1.2rem 0 0 0;
     }
     .mc-pane h4 {
+        font-weight: 500;
         margin: 1rem 0 -3px 0;
     }
     .mc-pane p {
-        line-height: 1.8rem;
+        line-height: 2rem;
         margin-bottom: 1rem;
     }
     .mc-content {
