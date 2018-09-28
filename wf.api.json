@@ -9,6 +9,7 @@
             "wzTag": "api",
             "wzName": "wizzi",
             "kind": "kernel",
+            "id": "wizzi",
             "comments": [
                 {
                     "wzElement": "comment",
@@ -1513,6 +1514,7 @@
             "wzTag": "api",
             "wzName": "wizzi.wizziFactoryModule",
             "kind": "kernel",
+            "id": "wizzi_wizziFactoryModule",
             "comments": [
                 {
                     "wzElement": "comment",
@@ -1735,6 +1737,7 @@
             "wzTag": "api",
             "wzName": "wizzi.wizziFactory",
             "kind": "kernel",
+            "id": "wizzi_wizziFactory",
             "comments": [
                 {
                     "wzElement": "comment",
@@ -4353,6 +4356,7 @@
             "wzTag": "api",
             "wzName": "wizzi.pluginsManagerModule",
             "kind": "kernel",
+            "id": "wizzi_pluginsManagerModule",
             "comments": [
                 {
                     "wzElement": "comment",
@@ -4621,6 +4625,7 @@
             "wzTag": "api",
             "wzName": "wizzi.pluginsManager",
             "kind": "kernel",
+            "id": "wizzi_pluginsManager",
             "comments": [
                 {
                     "wzElement": "comment",
@@ -5557,6 +5562,7 @@
             "wzTag": "api",
             "wzName": "wizzi.runnerServerModule",
             "kind": "kernel",
+            "id": "wizzi_runnerServerModule",
             "comments": [
                 {
                     "wzElement": "comment",
@@ -5737,6 +5743,7 @@
             "wzTag": "api",
             "wzName": "wizzi.runnerServer",
             "kind": "kernel",
+            "id": "wizzi_runnerServer",
             "comments": [],
             "implementation": {
                 "wzElement": "implementation",
@@ -6417,6 +6424,7 @@
             "wzTag": "api",
             "wzName": "wizzi.model.modelInfoConfig",
             "kind": "kernel",
+            "id": "wizzi_model_modelInfoConfig",
             "comments": [
                 {
                     "wzElement": "comment",
@@ -6712,6 +6720,7 @@
             "wzTag": "api",
             "wzName": "wizzi.model.modelCollectionConfig",
             "kind": "kernel",
+            "id": "wizzi_model_modelCollectionConfig",
             "comments": [
                 {
                     "wzElement": "comment",
@@ -7001,6 +7010,7 @@
             "wzTag": "api",
             "wzName": "wizzi.model.modelInfo",
             "kind": "kernel",
+            "id": "wizzi_model_modelInfo",
             "comments": [],
             "implementation": {
                 "wzElement": "implementation",
@@ -8533,6 +8543,7 @@
             "wzTag": "api",
             "wzName": "wizzi.model.asyncModelLoader",
             "kind": "kernel",
+            "id": "wizzi_model_asyncModelLoader",
             "comments": [],
             "implementation": {
                 "wzElement": "implementation",
@@ -8868,6 +8879,7 @@
             "wzTag": "api",
             "wzName": "wizzi.artifact.artifactInfoConfig",
             "kind": "kernel",
+            "id": "wizzi_artifact_artifactInfoConfig",
             "comments": [],
             "implementation": null,
             "interface": null,
@@ -9250,6 +9262,7 @@
             "wzTag": "api",
             "wzName": "wizzi.artifact.persisteable",
             "kind": "kernel",
+            "id": "wizzi_artifact_persisteable",
             "comments": [],
             "implementation": null,
             "interface": null,
@@ -9311,6 +9324,7 @@
             "wzTag": "api",
             "wzName": "wizzi.artifact.artifactInfo",
             "kind": "kernel",
+            "id": "wizzi_artifact_artifactInfo",
             "comments": [],
             "implementation": null,
             "interface": null,
@@ -9844,6 +9858,7 @@
             "wzTag": "api",
             "wzName": "wizzi.artifact.genConfig",
             "kind": "kernel",
+            "id": "wizzi_artifact_genConfig",
             "comments": [],
             "implementation": {
                 "wzElement": "implementation",
@@ -10034,6 +10049,7 @@
             "wzTag": "api",
             "wzName": "wizzi.artifact.genContext",
             "kind": "kernel",
+            "id": "wizzi_artifact_genContext",
             "comments": [],
             "implementation": {
                 "wzElement": "implementation",
@@ -11014,6 +11030,7 @@
             "wzTag": "api",
             "wzName": "wizzi.artifact.AsyncArtifactGenerator",
             "kind": "kernel",
+            "id": "wizzi_artifact_AsyncArtifactGenerator",
             "comments": [],
             "implementation": {
                 "wzElement": "implementation",
@@ -12069,6 +12086,7 @@
             "wzTag": "api",
             "wzName": "wizzi.production.productionContext",
             "kind": "kernel",
+            "id": "wizzi_production_productionContext",
             "comments": [
                 {
                     "wzElement": "comment",
@@ -12541,6 +12559,7 @@
             "wzTag": "api",
             "wzName": "wizzi.production.productionManager",
             "kind": "kernel",
+            "id": "wizzi_production_productionManager",
             "comments": [
                 {
                     "wzElement": "comment",
@@ -13948,6 +13967,7 @@
             "wzTag": "api",
             "wzName": "wizzi.production.Runner",
             "kind": "kernel",
+            "id": "wizzi_production_Runner",
             "comments": [
                 {
                     "wzElement": "comment",
@@ -15670,6 +15690,7 @@
             "wzTag": "api",
             "wzName": "wizzi-repo",
             "kind": "kernel",
+            "id": "wizzi_repo",
             "comments": [
                 {
                     "wzElement": "comment",
@@ -16154,6 +16175,7 @@
             "wzTag": "api",
             "wzName": "wizzi-repo.ittfDocumentStore",
             "kind": "kernel",
+            "id": "wizzi_repo_ittfDocumentStore",
             "comments": [
                 {
                     "wzElement": "comment",
@@ -17240,6 +17262,7 @@
             "wzTag": "api",
             "wzName": "wizzi-mtree",
             "kind": "kernel",
+            "id": "wizzi_mtree",
             "comments": [
                 {
                     "wzElement": "comment",
@@ -17703,6 +17726,7 @@
             "wzTag": "api",
             "wzName": "wizzi-mtree.loader",
             "kind": "kernel",
+            "id": "wizzi_mtree_loader",
             "comments": [
                 {
                     "wzElement": "comment",
@@ -17990,6 +18014,7 @@
             "wzTag": "api",
             "wzName": "wizzi-mtree.loader.line",
             "kind": "kernel",
+            "id": "wizzi_mtree_loader_line",
             "comments": [
                 {
                     "wzElement": "comment",
@@ -18228,6 +18253,7 @@
             "wzTag": "api",
             "wzName": "wizzi-mtree.loader.node",
             "kind": "kernel",
+            "id": "wizzi_mtree_loader_node",
             "comments": [
                 {
                     "wzElement": "comment",
@@ -18416,6 +18442,7 @@
             "wzTag": "api",
             "wzName": "wizzi-mtree.loader.mTreeBrick",
             "kind": "kernel",
+            "id": "wizzi_mtree_loader_mTreeBrick",
             "comments": [],
             "implementation": {
                 "wzElement": "implementation",
@@ -18753,6 +18780,7 @@
             "wzTag": "api",
             "wzName": "wizzi-mtree.jsWizziContext",
             "kind": "kernel",
+            "id": "wizzi_mtree_jsWizziContext",
             "comments": [
                 {
                     "wzElement": "comment",
@@ -18788,6 +18816,7 @@
             "wzTag": "api",
             "wzName": "wizzi-mtree.jsWizziRunner",
             "kind": "kernel",
+            "id": "wizzi_mtree_jsWizziRunner",
             "comments": [
                 {
                     "wzElement": "comment",
@@ -19036,6 +19065,7 @@
             "wzTag": "api",
             "wzName": "wizzi-mtree.mTree",
             "kind": "kernel",
+            "id": "wizzi_mtree_mTree",
             "comments": [
                 {
                     "wzElement": "comment",
@@ -19186,6 +19216,7 @@
             "wzTag": "api",
             "wzName": "wizzi-mtree.mTree.node",
             "kind": "kernel",
+            "id": "wizzi_mtree_mTree_node",
             "comments": [],
             "implementation": {
                 "wzElement": "implementation",
@@ -19398,6 +19429,7 @@
             "wzTag": "api",
             "wzName": "wizzi.modelType",
             "kind": "kernel",
+            "id": "wizzi_modelType",
             "comments": [
                 {
                     "wzElement": "comment",
@@ -19564,6 +19596,7 @@
             "wzTag": "api",
             "wzName": "wizzi.modelType.sourceLineInfo",
             "kind": "kernel",
+            "id": "wizzi_modelType_sourceLineInfo",
             "comments": [
                 {
                     "wzElement": "comment",
@@ -19711,6 +19744,7 @@
             "wzTag": "api",
             "wzName": "wizzi.modelType.baseElement",
             "kind": "kernel",
+            "id": "wizzi_modelType_baseElement",
             "comments": [],
             "implementation": {
                 "wzElement": "implementation",
@@ -20455,6 +20489,7 @@
             "wzTag": "api",
             "wzName": "wizzi.modelType.{element}",
             "kind": "kernel",
+            "id": "wizzi_modelType_{element}",
             "extends": "wizzi.modelType.baseElement",
             "comments": [
                 {
@@ -20813,6 +20848,7 @@
             "wzTag": "api",
             "wzName": "wizzi.modelType.rootElement",
             "kind": "kernel",
+            "id": "wizzi_modelType_rootElement",
             "extends": "wizzi.modelType.{element}",
             "comments": [
                 {
@@ -20881,6 +20917,7 @@
             "wzTag": "api",
             "wzName": "wizzi.modelType.context",
             "kind": "kernel",
+            "id": "wizzi_modelType_context",
             "comments": [],
             "implementation": {
                 "wzElement": "implementation",
@@ -21136,6 +21173,7 @@
             "wzTag": "api",
             "wzName": "wizzi.modelType.exception",
             "kind": "kernel",
+            "id": "wizzi_modelType_exception",
             "comments": [],
             "implementation": {
                 "wzElement": "implementation",
@@ -21225,6 +21263,7 @@
             "wzTag": "api",
             "wzName": "wizzi.modelFactory",
             "kind": "kernel",
+            "id": "wizzi_modelFactory",
             "comments": [
                 {
                     "wzElement": "comment",
@@ -21639,6 +21678,7 @@
             "wzTag": "api",
             "wzName": "wizzi-plugin",
             "kind": "kernel",
+            "id": "wizzi_plugin",
             "comments": [
                 {
                     "wzElement": "comment",
@@ -21939,6 +21979,7 @@
             "wzTag": "api",
             "wzName": "wizzi-plugin.factoryPlugin",
             "kind": "kernel",
+            "id": "wizzi_plugin_factoryPlugin",
             "comments": [
                 {
                     "wzElement": "comment",
@@ -22282,6 +22323,7 @@
             "wzTag": "api",
             "wzName": "wizzi-plugin.modelFactory",
             "kind": "kernel",
+            "id": "wizzi_plugin_modelFactory",
             "comments": [
                 {
                     "wzElement": "comment",
@@ -22794,6 +22836,7 @@
             "wzTag": "api",
             "wzName": "wizzi-plugin.modelTransformer",
             "kind": "kernel",
+            "id": "wizzi_plugin_modelTransformer",
             "comments": [
                 {
                     "wzElement": "comment",
@@ -23044,6 +23087,7 @@
             "wzTag": "api",
             "wzName": "wizzi-plugin.artifactGenerator",
             "kind": "kernel",
+            "id": "wizzi_plugin_artifactGenerator",
             "comments": [],
             "implementation": {
                 "wzElement": "implementation",
@@ -23301,6 +23345,7 @@
             "wzTag": "api",
             "wzName": "wizzi-app",
             "kind": "kernel",
+            "id": "wizzi_app",
             "comments": [
                 {
                     "wzElement": "comment",
@@ -23390,6 +23435,7 @@
             "wzTag": "api",
             "wzName": "wizzi-app.wizzifile",
             "kind": "kernel",
+            "id": "wizzi_app_wizzifile",
             "comments": [
                 {
                     "wzElement": "comment",

@@ -30,6 +30,12 @@ h2 {
 .clear {
     clear: both;
 }
+.pretty-table {
+    margin: 2px;
+}
+.pretty-table td {
+    padding: 5px 20px;
+}
 .code-panel {
     margin-bottom: 20px;
 }
@@ -167,6 +173,345 @@ pre.prettyprint ol {
         line-height: 3rem;
         overflow: auto;
     }
+}
+/** The basic grid contains just a few elements */
+/** . container */
+/** . rows */
+/** . columns */
+/** . gutters (the space between columns) */
+/** The width of the container is generally 100%, */
+/** but you might want to set a max-width for larger displays. */
+.gsf-grid-container {
+    width: 100%;
+    max-width: 1200px;
+}
+/** Using the 'border-box' model, we can create gutters with ease. */
+/** setting border box on all elements inside the grid */
+.gsf-grid-container * {
+    box-sizing: border-box;
+}
+/** clearfix hack -  to make sure everything inside */
+/** the row stays inside the row. */
+.gsf-row:before, .gsf-row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+/** To prevent that empty columns will stack on top of each other */
+/** we'll give our columns a min-height of 1px as well as float them. */
+[class*='gsf-col-'] {
+    float: left;
+    min-height: 1px;
+    padding: 12px;
+}
+/** our gutter */
+/** To find the width of one column, all we have to do is divide */
+/** the total number of columns by the width of the container. */
+/** In our case, the width of the container is 100%, */
+/** and we want 12 columns, so 100/12 = 8.333333333333334%. */
+[class*='gsf-col-'] {
+    width: 8.333333333333334%;
+}
+.gsf-col-1 {
+    width: 8.333333333333334%;
+}
+.gsf-col-2 {
+    width: 16.666666666666668%;
+}
+.gsf-col-3 {
+    width: 25%;
+}
+.gsf-col-4 {
+    width: 33.333333333333336%;
+}
+.gsf-col-5 {
+    width: 41.66666666666667%;
+}
+.gsf-col-6 {
+    width: 50%;
+}
+.gsf-col-7 {
+    width: 58.333333333333336%;
+}
+.gsf-col-8 {
+    width: 66.66666666666667%;
+}
+.gsf-col-9 {
+    width: 75%;
+}
+.gsf-col-10 {
+    width: 83.33333333333334%;
+}
+.gsf-col-11 {
+    width: 91.66666666666667%;
+}
+.gsf-col-12 {
+    width: 100%;
+}
+.gsf-sm-0 {
+    margin-left: 0%;
+}
+.gsf-sm-1 {
+    margin-left: 8.333333333333334%;
+    *margin-left: 8.328333333333333%;
+}
+.gsf-sm-2 {
+    margin-left: 16.666666666666668%;
+    *margin-left: 16.66166666666667%;
+}
+.gsf-sm-3 {
+    margin-left: 25%;
+    *margin-left: 24.995%;
+}
+.gsf-sm-4 {
+    margin-left: 33.333333333333336%;
+    *margin-left: 33.32833333333333%;
+}
+.gsf-sm-5 {
+    margin-left: 41.66666666666667%;
+    *margin-left: 41.66166666666667%;
+}
+.gsf-sm-6 {
+    margin-left: 50%;
+    *margin-left: 49.995%;
+}
+.gsf-sm-7 {
+    margin-left: 58.333333333333336%;
+    *margin-left: 58.32833333333333%;
+}
+.gsf-sm-8 {
+    margin-left: 66.66666666666667%;
+    *margin-left: 66.66166666666668%;
+}
+.gsf-sm-9 {
+    margin-left: 75%;
+    *margin-left: 74.995%;
+}
+.gsf-sm-10 {
+    margin-left: 83.33333333333334%;
+    *margin-left: 83.32833333333335%;
+}
+.gsf-sm-11 {
+    margin-left: 91.66666666666667%;
+    *margin-left: 91.66166666666668%;
+}
+.gsf-smr-0 {
+    margin-left: 0%;
+}
+.gsf-smr-1 {
+    margin-left: 0.8333333333333334%;
+    *margin-left: 0.8283333333333334%;
+}
+.gsf-smr-2 {
+    margin-left: 1.6666666666666667%;
+    *margin-left: 1.6616666666666668%;
+}
+.gsf-smr-3 {
+    margin-left: 2.5%;
+    *margin-left: 2.495%;
+}
+.gsf-smr-4 {
+    margin-left: 3.3333333333333335%;
+    *margin-left: 3.3283333333333336%;
+}
+.gsf-smr-5 {
+    margin-left: 4.166666666666667%;
+    *margin-left: 4.161666666666667%;
+}
+.gsf-smr-6 {
+    margin-left: 5%;
+    *margin-left: 4.995%;
+}
+.gsf-smr-7 {
+    margin-left: 5.833333333333334%;
+    *margin-left: 5.828333333333334%;
+}
+.gsf-smr-8 {
+    margin-left: 6.666666666666667%;
+    *margin-left: 6.661666666666667%;
+}
+.gsf-smr-9 {
+    margin-left: 7.5%;
+    *margin-left: 7.495%;
+}
+.gsf-smr-10 {
+    margin-left: 8.333333333333334%;
+    *margin-left: 8.328333333333333%;
+}
+.gsf-smr-11 {
+    margin-left: 9.166666666666668%;
+    *margin-left: 9.161666666666667%;
+}
+.gsf-sm-0 {
+    margin-left: 0%;
+}
+.gsf-sm-1 {
+    margin-left: 8.333333333333334%;
+    *margin-left: 8.328333333333333%;
+}
+.gsf-sm-2 {
+    margin-left: 16.666666666666668%;
+    *margin-left: 16.66166666666667%;
+}
+.gsf-sm-3 {
+    margin-left: 25%;
+    *margin-left: 24.995%;
+}
+.gsf-sm-4 {
+    margin-left: 33.333333333333336%;
+    *margin-left: 33.32833333333333%;
+}
+.gsf-sm-5 {
+    margin-left: 41.66666666666667%;
+    *margin-left: 41.66166666666667%;
+}
+.gsf-sm-6 {
+    margin-left: 50%;
+    *margin-left: 49.995%;
+}
+.gsf-sm-7 {
+    margin-left: 58.333333333333336%;
+    *margin-left: 58.32833333333333%;
+}
+.gsf-sm-8 {
+    margin-left: 66.66666666666667%;
+    *margin-left: 66.66166666666668%;
+}
+.gsf-sm-9 {
+    margin-left: 75%;
+    *margin-left: 74.995%;
+}
+.gsf-sm-10 {
+    margin-left: 83.33333333333334%;
+    *margin-left: 83.32833333333335%;
+}
+.gsf-sm-11 {
+    margin-left: 91.66666666666667%;
+    *margin-left: 91.66166666666668%;
+}
+.gsf-outline, .gsf-outline * {
+    outline: 1px solid #F6A1A1;
+}
+/** some extra column content styling */
+[class*='gsf-col-'] > p {
+    background-color: #FFC2C2;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    color: white;
+}
+.api-property-panel {
+    border: 1px solid #ede;
+    margin-top: 5px;
+    padding: 5px 10px;
+}
+.api-method-panel {
+    border: 1px solid #ede;
+    margin-top: 10px;
+    padding: 10px;
+}
+.api-method-section-title {
+    margin-top: 10px;
+    font-size: 0.9em;
+    font-style: italics;
+    font-weight: bold;
+}
+.api-method {
+    background-color: #ddd;
+    color: #222;
+    font-size: 1.5em;
+    padding: 5px 0px;
+}
+.api-property-panel {
+    border: 1px solid #ede;
+}
+.api-property {
+    background-color: #ddd;
+    color: #222;
+    font-size: 1.5em;
+    padding: 5px 0px;
+}
+.api-property-name {
+    color: #222;
+    font-size: 1em;
+}
+.api-property-type {
+    color: darkgreen;
+    font-size: 0.9em;
+}
+.api-param-panel {
+    border: 1px solid #ede;
+}
+.api-param-name {
+    color: #222;
+    font-size: 1em;
+}
+.api-param-type {
+    color: darkgreen;
+    font-size: 0.9em;
+}
+.api-ref-label {
+    color: darkblue;
+    font-size: 0.9em;
+}
+.api-ref {
+    color: #AA5039;
+    font-size: 1em;
+}
+.api-info-label {
+    color: orange;
+    font-size: 0.9em;
+}
+.api-info {
+    color: #888;
+    font-size: 1em;
+}
+.api-info-tag {
+    color: darkred;
+    font-size: 1em;
+}
+.api-info-name {
+    color: #222;
+    font-size: 1em;
+}
+.api-comment-api {
+    color: #222;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #ededee;
+    font-size: 1em;
+}
+.api-comment-property {
+    color: #222;
+    padding: 10px;
+    font-size: 0.9em;
+}
+.api-comment-method {
+    color: #222;
+    padding: 10px;
+    font-size: 0.9em;
+}
+.api-comment-info {
+    color: #222;
+    padding: 10px;
+    font-size: 0.9em;
+}
+.api-comment-array-item {
+    color: #222;
+    padding: 10px;
+    font-size: 0.9em;
+}
+.api-comment-param {
+    color: #222;
+    font-size: 0.8em;
+}
+.api-comment-object-property {
+    color: #222;
+    font-size: 0.8em;
+}
+.api-comment-typed-value {
+    color: #222;
+    font-size: 0.8em;
 }
 .logo {
     background-color: #fff;
