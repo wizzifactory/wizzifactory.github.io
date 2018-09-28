@@ -163,8 +163,8 @@ pre.prettyprint ol {
     pre.prettyprint {
         padding: 1.2rem;
         border-left: 5px solid #999;
-        font-size: 1.8rem;
-        line-height: 2rem;
+        font-size: 2rem;
+        line-height: 3rem;
         overflow: auto;
     }
 }
@@ -529,12 +529,13 @@ input[id^='mc-toggle-'] {
         margin: 1rem 0 -3px 0;
     }
     .mc-pane p {
-        line-height: 1.2rem;
-        margin-bottom: 0.8rem;
+        line-height: 1.8rem;
+        margin-bottom: 1rem;
     }
     .mc-content {
         height: calc(100% - 60px);
         margin: 10px;
+        padding: 20px 40px;
     }
     .mc-content-title {
         display: none;
