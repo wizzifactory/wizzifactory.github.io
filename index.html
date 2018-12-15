@@ -1,22 +1,36 @@
 <!doctype html>
 <html VERSION-5="5" VERSION-4="4" version="5">
 <head>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
-    <link href="sanitize.css" rel="stylesheet" />
-    <link href="styles/main.css" rel="stylesheet" />
-    <link href="styles/index.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #222;
+            color: #ddd;
+            font-family: verdana, arial;
+        }
+        #wrapper {
+            margin: 5rem;
+        }
+        ul {
+        }
+        ul li {
+            list-style: none;
+            margin: 2rem;
+        }
+        ul li a {
+            text-decoration: none;
+            font-size: 2rem;
+            color: #fff;
+        }
+        ul li a:hover {
+            color: #a00;
+        }
+    </style>
 </head>
-<body class="Index">
-    <!-- top navigation markup -->
-    <input type="checkbox" id="tn-input-toggle" />
-    <nav class="tn-bar">
-        <nav class="tn-main">
-            <a href="index.html.ittf"><div class="logo">
-                <img src="images/logo.svg" />
-            </div>
-            </a>
-            <label for="tn-input-toggle" class="tn-label-toggle"></label>
-            <label for="tn-input-toggle" class="tn-label-toggle-close">&times;</label>
+<body>
+    <div style="display: flex;" id="wrapper">
+        <div>
             <ul>
                 <li><a href="concepts.html" title="Concepts">Concepts</a>
                 </li>
@@ -31,12 +45,16 @@
                 <li><a href="project.html" title="Project">Project</a>
                 </li>
             </ul>
-        </nav>
-    </nav>
-    <div style="position:absolute; margin: 350px 0 150px 0; width:100%;">
-        <img style="height: 100%; width:100%;" src="mario sironi - 1920 - paesaggio urbano e camion - 1920.jpg" alt="artistic factories" class="hero-img" />
+        </div>
+        <div>
+            <ul>
+                <li><a href="playground.html" title="Playground">Playground</a>
+                </li>
+                <li><a href="ide.html" title="In browser Ide">In browser Ide</a>
+                </li>
+            </ul>
+        </div>
     </div>
-    <script src="wizzifactory.js"></script>
 </body>
 
 </html>
