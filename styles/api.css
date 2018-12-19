@@ -2,6 +2,9 @@
     #mc-toggle-api-wizzi:checked ~ .mc-pane-api-wizzi {
         display: block;
     }
+    #mc-toggle-api-wizzi_light:checked ~ .mc-pane-api-wizzi_light {
+        display: block;
+    }
     #mc-toggle-api-wizzi_wizziFactoryModule:checked ~ .mc-pane-api-wizzi_wizziFactoryModule {
         display: block;
     }
@@ -59,7 +62,7 @@
     #mc-toggle-api-wizzi_production_Runner:checked ~ .mc-pane-api-wizzi_production_Runner {
         display: block;
     }
-    #mc-toggle-api-wizzi_repo:checked ~ .mc-pane-api-wizzi_repo {
+    #mc-toggle-api-wizzi_lightrepo:checked ~ .mc-pane-api-wizzi_lightrepo {
         display: block;
     }
     #mc-toggle-api-wizzi_repo_ittfDocumentStore:checked ~ .mc-pane-api-wizzi_repo_ittfDocumentStore {

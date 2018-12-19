@@ -1,7 +1,7 @@
 /*
     artifact generator: C:\my\wizzi\v5\apps\node_modules\wizzi-js\lib\artifacts\js\module\gen\main.js
     primary source IttfDocument: c:\my\wizzi\v5\apps\wizzi-studio\dist\server\ittf\demo\ttech\javascript\controls\treeview\step_1\index.js.ittf
-    utc time: Sun, 16 Dec 2018 13:42:31 GMT
+    utc time: Wed, 19 Dec 2018 15:29:11 GMT
 */
 'use strict';
 if (typeof Array.isArray === 'undefined') {
@@ -2799,7 +2799,6 @@ class IttfEditorControl {
         }
         this.editorImpl.initialize();
         this.editor = this.editorImpl;
-        var that = this;
         this.editor.on('change', (value) => {
             if (this.onChange) {
                 this.onChange(value);

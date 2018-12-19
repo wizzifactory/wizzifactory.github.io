@@ -15,7 +15,7 @@ a {
 body {
     background-color: #fff;
     color: #000;
-    font-size: 16px;
+    font-size: 15px;
     font-family: roboto, verdana, tahoma, arial, sans-serif;
     line-height: 1.8em;
 }
@@ -413,6 +413,12 @@ pre.prettyprint ol {
 .api-method-section-title {
     margin-top: 10px;
     font-size: 0.9em;
+    font-style: italics;
+    font-weight: bold;
+}
+.api-submethod-section-title {
+    margin-top: 5px;
+    font-size: 0.8em;
     font-style: italics;
     font-weight: bold;
 }

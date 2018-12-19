@@ -17,6 +17,12 @@
     font-style: italics;
     font-weight: bold;
 }
+.api-submethod-section-title {
+    margin-top: 5px;
+    font-size: 0.8em;
+    font-style: italics;
+    font-weight: bold;
+}
 .api-method {
     background-color: #ddd;
     color: #222;
