@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+    <title>Schema cheat sheet</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism.min.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="wz-sb-1">
+        <ul>
+            <li><a href="http://localhost:3014/ittf/home/index.html.ittf"><i class="fa fa-home fa-2x"></i>
+            <span class="nav-text">Dashboard</span>
+            </a>
+            </li>
+            <li><a href="http://localhost:3014/ittf/demo/ttech/index.html.ittf"><i class="fa fa-laptop fa-2x"></i>
+            <span class="nav-text">Target technologies</span>
+            </a>
+            </li>
+            <li><a href="http://localhost:3014/ittf/demo/apps/index.html.ittf"><i class="fa fa-laptop fa-2x"></i>
+            <span class="nav-text">Demo apps</span>
+            </a>
+            </li>
+            <li><a href="http://localhost:3014/ittf/labs/index.html.ittf"><i class="fa fa-laptop fa-2x"></i>
+            <span class="nav-text">Labs</span>
+            </a>
+            </li>
+            <li><a href="http://localhost:3014/ittf/quick/index.html.ittf"><i class="fa fa-laptop fa-2x"></i>
+            <span class="nav-text">Quick html test</span>
+            </a>
+            </li>
+            <li><a href="http://localhost:3014/static/wizzi-play/index.html"><i class="fa fa-laptop fa-2x"></i>
+            <span class="nav-text">Wizzi playground</span>
+            </a>
+            </li>
+            <li><a href="http://localhost:3014/ittf/utils/performance/index.html.ittf"><i class="fa fa-laptop fa-2x"></i>
+            <span class="nav-text">Js performance</span>
+            </a>
+            </li>
+            <li><a href="http://localhost:3014/ittf/docs/cheatsheets/index.html.ittf"><i class="fa fa-laptop fa-2x"></i>
+            <span class="nav-text">Wizzi cheat sheets</span>
+            </a>
+            </li>
+            <li><a href="http://localhost:3014/ittf/repo/stefi/studio/wizzi/index.html.ittf"><i class="fa fa-laptop fa-2x"></i>
+            <span class="nav-text">Wizzi</span>
+            </a>
+            </li>
+            <li><a href="http://localhost:3014/ittf/repo/stefi/studio/wizzi/issues.html.ittf"><i class="fa fa-laptop fa-2x"></i>
+            <span class="nav-text">Wizzi issues</span>
+            </a>
+            </li>
+            <li><a href="http://localhost:3014/ittf/repo/stefi/studio/wizzi/todo.html.ittf"><i class="fa fa-laptop fa-2x"></i>
+            <span class="nav-text">Wizzi TODO</span>
+            </a>
+            </li>
+            <li><a href="http://localhost:3014/ittf/repo/stefi/studio/wizzi/activitylog.html.ittf"><i class="fa fa-laptop fa-2x"></i>
+            <span class="nav-text">Wizzi activity log</span>
+            </a>
+            </li>
+            <li><a href="http://localhost:3014/ittf/utils/jobs/index.html.ittf"><i class="fa fa-laptop fa-2x"></i>
+            <span class="nav-text">Wizzi jobs</span>
+            </a>
+            </li>
+        </ul>
+        <ul class="logout">
+            <li><a href="#"><i class="fa fa-power-off fa-2x"></i>
+            <span class="nav-text">Logout</span>
+            </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="wz-content-1">
+        <nav class="tn-bar" style="display: flex; margin: 0.5rem;">
+            <div class="logo">
+                <img src="/images/logo.svg" width="70px" height="30px" />
+            </div>
+        </nav>
+        <div class="mc-wrapper-layout" id="mc-wrapper">
+            <div class="mc-frame-bar">
+                <div class="mc-frame-bar-item">Schema cheat sheet</div>
+            </div>
+            <div class="mc-frame">
+                <div class="mc-sidebar-left">
+                    <ul>
+                        <li><a href="#vtt">vtt</a>
+                        <ul>
+                            <li><a href="#Simple cue">Simple cue</a>
+                            </li>
+                        </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mc-content">
+                    <div style="display: flex;" id="vtt">
+                        <div class="head-bar-item">
+                            <h3 class="head-bar-title">element</h3>
+                            <p class="head-bar-value">vtt</p>
+                        </div>
+                        <div class="head-bar-item">
+                            <h3 class="head-bar-title">tag</h3>
+                            <p class="head-bar-value">vtt</p>
+                        </div>
+                        <div class="head-bar-item">
+                            <h3 class="head-bar-title">ast</h3>
+                            <p class="head-bar-value"></p>
+                        </div>
+                        <div class="head-bar-item">
+                            <h3 class="head-bar-title">category</h3>
+                            <p class="head-bar-value"></p>
+                        </div>
+                    </div>
+                    <h3 id="Simple cue">Simple cue</h3>
+                    <div style="display: flex;">
+                        <pre style="width: 45%;" class="prettyprint">
+<div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-tag">vtt</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">    </span><span class="pp-tag">cue</span><span class="pp-pln"> 1 10</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">        </span><span class="pp-tag">+</span><span class="pp-pln"> And now</span></div></pre>
+                        <pre style="width: 45%;">
+<code class="language-vtt">
+    
+WEBVTT
+
+00:00:01.000 --&gt; 00:00:10.000
+And now
+
+</code>
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+</body>
+
+</html>

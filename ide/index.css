@@ -25,7 +25,8 @@ body {
     margin: 0;
 }
 #root {
-    height: 100vh;
+    height: 60vh;
+    width: 80vw;
 }
 .styler {
     --color-primary: #4630eb;

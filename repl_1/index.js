@@ -1,7 +1,7 @@
 /*
     artifact generator: C:\my\wizzi\v5\apps\node_modules\wizzi-js\lib\artifacts\js\module\gen\main.js
     primary source IttfDocument: c:\my\wizzi\v5\apps\wizzi-studio\dist\server\ittf\demo\ttech\wizzi\play\repl_1\index.js.ittf
-    utc time: Wed, 19 Dec 2018 15:29:11 GMT
+    utc time: Fri, 21 Dec 2018 13:59:08 GMT
 */
 'use strict';
 if (typeof Array.isArray === 'undefined') {
@@ -1204,6 +1204,78 @@ wz.ContextMenu = wz_ContextMenu;
         });
     };
 })();
+/**
+     params
+     { props
+     string key
+     string elementId
+     string theme
+     string language
+     boolean readOnly
+*/
+class EditorControl {
+    constructor(props) {
+        this.props = props;
+        this.key = props.key;
+        this.elementId = props.elementId;
+        this.theme = props.theme || 'github';
+        this.language = props.language || 'js';
+    }
+    initialize() {
+        if (this.editor) {
+            return ;
+        }
+        this.editor = new AceEditor({
+            key: this.key, 
+            editorElementId: this.elementId
+        });
+        this.editor.initialize();
+        this.editor.setMime(this.language);
+        this.editor.setTheme(this.theme);
+        if (this.props.readOnly) {
+            this.editor.readOnly(true);
+        }
+        this.editor.on('change', (value) => {
+            console.log('editvaluechanged', this.key, value);
+            glEventHub.emit('editvaluechanged', this.key, value);
+        });
+        glEventHub.on('seteditvalue', (key, value) => {
+            console.log('seteditvalue', key, value);
+            if (key === this.key) {
+                this.value(value);
+            }
+        });
+        console.log('EditorControl initialized');
+    }
+    theme(value) {
+        if (typeof value === 'undefined') {
+            return this.theme;
+        }
+        else {
+            this.editor.setTheme(value);
+            this.theme = value;
+        }
+    }
+    language(value) {
+        if (typeof value === 'undefined') {
+            return this.language;
+        }
+        else {
+            this.editor.setMime(value);
+            this.language = value;
+        }
+    }
+    value(value) {
+        if (this.editor) {
+            if (typeof value === 'undefined') {
+                return this.editor.getValue();
+            }
+            else {
+                this.editor.setValue(value);
+            }
+        }
+    }
+}
 class SplashControl {
     constructor(props) {
         this.props = props;
@@ -1369,48 +1441,6 @@ class AppManager {
                 glEventHub.emit('seteditvalue', 'snippet-result', result);
             }
         });
-    }
-}
-class EditorControl {
-    constructor(options) {
-        this.options = options;
-        this.key = options.key;
-        this.elementId = options.elementId;
-    }
-    onChange(handler) {
-        this.onChange = handler;
-    }
-    initialize() {
-        if (this.editor) {
-            return ;
-        }
-        this.editor = new AceEditor({
-            key: this.key, 
-            editorElementId: this.elementId
-        });
-        this.editor.initialize();
-        if (this.options.readOnly) {
-            this.editor.readOnly(true);
-        }
-        this.editor.on('change', (value) => {
-            console.log('editvaluechanged', this.key, value);
-            glEventHub.emit('editvaluechanged', this.key, value);
-        });
-        glEventHub.on('seteditvalue', (key, value) => {
-            if (key === this.key) {
-                this.value(value);
-            }
-        });
-    }
-    value(value) {
-        if (this.editor) {
-            if (typeof value === 'undefined') {
-                return this.editor.getValue();
-            }
-            else {
-                this.editor.setValue(value);
-            }
-        }
     }
 }
 let glEventHub = new EventEmitter3();

@@ -1,7 +1,7 @@
 /*
     artifact generator: C:\my\wizzi\v5\apps\node_modules\wizzi-js\lib\artifacts\js\module\gen\main.js
     primary source IttfDocument: c:\my\wizzi\v5\apps\wizzi-studio\dist\server\ittf\demo\ttech\javascript\controls\treeview\step_1\index.js.ittf
-    utc time: Wed, 19 Dec 2018 15:29:11 GMT
+    utc time: Fri, 21 Dec 2018 13:59:07 GMT
 */
 'use strict';
 if (typeof Array.isArray === 'undefined') {
@@ -1101,6 +1101,78 @@ wz.ContextMenu = wz_ContextMenu;
         });
     };
 })();
+/**
+     params
+     { props
+     string key
+     string elementId
+     string theme
+     string language
+     boolean readOnly
+*/
+class EditorControl {
+    constructor(props) {
+        this.props = props;
+        this.key = props.key;
+        this.elementId = props.elementId;
+        this.theme = props.theme || 'github';
+        this.language = props.language || 'js';
+    }
+    initialize() {
+        if (this.editor) {
+            return ;
+        }
+        this.editor = new AceEditor({
+            key: this.key, 
+            editorElementId: this.elementId
+        });
+        this.editor.initialize();
+        this.editor.setMime(this.language);
+        this.editor.setTheme(this.theme);
+        if (this.props.readOnly) {
+            this.editor.readOnly(true);
+        }
+        this.editor.on('change', (value) => {
+            console.log('editvaluechanged', this.key, value);
+            glEventHub.emit('editvaluechanged', this.key, value);
+        });
+        glEventHub.on('seteditvalue', (key, value) => {
+            console.log('seteditvalue', key, value);
+            if (key === this.key) {
+                this.value(value);
+            }
+        });
+        console.log('EditorControl initialized');
+    }
+    theme(value) {
+        if (typeof value === 'undefined') {
+            return this.theme;
+        }
+        else {
+            this.editor.setTheme(value);
+            this.theme = value;
+        }
+    }
+    language(value) {
+        if (typeof value === 'undefined') {
+            return this.language;
+        }
+        else {
+            this.editor.setMime(value);
+            this.language = value;
+        }
+    }
+    value(value) {
+        if (this.editor) {
+            if (typeof value === 'undefined') {
+                return this.editor.getValue();
+            }
+            else {
+                this.editor.setValue(value);
+            }
+        }
+    }
+}
 var itemUtils = {};
 itemUtils.cloneItem = function(item) {
     var cloned = {
@@ -1152,11 +1224,21 @@ itemUtils.rename = function(item, newName) {
     console.log('itemUtils.rename.renamed', item);
 };
 /**
+     dependencies
+     . g/js/wz/core.js.ittf
+     . g/js/wz/contextMenu.js.ittf
      params
      { item
      string name
+     boolean isFolder
      boolean expanded
+     date loadedAt
      [ children
+     { treeView
+     func emit
+     func populate
+     func handleContextMenu
+     func rename
 */
 class TreeNode {
     constructor(item, treeView) {
@@ -1243,15 +1325,12 @@ class TreeNode {
                         this.expand(this.childrenEl);
                     }
                 }
-                this.getTreeview().emit('select', this, event);
+                this.getTreeview().selectTreeNode(this);
             };
             if (this.children.length == 0 && !this.item.loadedAt && this.item.isFolder) {
                 this.getTreeview().populate(this);
-                selectThis();
             }
-            else {
-                selectThis();
-            }
+            selectThis();
         };
         wz.click(this.contentEl, clickThis);
         var contextmenu = (event) => {
@@ -1440,8 +1519,30 @@ var svg = {
 function isImage(mime) {
     return /\.(bmp|jpg|jpeg|png|gif|svg)$/.test(mime);
 }
+/**
+     dependencies
+     . g/js/wz/core.js.ittf
+     . g/js/wz/contextMenu.js.ittf
+     params
+     { props
+     string key
+     { app
+     { filesystem
+     func getFolderRoot
+     func folderContextmenuItems
+     func fileContextmenuItems
+     func populateFolderItem
+     func createFolder
+     func createFile
+     func deleteFolder
+     func deleteFile
+     func updateFile
+     func rename
+     func copyCutStart
+     func pasteTo
+*/
 class TreeView  extends  wz.EventTarget {
-    constructor(ctx) {
+    constructor(props) {
         super();
         this.events = [
             'expand', 
@@ -1449,10 +1550,12 @@ class TreeView  extends  wz.EventTarget {
             'collapse', 
             'select'
         ];
+        this.props = props;
+        this.key = props.key || 'default';
+        this.app = props.app;
+        this.filesystem = props.filesystem;
         this.handlers = {};
-        this.ctx = ctx;
-        this.app = ctx.app;
-        this.filesystem = ctx.filesystem;
+        this.selectedTreeNode = null;
     }
     render(callback) {
         // set this.rootNode = new TreeNode(data, this)
@@ -1479,11 +1582,11 @@ class TreeView  extends  wz.EventTarget {
         var that = this;
         if (!this.contextmenuFolder) {
             this.contextmenuFolder = new wz.ContextMenu({
-                menusContainerId: this.ctx.formsContainerId
+                menusContainerId: this.props.formsContainerId
             });
             this.contextmenuFolder.create({
                 menu: {
-                    id: (this.ctx.id || 'treeview') + '-contextmenuFolder', 
+                    id: (this.props.id || 'treeview') + '-contextmenuFolder', 
                     items: this.filesystem.folderContextmenuItems(context.treeNode)
                 }, 
                 onClick: (data) => {
@@ -1531,11 +1634,11 @@ class TreeView  extends  wz.EventTarget {
         var that = this;
         if (!this.contextmenuFile) {
             this.contextmenuFile = new wz.ContextMenu({
-                menusContainerId: this.ctx.formsContainerId
+                menusContainerId: this.props.formsContainerId
             });
             this.contextmenuFile.create({
                 menu: {
-                    id: (this.ctx.id || 'treeview') + '-contextmenuFile', 
+                    id: (this.props.id || 'treeview') + '-contextmenuFile', 
                     items: this.filesystem.fileContextmenuItems(context.treeNode)
                 }, 
                 onClick: (data) => {
@@ -1578,6 +1681,13 @@ class TreeView  extends  wz.EventTarget {
             if (callback) {
                 return callback(null);
             }
+        });
+    }
+    selectTreeNode(treeNode) {
+        this.selectedTreeNode = treeNode;
+        glEventHub.emit('select-tree-node', {
+            key: this.key, 
+            treeNode: treeNode
         });
     }
     createFolder(treeNode) {
@@ -1710,7 +1820,10 @@ class TreeView  extends  wz.EventTarget {
                 throw err;
             }
             treeNode.item.content = newContent;
-            this.app.onTreeNodeUpdate(treeNode);
+            glEventHub.emit('tree-node-updated', {
+                key: this.key, 
+                treeNode: treeNode
+            });
         });
     }
     deleteFile(treeNode) {
@@ -1751,6 +1864,14 @@ class TreeView  extends  wz.EventTarget {
         });
     }
 }
+/**
+     dependencies
+     . g/js/wz/standalone.js.ittf
+     - wz.fs.infoByPath
+     params
+     { ctx
+     { fsAdapter (BrowserFilesystem, ...)
+*/
 class TreeFileSystem {
     constructor(ctx) {
         this.fsAdapter = ctx.fsAdapter;
@@ -1944,6 +2065,12 @@ class TreeFileSystem {
         return items;
     }
 }
+/**
+     dependencies
+     . g/js/wz/standalone.js.ittf
+     - wz.fs.getFs
+     - wz.fs.getTreeFolderView
+*/
 class BrowserFileSystem {
     constructor(options) {
         options = options || {};
@@ -2409,7 +2536,8 @@ async function gitRemove({filepath, glEventHub}) {
 }
 class SplashControl {
     constructor(props) {
-        this.props = props;
+        this.props = props || {};
+        this.key = props.key || 'default';
         this.splashEl = null;
         this.state = [];
         this.visible == false;
@@ -2420,6 +2548,20 @@ class SplashControl {
         this.splashEl.setAttribute('class', this.props.className);
         containerEl.appendChild(this.splashEl);
         this.show();
+        glEventHub.on('splash-hide', (data) => {
+            console.log('splash-hide', 1, data.key, this.key);
+            if (data.key !== this.key) {
+                return ;
+            }
+            console.log('splash-hide', 2);
+            this.hide();
+        });
+        glEventHub.on('splash-show', (data) => {
+            if (data.key !== this.key) {
+                return ;
+            }
+            this.show();
+        });
     }
     hide() {
         if (this.visible == false) {
@@ -2469,12 +2611,15 @@ class AppManager  extends  wz.EventTarget {
         this.timers = {};
     }
     start() {
+        this.editBrowse = new EditBrowseController({});
         this.editorSplash = new SplashControl({
+            key: 'editor-splash', 
             container: 'editor-container', 
             className: 'splash-editor'
         });
         this.editorSplash.initialize();
         this.resultSplash = new SplashControl({
+            key: 'result-splash', 
             container: 'result-container', 
             className: 'splash-result'
         });
@@ -2507,7 +2652,7 @@ class AppManager  extends  wz.EventTarget {
                         throw err;
                     }
                     wz.replaceChildren('tree-view', element);
-                    var editManager = new EditManager({
+                    var editManager = new IttfEditManager({
                         app: this, 
                         treeView: this.treeView, 
                         ittfEditorTitle: 'ittf-editor-title'
@@ -2520,11 +2665,17 @@ class AppManager  extends  wz.EventTarget {
                     });
                     browseManager.initialize();
                     this.createCommandBars();
-                    this.treeView.on('select', (treeNode, target) => {
-                        // log 'AppManager.treeView.select', target, treeNode
+                    glEventHub.on('select-tree-node', (data) => {
+                        if (data.key !== 'default') {
+                            return ;
+                        }
+                        // log 'AppManager.treeView.select', data.treeNode
+                        var treeNode = data.treeNode;
                         var item = treeNode.item;
                         if (!!item.isFolder == false) {
-                            this.editorSplash.hide();
+                            glEventHub.emit('splash-hide', {
+                                key: 'editor-splash'
+                            });
                             this.resultBar.setState({
                                 isIttf: (treeNode.item.isIttfDocument && !treeNode.item.isFragment), 
                                 schema: treeNode.item.schema, 
@@ -2537,6 +2688,18 @@ class AppManager  extends  wz.EventTarget {
                             });
                         }
                     });
+                    glEventHub.on('tree-node-updated', (data) => {
+                        if (data.key !== 'default') {
+                            return ;
+                        }
+                        // log 'AppManager.treeView.updated', data.treeNode
+                        var treeNode = data.treeNode;
+                        var item = treeNode.item;
+                        this.selectedTreeNode = treeNode;
+                        this.onTreeNodeUpdate(this.selectedTreeNode, {
+                            immediate: true
+                        });
+                    });
                 });
             });
         });
@@ -2544,230 +2707,39 @@ class AppManager  extends  wz.EventTarget {
     createCommandBars() {
         this.resultBar = new ResultBar();
         wz.element('result-bar').appendChild(this.resultBar.render())
-        this.resultBar.on('command', (name) => {
-            console.log('command name',name);
-            if (['gen', 'mtree', 'debug', 'view', 'exec'].indexOf(name) > -1) {
-                this.ittfResultKind = name;
-                this.onTreeNodeUpdate(this.selectedTreeNode, {
-                    immediate: true
-                });
-            }
-            else if (['wizzify', 'ast', 'diff'].indexOf(name) > -1) {
-                this.snippetResultKind = name;
-                this.onTreeNodeUpdate(this.selectedTreeNode, {
-                    immediate: true
-                });
-            }
-        });
     }
     onTreeNodeUpdate(treeNode, options) {
         options = options || {};
-        console.log('onTreeNodeUpdate', treeNode.item, this.ittfResultKind);
-        if (this.timers['gen']) {
-            clearTimeout(this.timers['gen']);
-            // log 'AppManager.onTreeNodeUpdate. Cleared previous gen schedule.', new Date()
-        }
-        if (treeNode.item.isIttfDocument) {
-            if (!treeNode.item.isFragment) {
-                if (this.ittfResultKind === 'gen') {
-                    wz.canGen(treeNode.item.schema, (err, ok) => {
-                        if (err) {
-                            console.log('err', err);
-                            throw err;
-                        }
-                        if (ok) {
-                            if (options.immediate) {
-                                this.generate(treeNode);
-                            }
-                            else {
-                                this.timers['gen'] = setTimeout(() =>
-                                    this.generate(treeNode), 2 * 1500);
-                            }
-                        }
-                        else {
-                            wz.mtree(treeNode.item.path, (err, result) => {
-                                if (err) {
-                                    this.emit('json-result', err, treeNode);
-                                }
-                                else {
-                                    this.emit('text-result', result.toIttf(), treeNode);
-                                }
-                            });
-                        }
-                    });
-                }
-                else if (this.ittfResultKind === 'mtree') {
-                    this.resultSplash.hide();
-                    wz.mtree(treeNode.item.path, (err, result) => {
-                        if (err) {
-                            this.emit('json-result', err, treeNode);
-                        }
-                        else {
-                            this.emit('text-result', result.toIttf(), treeNode);
-                        }
-                    });
-                }
-                else if (this.ittfResultKind === 'debug') {
-                    this.resultSplash.hide();
-                    wz.mtreeDebug(treeNode.item.path, (err, result) => {
-                        if (err) {
-                            this.emit('json-result', err, treeNode);
-                        }
-                        else {
-                            this.emit('text-result', result.mTreeBuildUpScript, treeNode);
-                        }
-                    });
-                }
-                else if (this.ittfResultKind === 'view') {
-                    this.resultSplash.hide();
-                    if (options.immediate) {
-                        wz.gen(treeNode.item.path, (err, result) => {
-                            if (err) {
-                                this.emit('json-result', err, treeNode);
-                            }
-                            else {
-                                this.emit('html-result', result, treeNode);
-                            }
-                        });
-                    }
-                    else {
-                        this.timers['gen'] = setTimeout(() =>
-                            wz.gen(treeNode.item.path, (err, result) => {
-                                if (err) {
-                                    this.emit('json-result', err, treeNode);
-                                }
-                                else {
-                                    this.emit('html-result', result, treeNode);
-                                }
-                            }), 2 * 1000);
-                    }
-                }
-                else if (this.ittfResultKind === 'exec') {
-                    this.resultSplash.hide();
-                    wz.wizziJob(treeNode.item.path, (err, result) => {
-                        if (err) {
-                            this.emit('json-result', err, treeNode);
-                        }
-                        else {
-                            this.emit('json-result', result, treeNode);
-                        }
-                    });
-                }
-                else {
-                    this.resultSplash.show();
-                }
-            }
-            else {
-                this.resultSplash.show();
-            }
-        }
-        else {
-            if (this.snippetResultKind === 'ast') {
-                this.resultSplash.hide();
-                wz.getCodeAST(treeNode.item.mime, treeNode.item.content, (err, result) => {
-                    if (err) {
-                        this.emit('json-result', err, treeNode);
-                    }
-                    else {
-                        this.emit('json-result', result, treeNode);
-                    }
-                });
-            }
-            else if (this.snippetResultKind === 'diff') {
-                this.resultSplash.hide();
-                var result = {};
-                wz.getCodeAST(treeNode.item.mime, treeNode.item.content, (err, ast1) => {
-                    if (err) {
-                        this.emit('json-result', err, treeNode);
-                    }
-                    else {
-                        result.snippetAst = ast1;
-                        wz.wizzify(treeNode.item.mime, treeNode.item.content, (err, wizzified1) => {
-                            if (err) {
-                                this.emit('json-result', err, treeNode);
-                            }
-                            else {
-                                wz.genFromText(wizzified1, {
-                                    schema: treeNode.item.mime, 
-                                    artifactContext: {
-                                        noUseStrict: true, 
-                                        noGeneratorComments: true
-                                    }
-                                }, (err, artifactText) => {
-                                    if (err) {
-                                        this.emit('json-result', err, treeNode);
-                                    }
-                                    else {
-                                        wz.getCodeAST(treeNode.item.mime, artifactText, (err, ast2) => {
-                                            if (err) {
-                                                this.emit('json-result', err, treeNode);
-                                            }
-                                            else {
-                                                result.wizzifiedAst = ast2;
-                                                this.emit('diff-result', result, treeNode);
-                                            }
-                                        });
-                                    }
-                                });
-                            }
-                        });
-                    }
-                });
-            }
-            else if (this.snippetResultKind === 'wizzify' && wz.canWizzify(treeNode.item.mime)) {
-                this.resultSplash.hide();
-                wz.wizzify(treeNode.item.mime, treeNode.item.content, (err, result) => {
-                    if (err) {
-                        this.emit('json-result', err, treeNode);
-                    }
-                    else {
-                        this.emit('text-result', result, treeNode);
-                    }
-                });
-            }
-            else {
-                this.resultSplash.show();
-            }
-        }
-    }
-    generate(treeNode) {
-        this.resultSplash.hide();
-        wz.gen(treeNode.item.path, (err, result) => {
-            if (err) {
-                this.emit('json-result', err, treeNode);
-            }
-            else {
-                this.emit('text-result', result, treeNode);
-            }
-        });
-        // log 'AppManager.onTreeNodeUpdate. gen executed.', new Date()
-    }
-    wizzify() {
+        this.editBrowse.onEditValueChange(treeNode.item, options);
     }
 }
-class EditManager {
+/**
+     params
+     { props
+     { treeView
+     string ittfEditorTitle
+*/
+class IttfEditManager {
     constructor(props) {
         this.props = props;
-        this.app = props.app;
         this.treeView = props.treeView;
         this.editorControl = null;
         this.currentItem = null;
         this.settingValue = false;
     }
     initialize() {
-        var editorImpl = new AceEditor({
+        this.editorControl = new EditorControl({
             key: 'ittf-editor', 
-            editorElementId: 'editorContainer'
+            elementId: 'editorContainer'
         });
-        this.editorControl = new IttfEditorControl({
-            editorImpl: editorImpl
-        });
-        this.editorControl.onChange = (value) => {
-            if (this.settingValue == false) {
-                this.updateCurrentFile(value);
+        glEventHub.on('editvaluechanged', (key, value) => {
+            if (key === 'ittf-editor') {
+                if (this.settingValue == false) {
+                    this.treeView.updateFile(this.currentTreeNode, value);
+                }
             }
-        };
-        this.editorControl.initEditor();
+        });
+        this.editorControl.initialize();
     }
     setCurrentFile(treeNode) {
         this.currentTreeNode = treeNode;
@@ -2780,45 +2752,11 @@ class EditManager {
     setFilePath(path) {
         wz.text(this.props.ittfEditorTitle, path);
     }
-    updateCurrentFile(value) {
-        this.treeView.updateFile(this.currentTreeNode, value);
-        // set this.currentItem.content = value
-    }
-}
-class IttfEditorControl {
-    constructor(options) {
-        this.options = options;
-        this.editorImpl = options.editorImpl;
-    }
-    onChange(handler) {
-        this.onChange = handler;
-    }
-    initEditor() {
-        if (this.editor) {
-            return ;
-        }
-        this.editorImpl.initialize();
-        this.editor = this.editorImpl;
-        this.editor.on('change', (value) => {
-            if (this.onChange) {
-                this.onChange(value);
-            }
-        });
-    }
-    value(value) {
-        if (this.editor) {
-            if (typeof value === 'undefined') {
-                return this.editor.getValue();
-            }
-            else {
-                this.editor.setValue(value);
-            }
-        }
-    }
 }
 class BrowseManager {
     constructor(props) {
         this.props = props;
+        this.key = props.key || 'default';
         this.app = props.app;
         this.treeView = props.treeView;
         this.textBrowserControl = null;
@@ -2870,6 +2808,39 @@ class BrowseManager {
         this.app.on('html-result', (result, treeNode) => {
             console.log('BrowseManager.html-result', result, treeNode);
             this.activateBrowser('html', result, treeNode);
+        });
+        glEventHub.on('text-result', (data) => {
+            if (data.key !== this.key) {
+                return ;
+            }
+            console.log('BrowseManager.text-result', data.result, data.item);
+            if (data.item && data.item.item && data.item.item) {
+                this.setOptionsBrowser({
+                    mime: data.item.item.mime
+                });
+            }
+            this.activateBrowser('text', data.result);
+        });
+        glEventHub.on('json-result', (data) => {
+            if (data.key !== this.key) {
+                return ;
+            }
+            console.log('BrowseManager.json-result', data.result, data.item);
+            this.activateBrowser('json', data.result);
+        });
+        glEventHub.on('diff-result', (data) => {
+            if (data.key !== this.key) {
+                return ;
+            }
+            console.log('BrowseManager.diff-result', data.result, data.item);
+            this.activateBrowser('diff', data.result);
+        });
+        glEventHub.on('html-result', (data) => {
+            if (data.key !== this.key) {
+                return ;
+            }
+            console.log('BrowseManager.html-result', data.result, data.item);
+            this.activateBrowser('html', data.result, data.item);
         });
     }
     setOptionsBrowser(options) {
@@ -3061,9 +3032,18 @@ class HtmlBrowserControl {
         }
     }
 }
+/**
+     dependencies
+     . g/js/wz/core.js.ittf
+     . g/js/wz/standalone.js.ittf
+     - canGen
+     - canWizzify
+*/
 class ResultBar  extends  wz.EventTarget {
     constructor(props) {
         super();
+        props = props || {};
+        this.key = props.key || 'default';
         this.state = {};
         this.commandEls = {};
     }
@@ -3175,8 +3155,13 @@ class ResultBar  extends  wz.EventTarget {
         if (options.label) {
             cmdButton.textContent = options.label;
         }
-        wz.click(cmdButton, () =>
-            this.emit('command', options.name));
+        wz.click(cmdButton, () => {
+            this.emit('command', options.name);
+            glEventHub.emit('command', {
+                key: this.key, 
+                name: options.name
+            });
+        });
         cmdEl.style.display = 'none';
         cmdEl.appendChild(cmdButton);
         this.commandEls[options.name] = cmdEl;
@@ -3219,6 +3204,369 @@ var sampleTreeData = {
         }
     ]
 };
+/**
+     dependencies
+     . g/js/wz/standalone.js.ittf
+     - wz.canGen
+     - wz.mtree
+     - wz.mtreeDebug
+     - wz.gen
+     - wz.wizziJob
+     - wz.getCodeAST
+     - wz.canWizzify
+     - wz.wizzify
+     - wz.genFromText
+*/
+class EditBrowseController {
+    constructor(props) {
+        this.key = props.key || 'default';
+        this.ittfResultKind = props.ittfResultKind || 'gen';
+        this.snippetResultKind = props.snippetResultKind || 'wizzify';
+        this.selectedItem = null;
+        this.timers = {};
+        this.initialize();
+    }
+    initialize() {
+        glEventHub.on('command', (options) => {
+            if (options.key !== this.key) {
+                return ;
+            }
+            var name = options.name;
+            console.log('command name', name);
+            if (['gen', 'mtree', 'debug', 'view', 'exec'].indexOf(name) > -1) {
+                this.ittfResultKind = name;
+                if (this.selectedItem != null) {
+                    this.onEditValueChange(this.selectedItem, {
+                        immediate: true
+                    });
+                }
+            }
+            else if (['wizzify', 'ast', 'diff'].indexOf(name) > -1) {
+                this.snippetResultKind = name;
+                if (this.selectedItem != null) {
+                    this.onEditValueChange(this.selectedItem, {
+                        immediate: true
+                    });
+                }
+            }
+        });
+    }
+    onEditValueChange(item, options) {
+        /**
+             { item
+             boolean isIttfDocument
+             boolean isFragment
+             string schema
+             string mime
+             string content
+        */
+        /**
+             { options
+             boolean immediate
+        */
+        options = options || {};
+        this.selectedItem = item;
+        console.log('onEditValueChange', item, this.ittfResultKind);
+        if (this.timers['gen']) {
+            clearTimeout(this.timers['gen']);
+            // log 'EditBrowseController.onEditValueChange. Cleared previous gen schedule.', new Date()
+        }
+        if (item == null) {
+            return ;
+        }
+        if (item.isIttfDocument) {
+            if (!item.isFragment) {
+                if (this.ittfResultKind === 'gen') {
+                    wz.canGen(item.schema, (err, ok) => {
+                        if (err) {
+                            console.log('err', err);
+                            throw err;
+                        }
+                        if (ok) {
+                            if (options.immediate) {
+                                this.generate(item);
+                            }
+                            else {
+                                this.timers['gen'] = setTimeout(() =>
+                                    this.generate(item), 2 * 1500);
+                            }
+                        }
+                        else {
+                            glEventHub.emit('splash-hide', {
+                                key: 'result-splash'
+                            });
+                            wz.mtree(item.path, (err, result) => {
+                                if (err) {
+                                    glEventHub.emit('json-result', {
+                                        key: this.key, 
+                                        err: err, 
+                                        item: item
+                                    });
+                                }
+                                else {
+                                    glEventHub.emit('text-result', {
+                                        key: this.key, 
+                                        result: result.toIttf(), 
+                                        item: item
+                                    });
+                                }
+                            });
+                        }
+                    });
+                }
+                else if (this.ittfResultKind === 'mtree') {
+                    glEventHub.emit('splash-hide', {
+                        key: 'result-splash'
+                    });
+                    wz.mtree(item.path, (err, result) => {
+                        if (err) {
+                            glEventHub.emit('json-result', {
+                                key: this.key, 
+                                err: err, 
+                                item: item
+                            });
+                        }
+                        else {
+                            glEventHub.emit('text-result', {
+                                key: this.key, 
+                                result: result.toIttf(), 
+                                item: item
+                            });
+                        }
+                    });
+                }
+                else if (this.ittfResultKind === 'debug') {
+                    glEventHub.emit('splash-hide', {
+                        key: 'result-splash'
+                    });
+                    wz.mtreeDebug(item.path, (err, result) => {
+                        if (err) {
+                            glEventHub.emit('json-result', {
+                                key: this.key, 
+                                err: err, 
+                                item: item
+                            });
+                        }
+                        else {
+                            glEventHub.emit('text-result', {
+                                key: this.key, 
+                                result: result.mTreeBuildUpScript, 
+                                item: item
+                            });
+                        }
+                    });
+                }
+                else if (this.ittfResultKind === 'view') {
+                    glEventHub.emit('splash-hide', {
+                        key: 'result-splash'
+                    });
+                    if (options.immediate) {
+                        wz.gen(item.path, (err, result) => {
+                            if (err) {
+                                glEventHub.emit('json-result', {
+                                    key: this.key, 
+                                    err: err, 
+                                    item: item
+                                });
+                            }
+                            else {
+                                glEventHub.emit('html-result', {
+                                    key: this.key, 
+                                    result: result, 
+                                    item: item
+                                });
+                            }
+                        });
+                    }
+                    else {
+                        this.timers['gen'] = setTimeout(() =>
+                            wz.gen(item.path, (err, result) => {
+                                if (err) {
+                                    glEventHub.emit('json-result', {
+                                        key: this.key, 
+                                        err: err, 
+                                        item: item
+                                    });
+                                }
+                                else {
+                                    glEventHub.emit('html-result', {
+                                        key: this.key, 
+                                        result: result, 
+                                        item: item
+                                    });
+                                }
+                            }), 2 * 1000);
+                    }
+                }
+                else if (this.ittfResultKind === 'exec') {
+                    glEventHub.emit('splash-hide', {
+                        key: 'result-splash'
+                    });
+                    wz.wizziJob(item.path, (err, result) => {
+                        if (err) {
+                            glEventHub.emit('json-result', {
+                                key: this.key, 
+                                err: err, 
+                                item: item
+                            });
+                        }
+                        else {
+                            glEventHub.emit('json-result', {
+                                key: this.key, 
+                                result: result, 
+                                item: item
+                            });
+                        }
+                    });
+                }
+                else {
+                    glEventHub.emit('splash-show', {
+                        key: 'result-splash'
+                    });
+                }
+            }
+            else {
+                glEventHub.emit('splash-show', {
+                    key: 'result-splash'
+                });
+            }
+        }
+        else {
+            if (this.snippetResultKind === 'ast') {
+                glEventHub.emit('splash-hide', {
+                    key: 'result-splash'
+                });
+                wz.getCodeAST(item.mime, item.content, (err, result) => {
+                    if (err) {
+                        glEventHub.emit('json-result', {
+                            key: this.key, 
+                            err: err, 
+                            item: item
+                        });
+                    }
+                    else {
+                        glEventHub.emit('json-result', {
+                            key: this.key, 
+                            result: result, 
+                            item: item
+                        });
+                    }
+                });
+            }
+            else if (this.snippetResultKind === 'diff') {
+                glEventHub.emit('splash-hide', {
+                    key: 'result-splash'
+                });
+                var result = {};
+                wz.getCodeAST(item.mime, item.content, (err, ast1) => {
+                    if (err) {
+                        glEventHub.emit('json-result', {
+                            key: this.key, 
+                            err: err, 
+                            item: item
+                        });
+                    }
+                    else {
+                        result.snippetAst = ast1;
+                        wz.wizzify(item.mime, item.content, (err, wizzified1) => {
+                            if (err) {
+                                glEventHub.emit('json-result', {
+                                    key: this.key, 
+                                    err: err, 
+                                    item: item
+                                });
+                            }
+                            else {
+                                wz.genFromText(wizzified1, {
+                                    schema: item.mime, 
+                                    artifactContext: {
+                                        noUseStrict: true, 
+                                        noGeneratorComments: true
+                                    }
+                                }, (err, artifactText) => {
+                                    if (err) {
+                                        glEventHub.emit('json-result', {
+                                            key: this.key, 
+                                            err: err, 
+                                            item: item
+                                        });
+                                    }
+                                    else {
+                                        wz.getCodeAST(item.mime, artifactText, (err, ast2) => {
+                                            if (err) {
+                                                glEventHub.emit('json-result', {
+                                                    key: this.key, 
+                                                    err: err, 
+                                                    item: item
+                                                });
+                                            }
+                                            else {
+                                                result.wizzifiedAst = ast2;
+                                                glEventHub.emit('diff-result', {
+                                                    key: this.key, 
+                                                    result: result, 
+                                                    item: item
+                                                });
+                                            }
+                                        });
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
+            }
+            else if (this.snippetResultKind === 'wizzify' && wz.canWizzify(item.mime)) {
+                glEventHub.emit('splash-hide', {
+                    key: 'result-splash'
+                });
+                wz.wizzify(item.mime, item.content, (err, result) => {
+                    if (err) {
+                        glEventHub.emit('json-result', {
+                            key: this.key, 
+                            err: err, 
+                            item: item
+                        });
+                    }
+                    else {
+                        glEventHub.emit('text-result', {
+                            key: this.key, 
+                            result: result, 
+                            item: item
+                        });
+                    }
+                });
+            }
+            else {
+                glEventHub.emit('splash-show', {
+                    key: 'result-splash'
+                });
+            }
+        }
+    }
+    generate(item) {
+        glEventHub.emit('splash-hide', {
+            key: 'result-splash'
+        });
+        wz.gen(item.path, (err, result) => {
+            if (err) {
+                glEventHub.emit('json-result', {
+                    key: this.key, 
+                    err: err, 
+                    item: item
+                });
+            }
+            else {
+                glEventHub.emit('text-result', {
+                    key: this.key, 
+                    result: result, 
+                    item: item
+                });
+            }
+        });
+        // log 'EditBrowseController.generate. gen executed.', new Date()
+    }
+}
 let glEventHub = new EventEmitter3();
 window.glEventHub = glEventHub;
 window.path = wz.utils.path;
