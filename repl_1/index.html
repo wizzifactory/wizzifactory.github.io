@@ -14,25 +14,32 @@
         <div class="sh">
             <div class="sh-he">
                 <div class="logo">
-                    <img src="/images/logo.svg" width="100px" height="40px" />
+                    <a href="/"><img src="/images/logo.svg" width="100px" height="40px" />
+                    </a>
                 </div>
             </div>
             <div class="sh-bo">
                 <div class="sh-bo-lsb">
-                    <div style="display: flex;" class="control-panel">
+                    <div style="display: flex; flex-direction: column;" class="control-panel">
                         <div class="control">
                             <label>schema</label>
-                            <select id="selectedSchema">
-                                <option>js</option>
-                                <option>ts</option>
-                                <option>html</option>
+                            <select id="selectedSchema" style="display: none;">
                                 <option>css</option>
-                                <option>svg</option>
+                                <option>html</option>
                                 <option>graphql</option>
+                                <option>js</option>
                                 <option>json</option>
-                                <option>xml</option>
                                 <option>md</option>
+                                <option>scss</option>
+                                <option>svg</option>
+                                <option>ts</option>
+                                <option>vtt</option>
+                                <option>vue</option>
+                                <option>xml</option>
                             </select>
+                        </div>
+                        <div class="control">
+                            <div id="items-tree-view"></div>
                         </div>
                     </div>
                 </div>

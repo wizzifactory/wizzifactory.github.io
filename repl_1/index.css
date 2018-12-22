@@ -45,6 +45,101 @@ body {
     height: 100% !important;
     width: 100% !important;
 }
+.fl {
+    margin: 12px 0;
+}
+.fl-nodes {
+    padding: 0 8px;
+}
+.fl-icon {
+    height: 16px !important;
+    width: 16px !important;
+    fill: currentcolor !important;
+    vertical-align: middle !important;
+    opacity: 0.7 !important;
+}
+.tree-node {
+    position: relative;
+    font-size: 13px;
+    line-height: 1.8;
+}
+.tree-node .copying {
+    border: 1px dashed #dedede;
+}
+.tree-node .cutting {
+    border: 1px dashed #dedede;
+    opacity: 0.5;
+}
+.tree-node .icon-item-group {
+    position: relative !important;
+    display: inline-block !important;
+    width: 100% !important;
+    cursor: pointer !important;
+    z-index: 1 !important;
+    white-space: nowrap !important;
+    outline: 0px !important;
+    padding: 0px 16px !important;
+}
+.tree-node .icon-item-group.selected {
+    background: #cdcdcd;
+}
+.tree-node .item-name {
+    vertical-align: -1px !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    -o-user-select: none !important;
+    user-select: none !important;
+    margin: 0px 6px !important;
+}
+.tree-node .tree-child-leaves {
+    display: block;
+    margin-left: 15px;
+}
+.tree-node .hidden {
+    display: none;
+}
+.tree-node .tree-expando {
+    background: #ddd;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+    float: left;
+    height: 10px;
+    line-height: 10px;
+    position: relative;
+    text-align: center;
+    top: 5px;
+    width: 10px;
+}
+.tree-node .hidden {
+    visibility: hidden;
+}
+.tree-node .tree-expando:hover {
+    background: #aaa;
+}
+.tree-node .tree-node-text {
+    cursor: pointer;
+    float: left;
+    margin-left: 5px;
+}
+.tree-node .tree-node-text:hover {
+    color: blue;
+}
+.tree-node .tree-node-content {
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: row;
+}
+.tree-node .tree-node-content:hover {
+    background: #dedede;
+}
+.tree-node-context-menu-on {
+    background: #cdcdcd;
+}
 .sh {
     display: flex !important;
     flex-direction: column !important;

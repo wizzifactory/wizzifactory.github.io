@@ -230,6 +230,9 @@ body {
     outline: 0px !important;
     padding: 0px 16px !important;
 }
+.tree-node .icon-item-group.selected {
+    background: #cdcdcd;
+}
 .tree-node .item-name {
     vertical-align: -1px !important;
     -webkit-user-select: none !important;

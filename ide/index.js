@@ -1,7 +1,7 @@
 /*
     artifact generator: C:\my\wizzi\v5\apps\node_modules\wizzi-js\lib\artifacts\js\module\gen\main.js
     primary source IttfDocument: c:\my\wizzi\v5\apps\wizzi-studio\dist\server\ittf\demo\ttech\javascript\controls\treeview\step_1\index.js.ittf
-    utc time: Fri, 21 Dec 2018 16:11:22 GMT
+    utc time: Sat, 22 Dec 2018 07:11:00 GMT
 */
 'use strict';
 if (typeof Array.isArray === 'undefined') {
@@ -102,6 +102,65 @@ if (typeof Array.isArray === 'undefined') {
             };
         }
     })();
+    wz.isString = function(test) {
+        return test !== null && typeof(test) === 'string';
+    };
+    wz.isEmpty = function(test) {
+        return wz.isString(test) == false || test.length == 0;
+    };
+    wz.isObject = function(test) {
+        if (test === null || typeof(test) === 'undefined') {
+            return false;
+        }
+        return {}.toString.call(test) === '[object Object]';
+    };
+    wz.isArray = function(test) {
+        if (test === null || typeof(test) === 'undefined') {
+            return false;
+        }
+        if (Array.isArray) {
+            return Array.isArray(test);
+        }
+        return {}.toString.call(test) === '[object Array]';
+    };
+    wz.clone = function(obj) {
+        if (wz.isArray(obj)) {
+            var ret = [];
+            var i, i_items=obj, i_len=obj.length, item;
+            for (i=0; i<i_len; i++) {
+                item = obj[i];
+                var value = clone(item);
+                if (value !== null) {
+                    ret.push(value);
+                }
+            }
+            return ret;
+        }
+        else if (wz.isObject(obj)) {
+            var ret = {};
+            for (var prop in obj) {
+                if (obj.hasOwnProperty(prop)) {
+                    ret[prop] = clone(obj[prop]);
+                }
+            }
+            return ret;
+        }
+        else {
+            return obj;
+        }
+    };
+    wz.replace = function(text, find, replace) {
+        if (wz.isEmpty(text)) {
+            return text;
+        }
+        return text.replace(new RegExp(wz.escapeRegExp(find), 'g'), replace);
+    };
+    wz.escapeRegExp = function(text) {
+        if (wz.isEmpty(text)) {
+            return text;
+        }
+        return text.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+    };
     wz.element = function(element) {
         if (typeof element === 'string') {
             var e = document.querySelector(element);
@@ -363,6 +422,9 @@ if (typeof Array.isArray === 'undefined') {
                 return entityMap[s];
             });
     }
+    wz.unescapeHtml = function(string) {
+        return wz.replace(wz.replace(wz.replace(string, '&lt;', '<'), '&gt;', '>'), '&amp;', '&');
+    };
 })();
 if (!window.wz) {
     window.wz = {};
@@ -1117,6 +1179,7 @@ class EditorControl {
         this.elementId = props.elementId;
         this.theme = props.theme || 'github';
         this.language = props.language || 'js';
+        this.isSettingValue = false;
     }
     initialize() {
         if (this.editor) {
@@ -1133,13 +1196,24 @@ class EditorControl {
             this.editor.readOnly(true);
         }
         this.editor.on('change', (value) => {
-            console.log('editvaluechanged', this.key, value);
-            glEventHub.emit('editvaluechanged', this.key, value);
+            if (this.isSettingValue == false) {
+                console.log('editvaluechanged', this.key, value);
+                glEventHub.emit('editvaluechanged', {
+                    key: this.key, 
+                    value: value, 
+                    defer: true
+                });
+            }
         });
-        glEventHub.on('seteditvalue', (key, value) => {
+        glEventHub.on('seteditvalue', (data) => {
+            console.log('on seteditvalue', data);
+            var key = data.key;
+            var value = data.value;
             console.log('seteditvalue', key, value);
             if (key === this.key) {
+                this.isSettingValue = true;
                 this.value(value);
+                this.isSettingValue = false;
             }
         });
         console.log('EditorControl initialized');
@@ -1206,8 +1280,6 @@ itemUtils.setDirname = function(item, newDirname) {
             itemUtils.setDirname(child, item.path);
         }
     }
-};
-itemUtils.copyTo = function(itemFrom, itemTo) {
 };
 itemUtils.rename = function(item, newName) {
     var newItem = wz.fs.infoByPath(item.dirname + '/' + newName, item.isFolder);
@@ -1324,6 +1396,13 @@ class TreeNode {
                     else {
                         this.expand(this.childrenEl);
                     }
+                }
+                else {
+                    if (this.getTreeview().selectedItemEl) {
+                        wz.removeClass(this.getTreeview().selectedItemEl, 'selected');
+                    }
+                    wz.addClass(itemEl, 'selected');
+                    this.getTreeview().selectedItemEl = itemEl;
                 }
                 this.getTreeview().selectTreeNode(this);
             };
@@ -1557,25 +1636,42 @@ class TreeView  extends  wz.EventTarget {
         this.handlers = {};
         this.selectedTreeNode = null;
     }
-    render(callback) {
+    render(rootItem, callback) {
+        if (typeof callback === 'undefined') {
+            callback = rootItem;
+            rootItem = null;
+        }
         // set this.rootNode = new TreeNode(data, this)
-        this.filesystem.getFolderRoot((err, data) => {
-            if (err) {
-                console.log('err', err);
-                throw err;
-            }
-            // log 'TreeView.folderRoot', data
-            this.rootNode = new TreeNode(data, this);
+        if (this.filesystem) {
+            this.filesystem.getFolderRoot((err, data) => {
+                if (err) {
+                    console.log('err', err);
+                    throw err;
+                }
+                // log 'TreeView.folderRoot', data
+                this.rootNode = new TreeNode(data, this);
+                return callback(null, this.rootNode.render());
+            });
+        }
+        else if (rootItem) {
+            this.rootNode = new TreeNode(rootItem, this);
             return callback(null, this.rootNode.render());
-        });
+        }
+        else {
+            callback({
+                message: 'TreeView.render error: no data for treeNode'
+            });
+        }
     }
     handleContextMenu(payload) {
         // log 'handleContextMenu.payload', payload, payload.data
-        if (payload.data.isFolder) {
-            this.handleContextMenuFolder(payload);
-        }
-        else {
-            this.handleContextMenuFile(payload);
+        if (this.filesystem) {
+            if (payload.data.isFolder) {
+                this.handleContextMenuFolder(payload);
+            }
+            else {
+                this.handleContextMenuFile(payload);
+            }
         }
     }
     handleContextMenuFolder(context) {
@@ -2732,7 +2828,10 @@ class IttfEditManager {
             key: 'ittf-editor', 
             elementId: 'editorContainer'
         });
-        glEventHub.on('editvaluechanged', (key, value) => {
+        glEventHub.on('editvaluechanged', (data) => {
+            console.log('on editvaluechanged', data);
+            key = data.key;
+            value = data.value;
             if (key === 'ittf-editor') {
                 if (this.settingValue == false) {
                     this.treeView.updateFile(this.currentTreeNode, value);

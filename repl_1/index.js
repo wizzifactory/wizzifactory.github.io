@@ -1,7 +1,7 @@
 /*
     artifact generator: C:\my\wizzi\v5\apps\node_modules\wizzi-js\lib\artifacts\js\module\gen\main.js
     primary source IttfDocument: c:\my\wizzi\v5\apps\wizzi-studio\dist\server\ittf\demo\ttech\wizzi\play\repl_1\index.js.ittf
-    utc time: Fri, 21 Dec 2018 16:11:23 GMT
+    utc time: Sat, 22 Dec 2018 07:11:01 GMT
 */
 'use strict';
 if (typeof Array.isArray === 'undefined') {
@@ -102,6 +102,65 @@ if (typeof Array.isArray === 'undefined') {
             };
         }
     })();
+    wz.isString = function(test) {
+        return test !== null && typeof(test) === 'string';
+    };
+    wz.isEmpty = function(test) {
+        return wz.isString(test) == false || test.length == 0;
+    };
+    wz.isObject = function(test) {
+        if (test === null || typeof(test) === 'undefined') {
+            return false;
+        }
+        return {}.toString.call(test) === '[object Object]';
+    };
+    wz.isArray = function(test) {
+        if (test === null || typeof(test) === 'undefined') {
+            return false;
+        }
+        if (Array.isArray) {
+            return Array.isArray(test);
+        }
+        return {}.toString.call(test) === '[object Array]';
+    };
+    wz.clone = function(obj) {
+        if (wz.isArray(obj)) {
+            var ret = [];
+            var i, i_items=obj, i_len=obj.length, item;
+            for (i=0; i<i_len; i++) {
+                item = obj[i];
+                var value = clone(item);
+                if (value !== null) {
+                    ret.push(value);
+                }
+            }
+            return ret;
+        }
+        else if (wz.isObject(obj)) {
+            var ret = {};
+            for (var prop in obj) {
+                if (obj.hasOwnProperty(prop)) {
+                    ret[prop] = clone(obj[prop]);
+                }
+            }
+            return ret;
+        }
+        else {
+            return obj;
+        }
+    };
+    wz.replace = function(text, find, replace) {
+        if (wz.isEmpty(text)) {
+            return text;
+        }
+        return text.replace(new RegExp(wz.escapeRegExp(find), 'g'), replace);
+    };
+    wz.escapeRegExp = function(text) {
+        if (wz.isEmpty(text)) {
+            return text;
+        }
+        return text.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+    };
     wz.element = function(element) {
         if (typeof element === 'string') {
             var e = document.querySelector(element);
@@ -363,6 +422,9 @@ if (typeof Array.isArray === 'undefined') {
                 return entityMap[s];
             });
     }
+    wz.unescapeHtml = function(string) {
+        return wz.replace(wz.replace(wz.replace(string, '&lt;', '<'), '&gt;', '>'), '&amp;', '&');
+    };
 })();
 if (!window.wz) {
     window.wz = {};
@@ -1220,6 +1282,7 @@ class EditorControl {
         this.elementId = props.elementId;
         this.theme = props.theme || 'github';
         this.language = props.language || 'js';
+        this.isSettingValue = false;
     }
     initialize() {
         if (this.editor) {
@@ -1236,13 +1299,24 @@ class EditorControl {
             this.editor.readOnly(true);
         }
         this.editor.on('change', (value) => {
-            console.log('editvaluechanged', this.key, value);
-            glEventHub.emit('editvaluechanged', this.key, value);
+            if (this.isSettingValue == false) {
+                console.log('editvaluechanged', this.key, value);
+                glEventHub.emit('editvaluechanged', {
+                    key: this.key, 
+                    value: value, 
+                    defer: true
+                });
+            }
         });
-        glEventHub.on('seteditvalue', (key, value) => {
+        glEventHub.on('seteditvalue', (data) => {
+            console.log('on seteditvalue', data);
+            var key = data.key;
+            var value = data.value;
             console.log('seteditvalue', key, value);
             if (key === this.key) {
+                this.isSettingValue = true;
                 this.value(value);
+                this.isSettingValue = false;
             }
         });
         console.log('EditorControl initialized');
@@ -1274,6 +1348,872 @@ class EditorControl {
                 this.editor.setValue(value);
             }
         }
+    }
+}
+/**
+     dependencies
+     . g/js/wz/core.js.ittf
+     . g/js/wz/contextMenu.js.ittf
+     params
+     { item
+     string name
+     boolean isFolder
+     boolean expanded
+     date loadedAt
+     [ children
+     { treeView
+     func emit
+     func populate
+     func handleContextMenu
+     func rename
+*/
+class TreeNode {
+    constructor(item, treeView) {
+        this.item = item;
+        this.treeView = treeView;
+        this.parent = null;
+        this.rendered = false;
+        this.children = [];
+        if (item.children && item.children.length > 0) {
+            var i, i_items=item.children, i_len=item.children.length, child;
+            for (i=0; i<i_len; i++) {
+                child = item.children[i];
+                this.addItem(child);
+            }
+        }
+    }
+    getRoot() {
+        return this.parent ? this.parent.getRoot() : this;
+    }
+    getTreeview() {
+        return this.getRoot().treeView;
+    }
+    addItem(item) {
+        var node = new TreeNode(item);
+        node.parent = this;
+        this.children.push(node);
+        if (this.rendered) {
+            var childLeaf = node.render();
+            if (!this.childrenEl) {
+                this.childrenEl = document.createElement('div');
+                this.childrenEl.setAttribute('class', 'tree-child-leaves');
+                this.el.appendChild(this.childrenEl);
+            }
+            this.childrenEl.appendChild(childLeaf);
+        }
+        return node;
+    }
+    replace(populatedItem) {
+        // populatedItem is the same object of item (the parent has not been changed)
+        this.item = populatedItem;
+        this.rendered = false;
+        var i, i_items=populatedItem.children, i_len=populatedItem.children.length, child;
+        for (i=0; i<i_len; i++) {
+            child = populatedItem.children[i];
+            this.addItem(child);
+        }
+        var oldEl = this.el;
+        var newEl = this.render();
+        // log 'replace', newEl, this.el
+        oldEl.parentNode.replaceChild(newEl, oldEl);
+    }
+    render() {
+        this.rendered = true;
+        var item = this.item;
+        this.el = document.createElement('div');
+        this.el.setAttribute('class', 'tree-node');
+        this.contentEl = document.createElement('div');
+        this.contentEl.setAttribute('class', 'tree-node-content');
+        var itemEl = this.getItemEl(item);
+        this.contentEl.appendChild(itemEl);
+        this.el.appendChild(this.contentEl);
+        if (this.children.length > 0) {
+            this.childrenEl = document.createElement('div');
+            this.childrenEl.setAttribute('class', 'tree-child-leaves');
+            var i, i_items=this.children, i_len=this.children.length, child;
+            for (i=0; i<i_len; i++) {
+                child = this.children[i];
+                var childLeaf = child.render();
+                this.childrenEl.appendChild(childLeaf);
+            }
+            if (!item.expanded) {
+                this.childrenEl.classList.add('hidden');
+            }
+            this.el.appendChild(this.childrenEl);
+        }
+        var clickThis = (event) => {
+            console.log('clickThis', 'expanded', this.item.expanded, 'needs populate',  this.children.length == 0 && !this.item.loadedAt && this.item.isFolder);
+            var selectThis = () => {
+                if (this.item.isFolder) {
+                    if (this.item.expanded) {
+                        this.collapse(this.childrenEl);
+                    }
+                    else {
+                        this.expand(this.childrenEl);
+                    }
+                }
+                else {
+                    if (this.getTreeview().selectedItemEl) {
+                        wz.removeClass(this.getTreeview().selectedItemEl, 'selected');
+                    }
+                    wz.addClass(itemEl, 'selected');
+                    this.getTreeview().selectedItemEl = itemEl;
+                }
+                this.getTreeview().selectTreeNode(this);
+            };
+            if (this.children.length == 0 && !this.item.loadedAt && this.item.isFolder) {
+                this.getTreeview().populate(this);
+            }
+            selectThis();
+        };
+        wz.click(this.contentEl, clickThis);
+        var contextmenu = (event) => {
+            wz.addClass(this.contentEl, 'tree-node-context-menu-on');
+            this.getTreeview().handleContextMenu({
+                target: event, 
+                treeNode: this, 
+                data: this.item
+            });
+        };
+        wz.contextmenu(this.contentEl, contextmenu);
+        return this.el;
+    }
+    expand(skipEmit) {
+        svg['folder-opened'](this.svg);
+        console.log('expand', this.children.length);
+        if (this.children.length > 0) {
+            var childrenEl = this.el.querySelector('.tree-child-leaves');
+            childrenEl.classList.remove('hidden');
+        }
+        this.item.expanded = true;
+        if (skipEmit) {
+            return ;
+        }
+        this.getTreeview().emit('expand', {
+            treeNode: this
+        });
+    }
+    collapse(skipEmit) {
+        svg['folder-closed'](this.svg);
+        console.log('collapse', this.children.length);
+        if (this.children.length > 0) {
+            var childrenEl = this.el.querySelector('.tree-child-leaves');
+            childrenEl.classList.add('hidden');
+        }
+        this.item.expanded = false;
+        if (skipEmit) {
+            return ;
+        }
+        this.getTreeview().emit('collapse', {
+            treeNode: this
+        });
+    }
+    renameStart() {
+        console.log('renameStart', this);
+        if (!this.input) {
+            this.input = document.createElement('input');
+            this.input.setAttribute('style', 'margin: 1px 4px;');
+            wz.value(this.input, this.item.name);
+            this.input.setSelectionRange(0, this.input.value.length);
+        }
+        this.text.parentNode.replaceChild(this.input, this.text);
+        var editOnInputKeyPress = (event) => {
+            // log 'keypress', event.keyCode
+            if (event.keyCode == 13) {
+                editOnDocumentClick({
+                    target: null
+                });
+            }
+        };
+        var editOnDocumentClick = (event) => {
+            if (event.target != this.input) {
+                wz.unkeypress(document, editOnInputKeyPress);
+                wz.unclick(document, editOnDocumentClick);
+                this.renameFinish();
+            }
+        };
+        window.setTimeout(() => {
+            wz.keypress(this.input, editOnInputKeyPress);
+            wz.click(document, editOnDocumentClick);
+            this.input.focus();
+        }, 100);
+    }
+    renameFinish() {
+        var newName = wz.value(this.input);
+        console.log('renameFinish', newName, this.item.name);
+        if (newName !== this.item.name) {
+            this.getTreeview().rename(this, newName, (err, result) => {
+                if (err) {
+                    console.log('err', err);
+                    throw err;
+                }
+                itemUtils.rename(this.item, newName);
+                this.text.textContent = newName;
+                this.input.parentNode.replaceChild(this.text, this.input);
+                this.getTreeview().emit('select', this, event);
+            });
+        }
+        else {
+            this.getTreeview().emit('select', this, event);
+        }
+    }
+    copyCutStart(oper) {
+        console.log('copyCutStart', oper, this);
+        wz.addClass(this.el, oper === 'copy' ? 'copying' : 'cutting');
+    }
+    copyCutFinish() {
+        console.log('copyCutFinish', this);
+        wz.removeClass(this.el, 'copying');
+        wz.removeClass(this.el, 'cutting');
+    }
+    remove() {
+        wz.node.remove(this);
+        this.el.parentNode.removeChild(this.el);
+    }
+    getItemEl(item) {
+        var kind;
+        // log 'getItemEl', item
+        if (item.isFolder) {
+            kind = item.expanded ? 'folder-opened' : 'folder-closed';
+        }
+        else {
+            kind = isImage(item.mime) ? 'image' : 'document';
+        }
+        var itemEl = document.createElement('div');
+        itemEl.className = 'icon-item-group';
+        var itemTextEl = document.createElement('span');
+        itemTextEl.className = 'item-name';
+        itemTextEl.textContent = item.name;
+        this.svg = svg.getSvg();
+        itemEl.appendChild(svg[kind](this.svg));
+        itemEl.appendChild(itemTextEl);
+        this.text = itemTextEl;
+        return itemEl;
+    }
+}
+var svg = {
+    'folder-closed': function(svgEl) {
+        while (svgEl.firstChild) {
+            svgEl.removeChild(svgEl.firstChild);
+        }
+        var pathEl = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        pathEl.setAttribute('d', "M7.25,4 L7.5,4 L7.5,3 L7,3.5 L7,2 L15,2 L15,4 L7.25,4 Z M6.75,4 L5,4 L7,2 L7,3.5 L6.5,4 L6.75,4 Z M1,4 L15,4 L15,14 L1,14 L1,4 Z M7.5,3 L7.5,4 L14,4 L14,3 L7.5,3 Z");
+        svgEl.appendChild(pathEl);
+        return svgEl;
+    }, 
+    'folder-opened': function(svgEl) {
+        while (svgEl.firstChild) {
+            svgEl.removeChild(svgEl.firstChild);
+        }
+        var gEl = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        var pathEl = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        pathEl.setAttribute('d', "M7.5,5 L2,5 L2,13 L7.75,13 L14,13 L14,4 L15,4 L15,14 L1,14 L1,4 L6.5,4 L5.5,5 L7.5,5 L7.5,4.5 L7.5,5 Z M14,4 L14,3 L7.5,3 L7.5,3.5 L7.5,3 L7,3.5 L7,2 L15,2 L15,4 L14,4 Z M6.5,4 L5,4 L7,2 L7,3.5 L6.5,4 Z");
+        var polyEl = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+        polyEl.setAttribute('points', "0 7 13 7 14 14 1 14");
+        gEl.appendChild(pathEl);
+        gEl.appendChild(polyEl);
+        svgEl.appendChild(gEl);
+        return svgEl;
+    }, 
+    'document': function(svgEl) {
+        while (svgEl.firstChild) {
+            svgEl.removeChild(svgEl.firstChild);
+        }
+        var pathEl = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        pathEl.setAttribute('d', "M3,2 L13,2 L13,14 L3,14 L3,2 Z M9,2 L13,6 L13,2 L9,2 Z M9,6 L9,2 L8,2 L8,7 L13,7 L13,6 L9,6 Z");
+        svgEl.appendChild(pathEl);
+        return svgEl;
+    }, 
+    'image': function(svgEl) {
+        while (svgEl.firstChild) {
+            svgEl.removeChild(svgEl.firstChild);
+        }
+        var gEl = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        var circleEl = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        circleEl.setAttribute('cx', "5");
+        circleEl.setAttribute('cy', "5");
+        circleEl.setAttribute('r', "1");
+        var polyEl = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+        polyEl.setAttribute('points', "5.71428571 8.41176471 8 11.2352941 10.8571429 7 14 13 2 13");
+        var pathEl = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        pathEl.setAttribute('d', "M3,3 L3,13 L13,13 L13,3 L3,3 Z M3,2 L13,2 C13.5522847,2 14,2.44771525 14,3 L14,13 C14,13.5522847 13.5522847,14 13,14 L3,14 C2.44771525,14 2,13.5522847 2,13 L2,3 C2,2.44771525 2.44771525,2 3,2 Z");
+        gEl.appendChild(circleEl);
+        gEl.appendChild(polyEl);
+        gEl.appendChild(pathEl);
+        svgEl.appendChild(gEl);
+        return svgEl;
+    }, 
+    getSvg: function() {
+        var svgEl = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        svgEl.setAttribute('class', 'fl-icon');
+        svgEl.setAttribute('viewBox', '0 0 16 16');
+        return svgEl;
+    }
+};
+function isImage(mime) {
+    return /\.(bmp|jpg|jpeg|png|gif|svg)$/.test(mime);
+}
+/**
+     dependencies
+     . g/js/wz/core.js.ittf
+     . g/js/wz/contextMenu.js.ittf
+     params
+     { props
+     string key
+     { app
+     { filesystem
+     func getFolderRoot
+     func folderContextmenuItems
+     func fileContextmenuItems
+     func populateFolderItem
+     func createFolder
+     func createFile
+     func deleteFolder
+     func deleteFile
+     func updateFile
+     func rename
+     func copyCutStart
+     func pasteTo
+*/
+class TreeView  extends  wz.EventTarget {
+    constructor(props) {
+        super();
+        this.events = [
+            'expand', 
+            'change', 
+            'collapse', 
+            'select'
+        ];
+        this.props = props;
+        this.key = props.key || 'default';
+        this.app = props.app;
+        this.filesystem = props.filesystem;
+        this.handlers = {};
+        this.selectedTreeNode = null;
+    }
+    render(rootItem, callback) {
+        if (typeof callback === 'undefined') {
+            callback = rootItem;
+            rootItem = null;
+        }
+        // set this.rootNode = new TreeNode(data, this)
+        if (this.filesystem) {
+            this.filesystem.getFolderRoot((err, data) => {
+                if (err) {
+                    console.log('err', err);
+                    throw err;
+                }
+                // log 'TreeView.folderRoot', data
+                this.rootNode = new TreeNode(data, this);
+                return callback(null, this.rootNode.render());
+            });
+        }
+        else if (rootItem) {
+            this.rootNode = new TreeNode(rootItem, this);
+            return callback(null, this.rootNode.render());
+        }
+        else {
+            callback({
+                message: 'TreeView.render error: no data for treeNode'
+            });
+        }
+    }
+    handleContextMenu(payload) {
+        // log 'handleContextMenu.payload', payload, payload.data
+        if (this.filesystem) {
+            if (payload.data.isFolder) {
+                this.handleContextMenuFolder(payload);
+            }
+            else {
+                this.handleContextMenuFile(payload);
+            }
+        }
+    }
+    handleContextMenuFolder(context) {
+        var that = this;
+        if (!this.contextmenuFolder) {
+            this.contextmenuFolder = new wz.ContextMenu({
+                menusContainerId: this.props.formsContainerId
+            });
+            this.contextmenuFolder.create({
+                menu: {
+                    id: (this.props.id || 'treeview') + '-contextmenuFolder', 
+                    items: this.filesystem.folderContextmenuItems(context.treeNode)
+                }, 
+                onClick: (data) => {
+                    // log 'handleContextMenu_ittfDocument.onClick', data
+                    if (data.command === 'rename') {
+                        data.payload.treeNode.renameStart();
+                    }
+                    else if (data.command === 'create folder') {
+                        this.createFolder(data.payload.treeNode);
+                    }
+                    else if (data.command === 'create file') {
+                        this.createFile(data.payload.treeNode);
+                    }
+                    else if (data.command === 'clone repo') {
+                        this.cloneRepo(data.payload.treeNode);
+                    }
+                    else if (data.command === 'checkout repo') {
+                        this.checkoutRepo(data.payload.treeNode);
+                    }
+                    else if (data.command === 'copy' || data.command === 'cut') {
+                        this.copyCutStart(data.payload.treeNode, data.command);
+                    }
+                    else if (data.command === 'paste') {
+                        this.pasteTo(data.payload.treeNode);
+                    }
+                    else if (data.command === 'delete') {
+                        this.deleteFolder(data.payload.treeNode);
+                    }
+                }
+            });
+        }
+        else {
+            this.contextmenuFolder.replace({
+                items: this.filesystem.folderContextmenuItems(context.treeNode)
+            });
+        }
+        this.contextmenuFolder.handleRightClick(event, {
+            data: context.data, 
+            treeNode: context.treeNode
+        });
+        this.contextmenuFolder.onClose = () =>
+            wz.removeClass(context.treeNode.contentEl, 'tree-node-context-menu-on');
+    }
+    handleContextMenuFile(context) {
+        var that = this;
+        if (!this.contextmenuFile) {
+            this.contextmenuFile = new wz.ContextMenu({
+                menusContainerId: this.props.formsContainerId
+            });
+            this.contextmenuFile.create({
+                menu: {
+                    id: (this.props.id || 'treeview') + '-contextmenuFile', 
+                    items: this.filesystem.fileContextmenuItems(context.treeNode)
+                }, 
+                onClick: (data) => {
+                    // log 'handleContextMenu_ittfDocument.onClick', data
+                    if (data.command === 'rename') {
+                        data.payload.treeNode.renameStart();
+                    }
+                    else if (data.command === 'copy' || data.command === 'cut') {
+                        this.copyCutStart(data.payload.treeNode, data.command);
+                    }
+                    else if (data.command === 'paste') {
+                        this.pasteTo(data.payload.treeNode);
+                    }
+                    else if (data.command === 'delete') {
+                        this.deleteFile(data.payload.treeNode);
+                    }
+                }
+            });
+        }
+        else {
+            this.contextmenuFile.replace({
+                items: this.filesystem.fileContextmenuItems(context.treeNode)
+            });
+        }
+        this.contextmenuFile.handleRightClick(event, {
+            data: context.data, 
+            treeNode: context.treeNode
+        });
+        this.contextmenuFile.onClose = () =>
+            wz.removeClass(context.treeNode.contentEl, 'tree-node-context-menu-on');
+    }
+    populate(treeNode, callback) {
+        this.filesystem.populateFolderItem(treeNode.item, (err, populatedItem) => {
+            if (err) {
+                console.log('err', err);
+                throw err;
+            }
+            // log 'TreeView.populate', populatedItem
+            treeNode.replace(populatedItem);
+            if (callback) {
+                return callback(null);
+            }
+        });
+    }
+    selectTreeNode(treeNode) {
+        this.selectedTreeNode = treeNode;
+        glEventHub.emit('select-tree-node', {
+            key: this.key, 
+            treeNode: treeNode
+        });
+    }
+    createFolder(treeNode) {
+        var createExec = () =>
+            this.filesystem.createFolder(treeNode.item, (err, newItem) => {
+                if (err) {
+                    console.log('err', err);
+                    throw err;
+                }
+                console.log('createFolder.1', newItem);
+                var newNode = treeNode.addItem(newItem);
+                treeNode.expand();
+                newNode.renameStart();
+            });
+        if (!treeNode.item.loadedAt) {
+            console.log('createFolder.populate');
+            this.populate(treeNode, (err, notUsed) => {
+                if (err) {
+                    console.log('err', err);
+                    throw err;
+                }
+                createExec();
+            });
+        }
+        else {
+            createExec();
+        }
+    }
+    deleteFolder(treeNode) {
+        this.filesystem.deleteFolder(treeNode.item, (err, result) => {
+            if (err) {
+                console.log('err', err);
+                throw err;
+            }
+            treeNode.remove();
+        });
+    }
+    createFile(treeNode) {
+        var createExec = () =>
+            this.filesystem.createFile(treeNode.item, (err, newItem) => {
+                if (err) {
+                    console.log('err', err);
+                    throw err;
+                }
+                var newNode = treeNode.addItem(newItem);
+                treeNode.expand();
+                newNode.renameStart();
+            });
+        if (!treeNode.item.loadedAt) {
+            this.populate(treeNode, (err, notUsed) => {
+                if (err) {
+                    console.log('err', err);
+                    throw err;
+                }
+                createExec();
+            });
+        }
+        else {
+            createExec();
+        }
+    }
+    cloneRepo(treeNode) {
+        var cloneExec = async () => {
+            await gitClone({
+                filepath: treeNode.item.path, 
+                glEventHub: glEventHub
+            });
+            /**
+                this.filesystem.cloneFolder(treeNode.item, (err, newItem) => {
+                    if (err) {
+                        console.log('err', err);
+                        throw err;
+                    }
+                    console.log('cloneFolder.1', newItem);
+                    var newNode = treeNode.addItem(newItem);
+                    treeNode.expand();
+                    newNode.renameStart();
+                })*/
+        };
+        if (!treeNode.item.loadedAt) {
+            console.log('cloneFolder.populate');
+            this.populate(treeNode, (err, notUsed) => {
+                if (err) {
+                    console.log('err', err);
+                    throw err;
+                }
+                cloneExec();
+            });
+        }
+        else {
+            cloneExec();
+        }
+    }
+    checkoutRepo(treeNode) {
+        var checkoutExec = async () => {
+            await gitCheckout({
+                filepath: treeNode.item.path, 
+                glEventHub: glEventHub
+            });
+            /**
+                this.filesystem.checkoutFolder(treeNode.item, (err, newItem) => {
+                    if (err) {
+                        console.log('err', err);
+                        throw err;
+                    }
+                    console.log('checkoutFolder.1', newItem);
+                    var newNode = treeNode.addItem(newItem);
+                    treeNode.expand();
+                    newNode.renameStart();
+                })*/
+        };
+        if (!treeNode.item.loadedAt) {
+            console.log('checkoutFolder.populate');
+            this.populate(treeNode, (err, notUsed) => {
+                if (err) {
+                    console.log('err', err);
+                    throw err;
+                }
+                checkoutExec();
+            });
+        }
+        else {
+            checkoutExec();
+        }
+    }
+    updateFile(treeNode, newContent) {
+        this.filesystem.updateFile(treeNode.item, newContent, (err, result) => {
+            if (err) {
+                console.log('err', err);
+                throw err;
+            }
+            treeNode.item.content = newContent;
+            glEventHub.emit('tree-node-updated', {
+                key: this.key, 
+                treeNode: treeNode
+            });
+        });
+    }
+    deleteFile(treeNode) {
+        this.filesystem.deleteFile(treeNode.item, (err, result) => {
+            if (err) {
+                console.log('err', err);
+                throw err;
+            }
+            treeNode.remove();
+        });
+    }
+    rename(treeNode, newName, callback) {
+        this.filesystem.rename(treeNode.item, newName, callback);
+    }
+    copyCutStart(treeNode, oper) {
+        treeNode.copyCutStart(oper);
+        this.filesystem.copyCutStart(treeNode.item, treeNode, oper);
+    }
+    pasteTo(treeNode) {
+        this.filesystem.pasteTo(treeNode.item, (err, from) => {
+            if (err) {
+                console.log('err', err);
+                throw err;
+            }
+            console.log('treeView.pasteTo', 'from', from, 'to', treeNode.item);
+            if (from.action === 'copyFile' || from.action === 'copyFolder') {
+                var newItem = itemUtils.cloneItem(from.context.item);
+                itemUtils.setDirname(newItem, treeNode.item.dirname);
+                treeNode.addItem(newItem);
+                from.context.copyCutFinish();
+            }
+            if (from.action === 'moveFile' || from.action === 'moveFolder') {
+                var newItem = itemUtils.cloneItem(from.context.item);
+                itemUtils.setDirname(newItem, treeNode.item.dirname);
+                treeNode.addItem(newItem);
+                from.context.remove();
+            }
+        });
+    }
+}
+/**
+     dependencies
+     . g/js/wz/standalone.js.ittf
+     - wz.fs.infoByPath
+     params
+     { ctx
+     { fsAdapter (BrowserFilesystem, ...)
+*/
+class TreeFileSystem {
+    constructor(ctx) {
+        this.fsAdapter = ctx.fsAdapter;
+        // the fs item
+        this.copyCutItem = null;
+        // the TreeNode containing the copy/cut fs item
+        this.copyCutContext = null;
+        // oneOf( 'copy', 'cut' )
+        this.copyCutOper = null;
+    }
+    getChildName(item, name) {
+        var c = 0;
+        var result, ok = false;
+        while (ok == false) {
+            result = name + (c == 0 ? '' : c);
+            ok = true;
+            var i, i_items=item.children, i_len=item.children.length, child;
+            for (i=0; i<i_len; i++) {
+                child = item.children[i];
+                if (child.name === result) {
+                    ok = false;
+                }
+            }
+            c++;
+        }
+        return result;
+    }
+    getFolderRoot(callback) {
+        this.fsAdapter.getFolderItem(callback);
+    }
+    populateFolderItem(parentItem, callback) {
+        this.fsAdapter.getFolderItem(parentItem, callback);
+    }
+    createFolder(parentItem, callback) {
+        var newName = this.getChildName(parentItem, 'new folder');
+        var newPath = parentItem.path + '/' + newName;
+        this.fsAdapter.createFolder(newPath, (err, result) => {
+            if (err) {
+                console.log('err', err);
+                throw err;
+            }
+            var newItem = wz.fs.infoByPath(newPath, true);
+            newItem.name = newItem.basename;
+            newItem.children = [];
+            callback(null, newItem);
+        });
+    }
+    deleteFolder(item, callback) {
+        this.fsAdapter.deleteFolder(item.path, callback);
+    }
+    createFile(parentItem, callback) {
+        var newName = this.getChildName(parentItem, 'new file');
+        var newPath = parentItem.path + '/' + newName;
+        var newContent = '...';
+        this.fsAdapter.writeFile(newPath, newContent, (err, result) => {
+            if (err) {
+                console.log('err', err);
+                throw err;
+            }
+            var newItem = wz.fs.infoByPath(newPath, false);
+            newItem.name = newItem.basename;
+            newItem.children = [];
+            callback(null, newItem);
+        });
+    }
+    updateFile(item, content, callback) {
+        this.fsAdapter.writeFile(item.path, content, callback);
+    }
+    deleteFile(item, callback) {
+        this.fsAdapter.deleteFile(item.path, callback);
+    }
+    rename(item, newName, callback) {
+        console.log('treeFileSystem.rename', item, newName);
+        if (item.isFolder) {
+            this.fsAdapter.renameFolder(item.path, item.dirname + '/' + newName, callback);
+        }
+        else {
+            this.fsAdapter.renameFile(item.path, item.dirname + '/' + newName, callback);
+        }
+    }
+    copyCutStart(item, context, oper) {
+        /**
+             params
+                { item
+                 is a TreeNode.item
+                { context
+                 is a TreeNode
+                { item
+                 oneOf( 'copy', 'cut' )
+        */
+        this.copyCutItem = item;
+        this.copyCutContext = context;
+        this.copyCutOper = oper;
+    }
+    copyCutClear() {
+        this.copyCutItem = null;
+        this.copyCutContext = null;
+        this.copyCutOper = null;
+    }
+    pasteTo(item, callback) {
+        console.log('TreeFileSystem.pasteTo', item, 'from', this.copyCutItem);
+        var action;
+        if (this.copyCutOper === 'copy') {
+            if (this.copyCutItem.isFolder) {
+                action = 'copyFolder';
+            }
+            else {
+                action = 'copyFile';
+            }
+        }
+        else {
+            if (this.copyCutItem.isFolder) {
+                action = 'moveFolder';
+            }
+            else {
+                action = 'moveFile';
+            }
+        }
+        this.fsAdapter[action](this.copyCutItem.path, item.path + '/' + this.copyCutItem.basename, (err, result) => {
+            if (err) {
+                return callback(err);
+            }
+            callback(null, {
+                item: this.copyCutItem, 
+                context: this.copyCutContext, 
+                oper: this.copyCutOper, 
+                action: action
+            });
+            this.copyCutClear();
+        });
+    }
+    folderContextmenuItems(item) {
+        var canPaste = this.copyCutItem && item !== this.copyCutItem;
+        var items = [
+            {
+                label: 'create folder'
+            }, 
+            {
+                label: 'create file'
+            }, 
+            {
+                label: 'clone repo'
+            }, 
+            {
+                label: 'checkout repo'
+            }
+        ];
+        if (canPaste) {
+            items.push({
+                label: 'paste'
+            });
+        }
+        items = items.concat([
+            {
+                label: 'copy'
+            }, 
+            {
+                label: 'cut'
+            }, 
+            {
+                label: 'rename'
+            }, 
+            {
+                label: 'delete'
+            }
+        ]);
+        return items;
+    }
+    fileContextmenuItems(item) {
+        var canPaste = this.copyCutItem && item !== this.copyCutItem;
+        var items = [];
+        if (canPaste) {
+            items.push({
+                label: 'paste'
+            });
+        }
+        items = items.concat([
+            {
+                label: 'copy'
+            }, 
+            {
+                label: 'cut'
+            }, 
+            {
+                label: 'rename'
+            }, 
+            {
+                label: 'delete'
+            }
+        ]);
+        return items;
     }
 }
 class SplashControl {
@@ -1342,6 +2282,8 @@ class AppManager {
         this.timers = {};
     }
     start() {
+        this.dataManager = new DataManager({});
+        this.treeManager = new TreeManager({});
         this.initStore();
         this.createEditors();
         this.setEvents();
@@ -1356,23 +2298,36 @@ class AppManager {
     createOptions() {
         this.selectedSchema = this.store.get('lastSchema');
         wz.value('selectedSchema', this.selectedSchema);
-        this.setIttfContentFromStore();
-        this.setSnippetContentFromStore();
+        // _ this.setIttfContentFromStore
+        // _ this.setSnippetContentFromStore
         wz.change('selectedSchema', () => {
             console.log('onChangeSchema', event.target.value);
             this.selectedSchema = event.target.value;
+            glEventHub.emit('schema-selected', {
+                name: this.selectedSchema
+            });
             this.store.set('lastSchema', this.selectedSchema);
-            this.setIttfContentFromStore();
-            this.setSnippetContentFromStore();
+            // _ this.setIttfContentFromStore
+            // _ this.setSnippetContentFromStore
         });
+        glEventHub.emit('schema-selected', {
+            name: this.selectedSchema
+        });
+        wz.show('selectedSchema');
     }
     setIttfContentFromStore() {
         var content = this.store.get(this.selectedSchema + '_ittf_content', initialIttfs[this.selectedSchema] || this.selectedSchema, true);
-        glEventHub.emit('seteditvalue', 'gen-ittf', content);
+        glEventHub.emit('seteditvalue', {
+            key: 'gen-ittf', 
+            value: content
+        });
     }
     setSnippetContentFromStore() {
         var content = this.store.get(this.selectedSchema + '_snippet_content', initialSnippets[this.selectedSchema] || this.selectedSchema, true);
-        glEventHub.emit('seteditvalue', 'snippet-source', content);
+        glEventHub.emit('seteditvalue', {
+            key: 'snippet-source', 
+            value: content
+        });
     }
     createEditors() {
         this.genIttfEditor = new EditorControl({
@@ -1399,13 +2354,18 @@ class AppManager {
         this.snippetResultEditor.initialize();
     }
     setEvents() {
-        glEventHub.on('editvaluechanged', (key, value) => {
+        glEventHub.on('editvaluechanged', (data) => {
+            console.log('on editvaluechanged', data);
+            var key = data.key;
+            var value = data.value;
+            var defer = data.defer;
+            var elapse = data.defer ? 2 * 1500 : 100;
             if (key === 'gen-ittf') {
                 if (this.timers['gen']) {
                     clearTimeout(this.timers['gen']);
                 }
                 this.timers['gen'] = setTimeout(() =>
-                    this.generate(value), 2 * 1500);
+                    this.generate(value), elapse);
                 this.store.set(this.selectedSchema + '_ittf_content', value);
             }
             else if (key === 'snippet-source') {
@@ -1413,7 +2373,7 @@ class AppManager {
                     clearTimeout(this.timers['wizzify']);
                 }
                 this.timers['wizzify'] = setTimeout(() =>
-                    this.wizzify(value), 2 * 1500);
+                    this.wizzify(value), elapse);
                 this.store.set(this.selectedSchema + '_snippet_content', value);
             }
         });
@@ -1423,25 +2383,188 @@ class AppManager {
             schema: this.selectedSchema || 'js'
         }, (err, result) => {
             if (err) {
-                glEventHub.emit('seteditvalue', 'gen-result', JSON.stringify(err, null, 2));
+                glEventHub.emit('seteditvalue', {
+                    key: 'gen-result', 
+                    value: JSON.stringify(err, null, 2)
+                });
             }
             else {
-                glEventHub.emit('artifactgenerated', result);
-                glEventHub.emit('seteditvalue', 'gen-result', result);
+                glEventHub.emit('artifactgenerated', {
+                    content: result
+                });
+                glEventHub.emit('seteditvalue', {
+                    key: 'gen-result', 
+                    value: result
+                });
             }
         });
     }
     wizzify(value) {
         wz.wizzify(this.selectedSchema || 'js', value, (err, result) => {
             if (err) {
-                glEventHub.emit('seteditvalue', 'snippet-result', JSON.stringify(err, null, 2));
+                glEventHub.emit('seteditvalue', {
+                    key: 'snippet-result', 
+                    value: JSON.stringify(err, null, 2)
+                });
             }
             else {
-                glEventHub.emit('artifactwizzified', result);
-                glEventHub.emit('seteditvalue', 'snippet-result', result);
+                glEventHub.emit('artifactwizzified', {
+                    content: result
+                });
+                glEventHub.emit('seteditvalue', {
+                    key: 'snippet-result', 
+                    value: result
+                });
             }
         });
     }
+}
+class DataManager {
+    constructor(props) {
+        this.props = props;
+        this.schemaDatas = {};
+        this.selectedSchema = null;
+        this.initialize();
+    }
+    initialize() {
+        glEventHub.on('schema-selected', (data) => {
+            console.log('on schema-selected', data);
+            this.selectedSchema = data.name;
+            this.getSchemaData(data.name);
+        });
+        glEventHub.on('select-tree-node', (data) => {
+            console.log('on select-tree-node', data);
+            if (data.treeNode.item.isFolder) {
+                return ;
+            }
+            var item = this.schemaDatas[this.selectedSchema].itemsDict[data.treeNode.item.id];
+            glEventHub.emit('seteditvalue', {
+                key: 'gen-ittf', 
+                value: wz.replace(item.ittfWrapped, '\\n', '\n')
+            });
+            glEventHub.emit('editvaluechanged', {
+                key: 'gen-ittf', 
+                value: wz.replace(item.ittfWrapped, '\\n', '\n')
+            });
+            glEventHub.emit('seteditvalue', {
+                key: 'snippet-source', 
+                value: wz.unescapeHtml(wz.replace(item.generated, '\\n', '\n'))
+            });
+            glEventHub.emit('editvaluechanged', {
+                key: 'snippet-source', 
+                value: wz.unescapeHtml(wz.replace(item.generated, '\\n', '\n'))
+            });
+        });
+    }
+    getSchemaData(name) {
+        if (this.schemaDatas[name]) {
+            glEventHub.emit('schema-selected-ready', {
+                name: name, 
+                data: this.schemaDatas[name]
+            });
+        }
+        else {
+            fetch('https://wizzifactory.github.io/cheatsheets/' + name + '.json').then((response) => {
+                return response.json();
+            }).then((json) => {
+                json = this.setIds(json);
+                this.schemaDatas[name] = json;
+                glEventHub.emit('schema-selected-ready', {
+                    name: name, 
+                    json: json
+                });
+            }).catch((err) => {
+                // FIXME
+                console.log('getSchemaData error', err);
+            })
+        }
+    }
+    setIds(json) {
+        json.itemsDict = {};
+        var c = 1;
+        var i, i_items=json.elements, i_len=json.elements.length, e;
+        for (i=0; i<i_len; i++) {
+            e = json.elements[i];
+            var j, j_items=e.items, j_len=e.items.length, item;
+            for (j=0; j<j_len; j++) {
+                item = e.items[j];
+                item.id = 'k' + c++;
+                json.itemsDict[item.id] = item;
+            }
+        }
+        return json;
+    }
+}
+class TreeManager {
+    constructor(props) {
+        this.props = props;
+        this.schemaTreeViews = {};
+        this.initialize();
+    }
+    initialize() {
+        glEventHub.on('schema-selected-ready', (data) => {
+            console.log('on schema-selected-ready', data);
+            this.getSchemaTreeView(data.name, data.json);
+        });
+    }
+    getSchemaTreeView(name, json) {
+        if (this.schemaTreeViews[name]) {
+            wz.replaceChildren('items-tree-view', this.schemaTreeViews[name]);
+        }
+        else {
+            var treeView = new TreeView({
+                app: this, 
+                filesystem: null, 
+                formsContainerId: null
+            });
+            treeView.render(jsonToItemTree(name, json), (err, element) => {
+                if (err) {
+                    console.log('err', err);
+                    throw err;
+                }
+                console.log('treeView.render', element);
+                this.schemaTreeViews[name] = element;
+                wz.replaceChildren('items-tree-view', element);
+            });
+        }
+    }
+}
+function jsonToItemTree(schemaName, json) {
+    var root = {
+        name: schemaName, 
+        isFolder: true, 
+        expanded: true, 
+        children: [
+            
+        ]
+    };
+    var i, i_items=json.elements, i_len=json.elements.length, e;
+    for (i=0; i<i_len; i++) {
+        e = json.elements[i];
+        var item = {
+            name: e.name, 
+            isFolder: true, 
+            expanded: true, 
+            children: [
+                
+            ]
+        };
+        root.children.push(item);
+        var j, j_items=e.items, j_len=e.items.length, e2;
+        for (j=0; j<j_len; j++) {
+            e2 = e.items[j];
+            var item2 = {
+                name: e2.title, 
+                id: e2.id, 
+                isFolder: false, 
+                children: [
+                    
+                ]
+            };
+            item.children.push(item2);
+        }
+    }
+    return root;
 }
 let glEventHub = new EventEmitter3();
 window.glEventHub = glEventHub;
