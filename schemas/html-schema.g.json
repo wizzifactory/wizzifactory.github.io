@@ -46482,6 +46482,17 @@
       "flags": "",
       "attributes": [
         {
+          "name": "type",
+          "type": "string",
+          "tags": [
+            "type"
+          ],
+          "flags": "",
+          "inheritedFrom": null,
+          "restricts": [],
+          "comments": []
+        },
+        {
           "name": "accesskey",
           "type": "string",
           "tags": [
