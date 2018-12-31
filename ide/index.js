@@ -1,7 +1,7 @@
 /*
     artifact generator: C:\my\wizzi\v5\apps\node_modules\wizzi-js\lib\artifacts\js\module\gen\main.js
     primary source IttfDocument: c:\my\wizzi\v5\apps\wizzi-studio\dist\server\ittf\demo\ttech\javascript\controls\treeview\step_1\index.js.ittf
-    utc time: Sun, 30 Dec 2018 14:30:38 GMT
+    utc time: Mon, 31 Dec 2018 06:42:40 GMT
 */
 'use strict';
 if (typeof Array.isArray === 'undefined') {
