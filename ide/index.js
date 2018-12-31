@@ -1,7 +1,7 @@
 /*
     artifact generator: C:\my\wizzi\v5\apps\node_modules\wizzi-js\lib\artifacts\js\module\gen\main.js
     primary source IttfDocument: c:\my\wizzi\v5\apps\wizzi-studio\dist\server\ittf\demo\ttech\javascript\controls\treeview\step_1\index.js.ittf
-    utc time: Mon, 31 Dec 2018 06:52:05 GMT
+    utc time: Mon, 31 Dec 2018 07:06:44 GMT
 */
 'use strict';
 if (typeof Array.isArray === 'undefined') {
@@ -2887,27 +2887,6 @@ class BrowseManager {
         this.initializeHandlers();
     }
     initializeHandlers() {
-        this.app.on('text-result', (result, treeNode) => {
-            console.log('BrowseManager.text-result', result, treeNode);
-            if (treeNode && treeNode.item && treeNode.item) {
-                this.setOptionsBrowser({
-                    mime: treeNode.item.mime
-                });
-            }
-            this.activateBrowser('text', result);
-        });
-        this.app.on('json-result', (result, treeNode) => {
-            console.log('BrowseManager.json-result', result, treeNode);
-            this.activateBrowser('json', result);
-        });
-        this.app.on('diff-result', (result, treeNode) => {
-            console.log('BrowseManager.diff-result', result, treeNode);
-            this.activateBrowser('diff', result);
-        });
-        this.app.on('html-result', (result, treeNode) => {
-            console.log('BrowseManager.html-result', result, treeNode);
-            this.activateBrowser('html', result, treeNode);
-        });
         glEventHub.on('text-result', (data) => {
             if (data.key !== this.key) {
                 return ;
@@ -2949,7 +2928,7 @@ class BrowseManager {
             this.browsers[k].setOptions(options);
         }
     }
-    activateBrowser(kind, value, treeNode) {
+    activateBrowser(kind, value, item) {
         this.currentResult = value;
         if (this.activeBrowserKind !== kind) {
             var i, i_items=Object.keys(this.browsers), i_len=Object.keys(this.browsers).length, k;
@@ -2960,7 +2939,7 @@ class BrowseManager {
             this.browsers[kind].activate();
             this.activeBrowserKind = kind;
         }
-        this.browsers[kind].value(value, treeNode);
+        this.browsers[kind].value(value, item);
     }
     setFilePath(path) {
         wz.text(this.props.ittfBrowserTitle, path);
@@ -3108,8 +3087,8 @@ class HtmlBrowserControl {
     }
     setOptions(options) {
     }
-    value(value, treeNode) {
-        if (treeNode.item.mime === 'md') {
+    value(value, item) {
+        if (item.mime === 'md') {
             marked.setOptions({
                 highlight: function(code) {
                     console.log('highlight', code);
