@@ -1,7 +1,7 @@
 /*
     artifact generator: C:\my\wizzi\v5\apps\node_modules\wizzi-js\lib\artifacts\js\module\gen\main.js
     primary source IttfDocument: c:\my\wizzi\v5\apps\wizzi-studio\dist\server\ittf\demo\ttech\javascript\controls\treeview\step_1\index.js.ittf
-    utc time: Mon, 31 Dec 2018 06:42:40 GMT
+    utc time: Mon, 31 Dec 2018 06:52:05 GMT
 */
 'use strict';
 if (typeof Array.isArray === 'undefined') {
@@ -2830,8 +2830,8 @@ class IttfEditManager {
         });
         glEventHub.on('editvaluechanged', (data) => {
             console.log('on editvaluechanged', data);
-            key = data.key;
-            value = data.value;
+            var key = data.key;
+            var value = data.value;
             if (key === 'ittf-editor') {
                 if (this.settingValue == false) {
                     this.treeView.updateFile(this.currentTreeNode, value);
