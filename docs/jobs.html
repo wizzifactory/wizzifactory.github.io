@@ -1,12 +1,12 @@
 <!doctype html>
-<html VERSION-5="5" VERSION-4="4" version="5">
+<html>
 <head>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
     <link href="sanitize.css" rel="stylesheet" />
     <link href="../styles/main.css" rel="stylesheet" />
-    <link href="../styles/documentation-jobs.css" rel="stylesheet" />
+    <link href="../styles/documentation-wizzi jobs.css" rel="stylesheet" />
 </head>
-<body class="Documentation-jobs">
+<body class="Documentation-Wizzi Jobs">
     <!-- top navigation markup -->
     <input type="checkbox" id="tn-input-toggle" />
     <nav class="tn-bar">
@@ -23,19 +23,23 @@
                 <li class="tn-pageSelected"><a href="../docs/intro.html" title="Documentation">Documentation</a>
                 <nav class="tn-subPages_mobile">
                     <ul>
-                        <li><a href="../docs/intro.html" title="intro">intro</a>
+                        <li><a href="../docs/intro.html" title="Introduction">intro</a>
                         </li>
-                        <li><a href="../docs/ittf.html" title="ittf">ittf</a>
+                        <li><a href="../docs/ittf.html" title="ITTF Documents">ittf</a>
                         </li>
-                        <li><a href="../docs/jswizzi.html" title="jswizzi">jswizzi</a>
+                        <li><a href="../docs/jswizzi.html" title="JsWizzi">jswizzi</a>
                         </li>
-                        <li><a href="../docs/models.html" title="models">models</a>
+                        <li><a href="../docs/schemas.html" title="Wizzi Schemas">schemas</a>
                         </li>
-                        <li><a href="../docs/artifacts.html" title="artifacts">artifacts</a>
+                        <li><a href="../docs/models.html" title="Wizzi Models">models</a>
                         </li>
-                        <li><a href="../docs/jobs.html" title="jobs">jobs</a>
+                        <li><a href="../docs/artifacts.html" title="Artifact generations">artifacts</a>
                         </li>
-                        <li><a href="../docs/plugins.html" title="plugins">plugins</a>
+                        <li><a href="../docs/jobs.html" title="Wizzi Jobs">jobs</a>
+                        </li>
+                        <li><a href="../docs/plugins.html" title="Wizzi Plugins">plugins</a>
+                        </li>
+                        <li><a href="../docs/wizzifiers.html" title="Wizzifiers">wizzifiers</a>
                         </li>
                     </ul>
                 </nav>
@@ -52,19 +56,23 @@
         </nav>
         <nav class="tn-subPages">
             <ul>
-                <li><a href="../docs/intro.html" title="intro">intro</a>
+                <li><a href="../docs/intro.html" title="Introduction">intro</a>
                 </li>
-                <li><a href="../docs/ittf.html" title="ittf">ittf</a>
+                <li><a href="../docs/ittf.html" title="ITTF Documents">ittf</a>
                 </li>
-                <li><a href="../docs/jswizzi.html" title="jswizzi">jswizzi</a>
+                <li><a href="../docs/jswizzi.html" title="JsWizzi">jswizzi</a>
                 </li>
-                <li><a href="../docs/models.html" title="models">models</a>
+                <li><a href="../docs/schemas.html" title="Wizzi Schemas">schemas</a>
                 </li>
-                <li><a href="../docs/artifacts.html" title="artifacts">artifacts</a>
+                <li><a href="../docs/models.html" title="Wizzi Models">models</a>
                 </li>
-                <li class="tn-subPageSelected"><a href="../docs/jobs.html" title="jobs">jobs</a>
+                <li><a href="../docs/artifacts.html" title="Artifact generations">artifacts</a>
                 </li>
-                <li><a href="../docs/plugins.html" title="plugins">plugins</a>
+                <li class="tn-subPageSelected"><a href="../docs/jobs.html" title="Wizzi Jobs">jobs</a>
+                </li>
+                <li><a href="../docs/plugins.html" title="Wizzi Plugins">plugins</a>
+                </li>
+                <li><a href="../docs/wizzifiers.html" title="Wizzifiers">wizzifiers</a>
                 </li>
             </ul>
         </nav>
@@ -75,7 +83,7 @@
         <input type="checkbox" id="mc-toggle-toc-close" onchange="mc_toggle_toc_Close()" />
         <div class="mc-frame">
             <div class="mc-frame-bar">
-                <h1 class="mc-sidebar-left-title">jobs</h1>
+                <h1 class="mc-sidebar-left-title">Wizzi Jobs</h1>
                 <h1>
                     <label for="mc-toggle-toc-close" class="mc-label-toggle-close">&times;</label>
                 </h1>
@@ -102,9 +110,10 @@
                     <input type="checkbox" id="mc-toggle-concept-1" onchange="m_toggleChanged()" />
                     <input type="checkbox" id="mc-toggle-concept-2" onchange="m_toggleChanged()" />
                     <input type="checkbox" id="mc-toggle-concept-3" onchange="m_toggleChanged()" />
-                    <h1 class="mc-content-title" id="concept-intro">jobs</h1>
+                    <h1 class="mc-content-title" id="concept-intro">Wizzi Jobs</h1>
                     <div class="mc-pane mc-pane-concept-intro">
-                        <div class="summary"></div>
+                        <div class="summary">
+                            <p>Wizzi jobs are the automation component of the wizzi factory.</p></div>
                     </div>
                     <div class="mc-pane mc-pane-concept-1">
                         <h2 id="concept-1">The production manager</h2>
@@ -119,19 +128,13 @@
                     <div class="mc-pane mc-pane-concept-3">
                         <h2 id="concept-3">The 'runnerServer" execution environment.</h2>
                         <div class="summary">
-                            <p>When the wizzi factory is used in a server application, or in a long running process where many jobs are executed, is useful to access some factory services, prepared on startup, directly from the jswizzi code inside ittf documents.</p><p>There are two jswizzi global functions for this purpose.</p><ul>    <li>$.api( functionName, ... arguments ... )        <p>Allow to call a user function declared on start up.        </p>    </li><li>$.loadModel( modelName )        <p>Allow the retrieval of a wizzi model preloaded on start up.        </p>    </li></ul><h3>The wizzifile.js</h3><p>... TODO ...</p><h4>Event handler wizzifile.onConfig( config )</h4><p>This event is raised before creating the runnerServer instance. At this point we can call the config.get(propertyName) and config.set(propertyName, value) methods on the config object.</p><h4>Event handler wizzifile.onStart( runnerServerInstance, config )</h4><p>This event is raised before the initialization of the wizzi factory contained in the runner server. At this point we can call the runnerServerInstance.registerApi(name, function) method, the runnerServerInstance.registerPlugin(pluginNameOrPath) method and the runnerServerInstance.registerGlobalContext(object) method.</p><h4>Event handler wizzifile.onPrepare( runnerServerInstance, config )</h4><p>This event is raised when the wizzi factory contained in the runner server has benn initialized. Now it is forbidden to call the registerPlugin and registerGlobalContext methods but we can call the runnerServerInstance.loadModel and runnerServerInstance.transformModel methods.</p></div>
+                            <p>When the Wizzi Factory is used in a server application, or in a long running process where many jobs are executed, it is useful to access factory services, prepared on startup, directly from the JsWizzi code inside ITTF Documents.</p><p>There are two jswizzi global functions for this purpose.</p><ul>    <li>$.api( functionName, ... arguments ... )        <p>Allow to call a user function declared on start up.        </p>    </li><li>$.loadModel( modelName )        <p>Allow the retrieval of a wizzi model preloaded on start up.        </p>    </li></ul><h3>The wizzifile.js</h3><p>... TODO ...</p><h4>Event handler wizzifile.onConfig( config )</h4><p>This event is raised before creating the runnerServer instance. At this point we can call the config.get(propertyName) and config.set(propertyName, value) methods on the config object.</p><h4>Event handler wizzifile.onStart( runnerServerInstance, config )</h4><p>This event is raised before the initialization of the wizzi factory contained in the runner server. At this point we can call the runnerServerInstance.registerApi(name, function) method, the runnerServerInstance.registerPlugin(pluginNameOrPath) method and the runnerServerInstance.registerGlobalContext(object) method.</p><h4>Event handler wizzifile.onPrepare( runnerServerInstance, config )</h4><p>This event is raised when the wizzi factory contained in the runner server has benn initialized. Now it is forbidden to call the registerPlugin and registerGlobalContext methods but we can call the runnerServerInstance.loadModel and runnerServerInstance.transformModel methods.</p></div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
     <script>
-        /*
-            artifact generator: C:\my\wizzi\v6\node_modules\wizzi-js\lib\artifacts\js\module\gen\main.js
-            primary source IttfDocument: c:\my\wizzi\v6\test\wizzi-docs\jobs\ittf\docs\html\docs.html.ittf
-            utc time: Sun, 30 Sep 2018 09:44:40 GMT
-        */
-        'use strict';
         function m_toggleChanged() {
             var el_toc = document.querySelector("input[id='mc-toggle-toc']");
             var el_contents = document.querySelectorAll("input[id^='mc-toggle-concept-']");

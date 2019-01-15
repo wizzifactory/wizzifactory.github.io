@@ -1,7 +1,7 @@
 /*
     artifact generator: C:\my\wizzi\v5\apps\node_modules\wizzi-js\lib\artifacts\js\module\gen\main.js
     primary source IttfDocument: c:\my\wizzi\v5\apps\wizzi-studio\dist\server\ittf\demo\ttech\javascript\controls\treeview\step_1\index.js.ittf
-    utc time: Mon, 31 Dec 2018 07:06:44 GMT
+    utc time: Mon, 07 Jan 2019 20:52:29 GMT
 */
 'use strict';
 if (typeof Array.isArray === 'undefined') {
@@ -2315,7 +2315,6 @@ async function gitClone({filepath, glEventHub}) {
                 depth: 1, 
                 onprogress: updateProgressBar, 
                 url: `https://cors-buster-jfpactjnem.now.sh/${proxyurl}`
-                
             });
         await git.config({
                 fs, 
@@ -2477,7 +2476,6 @@ async function gitPush({filepath, glEventHub}) {
             fs, 
             dir, 
             path: `credential "${host}".helper`
-            
         });
     ;
     let authPassword = null;
@@ -2501,7 +2499,6 @@ async function gitPush({filepath, glEventHub}) {
                 fs, 
                 dir, 
                 path: `credential "${host}".username`
-                
             });
         ;
     }
@@ -2542,8 +2539,7 @@ async function gitPush({filepath, glEventHub}) {
             await git.config({
                     fs, 
                     dir, 
-                    path: `credential "${host}".helper`
-                    , 
+                    path: `credential "${host}".helper`, 
                     value: 'navigator.credentials'
                 });
             await navigator.credentials.preventSilentAccess();
@@ -2551,8 +2547,7 @@ async function gitPush({filepath, glEventHub}) {
         catch (ex) {
             let offer = await prompt({
                     title: 'Opt out of password manager integration', 
-                    inputPlaceholder: `Don't offer to remember this again`
-                    , 
+                    inputPlaceholder: `Don't offer to remember this again`, 
                     input: 'checkbox'
                 });
             ;

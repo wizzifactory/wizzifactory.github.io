@@ -1,12 +1,12 @@
 <!doctype html>
-<html VERSION-5="5" VERSION-4="4" version="5">
+<html>
 <head>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
     <link href="sanitize.css" rel="stylesheet" />
     <link href="../styles/main.css" rel="stylesheet" />
-    <link href="../styles/documentation-ittf.css" rel="stylesheet" />
+    <link href="../styles/documentation-ittf documents.css" rel="stylesheet" />
 </head>
-<body class="Documentation-ittf">
+<body class="Documentation-ITTF Documents">
     <!-- top navigation markup -->
     <input type="checkbox" id="tn-input-toggle" />
     <nav class="tn-bar">
@@ -23,19 +23,23 @@
                 <li class="tn-pageSelected"><a href="../docs/intro.html" title="Documentation">Documentation</a>
                 <nav class="tn-subPages_mobile">
                     <ul>
-                        <li><a href="../docs/intro.html" title="intro">intro</a>
+                        <li><a href="../docs/intro.html" title="Introduction">intro</a>
                         </li>
-                        <li><a href="../docs/ittf.html" title="ittf">ittf</a>
+                        <li><a href="../docs/ittf.html" title="ITTF Documents">ittf</a>
                         </li>
-                        <li><a href="../docs/jswizzi.html" title="jswizzi">jswizzi</a>
+                        <li><a href="../docs/jswizzi.html" title="JsWizzi">jswizzi</a>
                         </li>
-                        <li><a href="../docs/models.html" title="models">models</a>
+                        <li><a href="../docs/schemas.html" title="Wizzi Schemas">schemas</a>
                         </li>
-                        <li><a href="../docs/artifacts.html" title="artifacts">artifacts</a>
+                        <li><a href="../docs/models.html" title="Wizzi Models">models</a>
                         </li>
-                        <li><a href="../docs/jobs.html" title="jobs">jobs</a>
+                        <li><a href="../docs/artifacts.html" title="Artifact generations">artifacts</a>
                         </li>
-                        <li><a href="../docs/plugins.html" title="plugins">plugins</a>
+                        <li><a href="../docs/jobs.html" title="Wizzi Jobs">jobs</a>
+                        </li>
+                        <li><a href="../docs/plugins.html" title="Wizzi Plugins">plugins</a>
+                        </li>
+                        <li><a href="../docs/wizzifiers.html" title="Wizzifiers">wizzifiers</a>
                         </li>
                     </ul>
                 </nav>
@@ -52,19 +56,23 @@
         </nav>
         <nav class="tn-subPages">
             <ul>
-                <li><a href="../docs/intro.html" title="intro">intro</a>
+                <li><a href="../docs/intro.html" title="Introduction">intro</a>
                 </li>
-                <li class="tn-subPageSelected"><a href="../docs/ittf.html" title="ittf">ittf</a>
+                <li class="tn-subPageSelected"><a href="../docs/ittf.html" title="ITTF Documents">ittf</a>
                 </li>
-                <li><a href="../docs/jswizzi.html" title="jswizzi">jswizzi</a>
+                <li><a href="../docs/jswizzi.html" title="JsWizzi">jswizzi</a>
                 </li>
-                <li><a href="../docs/models.html" title="models">models</a>
+                <li><a href="../docs/schemas.html" title="Wizzi Schemas">schemas</a>
                 </li>
-                <li><a href="../docs/artifacts.html" title="artifacts">artifacts</a>
+                <li><a href="../docs/models.html" title="Wizzi Models">models</a>
                 </li>
-                <li><a href="../docs/jobs.html" title="jobs">jobs</a>
+                <li><a href="../docs/artifacts.html" title="Artifact generations">artifacts</a>
                 </li>
-                <li><a href="../docs/plugins.html" title="plugins">plugins</a>
+                <li><a href="../docs/jobs.html" title="Wizzi Jobs">jobs</a>
+                </li>
+                <li><a href="../docs/plugins.html" title="Wizzi Plugins">plugins</a>
+                </li>
+                <li><a href="../docs/wizzifiers.html" title="Wizzifiers">wizzifiers</a>
                 </li>
             </ul>
         </nav>
@@ -75,7 +83,7 @@
         <input type="checkbox" id="mc-toggle-toc-close" onchange="mc_toggle_toc_Close()" />
         <div class="mc-frame">
             <div class="mc-frame-bar">
-                <h1 class="mc-sidebar-left-title">ittf</h1>
+                <h1 class="mc-sidebar-left-title">ITTF Documents</h1>
                 <h1>
                     <label for="mc-toggle-toc-close" class="mc-label-toggle-close">&times;</label>
                 </h1>
@@ -118,7 +126,7 @@
                     <input type="checkbox" id="mc-toggle-concept-5" onchange="m_toggleChanged()" />
                     <input type="checkbox" id="mc-toggle-concept-6" onchange="m_toggleChanged()" />
                     <input type="checkbox" id="mc-toggle-concept-7" onchange="m_toggleChanged()" />
-                    <h1 class="mc-content-title" id="concept-intro">ittf</h1>
+                    <h1 class="mc-content-title" id="concept-intro">ITTF Documents</h1>
                     <div class="mc-pane mc-pane-concept-intro">
                         <div class="summary">
                             <p>Ittf, Indented Text Tree Format, is a document type for declaring a textual representation of a tree structure of name-valued nodes.</p><p>Ittf documents are building blocks, made to be loaded and composed into a javascript tree structure, named mTree.</p><p>A single ittf document, when loaded, becomes an mTreeBrick, a composition element that can include or mix other mTreeBricks and can in turn be included or mixed.</p><p>Ittf documents also can be templates or pieces of templates. They can contain conditional or repeat template node commands and can use context objects, passed to the mTree load function, for creating new nodes of the composed mTree.</p><p>Further ittf documents may be seen as code units. They can codify statements and expressions using a sandboxed subset of the ECMA-262 javascript standard named 'jsWizzi'. Statements can create, and modify, variables (in the evaluation context of an mTreeBrick or in the global evaluation context) that template node commands can use to select or create nodes.</p></div>
@@ -126,7 +134,7 @@
                     <div class="mc-pane mc-pane-concept-1">
                         <h2 id="concept-1">Ittf notation</h2>
                         <div class="summary">
-                            <p>Documents are made of 'phisical' text lines separated by a:    <ul>        <li>x'000a' char or</li><li>x'000d' char or        </li><li>x'000a' + x'000d' couple of chars        </li>    </ul></p><p>A line is made of a node-name and a node-value separated by a white-char (space or tab).</p><pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl"></span><span class="pp-tag">name</span><span class="pp-pln"> value</span></li><li class="L2"><span class="pnl">  </span><span class="pp-tag">name</span><span class="pp-pln"> value</span></li></ol></pre><p>Node-values always are trimmed, you cannot have a node-value that starts or ends with a white-char sequence.</p><p>Example. When loaded, both these nodes will containg the 'value' string in the node-value.</p><pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl"></span><span class="pp-tag">name1</span><span class="pp-pln"> value</span></li><li class="L2"><span class="pnl">  </span><span class="pp-tag">name2</span><span class="pp-pln"> value</span></li></ol></pre><p>The node hierarchy is built calculating the indentation of node-names in a text line. Every tab or every 4 space chars preeceding a node-name count for one level of indentation.</p><p>The node-name of the first line (the root node-name) must have indentation zero. The node-name must start at column 1 (1-based) of the first row.</p><p>An ittf document cannot have more than one root node. If the semantic of a document require more than one root node, a convenience '$group' node command can be used. It must be the root node of a composed document (included or mixed) and is ignored during the mTree build up, so that all its childs become root nodes of the included document.</p><p>Example. Ittf document with two root nodes.</p><pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl"></span><span class="pp-kwd">$group</span><span class="pp-pln"> </span></li><li class="L2"><span class="pnl">  </span><span class="pp-tag">root1</span><span class="pp-pln"> value1</span></li><li class="L3"><span class="pnl">  </span><span class="pp-tag">root2</span><span class="pp-pln"> value2</span></li></ol></pre><p>A line becomes a node which parent is the first preceeding line with a lesser indentation.</p><p>Phisical text lines may have line continuatios and a 'logical' line may contain many phisical lines. There are three pre-defined node-names that allow line continuation:    <ul>        <li>'\' means that the node-value is joined to the node-value of the parent node without separation.        </li><li>'\b' means that the node-value is joined to the node-value of the parent node with one space char separator.        </li><li>'\n' means that the node-value is joined to the node-value of the parent node with one Line Feed char separator.        </li>    </ul></p><p>Example of line continuation. Both 'name1'  and 'name2' have the same value.</p><pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl"></span><span class="pp-tag">root</span><span class="pp-pln"> </span></li><li class="L2"><span class="pnl">  </span><span class="pp-tag">name1</span><span class="pp-pln"> I am</span></li><li class="L3"><span class="pnl">    </span><span class="pp-tag">\b</span><span class="pp-pln"> a single</span></li><li class="L4"><span class="pnl">    </span><span class="pp-tag">\b</span><span class="pp-pln"> line</span></li><li class="L5"><span class="pnl">  </span><span class="pp-tag">name2</span><span class="pp-pln"> I am a single line</span></li></ol></pre><p>Node names and values are text strings by design, and never require quotes (they are unquoted by the lexer). The wizzi factory is a text manipulator. If the semantic of a node-value require that it is treated as a different type (boolean, integer, float or date), that can be done using wizzi schemas, that apply types to the tree structure resulting from loading an ittf document (see mTrees).</p><p>One exception to this rule is when an argument is passed to a mixed ittf document, and will become part of its evaluation context. Types different from string can be usefull in jswizzi statements and expessions. The '$params' node command, that declares the parameters received by a mixed ittf document, may assign a type to passed arguments.</p><p>In any case the lexer do not detect types. When needed they must be declared.</p></div>
+                            <p>Documents are made of 'phisical' text lines separated by a:    <ul>        <li>x'000a' char or</li><li>x'000d' char or        </li><li>x'000a' + x'000d' couple of chars        </li>    </ul></p><p>A line is made of a node-name and a node-value separated by a white-char (space or tab).</p><pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl"></span><span class="pp-tag">name</span><span class="pp-pln"> value</span></li><li class="L2"><span class="pnl">  </span><span class="pp-tag">name</span><span class="pp-pln"> value</span></li></ol></pre><p>Node-values always are trimmed, you cannot have a node-value that starts or ends with a white-char sequence.</p><p>Example. When loaded, both these nodes will containg the 'value' string in the node-value.</p><pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl"></span><span class="pp-tag">name1</span><span class="pp-pln"> value</span></li><li class="L2"><span class="pnl">  </span><span class="pp-tag">name2</span><span class="pp-pln"> value</span></li></ol></pre><p>The node hierarchy is built calculating the indentation of node-names in a text line. Every tab or every 4 space chars preeceding a node-name count for one level of indentation.</p><p>The node-name of the first line (the root node-name) must have indentation zero. The node-name must start at column 1 (1-based) of the first row.</p><p>An ittf document cannot have more than one root node. If the semantic of a document require more than one root node, a convenience '$group' node command can be used. It must be the root node of a composed document (included or mixed) and is ignored during the mTree build up, so that all its childs become root nodes of the included document.</p><p>Example. Ittf document with two root nodes.</p><pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl"></span><span class="pp-kwd">$group</span><span class="pp-pln"> </span></li><li class="L2"><span class="pnl">  </span><span class="pp-tag">root1</span><span class="pp-pln"> value1</span></li><li class="L3"><span class="pnl">  </span><span class="pp-tag">root2</span><span class="pp-pln"> value2</span></li></ol></pre><p>A line becomes a node which parent is the first preceeding line with a lesser indentation.</p><p>Phisical text lines may have line continuatios and a 'logical' line may contain many phisical lines. There are three pre-defined node-names that allow line continuation:    <ul>        <li>'\' means that the node-value is joined to the node-value of the parent node without separation.        </li><li>'\b' means that the node-value is joined to the node-value of the parent node with one space char separator.        </li><li>'\n' means that the node-value is joined to the node-value of the parent node with one Line Feed char separator.        </li>    </ul></p><p>Example of line continuation. Both 'name1'  and 'name2' have the same value.</p><pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl"></span><span class="pp-tag">root</span><span class="pp-pln"> </span></li><li class="L2"><span class="pnl">  </span><span class="pp-tag">name1</span><span class="pp-pln"> I am</span></li><li class="L3"><span class="pnl">    </span><span class="pp-tag">a</span><span class="pp-pln"> single</span></li><li class="L4"><span class="pnl">    </span><span class="pp-tag">line</span><span class="pp-pln"> </span></li><li class="L5"><span class="pnl">  </span><span class="pp-tag">name2</span><span class="pp-pln"> I am a single line</span></li></ol></pre><p>Node names and values are text strings by design, and never require quotes (they are unquoted by the lexer). The wizzi factory is a text manipulator. If the semantic of a node-value require that it is treated as a different type (boolean, integer, float or date), that can be done using wizzi schemas, that apply types to the tree structure resulting from loading an ittf document (see mTrees).</p><p>One exception to this rule is when an argument is passed to a mixed ittf document, and will become part of its evaluation context. Types different from string can be usefull in jswizzi statements and expessions. The '$params' node command, that declares the parameters received by a mixed ittf document, may assign a type to passed arguments.</p><p>In any case the lexer do not detect types. When needed they must be declared.</p></div>
                     </div>
                     <div class="mc-pane mc-pane-concept-2">
                         <h2 id="concept-2">Xml documents comparision</h2>
@@ -163,12 +171,6 @@
         </div>
     </main>
     <script>
-        /*
-            artifact generator: C:\my\wizzi\v6\node_modules\wizzi-js\lib\artifacts\js\module\gen\main.js
-            primary source IttfDocument: c:\my\wizzi\v6\test\wizzi-docs\jobs\ittf\docs\html\docs.html.ittf
-            utc time: Sun, 30 Sep 2018 09:44:39 GMT
-        */
-        'use strict';
         function m_toggleChanged() {
             var el_toc = document.querySelector("input[id='mc-toggle-toc']");
             var el_contents = document.querySelectorAll("input[id^='mc-toggle-concept-']");

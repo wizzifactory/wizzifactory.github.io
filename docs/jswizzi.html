@@ -1,12 +1,12 @@
 <!doctype html>
-<html VERSION-5="5" VERSION-4="4" version="5">
+<html>
 <head>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
     <link href="sanitize.css" rel="stylesheet" />
     <link href="../styles/main.css" rel="stylesheet" />
     <link href="../styles/documentation-jswizzi.css" rel="stylesheet" />
 </head>
-<body class="Documentation-jswizzi">
+<body class="Documentation-JsWizzi">
     <!-- top navigation markup -->
     <input type="checkbox" id="tn-input-toggle" />
     <nav class="tn-bar">
@@ -23,19 +23,23 @@
                 <li class="tn-pageSelected"><a href="../docs/intro.html" title="Documentation">Documentation</a>
                 <nav class="tn-subPages_mobile">
                     <ul>
-                        <li><a href="../docs/intro.html" title="intro">intro</a>
+                        <li><a href="../docs/intro.html" title="Introduction">intro</a>
                         </li>
-                        <li><a href="../docs/ittf.html" title="ittf">ittf</a>
+                        <li><a href="../docs/ittf.html" title="ITTF Documents">ittf</a>
                         </li>
-                        <li><a href="../docs/jswizzi.html" title="jswizzi">jswizzi</a>
+                        <li><a href="../docs/jswizzi.html" title="JsWizzi">jswizzi</a>
                         </li>
-                        <li><a href="../docs/models.html" title="models">models</a>
+                        <li><a href="../docs/schemas.html" title="Wizzi Schemas">schemas</a>
                         </li>
-                        <li><a href="../docs/artifacts.html" title="artifacts">artifacts</a>
+                        <li><a href="../docs/models.html" title="Wizzi Models">models</a>
                         </li>
-                        <li><a href="../docs/jobs.html" title="jobs">jobs</a>
+                        <li><a href="../docs/artifacts.html" title="Artifact generations">artifacts</a>
                         </li>
-                        <li><a href="../docs/plugins.html" title="plugins">plugins</a>
+                        <li><a href="../docs/jobs.html" title="Wizzi Jobs">jobs</a>
+                        </li>
+                        <li><a href="../docs/plugins.html" title="Wizzi Plugins">plugins</a>
+                        </li>
+                        <li><a href="../docs/wizzifiers.html" title="Wizzifiers">wizzifiers</a>
                         </li>
                     </ul>
                 </nav>
@@ -52,19 +56,23 @@
         </nav>
         <nav class="tn-subPages">
             <ul>
-                <li><a href="../docs/intro.html" title="intro">intro</a>
+                <li><a href="../docs/intro.html" title="Introduction">intro</a>
                 </li>
-                <li><a href="../docs/ittf.html" title="ittf">ittf</a>
+                <li><a href="../docs/ittf.html" title="ITTF Documents">ittf</a>
                 </li>
-                <li class="tn-subPageSelected"><a href="../docs/jswizzi.html" title="jswizzi">jswizzi</a>
+                <li class="tn-subPageSelected"><a href="../docs/jswizzi.html" title="JsWizzi">jswizzi</a>
                 </li>
-                <li><a href="../docs/models.html" title="models">models</a>
+                <li><a href="../docs/schemas.html" title="Wizzi Schemas">schemas</a>
                 </li>
-                <li><a href="../docs/artifacts.html" title="artifacts">artifacts</a>
+                <li><a href="../docs/models.html" title="Wizzi Models">models</a>
                 </li>
-                <li><a href="../docs/jobs.html" title="jobs">jobs</a>
+                <li><a href="../docs/artifacts.html" title="Artifact generations">artifacts</a>
                 </li>
-                <li><a href="../docs/plugins.html" title="plugins">plugins</a>
+                <li><a href="../docs/jobs.html" title="Wizzi Jobs">jobs</a>
+                </li>
+                <li><a href="../docs/plugins.html" title="Wizzi Plugins">plugins</a>
+                </li>
+                <li><a href="../docs/wizzifiers.html" title="Wizzifiers">wizzifiers</a>
                 </li>
             </ul>
         </nav>
@@ -75,7 +83,7 @@
         <input type="checkbox" id="mc-toggle-toc-close" onchange="mc_toggle_toc_Close()" />
         <div class="mc-frame">
             <div class="mc-frame-bar">
-                <h1 class="mc-sidebar-left-title">jswizzi</h1>
+                <h1 class="mc-sidebar-left-title">JsWizzi</h1>
                 <h1>
                     <label for="mc-toggle-toc-close" class="mc-label-toggle-close">&times;</label>
                 </h1>
@@ -85,21 +93,13 @@
                     <li><a href="#concept-intro" class="mc-item-link">Introduction</a>
                     <label for="mc-toggle-concept-intro" class="mc-label-toggle">Introduction</label>
                     </li>
-                    <li><a href="#concept-1" class="mc-item-link">JsWizzi</a>
-                    <label for="mc-toggle-concept-1" class="mc-label-toggle">&nbsp; JsWizzi</label>
-                    </li>
                 </ul>
             </nav>
             <div class="mc-content">
                 <div>
                     <input type="checkbox" id="mc-toggle-concept-intro" onchange="m_toggleChanged()" />
-                    <input type="checkbox" id="mc-toggle-concept-1" onchange="m_toggleChanged()" />
-                    <h1 class="mc-content-title" id="concept-intro">jswizzi</h1>
+                    <h1 class="mc-content-title" id="concept-intro">JsWizzi</h1>
                     <div class="mc-pane mc-pane-concept-intro">
-                        <div class="summary"></div>
-                    </div>
-                    <div class="mc-pane mc-pane-concept-1">
-                        <h2 id="concept-1">JsWizzi</h2>
                         <div class="summary">
                             <p>JsWizzi is a subset of the ECMA-262 javascript standard used by the wizzi factory for processing ittf documents and build mTrees. JsWizzi uses the quite efficent <a href="http://esprima.org/">esprima</a> parser and is run by a custom javascript engine (JsWizziRunner).</p><p>Ittf documents may contain Js-Wizzi statements in    <ul>        <li>The value part of nodes (ittf node values are interpolated)<pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl"></span><span class="pp-tag">caption</span><span class="pp-pln"> ${ name.capitalize() {}</span></li></ol></pre>        </li><li>Conditional expression of $if, $elif, $while command nodes<pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl"></span><span class="pp-kwd">$if</span><span class="pp-expr"> name.substring(1,2) === 'is'</span></li></ol></pre>        </li><li>Collection name of $foreach command node<pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl"></span><span class="pp-kwd">$foreach</span><span class="pp-pln"> item in model.getCollection('alfa')</span></li></ol></pre>        </li><li>Body of $ and $global command nodes<pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl"></span><span class="pp-kwd">$</span><span class="pp-expr"> var beta = 100</span></li></ol></pre>        </li>    </ul></p><p>Sample JsWizzi expressions and statements.<pre class="prettyprint"><ol class="linenums"><li class="L1"><span class="pnl"></span><span class="pp-tag">ul</span><span class="pp-pln"> </span></li><li class="L2"><span class="pnl">  </span><span class="pp-kwd">$</span><span class="pp-expr"> var i = 0;</span></li><li class="L3"><span class="pnl">  </span><span class="pp-kwd">$while</span><span class="pp-pln"> i &lt; 10</span></li><li class="L4"><span class="pnl">    </span><span class="pp-tag">li</span><span class="pp-pln"> counting ${i}</span></li><li class="L5"><span class="pnl">    </span><span class="pp-kwd">$</span><span class="pp-expr"> i++;</span></li></ol></pre></p><p>The esprima syntax tree format is expected to be compatible with the Mozilla SpiderMonkey Parser API.</p><h4>Node types implemented by JsWizzi:</h4><ul>    <li>VariableDeclaration    </li><li>Statements        <ul>            <li>EmptyStatement            </li><li>ExpressionStatement            </li><li>IfStatement            </li><li>WhileStatement            </li><li>DoWhileStatement            </li><li>ForStatement            </li><li>ForInStatement            </li><li>BreakStatement            </li><li>ContinueStatement            </li><li>ReturnStatement            </li><li>TODO SwitchStatement            </li>        </ul>    </li><li>Expressions        <ul>            <li>UnaryExpression: !            </li><li>BinaryExpression: +. -, *, /, ==, ===, !=, !==, >=, >, <=, <            </li><li>UpdateExpressions: ++, --            </li><li>LogicalExpression: &&, ||            </li><li>ConditionalExpression: test ? consequent : alternate            </li><li>CallExpression            </li><li>MemberExpression            </li><li>AssignmentExpression: =, *=, /=, %=, +=, -=, <<=, >>=, >>>=, &=, ^=, |=            </li><li>ArrayExpression            </li><li>ObjectExpression            </li><li>FunctionCall            </li>        </ul>    </li><li>FunctionDeclaration        <div>Simple function declaration. No prototypes. No function objects; functions cannot be built by code and used like objects.        </div>    </li></ul></div>
                     </div>
@@ -108,12 +108,6 @@
         </div>
     </main>
     <script>
-        /*
-            artifact generator: C:\my\wizzi\v6\node_modules\wizzi-js\lib\artifacts\js\module\gen\main.js
-            primary source IttfDocument: c:\my\wizzi\v6\test\wizzi-docs\jobs\ittf\docs\html\docs.html.ittf
-            utc time: Sun, 30 Sep 2018 09:44:39 GMT
-        */
-        'use strict';
         function m_toggleChanged() {
             var el_toc = document.querySelector("input[id='mc-toggle-toc']");
             var el_contents = document.querySelectorAll("input[id^='mc-toggle-concept-']");

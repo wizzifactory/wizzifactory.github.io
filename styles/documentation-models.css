@@ -11,28 +11,4 @@
     #mc-toggle-concept-3:checked ~ .mc-pane-concept-3 {
         display: block;
     }
-    #mc-toggle-concept-4:checked ~ .mc-pane-concept-4 {
-        display: block;
-    }
-    #mc-toggle-concept-5:checked ~ .mc-pane-concept-5 {
-        display: block;
-    }
-    #mc-toggle-concept-6:checked ~ .mc-pane-concept-6 {
-        display: block;
-    }
-    #mc-toggle-concept-7:checked ~ .mc-pane-concept-7 {
-        display: block;
-    }
-    #mc-toggle-concept-8:checked ~ .mc-pane-concept-8 {
-        display: block;
-    }
-    #mc-toggle-concept-9:checked ~ .mc-pane-concept-9 {
-        display: block;
-    }
-    #mc-toggle-concept-10:checked ~ .mc-pane-concept-10 {
-        display: block;
-    }
-    #mc-toggle-concept-11:checked ~ .mc-pane-concept-11 {
-        display: block;
-    }
 }
