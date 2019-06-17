@@ -1,13 +1,35 @@
 {
     "name": "wizzifactory.github.io",
-    "version": "0.0.1",
-    "description": "The github page of the wizzi factory",
-    "author": "Stefano Bassoli",
-    "license": "MIT",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \\\"Error: no test specified\\\" && exit 1"
+    "version": "0.7.2",
+    "description": "Wizzi factory github main page..",
+    "author": {
+        "name": "Stefano Bassoli",
+        "email": "wizzi.team@gmail.com"
     },
+    "private": false,
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/wizzifactory/wizzifactory.github.io/tree/master/license.txt"
+        }
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/wizzifactory/wizzifactory.github.io/tree/master"
+    },
+    "engines": {
+        "node": ">=0.10.28",
+        "npm": ">=1.4.28"
+    },
+    "scripts": {},
     "dependencies": {},
-    "devDependencies": {}
+    "devDependencies": {
+        "del": "^4.1.1",
+        "expect.js": "^0.3.1",
+        "wizzi": "^0.7.9",
+        "wizzi-core": "^0.7.1",
+        "wizzi-js": "^0.7.3",
+        "wizzi-utils": "^0.7.5",
+        "wizzi-web": "^0.7.2"
+    }
 }
