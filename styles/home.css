@@ -12,7 +12,7 @@ html {
 body {
     font: 300 21px Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background-color: #333;
-    color: #fff;
+    color: #ddd;
 }
 ul {
     margin-left: 0.45rem;
@@ -235,7 +235,7 @@ nav li,  .meta li {
     -moz-box-shadow: inset 0 0 0 3px #b3b3b3;
     -o-box-shadow: inset 0 0 0 3px #b3b3b3;
     box-shadow: inset 0 0 0 3px #b3b3b3;
-    background-color: #fff;
+    background-color: #ddd;
     color: #333;
 }
 .searchbox input {
@@ -268,7 +268,7 @@ nav li,  .meta li {
     -moz-box-shadow: inset 0 0 0 1px #aaaaaa;
     -o-box-shadow: inset 0 0 0 1px #aaaaaa;
     box-shadow: inset 0 0 0 1px #aaaaaa;
-    background-color: #fff;
+    background-color: #ddd;
     color: #333;
 }
 .searchbox input::placeholder {
@@ -290,7 +290,7 @@ p {
 .btn {
     display: inline-block;
     background-color: #444;
-    color: #fff;
+    color: #ddd;
     margin: .5em 0;
     padding: 1em 2em;
     text-decoration: none;
@@ -302,12 +302,12 @@ p {
 }
 #showcase {
     min-height: 450px;
-    color: #fff;
+    color: #ddd;
     text-align: center;
 }
 #showcase .bg-logo {
     position: absolute;
-    background: #444 url('http://127.0.0.1:5501/images/logo.svg');
+    background: #444 url('https://wizzifactory.github.io/images/logo.svg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -318,7 +318,7 @@ p {
 }
 #showcase .bg-image {
     position: absolute;
-    background: #444 url(http://127.0.0.1:5501/images/showcase.png);
+    background: #444 url(https://wizzifactory.github.io/images/showcase.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -340,7 +340,7 @@ p {
 }
 #section-a {
     background-color: #444;
-    color: #fff;
+    color: #ddd;
     margin: 0 auto;
     width: 70%;
     -webkit-border-radius: 5px;
@@ -355,7 +355,7 @@ p {
 }
 #section-a2 {
     background-color: #444;
-    color: #fff;
+    color: #ddd;
     margin: 0 auto;
     width: 70%;
     -webkit-border-radius: 5px;
@@ -370,7 +370,7 @@ p {
 }
 #section-a3 {
     background-color: #444;
-    color: #fff;
+    color: #ddd;
     margin: 0 auto;
     width: 70%;
     -webkit-border-radius: 5px;
@@ -385,7 +385,7 @@ p {
 }
 #section-a4 {
     background-color: #444;
-    color: #fff;
+    color: #ddd;
     margin: 0 auto;
     width: 70%;
     -webkit-border-radius: 5px;
@@ -409,7 +409,7 @@ p {
 #section-b ul li {
     background-color: #444;
     margin-bottom: 1em;
-    color: #fff;
+    color: #ddd;
     -webkit-border-radius: 5px;
     -khtml-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -434,7 +434,7 @@ p {
 #section-b2 ul li {
     background-color: #444;
     margin-bottom: 1em;
-    color: #fff;
+    color: #ddd;
     -webkit-border-radius: 5px;
     -khtml-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -460,7 +460,7 @@ p {
 #section-b3 ul li {
     background-color: #444;
     margin-bottom: 1em;
-    color: #fff;
+    color: #ddd;
     -webkit-border-radius: 10px;
     -khtml-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -485,7 +485,7 @@ p {
 #section-b4 ul li {
     background-color: #444;
     margin-bottom: 1em;
-    color: #fff;
+    color: #ddd;
     -webkit-border-radius: 10px;
     -khtml-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -506,12 +506,12 @@ p {
     color: #fc0;
 }
 #section-c {
-    background-color: #fff;
+    background-color: #ddd;
     color: #444;
     padding: 2em;
 }
 #section-d .box {
-    color: #fff;
+    color: #ddd;
     padding: 2em;
 }
 #section-d .box:first-child {
@@ -520,7 +520,7 @@ p {
 #main-footer {
     padding: 2em;
     background-color: #000;
-    color: #fff;
+    color: #ddd;
     text-align: center;
 }
 #main-footer a {
