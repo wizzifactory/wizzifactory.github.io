@@ -1,6 +1,6 @@
 # wizzifactory.github.io
 
-Wizzi factory github main page..
+.
 
 ## Work still in progress
 

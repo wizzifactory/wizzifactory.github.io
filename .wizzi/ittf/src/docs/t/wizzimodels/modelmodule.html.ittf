@@ -6,9 +6,9 @@
 
     section(&sect)
 
-		p A Wizzi model is a javascript module containg a javascript class for each
+		p A Wizzi model module contains a javascript class for each
 			\b element defined in its 'wfschema' and some standard base
-			\b and helper classes.
+			\b classes.
 
 		h4 Wizzi model classes
 		table
@@ -16,19 +16,21 @@
 				td wzSourceLineInfo
 				td source map item with source file path, row, col of a node
 			tr
-				td `schema-name`Exception
+				td {schema-name}Exception
 				td exception object for this Wizzi Model
 			tr
-				td `schema-name`Context
+				td {schema-name}Context
 				td context object for the methods wzInitialize and wzVerify
 			tr
-				td `schema-name`Base
+				td {schema-name}Base
 				td base class for all element classes
 			tr
-				td `element-name`
-				td one class for each element of the schema
+				td {element-name}
+				td one class for each element of the `wfschema`
 
-		ittf-panel
+		p &nbsp;
+        
+        ittf-panel
             title The wzSourceLineInfo API
 		    ittf 
                 class wzSourceLineInfo

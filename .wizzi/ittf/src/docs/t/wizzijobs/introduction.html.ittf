@@ -6,4 +6,17 @@
 
     section(&sect)
 
-		p Wizzi jobs are the automation component of the wizzi factory.
+		p Wizzi jobs are the task manager of the Wizzi factory.
+            \b They execute a sequence of \b
+            to-docs( Wizzi model )
+            span \b loadings and \b
+            to-docs( artifact generations )
+            span .
+
+        p They are configured using `wfjob` ITTF documents, and are execute using
+            \b the `executeWizziJob` method of a 
+            to-docs( wizzi.wizziFactory )
+            span \b instance or the `wizzi`
+                \b command of the `
+            to-plugin( wizzi-cli )
+            span ` CLI package.

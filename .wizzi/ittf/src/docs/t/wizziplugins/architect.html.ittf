@@ -6,18 +6,18 @@
 
     section(&sect)
 
-		p The wizzi factory uses a class instance that implements the 
-			\b wizzi.pluginsManager api to resolve and load plugin packages or files.
+		p The Wizzi factory uses a class instance that implements the 
+			\b wizzi.pluginsManager Api to resolve and load plugin packages or files.
 		
 		p Wizzi plugins can be nodejs packages installed locally or globally or can be
 			\b folders in packages that make a private use of them.
 		
 		p Plugins used by an instance of the wizzi.WizziFactory must be 
-			\b requested at initialization time and cannot be changed later. 
-			\b A new instance of the factory must be created to use a different
-			\b plugin set.
+			\b requested at initialization time and cannot be changed. 
+			\b To use a different plugin set must be created a new instance of 
+            \b the Wizzi factory.
 
-		h3 The api of the wizzi.WizziFactory.initialize method.
+		h3 The Api of the wizzi.WizziFactory.initialize method.
 		ittf-panel
             ittf
                 ...
@@ -32,14 +32,14 @@
                                     default process.cwd()
                             { test
                                 ...
-		p The 'items' property of the 'options.plugins' object is an array of:
+		p The `items` property of the `options.plugins` object is an array of:
 			ul
 				li Package names, when plugins are contained in npm installed nodejs packages
 				li Relative paths to plugins index module, when plugins are contained
 					\b in private folders.
-		span In the case of relative paths the property 'pluginsBaseFolder'
-			\b of the 'options.plugins' object must contains the base folder of
-			\b plugins index modules.
+		span In the case of relative paths the property `pluginsBaseFolder`
+			\b of the `options.plugins` object must contains the base folder of
+			\b the plugins index modules.
 
 		h4 View the code
 		p Have look how the wizzi.pluginsManager is implemented in the \b

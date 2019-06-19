@@ -6,45 +6,48 @@
 
     section(&sect)
 
-		p This api must be implemented by any wizzi plugin.
+		p This api must be implemented by any Wizzi plugin.
 		
 		p The methods of the api will be called by the wizzi.pluginsManager instance class
-			+ on requests received by the wizzi.wizziFactory instance class.
+			\b  on requests received by the \b
+            to-docs( wizzi.wizziFactory )
+            span \b instance.
 		
 		ittf-panel
             ittf
-                #
-                    # Retrieve a Wizzi Model factory by its schema name
-                    # Searching in this wizzi package. No search up in "node_modules" folders.
-                m getModelFactory
-                    string schemaName
-                    ...
-                -
-                #
-                    # Retrieve a model transformer by its name
-                    # Searching in this wizzi package. No search up in "node_modules" folders.
-                m getModelTransformer
-                    string transformerName
-                    ...
-                -
-                # 
-                    # Retrieve an artifact generator by its name
-                    # Searching in this wizzi package. No search up in "node_modules" folders.
-                m getArtifactGenerator
-                    string generationName
-                -
-                #
-                    # Retrieve a wizzi schema definition in JSON format
-                    # Searching in this wizzi package. No search up in "node_modules" folders.
-                m getSchemaDefinition
-                    string schemaName
+                ...
+                    #
+                        # Retrieve a Wizzi Model factory by its schema name
+                        # Searching in this wizzi package. No search up in "node_modules" folders.
+                    m getModelFactory
+                        string schemaName
+                        ...
+                    -
+                    #
+                        # Retrieve a model transformer by its name
+                        # Searching in this wizzi package. No search up in "node_modules" folders.
+                    m getModelTransformer
+                        string transformerName
+                        ...
+                    -
+                    # 
+                        # Retrieve an artifact generator by its name
+                        # Searching in this wizzi package. No search up in "node_modules" folders.
+                    m getArtifactGenerator
+                        string generationName
+                    -
+                    #
+                        # Retrieve a wizzi schema definition in JSON format
+                        # Searching in this wizzi package. No search up in "node_modules" folders.
+                    m getSchemaDefinition
+                        string schemaName
 
-		h4 Object returned by getModelFactory method
+		h4 Object returned by the getModelFactory method
 
 		p This api is requested to the wizzi.pluginsManager from the
-			+ wizzi.wizziFactory when a client needs to load a wizzi nodel.
-			+ The wizzi.wizziFactory, and not the client, will call the 'createLoadModel'
-			+ and 'loadModel' functions.
+			\b  wizzi.wizziFactory when a client needs to load a Wizzi nodel.
+			\b  The wizzi.wizziFactory, and not the client, will call the 'createLoadModel'
+			\b  and 'loadModel' functions.
 		
 		ittf-panel
             ittf
@@ -87,7 +90,7 @@
                                         | POJO
                                 callback
 
-		h4 Object returned by getModelTransformer method
+		h4 Object returned by the getModelTransformer method
         ittf-panel
             ittf
                 {
@@ -99,7 +102,7 @@
                             api-ref wizzi.artifact.genContext
                         callback
 
-		h4 Object returned by getArtifactGenerator method
+		h4 Object returned by the getArtifactGenerator method
         ittf-panel
             ittf
                 {
@@ -113,9 +116,15 @@
 
 		h4 Object returned by the getSchemaDefinition method
 		p The object returned is a json representation of the
-			+ requested schema.
+			\b  requested schema. See the
+            a `wfjob` schema definition
+                href https://github.com/wizzifactory/wizzi/blob/master/packages/wizzi-core/dist/lib/wizzi/models/wfjob-schema.g.json
+            span .
 
 		h4 View the code
-		p Have a look at how this API is implemented in the\b
-			a wizzi-js plugin
-				href https://github.com/wizzifactory/wizzi/blob/master/packages/wizzi-js/index.js
+		p Have a look at how this API is implemented in the \b
+			a `wizzi-js` plugin
+				href https://github.com/wizzifactory/wizzi/tree/master/packages/wizzi-js/dist/index.js
+            span \b \b
+			a (ittf source)
+				href https://github.com/wizzifactory/wizzi/blob/master/packages/wizzi-js/.wizzi/ittf/root/index.js.ittf

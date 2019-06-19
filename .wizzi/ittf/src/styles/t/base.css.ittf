@@ -32,3 +32,6 @@ $group
         transition all 0.25s
         & :hover
             color #da0
+
+    < td
+        padding 0 10px

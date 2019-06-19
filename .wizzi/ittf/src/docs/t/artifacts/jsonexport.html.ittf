@@ -1,15 +1,15 @@
 ﻿$group
     $
         var sect = {
-            title: '"json/export" core artifact'
+            title: '"json/export" builtin artifact'
         };
 
     section(&sect)
 		
-        p The json/export core artifact can be used in a wizzi job,
-			+ to save in a file the json representation of
-			+ a Wizzi model, when its wizzi schema 
-			+ declare the export-to json element.
+        p The json/export builtin artifact can be used in a Wizzi job,
+			+ to save the JSON representation of
+			+ a Wizzi model, when its Wizzi schema 
+			+ declares the `export-to json` element.
 
 		ittf-panel
             title Sample wfjob artifact element using the json/export artifact.

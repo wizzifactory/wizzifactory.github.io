@@ -6,11 +6,35 @@
 
     section(&sect)
 
-		p The wfjob schema, implemented by the wizzi-core plugin,
-			\b is the configuration schema of the production manager,
-			\b the wizzi task manager.
+		p The `wfjob` Wizzi schema, implemented by the `wizzi-core` plugin,
+			\b is the configuration schema of a Wizzi job.
 
-		ul The wfjob elements are
+		ittf-panel
+            title Sample `wfjob` ITTF document.
+            ittf
+                wfjob wizzi-docs-concepts
+                    $
+                        var models_folder     = path.join(__dirname, 'models');
+                        var html_folder       = path.join(__dirname, 'html');
+                        var dest_folder       = "c:/my/wizzi/v5/github/wizzifactory.github.io";
+                    
+                    models-base-folder ${'$'}{models_folder}
+                    
+                    model concepts
+                        src wizzi-jobs.docs.ittf
+                        schema docs
+
+                    line html
+                        cwd-folder ${'$'}{html_folder}
+                        $raw wfjob/art-wo-html( docs.html.ittf )
+                            model-ref concepts
+                                transformer docs/preprint
+                    
+                    production
+                        dest-folder ${'$'}{dest_folder}
+                        line-ref html            
+
+		ul The `wfjob` Wizzi schema elements are
 			li Wfjob
 			li Model
 			li ModelRef
@@ -22,8 +46,7 @@
 		h3 The WfJob element
 		ittf-panel
             ittf
-                wfjob `name`
-                    # For info and error messages
+                wfjob {wzName}
                     string title `short-description`
                         # For info and error messages
                     string models-base-folder `path`
@@ -39,7 +62,7 @@
 		
 		p A model can be:
 		ul
-			li An ittf documents targeting a wizzi schema exposed by a plugin
+			li An ITTF document of a Wizzi schema exposed by a plugin
 				\b loaded in the wizzi.wizziFactory instance that is executing the job.
 			li A POJO module coded in one of these known formats: 'json', 'nodejs' 
 				\b module exporting the function 'toModel'.
@@ -151,27 +174,3 @@
                 ...
                     line-ref `line-name`
 
-		ittf-panel
-            title Sample wizzi job.
-            ittf
-                wfjob wizzi-docs-concepts
-                    $
-                        var models_folder     = path.join(__dirname, 'models');
-                        var html_folder       = path.join(__dirname, 'html');
-                        var dest_folder       = "c:/my/wizzi/v5/github/wizzifactory.github.io";
-                    
-                    models-base-folder ${'$'}{models_folder}
-                    
-                    model concepts
-                        src wizzi-jobs.docs.ittf
-                        schema docs
-
-                    line html
-                        cwd-folder ${'$'}{html_folder}
-                        $raw wfjob/art-wo-html( docs.html.ittf )
-                            model-ref concepts
-                                transformer docs/preprint
-                    
-                    production
-                        dest-folder ${'$'}{dest_folder}
-                        line-ref html

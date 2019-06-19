@@ -1,13 +1,13 @@
 ﻿$group
     $
         var sect = {
-            title: 'Artifacts'
+            title: 'Artifact generators'
         };
 
     section(&sect)
 
-		p Artifact generators are contained in wizzi plugins and are exposed to
-			\b the wizzi factory implementing the wizzi-plugin.factoryPlugin API.
+		p Artifact generators are contained in Wizzi plugins and are exposed to
+			\b the Wizzi factory implementing the wizzi-plugin.factoryPlugin API.
 
 		p The wizzi-plugin.factoryPlugin.getArtifactGenerator(artifactKey) method
 			\b returns a wizzi-plugin.artifactGenerator interface for generating
@@ -31,42 +31,40 @@
 		p In this documentation section we describe solutions that the wizzi 
 			\b factory has taken for its own artifact generators.
 
-		h4 Wizzi factory standard artifact generators location
+		h4 Wizzi factory standard location for artifact generators
 		p Artifact generators should have a standard location in the
 			\b plugin package.
 		ittf-panel
             ittf
                 ...
-                    `package-name`
+                    {package-name}
+                        package.json
+                        ...
                         lib
                             artifacts
-                                `wfschema-name`
-                                    `artifact-name`
+                                {wfschema-name}
+                                    {artifact-name}
                                         gen
                                             main.js
 		
 		p The file 'main.js' is the module that exposes 
 			\b the wizzi-plugin.artifactGenerator interface for the
-			\b artifact of key: `wfschema-name`/`artifact-name`.
+			\b artifact of key: {wfschema-name}/{artifact-name}.
 			
 		p This artifact key must be unique in the plugins configuration
 			\b of the wizzi.wizziFactory instance that is executing the generation.
 		
 		h4 Example of 'generator' attribute in a 'wfjob'
-		p The `wfschema-name`/`artifact-name` artifact key
-			\b is the value to be declared in the generator attribute of the 
-			\b artifact element of a 'wfjob' ittf document.
+		p The {wfschema-name}/{artifact-name} artifact key
+			\b is the value to be declared in the `generator` attribute of the 
+			\b `artifact` element of a 'wfjob' ITTF document.
 		ittf-panel
+            title Use of an artifact generator in a Wizzi job
             ittf
-                wfjob job-name
+                wfjob {job-name}
                     ...
-                    line line-name
-                        artifact `artifact-generation-description`
+                    line {line-name}
+                        artifact {artifact-generation-description}
                             ...
-                            generator `wfschema-name`/`artifact-name`
+                            generator {wfschema-name}/{artifact-name}
                             ...
-
-		p TODO The wizzi-plugin.factoryPlugin API could provide a method for
-			\b assigning aliases to named resources of the plugin allowing to 
-			\b avoid name collisions without modifications to the plugin code.
-

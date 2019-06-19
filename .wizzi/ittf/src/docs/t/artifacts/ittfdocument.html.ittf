@@ -1,17 +1,16 @@
 ﻿$group
     $
         var sect = {
-            title: '"ittf/document" core artifact'
+            title: '"ittf/document" builtin artifact'
         };
 
     section(&sect)
 
-		p The 'ittf/document' core artifact exports the ittf
+		p The 'ittf/document' builtin artifact exports the ittf
 			\b representation of a loaded mTree.
 			\b This allow the buildup of ittf documents
 			\b using the mTree loader for
-			\b merging sources and contexts and using JsWizzi
-			\b for manipulating them.
+			\b merging sources and contexts.
 
 		ittf-panel
             title Sample wizzi job using the 'ittf/document' generator.
@@ -23,7 +22,7 @@
                     model layout
                         src layout.json.ittf
                         schema json
-                    model options.forms
+                    model optionsforms
                         src options.form.ittf
                         schema form
                     line ui
@@ -34,7 +33,7 @@
                             extension ittf
                             model-ref styles
                             model-ref layout
-                            model-ref options.forms
+                            model-ref optionsforms
 
 
 

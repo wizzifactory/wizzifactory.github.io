@@ -8,10 +8,6 @@
 		var ittf_root_folder      = path.join(__dirname, 'ittf', 'root');
 		var dest_folder           = path.join(__dirname, '..');
 
-	model meta
-		schema json
-		src ${ittf_meta_folder}/index.json.ittf
-
     model pkg
         export-name pkg
         schema json
@@ -23,20 +19,9 @@
 
 
 		wfjob/any_json()
-			model-ref meta
-				export-name wfpackage
-
 		wfjob/any_md()
-			model-ref meta
-				export-name wfpackage
-
 		wfjob/any_text()
-			model-ref meta
-				export-name wfpackage
-
 		wfjob/.gitignore()
-			model-ref meta
-				export-name wfpackage
 
 	line ittf-src
 		cwd-folder ${ittf_src_folder}
@@ -48,6 +33,11 @@
         wfjob/any_html()
 		wfjob/any_plain(css)
 		wfjob/any_plain(js)
+        wfjob/any_plain(eot)
+        wfjob/any_plain(woff)
+        wfjob/any_plain(woff2)
+        wfjob/any_plain(ttf)
+        wfjob/any_plain(svg)
 
 	production
 		dest-folder ${dest_folder}

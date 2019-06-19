@@ -1,6 +1,0 @@
-{
-    name 'wizzifactory.github.io'
-    version '0.7.1'
-	title 'Wizzi factory github main page.'
-    license 'MIT'
-    [ schemas

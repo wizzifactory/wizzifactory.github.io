@@ -235,8 +235,8 @@
 		h3 minValue element
         ittf-panel
             ittf
-			e minValue `value` : restrict 
-				tag min-value
+                e minValue `value` : restrict 
+                    tag min-value
 
 		h3 regexp element
 		ittf-panel

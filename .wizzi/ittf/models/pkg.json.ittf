@@ -1,14 +1,17 @@
 {
+    $
+        var baseUrl = 'http://127.0.0.1:5501';
+        // var baseUrl = "https://wizzifactory.github.io";
+
 	name "wizzifactory.github.io"
-	version "0.0.1"
+	version "0.7.1"
 	description "Wizzi factory github page"
 	author "Stefano Bassoli"
 	license "MIT"
 
     { Params
         title "Wizzi factory"
-        $$ baseUrl "http://127.0.0.1:5501"
-        baseUrl "https://wizzifactory.github.io"
+        baseUrl "${baseUrl}"
 
     { Section
         [ items
@@ -40,6 +43,9 @@
                 title "JsWizzi"
                 url "/docs/jswizzi.html"
             {
+                title "mTrees"
+                url "/docs/mtrees.html"
+            {
                 title "Wizzi schemas"
                 url "/docs/wizzischemas.html"
             {
@@ -48,6 +54,9 @@
             {
                 title "Artifacts"
                 url "/docs/artifacts.html"
+            {
+                title "Wizzi factory class"
+                url "/docs/wizzifactoryclass.html"
             {
                 title "Wizzi jobs"
                 url "/docs/wizzijobs.html"
@@ -89,5 +98,9 @@
         c_dark_medium "#fff"
         h3_c_dark "#fc0"
 
-
-
+    { Fonts
+        useMaterialIcons true
+        { materialIcons
+            baseUrl "${baseUrl}/fonts"
+            fontWeight "400"
+            size "24px"
