@@ -1,7 +1,7 @@
 {
     $
-        var baseUrl = 'http://127.0.0.1:5501';
-        // var baseUrl = "https://wizzifactory.github.io";
+        // var baseUrl = 'http://127.0.0.1:5501';
+        var baseUrl = "https://wizzifactory.github.io";
 
 	name "wizzifactory.github.io"
 	version "0.7.1"
