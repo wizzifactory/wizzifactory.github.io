@@ -17,7 +17,6 @@
 		cwd-folder ${ittf_root_folder}
 		dest-folder ${dest_folder}
 
-
 		wfjob/any_json()
 		wfjob/any_md()
 		wfjob/any_text()
@@ -38,6 +37,8 @@
         wfjob/any_plain(woff2)
         wfjob/any_plain(ttf)
         wfjob/any_plain(svg)
+        wfjob/any_plain(jpg)
+        wfjob/any_plain(png)
 
 	production
 		dest-folder ${dest_folder}

@@ -48,7 +48,7 @@ css
 
     media (min-width: 768px)
         . ittf-panel-title
-            font-size 21px
+            font-size 19px
             font-weight 700
             margin-bottom 4px
 

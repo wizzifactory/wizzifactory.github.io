@@ -63,7 +63,7 @@
 		p A model can be:
 		ul
 			li An ITTF document of a Wizzi schema exposed by a plugin
-				\b loaded in the wizzi.wizziFactory instance that is executing the job.
+				\b loaded in the wizzi.WizziFactory instance that is executing the job.
 			li A POJO module coded in one of these known formats: 'json', 'nodejs' 
 				\b module exporting the function 'toModel'.
 		

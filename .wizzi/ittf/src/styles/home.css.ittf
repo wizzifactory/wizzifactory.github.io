@@ -50,7 +50,7 @@
 
 	# showcase .bg-image
 		position absolute
-		background ${pkg.Colors.bg_dark_medium} url('https://images.pexels.com/photos/247791/pexels-photo-247791.png?cs=srgb&dl=ai-codes-coding-247791.jpg&fm=jpg')
+		background ${pkg.Colors.bg_dark_medium} url(${pkg.Params.baseUrl}/images/showcase.png)
 		background-position center
 		background-repeat no-repeat
 		background-size cover

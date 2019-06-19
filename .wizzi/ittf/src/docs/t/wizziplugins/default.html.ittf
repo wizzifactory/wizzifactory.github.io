@@ -1,19 +1,23 @@
 ﻿$group
     $
         var sect = {
-            title: 'Default plugins'
+            title: 'Default plugins',
+            id: 'defaultplugins'
         };
 
     section(&sect)
 
-		p The Wizzi Factory is a content agnostic data processor and is not aimed at any particular domain.
-			\b The plugins are domain specific and content aware. The plugins do the real work.
+		p Default plugins are starter plugins to help the creation of the firsts domain specific generations.
+            
+            
+        h4 Currently available default plugins
+        ul 
+            li
+                to-plugin( wizzi-js )
+            li
+                to-plugin( wizzi-web )
+            li
+                to-plugin( wizzi-lab )
 
-		p Anyhow the Wizzi Factory has one internal plugin, the `wizzi-core` plugin, that is integrated in its API
-			\b and two default plugins, the `wizzi-js` and `wizzi-web` plugins that are a starting point
-			\b for experimenting with \b
-            to-docs( Wizzi models )
-            span \b and 
-            to-docs( Artifact generations )
-            span . 
+        p The `wizzi-js` and `wizzi-web` plugin at the moment are integrated in the Wizzi API.
 

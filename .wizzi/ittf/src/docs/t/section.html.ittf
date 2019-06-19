@@ -3,6 +3,7 @@ $group
     
     article
         . doc-title
+            id ${sect.id} 
             + ${sect.title}
 
         . doc-summary

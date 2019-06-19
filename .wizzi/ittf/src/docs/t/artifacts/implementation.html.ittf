@@ -129,7 +129,7 @@
 		
         p The `js` source ITTF document is loaded, and transformed in a textual artifact, calling
 			\b the 'loadModelAndGenerateArtifact' method of the 
-			\b wizzi.wizziFactory class, exposed in the property 'wizziFactory'
+			\b wizzi.WizziFactory class, exposed in the property 'wizziFactory'
 			\b of the 'ctx' parameter (an instance of the wizzi.artifact.genContext class).
 		
         ittf-panel

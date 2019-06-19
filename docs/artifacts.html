@@ -9,21 +9,21 @@
         <div class="flexbox">
             <div class="center-on-mobiles">
                 <h1>
-                    <a href="/" class="logo"><img src="https://wizzifactory.github.io/images/logo.svg" width="140" height="65" alt="Wizzi Logo" />
+                    <a href="/" class="logo"><img src="http://127.0.0.1:5501/images/logo.svg" width="140" height="65" alt="Wizzi Logo" />
                     </a>
                 </h1>
             </div>
             <nav class="main-nav hide-on-mobiles">
                 <ul>
-                    <li><a href="https://wizzifactory.github.io/">Home</a>
+                    <li><a href="http://127.0.0.1:5501/">Home</a>
                     </li>
-                    <li class="current"><a href="https://wizzifactory.github.io/docs/concepts.html">Docs</a>
+                    <li class="current"><a href="http://127.0.0.1:5501/docs/concepts.html">Docs</a>
                     </li>
-                    <li><a href="https://wizzifactory.github.io/resources/index.html">Resources</a>
+                    <li><a href="http://127.0.0.1:5501/resources/index.html">Resources</a>
                     </li>
-                    <li><a href="https://wizzifactory.github.io/packy/index.html">Packy</a>
+                    <li><a href="http://127.0.0.1:5501/packy/index.html">Packy</a>
                     </li>
-                    <li><a href="https://wizzifactory.github.io/news/index.html">News</a>
+                    <li><a href="http://127.0.0.1:5501/news/index.html">News</a>
                     </li>
                 </ul>
             </nav>
@@ -46,7 +46,7 @@
     <div class="doc-container">
         <div class="w-4-5">
             <article>
-                <div class="doc-title">
+                <div id class="doc-title">
                     Artifact generators</div>
                 <div class="doc-summary">
                     <p>Artifact generators are contained in Wizzi plugins and are exposed to the Wizzi factory implementing the wizzi-plugin.factoryPlugin API.</p>
@@ -65,7 +65,7 @@
                     <div><div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-tag">...</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">  </span><span class="pp-tag">{package-name}</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">    </span><span class="pp-tag">package.json</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">    </span><span class="pp-tag">...</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">    </span><span class="pp-tag">lib</span></div><div class="L6"><span class="pp-ln">   6 </span><span class="pp-pln">      </span><span class="pp-tag">artifacts</span></div><div class="L7"><span class="pp-ln">   7 </span><span class="pp-pln">        </span><span class="pp-tag">{wfschema-name}</span></div><div class="L8"><span class="pp-ln">   8 </span><span class="pp-pln">          </span><span class="pp-tag">{artifact-name}</span></div><div class="L9"><span class="pp-ln">   9 </span><span class="pp-pln">            </span><span class="pp-tag">gen</span></div><div class="L0"><span class="pp-ln">  10 </span><span class="pp-pln">              </span><span class="pp-tag">main.js</span></div></div>
                     </code></pre></div>
                     <p>The file 'main.js' is the module that exposes the wizzi-plugin.artifactGenerator interface for the artifact of key: {wfschema-name}/{artifact-name}.</p>
-                    <p>This artifact key must be unique in the plugins configuration of the wizzi.wizziFactory instance that is executing the generation.</p>
+                    <p>This artifact key must be unique in the plugins configuration of the wizzi.WizziFactory instance that is executing the generation.</p>
                     <h4>Example of 'generator' attribute in a 'wfjob'</h4>
                     <p>The {wfschema-name}/{artifact-name} artifact key is the value to be declared in the `generator` attribute of the `artifact` element of a 'wfjob' ITTF document.</p>
                     <div class='ittf-panel'>
@@ -76,7 +76,7 @@
                 </div>
             </article>
             <article>
-                <div class="doc-title">
+                <div id class="doc-title">
                     Implementation</div>
                 <div class="doc-summary">
                     <p>An artifact generator produces a buffer of text characters. The production is driven by models contained in the parameters passed to the generator.</p>
@@ -119,7 +119,7 @@
                     <h3>Example of template based implementation of the wizzi-plugin.artifactGenerator API</h3>
                     <p>In this dummy example, a 'js' ittf document template, named 'datalayer/adapters.js.ittf' is transformed in the javascript textual code of a fictitious datalayer adapter component.</p>
                     <p>This example artifact generator makes use internaly of a 'js' language artifact generator, named 'js/module'. The Wizzi model that it receives as first parameter, has been loaded in previous steps, and becomes the mTreeBuilUpContext object for loading the mTree of the `js` ITTF document template. It must be a Wizzi Model of type 'rdbms' otherwise an error is returned in the callback.</p>
-                    <p>The `js` source ITTF document is loaded, and transformed in a textual artifact, calling the 'loadModelAndGenerateArtifact' method of the wizzi.wizziFactory class, exposed in the property 'wizziFactory' of the 'ctx' parameter (an instance of the wizzi.artifact.genContext class).</p>
+                    <p>The `js` source ITTF document is loaded, and transformed in a textual artifact, calling the 'loadModelAndGenerateArtifact' method of the wizzi.WizziFactory class, exposed in the property 'wizziFactory' of the 'ctx' parameter (an instance of the wizzi.artifact.genContext class).</p>
                     <div class='ittf-panel'>
                     <pre class='prettyprint'><code>
                     <div><div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-tag">module</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">  </span><span class="pp-tag">kind</span><span class="pp-pln"> jsfile</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">  </span><span class="pp-tag">var</span><span class="pp-pln"> path = require('path')</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">  </span><span class="pp-tag">var</span><span class="pp-pln"> md = module.exports = {}</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">  </span><span class="pp-tag">var</span><span class="pp-pln"> myname = 'artifact rdbms.adapters.main';</span></div><div class="L6"><span class="pp-ln">   6 </span><span class="pp-pln">  </span><span class="pp-tag">set</span><span class="pp-pln"> md.gen</span></div><div class="L7"><span class="pp-ln">   7 </span><span class="pp-pln">    </span><span class="pp-tag">function</span></div><div class="L8"><span class="pp-ln">   8 </span><span class="pp-pln">      </span><span class="pp-tag">{</span><span class="pp-pln"> model</span></div><div class="L9"><span class="pp-ln">   9 </span><span class="pp-pln">      </span><span class="pp-tag">{</span><span class="pp-pln"> ctx</span></div><div class="L0"><span class="pp-ln">  10 </span><span class="pp-pln">      </span><span class="pp-tag">callback</span></div><div class="L1"><span class="pp-ln">  11 </span><span class="pp-pln">      </span><span class="pp-tag">#</span><span class="pp-pln"> check the model is a Wizzi Model of type 'rdbms'</span></div><div class="L2"><span class="pp-ln">  12 </span><span class="pp-pln">      </span><span class="pp-tag">if</span><span class="pp-pln"> model.wzElement !== 'rdbms'</span></div><div class="L3"><span class="pp-ln">  13 </span><span class="pp-pln">        </span><span class="pp-tag">return</span></div><div class="L4"><span class="pp-ln">  14 </span><span class="pp-pln">          </span><span class="pp-tag">callback</span></div><div class="L5"><span class="pp-ln">  15 </span><span class="pp-pln">            </span><span class="pp-tag">_ctx.error</span></div><div class="L6"><span class="pp-ln">  16 </span><span class="pp-pln">              </span><span class="pp-tag">@</span><span class="pp-pln"> myname + " error: the model paramater should be an 'rdbms' Wizzi Model"</span></div><div class="L7"><span class="pp-ln">  17 </span><span class="pp-pln">              </span><span class="pp-tag">@</span><span class="pp-pln"> model</span></div><div class="L8"><span class="pp-ln">  18 </span><span class="pp-pln">      </span><span class="pp-tag">#</span><span class="pp-pln"> build the artifact template path, it is a js ittf document in a sub folder</span></div><div class="L9"><span class="pp-ln">  19 </span><span class="pp-pln">      </span><span class="pp-tag">var</span><span class="pp-pln"> ittfTemplatePath</span></div><div class="L0"><span class="pp-ln">  20 </span><span class="pp-pln">        </span><span class="pp-tag">_</span><span class="pp-pln"> path.join</span></div><div class="L1"><span class="pp-ln">  21 </span><span class="pp-pln">          </span><span class="pp-tag">@</span><span class="pp-pln"> __dirname</span></div><div class="L2"><span class="pp-ln">  22 </span><span class="pp-pln">          </span><span class="pp-tag">@</span><span class="pp-pln"> 'ittf'</span></div><div class="L3"><span class="pp-ln">  23 </span><span class="pp-pln">          </span><span class="pp-tag">@</span><span class="pp-pln"> 'datalayer'</span></div><div class="L4"><span class="pp-ln">  24 </span><span class="pp-pln">          </span><span class="pp-tag">@</span><span class="pp-pln"> 'adapters.js.ittf'</span></div><div class="L5"><span class="pp-ln">  25 </span><span class="pp-pln">      </span><span class="pp-tag">#</span><span class="pp-pln"> call the wizzifactory method for loading a language Wizzi Model and</span></div><div class="L6"><span class="pp-ln">  26 </span><span class="pp-pln">      </span><span class="pp-tag">#</span><span class="pp-pln"> generate a language artifact from it. Pass the input model in the</span></div><div class="L7"><span class="pp-ln">  27 </span><span class="pp-pln">      </span><span class="pp-tag">#</span><span class="pp-pln"> mTreeBuildUpContext property of the request object argument.</span></div><div class="L8"><span class="pp-ln">  28 </span><span class="pp-pln">      </span><span class="pp-tag">#</span><span class="pp-pln"> The 'js' schema of the template model is detected by its filename.</span></div><div class="L9"><span class="pp-ln">  29 </span><span class="pp-pln">      </span><span class="pp-tag">_</span><span class="pp-pln"> ctx.wizziFactory.loadModelAndGenerateArtifact</span></div><div class="L0"><span class="pp-ln">  30 </span><span class="pp-pln">        </span><span class="pp-tag">@</span><span class="pp-pln"> ittfTemplatePath</span></div><div class="L1"><span class="pp-ln">  31 </span><span class="pp-pln">        </span><span class="pp-tag">{</span></div><div class="L2"><span class="pp-ln">  32 </span><span class="pp-pln">          </span><span class="pp-tag">@</span><span class="pp-pln"> mTreeBuildUpContext model</span></div><div class="L3"><span class="pp-ln">  33 </span><span class="pp-pln">        </span><span class="pp-tag">@</span><span class="pp-pln"> 'js/module'</span></div><div class="L4"><span class="pp-ln">  34 </span><span class="pp-pln">        </span><span class="pp-tag">function</span></div><div class="L5"><span class="pp-ln">  35 </span><span class="pp-pln">          </span><span class="pp-tag">param</span><span class="pp-pln"> err</span></div><div class="L6"><span class="pp-ln">  36 </span><span class="pp-pln">          </span><span class="pp-tag">param</span><span class="pp-pln"> artifactText</span></div><div class="L7"><span class="pp-ln">  37 </span><span class="pp-pln">          </span><span class="pp-tag">if</span><span class="pp-pln"> err</span></div><div class="L8"><span class="pp-ln">  38 </span><span class="pp-pln">            </span><span class="pp-tag">#</span><span class="pp-pln"> invoke the callback on error, passing back the loadModelAndGenerateArtifact error</span></div><div class="L9"><span class="pp-ln">  39 </span><span class="pp-pln">            </span><span class="pp-tag">return</span></div><div class="L0"><span class="pp-ln">  40 </span><span class="pp-pln">              </span><span class="pp-tag">_</span><span class="pp-pln"> callback</span></div><div class="L1"><span class="pp-ln">  41 </span><span class="pp-pln">                </span><span class="pp-tag">err</span></div><div class="L2"><span class="pp-ln">  42 </span><span class="pp-pln">          </span><span class="pp-tag">#</span><span class="pp-pln"> write the artifactText into the genContext buffer</span></div><div class="L3"><span class="pp-ln">  43 </span><span class="pp-pln">          </span><span class="pp-tag">_</span><span class="pp-pln"> ctx.write(artifactText)</span></div><div class="L4"><span class="pp-ln">  44 </span><span class="pp-pln">          </span><span class="pp-tag">#</span><span class="pp-pln"> invoke the callback on success, passing back the genContext</span></div><div class="L5"><span class="pp-ln">  45 </span><span class="pp-pln">          </span><span class="pp-tag">_</span><span class="pp-pln"> callback(null, ctx)</span></div></div>
@@ -127,7 +127,7 @@
                 </div>
             </article>
             <article>
-                <div class="doc-title">
+                <div id class="doc-title">
                     The genContext object</div>
                 <div class="doc-summary">
                     <h4>The interface of the gencontext object</h4>
@@ -138,7 +138,7 @@
                 </div>
             </article>
             <article>
-                <div class="doc-title">
+                <div id class="doc-title">
                     Sample artifact generator</div>
                 <div class="doc-summary">
                     <h4>Code write artifact generator sample</h4>
@@ -149,7 +149,7 @@
                 </div>
             </article>
             <article>
-                <div class="doc-title">
+                <div id class="doc-title">
                     Internal artifacts</div>
                 <div class="doc-summary">
                     <p>The wizzi-core plugin exports some useful artifacts.
@@ -169,7 +169,7 @@
                 </div>
             </article>
             <article>
-                <div class="doc-title">
+                <div id class="doc-title">
                     "json/export" builtin artifact</div>
                 <div class="doc-summary">
                     <p>The json/export builtin artifact can be used in a Wizzi job,
@@ -182,7 +182,7 @@
                 </div>
             </article>
             <article>
-                <div class="doc-title">
+                <div id class="doc-title">
                     "xml/export" builtin artifact</div>
                 <div class="doc-summary">
                     <p>The xml/export builtin artifact can be used in a Wizzi job,
@@ -195,7 +195,7 @@
                 </div>
             </article>
             <article>
-                <div class="doc-title">
+                <div id class="doc-title">
                     "ittf/document" builtin artifact</div>
                 <div class="doc-summary">
                     <p>The 'ittf/document' builtin artifact exports the ittf representation of a loaded mTree. This allow the buildup of ittf documents using the mTree loader for merging sources and contexts.</p>
@@ -211,25 +211,25 @@
             <div class="aside-right">
                 <div style="padding-top: 40px;"></div>
                 <ul>
-                    <li><a href="https://wizzifactory.github.io/docs/concepts.html">Concepts</a>
+                    <li><a href="http://127.0.0.1:5501/docs/concepts.html">Concepts</a>
                     </li>
-                    <li><a href="https://wizzifactory.github.io/docs/ittfdocuments.html">Ittf documents</a>
+                    <li><a href="http://127.0.0.1:5501/docs/ittfdocuments.html">Ittf documents</a>
                     </li>
-                    <li><a href="https://wizzifactory.github.io/docs/jswizzi.html">JsWizzi</a>
+                    <li><a href="http://127.0.0.1:5501/docs/jswizzi.html">JsWizzi</a>
                     </li>
-                    <li><a href="https://wizzifactory.github.io/docs/mtrees.html">mTrees</a>
+                    <li><a href="http://127.0.0.1:5501/docs/mtrees.html">mTrees</a>
                     </li>
-                    <li><a href="https://wizzifactory.github.io/docs/wizzischemas.html">Wizzi schemas</a>
+                    <li><a href="http://127.0.0.1:5501/docs/wizzischemas.html">Wizzi schemas</a>
                     </li>
-                    <li><a href="https://wizzifactory.github.io/docs/wizzimodels.html">Wizzi models</a>
+                    <li><a href="http://127.0.0.1:5501/docs/wizzimodels.html">Wizzi models</a>
                     </li>
-                    <li class="current"><a href="https://wizzifactory.github.io/docs/artifacts.html">Artifacts</a>
+                    <li class="current"><a href="http://127.0.0.1:5501/docs/artifacts.html">Artifacts</a>
                     </li>
-                    <li><a href="https://wizzifactory.github.io/docs/wizzifactoryclass.html">Wizzi factory class</a>
+                    <li><a href="http://127.0.0.1:5501/docs/wizzifactoryclass.html">Wizzi factory class</a>
                     </li>
-                    <li><a href="https://wizzifactory.github.io/docs/wizzijobs.html">Wizzi jobs</a>
+                    <li><a href="http://127.0.0.1:5501/docs/wizzijobs.html">Wizzi jobs</a>
                     </li>
-                    <li><a href="https://wizzifactory.github.io/docs/wizziplugins.html">Wizzi plugins</a>
+                    <li><a href="http://127.0.0.1:5501/docs/wizziplugins.html">Wizzi plugins</a>
                     </li>
                 </ul>
             </div>

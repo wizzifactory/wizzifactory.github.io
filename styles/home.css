@@ -307,7 +307,7 @@ p {
 }
 #showcase .bg-logo {
     position: absolute;
-    background: #444 url('https://wizzifactory.github.io/images/logo.svg');
+    background: #444 url('http://127.0.0.1:5501/images/logo.svg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -318,7 +318,7 @@ p {
 }
 #showcase .bg-image {
     position: absolute;
-    background: #444 url('https://images.pexels.com/photos/247791/pexels-photo-247791.png?cs=srgb&dl=ai-codes-coding-247791.jpg&fm=jpg');
+    background: #444 url(http://127.0.0.1:5501/images/showcase.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

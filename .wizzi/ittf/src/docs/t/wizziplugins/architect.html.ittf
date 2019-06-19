@@ -6,19 +6,21 @@
 
     section(&sect)
 
-		p The Wizzi factory uses a class instance that implements the 
-			\b wizzi.pluginsManager Api to resolve and load plugin packages or files.
+		p Wizzi uses a class that implements the
+            high-code( wizzi.PluginsManager )
+            span Api to resolve and load plugins.
 		
 		p Wizzi plugins can be nodejs packages installed locally or globally or can be
 			\b folders in packages that make a private use of them.
 		
-		p Plugins used by an instance of the wizzi.WizziFactory must be 
-			\b requested at initialization time and cannot be changed. 
-			\b To use a different plugin set must be created a new instance of 
-            \b the Wizzi factory.
+		p Plugins used by the
+            to-docs( wizzi.WizziFactory )
+            span class must be requested at initialization time and cannot be changed. 
+			    \b To use a different plugin set a new instance of 
+                \b the Wizzi factory class must be created.
 
-		h3 The Api of the wizzi.WizziFactory.initialize method.
 		ittf-panel
+            title ITTF pseudo-code of the wizzi.WizziFactory.initialize method
             ittf
                 ...
                     m initialize
@@ -32,16 +34,24 @@
                                     default process.cwd()
                             { test
                                 ...
-		p The `items` property of the `options.plugins` object is an array of:
+		p The 
+            high-code( items )
+            span property of the
+            high-code( options.plugins )
+            span object is an array of:
 			ul
 				li Package names, when plugins are contained in npm installed nodejs packages
 				li Relative paths to plugins index module, when plugins are contained
 					\b in private folders.
-		span In the case of relative paths the property `pluginsBaseFolder`
-			\b of the `options.plugins` object must contains the base folder of
-			\b the plugins index modules.
+		span In the case of relative paths the property
+            high-code( pluginsBaseFolder )
+			span of the
+            high-code( options.plugins )
+            span object must contains the base folder of the plugin.
 
 		h4 View the code
-		p Have look how the wizzi.pluginsManager is implemented in the \b
+		p Have a look at how the
+            high-code( wizzi.PluginsManager )
+            span is implemented in the \b
 			a `wizzi` package
-				href https://github.com/wizzifactory/wizzi/blob/master/packages/wizzi/lib/services/pluginsManager.js
+				href https://github.com/wizzifactory/wizzi/tree/master/packages/wizzi/dist/lib/services/pluginsManager.js

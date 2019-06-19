@@ -20,7 +20,7 @@
             \b sequence, so that a line can prepare models and artifacts for the next one.
 
         p A job is executed calling the following method of the 
-            \b wizzi.wizziFactory instance class.
+            \b wizzi.WizziFactory instance class.
 
         ittf-panel
             schema js

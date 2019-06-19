@@ -52,7 +52,7 @@
 			\b artifact of key: {wfschema-name}/{artifact-name}.
 			
 		p This artifact key must be unique in the plugins configuration
-			\b of the wizzi.wizziFactory instance that is executing the generation.
+			\b of the wizzi.WizziFactory instance that is executing the generation.
 		
 		h4 Example of 'generator' attribute in a 'wfjob'
 		p The {wfschema-name}/{artifact-name} artifact key

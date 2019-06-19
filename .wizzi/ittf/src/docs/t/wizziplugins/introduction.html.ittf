@@ -6,24 +6,43 @@
 
     section(&sect)
 
-		p The wizzi factory is a generation framework
+		p Wizzi is a generation framework
 			\b implemented by plugins.
 				
 		p Kernel modules themself have a 
-			\b pluggable architecture. The wizzi-mtree package is a plugin
-			\b that implements an api for building tree structures from documents.
-			\b Repositories of source ittf documents are plugins that implement
-			\b an api for locating and retrieving documents.
+			\b pluggable architecture. The \b
+            to-plugin( wizzi-mtree )
+            span \b package is a plugin
+                \b that implements an api for building \b
+                to-docs( tree structures )
+                span \b from \b
+                    to-docs( ITTF documents)
+                    span .
+                        \b The \b
+                        to-plugin( wizzi-repo )
+                        span \b package is a plugin that implements
+                            \b an api for locating and retrieving ITTF documents.
 			
-		p A wizzi plugin exposes its resources to the wizzi factory:
+		p A Wizzi plugin exposes to the Wizzi factory the methods for retrieving its:
 		ul 
-			li Wizzi schema definitions;
-			li Wizzi models and their factories;
-			li model transformers;
-			li artifact generators.
+			li Wizzi schema definitions
+			li Wizzi models and their factories
+			li Wizzi model transformers
+			li Artifact generators
 
-		h4 A plugin package must export the method 'createFactoryPlugin'
+		p A plugin package must export the
+            high-code( createFactoryPlugin )
+            span method in its
+            high-code( index.js )
+            span file. The
+                high-code( FactoryPlugin )
+                span class instance returned to the caller
+			        \b must implement the
+                high-code( wizzi-plugin.factoryPlugin )
+                span \b API (see below).
+
 		ittf-panel
+            title ITTF pseudo-code implementation of the createFactoryPlugin method
             ittf
                 set module.exports
                     {
@@ -44,11 +63,13 @@
                                         { factoryPlugin
                                             api-ref wizzi-plugin.factoryPlugin
 
-		p The FactoryPlugin class instance returned to the caller
-			\b must implement the wizzi-plugin.factoryPlugin API (see below).
 
-		p A wizzi plugin must have a standard folder structure like this one:
+		p A Wizzi plugin should have a standard folder structure so that
+		    \b modules can be located given the short public name of
+			\b the required item.
+
 		ittf-panel
+            title Wizzi plugin standard folder structure
             ittf
                 ...
                     {package-name}
@@ -74,10 +95,4 @@
                                     {schema-name}-factory.g.js
                                     {schema-name}-schema.g.json
                                     ...
-                                schemas
-                                    {schema-name}.wfschema.ittf
-                                    ...
                         index.js
-		p In this way modules can be located given the short public name of
-			\b the required objects.
-

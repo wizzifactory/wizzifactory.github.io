@@ -92,36 +92,48 @@ html
 				_includes/card( Wizzi Factory
 					p The main API component of Wizzi.
 					p Loads plugins, processes sources, execute generations, run jobs.
-                    link( more, ${pkg.Params.baseUrl}/docs/factory.html)
+                    link( more, ${pkg.Params.baseUrl}/docs/wizzifactoryclass.html)
 				_includes/card( Wizzi Jobs
-					p Sequence of generation tasks run by the Wizzi Factory. 
+					p Sequence of generation tasks run by the Wizzi Factory.
                     link( more, ${pkg.Params.baseUrl}/docs/wizzijobs.html)
 				_includes/card( Wizzi Plugins
 					p Implement domain specific schemas, transformers and generators.
-                    link( more, ${pkg.Params.baseUrl}/docs/plugins.html)
+                    link( more, ${pkg.Params.baseUrl}/docs/wizziplugins.html)
 
 			_includes/section-grid-content( section-a4, A pluggable architecture
 				p Wizzi is made of general purpose kernel modules and an ecosystem of domain specific plugins.
 				p Plugins are the horse work of code generations.
-				p Some internal plugins support the creation of user generated plugins.
+				p Core and default plugins support the creation of user generated plugins.
 				
 
 			_includes/section-grid-ul( section-b4
 				
 				_includes/card( Core plugins
-					p The `wizzi-core` plugin contains schemata and artifacts used by the kernel modules.
+					p The `
+                        to-plugin( wizzi-core )
+                        span ` plugin contains schemata and artifacts used by the kernel modules.
+                    link( more, ${pkg.Params.baseUrl}/docs/wizziplugins.html#coreplugins)
 				
-				_includes/card( Starter plugins
-					p A couple of plugins available in the Npm registry have been created to be used as starters:
-						+ the `wizzi-js` and `wizzi-web` plugin.
+				_includes/card( Default plugins
+					p Three plugins, available in the Npm registry, have been created to be used as starters:
+						+ the `
+                        to-plugin( wizzi-js )
+                        span `, the `
+                        to-plugin( wizzi-web )
+                        span ` and the `
+                        to-plugin( wizzi-lab )
+                        span ` plugin.
 					p The `wizzi-js` plugin is used to generate Wizzi itself.
+                    link( more, ${pkg.Params.baseUrl}/docs/wizziplugins.html#defaultplugins)
 				
 				_includes/card( Npm plugins
 					p Plugin authors can contribute their plugins to the community packaging and publishing them to the Npm registry.
-					p Public Wizzi Plugins should be prefixed with 'wizzi-'.
+					p Public Wizzi plugins should be prefixed with 'wizzi-plugin-'.
+                    link( more, ${pkg.Params.baseUrl}/docs/wizziplugins.html#npmplugins)
 				
 				_includes/card( Local plugins
-					p User generated plugins can be declared by path to the Wizzi Factory and may remain locals to user projects.
+					p User generated plugins can be declared by path to the Wizzi factory and may remain locals to user projects.
+                    link( more, ${pkg.Params.baseUrl}/docs/wizziplugins.html#localplugins)
 
 			$*
 			section

@@ -9,21 +9,21 @@
         <div class="flexbox">
             <div class="center-on-mobiles">
                 <h1>
-                    <a href="/" class="logo"><img src="https://wizzifactory.github.io/images/logo.svg" width="140" height="65" alt="Wizzi Logo" />
+                    <a href="/" class="logo"><img src="http://127.0.0.1:5501/images/logo.svg" width="140" height="65" alt="Wizzi Logo" />
                     </a>
                 </h1>
             </div>
             <nav class="main-nav hide-on-mobiles">
                 <ul>
-                    <li><a href="https://wizzifactory.github.io/">Home</a>
+                    <li><a href="http://127.0.0.1:5501/">Home</a>
                     </li>
-                    <li class="current"><a href="https://wizzifactory.github.io/docs/concepts.html">Docs</a>
+                    <li class="current"><a href="http://127.0.0.1:5501/docs/concepts.html">Docs</a>
                     </li>
-                    <li><a href="https://wizzifactory.github.io/resources/index.html">Resources</a>
+                    <li><a href="http://127.0.0.1:5501/resources/index.html">Resources</a>
                     </li>
-                    <li><a href="https://wizzifactory.github.io/packy/index.html">Packy</a>
+                    <li><a href="http://127.0.0.1:5501/packy/index.html">Packy</a>
                     </li>
-                    <li><a href="https://wizzifactory.github.io/news/index.html">News</a>
+                    <li><a href="http://127.0.0.1:5501/news/index.html">News</a>
                     </li>
                 </ul>
             </nav>
@@ -46,16 +46,16 @@
     <div class="doc-container">
         <div class="w-4-5">
             <article>
-                <div class="doc-title">
+                <div id class="doc-title">
                     Wizzi models</div>
                 <div class="doc-summary">
                     <p>Wizzi models are javascript objects, inspired by Xml document objects, that can load 
-                        <a><a href="https://wizzifactory.github.io/docs/mtrees.html">mTrees</a>
+                        <a><a href="http://127.0.0.1:5501/docs/mtrees.html">mTrees</a>
                         </a>
                         <span>, applying a type to their nodes.</span>
                     </p>
                     <p>To be loaded in a Wizzi model an mTree node structure must be conformant to the 
-                        <a><a href="https://wizzifactory.github.io/docs/wizzischemas.html">Wizzi schema</a>
+                        <a><a href="http://127.0.0.1:5501/docs/wizzischemas.html">Wizzi schema</a>
                         </a>
                         <span> of the model.</span>
                     </p>
@@ -107,7 +107,7 @@
                 </div>
             </article>
             <article>
-                <div class="doc-title">
+                <div id class="doc-title">
                     Wizzi models generation</div>
                 <div class="doc-summary">
                     <p>Wizzi models are generated calling the 'generateModelTypes' method of an instance of the wizzi.WizziFactory class, instantiated with the `
@@ -129,7 +129,7 @@
                 </div>
             </article>
             <article>
-                <div class="doc-title">
+                <div id class="doc-title">
                     The Wizzi Model module</div>
                 <div class="doc-summary">
                     <p>A Wizzi model module contains a javascript class for each element defined in its 'wfschema' and some standard base classes.</p>
@@ -185,7 +185,7 @@
                 </div>
             </article>
             <article>
-                <div class="doc-title">
+                <div id class="doc-title">
                     Wizzi model factory module</div>
                 <div class="doc-summary">
                     <p>The javascript module `schema-name`-factory.g.js exports the method 'createLoadModel', that is an HOF that returns the 'loadModel' function. It must be called passing the 'wizzi' object.</p>
@@ -193,7 +193,7 @@
                     <p>We have seen already this api in the 'plugin' documentation.</p>
                     <div class='ittf-panel'>
                     <pre class='prettyprint'><code>
-                    <div><div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-tag">{</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">  </span><span class="pp-tag">func</span><span class="pp-pln"> createLoadModel</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">    </span><span class="pp-tag">#</span><span class="pp-pln"> HOF : returns the loadModel function for the given factory</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">    </span><span class="pp-tag">{</span><span class="pp-pln"> wizziObject</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">      </span><span class="pp-tag">func</span><span class="pp-pln"> loadMTree</span></div><div class="L6"><span class="pp-ln">   6 </span><span class="pp-pln">        </span><span class="pp-tag">api-ref</span><span class="pp-pln"> wizzi-mtree.loader.loadMTree</span></div><div class="L7"><span class="pp-ln">   7 </span><span class="pp-pln">        </span><span class="pp-tag">#</span><span class="pp-pln"> This function is prepared by the wizzi.wizziFactory instance class</span></div><div class="L8"><span class="pp-ln">   8 </span><span class="pp-pln">        </span><span class="pp-tag">#</span><span class="pp-pln"> and has repository access functions and load options in its closure.</span></div><div class="L9"><span class="pp-ln">   9 </span><span class="pp-pln">      </span><span class="pp-tag">{</span><span class="pp-pln"> file</span></div><div class="L0"><span class="pp-ln">  10 </span><span class="pp-pln">        </span><span class="pp-tag">api-ref</span><span class="pp-pln"> wizzi.util.file</span></div><div class="L1"><span class="pp-ln">  11 </span><span class="pp-pln">      </span><span class="pp-tag">{</span><span class="pp-pln"> errors</span></div><div class="L2"><span class="pp-ln">  12 </span><span class="pp-pln">        </span><span class="pp-tag">api-ref</span><span class="pp-pln"> wizzi.errors</span></div><div class="L3"><span class="pp-ln">  13 </span><span class="pp-pln">    </span><span class="pp-tag">...</span></div><div class="L4"><span class="pp-ln">  14 </span><span class="pp-pln">    </span><span class="pp-tag">return</span></div><div class="L5"><span class="pp-ln">  15 </span><span class="pp-pln">      </span><span class="pp-tag">func</span><span class="pp-pln"> loadModel</span></div><div class="L6"><span class="pp-ln">  16 </span><span class="pp-pln">        </span><span class="pp-tag">#</span><span class="pp-pln"> This returned function require a complex 'loadContext'</span></div><div class="L7"><span class="pp-ln">  17 </span><span class="pp-pln">        </span><span class="pp-tag">#</span><span class="pp-pln"> parameter with a lot of interfaces passed.</span></div><div class="L8"><span class="pp-ln">  18 </span><span class="pp-pln">        </span><span class="pp-tag">#</span><span class="pp-pln"> It will be called by the wizzi.wizziFactory instance and</span></div><div class="L9"><span class="pp-ln">  19 </span><span class="pp-pln">        </span><span class="pp-tag">#</span><span class="pp-pln"> not directly from client code.</span></div><div class="L0"><span class="pp-ln">  20 </span><span class="pp-pln">        </span><span class="pp-tag">string</span><span class="pp-pln"> ittfDocumentUri</span></div><div class="L1"><span class="pp-ln">  21 </span><span class="pp-pln">          </span><span class="pp-tag">#</span><span class="pp-pln"> The path to the primary ittf document from which</span></div><div class="L2"><span class="pp-ln">  22 </span><span class="pp-pln">          </span><span class="pp-tag">#</span><span class="pp-pln"> the mTree will be loaded</span></div><div class="L3"><span class="pp-ln">  23 </span><span class="pp-pln">        </span><span class="pp-tag">{</span><span class="pp-pln"> loadContext</span></div><div class="L4"><span class="pp-ln">  24 </span><span class="pp-pln">          </span><span class="pp-tag">{</span><span class="pp-pln"> __productionManager</span></div><div class="L5"><span class="pp-ln">  25 </span><span class="pp-pln">            </span><span class="pp-tag">api-ref</span><span class="pp-pln"> wizzi.production.productionManager</span></div><div class="L6"><span class="pp-ln">  26 </span><span class="pp-pln">            </span><span class="pp-tag">{</span><span class="pp-pln"> productionContext</span></div><div class="L7"><span class="pp-ln">  27 </span><span class="pp-pln">              </span><span class="pp-tag">api-ref</span><span class="pp-pln"> wizzi.production.productionContext</span></div><div class="L8"><span class="pp-ln">  28 </span><span class="pp-pln">              </span><span class="pp-tag">{</span><span class="pp-pln"> aclstat</span></div><div class="L9"><span class="pp-ln">  29 </span><span class="pp-pln">                </span><span class="pp-tag">api-ref</span><span class="pp-pln"> wizzi.production.aclstat</span></div><div class="L0"><span class="pp-ln">  30 </span><span class="pp-pln">          </span><span class="pp-tag">{</span><span class="pp-pln"> __ittfDocumentStore</span></div><div class="L1"><span class="pp-ln">  31 </span><span class="pp-pln">            </span><span class="pp-tag">api-ref</span><span class="pp-pln"> wizzi-repo.ittfDocumentStore</span></div><div class="L2"><span class="pp-ln">  32 </span><span class="pp-pln">          </span><span class="pp-tag">{</span><span class="pp-pln"> mTreeBuildUpContext</span></div><div class="L3"><span class="pp-ln">  33 </span><span class="pp-pln">            </span><span class="pp-tag">optional</span></div><div class="L4"><span class="pp-ln">  34 </span><span class="pp-pln">            </span><span class="pp-tag">|</span><span class="pp-pln"> api-ref wizzi-plugin.wizziModel</span></div><div class="L5"><span class="pp-ln">  35 </span><span class="pp-pln">            </span><span class="pp-tag">|</span><span class="pp-pln"> POJO</span></div><div class="L6"><span class="pp-ln">  36 </span><span class="pp-pln">        </span><span class="pp-tag">callback</span></div></div>
+                    <div><div class="L1"><span class="pp-ln">   1 </span><span class="pp-pln"></span><span class="pp-tag">{</span></div><div class="L2"><span class="pp-ln">   2 </span><span class="pp-pln">  </span><span class="pp-tag">func</span><span class="pp-pln"> createLoadModel</span></div><div class="L3"><span class="pp-ln">   3 </span><span class="pp-pln">    </span><span class="pp-tag">#</span><span class="pp-pln"> HOF : returns the loadModel function for the given factory</span></div><div class="L4"><span class="pp-ln">   4 </span><span class="pp-pln">    </span><span class="pp-tag">{</span><span class="pp-pln"> wizziObject</span></div><div class="L5"><span class="pp-ln">   5 </span><span class="pp-pln">      </span><span class="pp-tag">func</span><span class="pp-pln"> loadMTree</span></div><div class="L6"><span class="pp-ln">   6 </span><span class="pp-pln">        </span><span class="pp-tag">api-ref</span><span class="pp-pln"> wizzi-mtree.loader.loadMTree</span></div><div class="L7"><span class="pp-ln">   7 </span><span class="pp-pln">        </span><span class="pp-tag">#</span><span class="pp-pln"> This function is prepared by the wizzi.WizziFactory instance class</span></div><div class="L8"><span class="pp-ln">   8 </span><span class="pp-pln">        </span><span class="pp-tag">#</span><span class="pp-pln"> and has repository access functions and load options in its closure.</span></div><div class="L9"><span class="pp-ln">   9 </span><span class="pp-pln">      </span><span class="pp-tag">{</span><span class="pp-pln"> file</span></div><div class="L0"><span class="pp-ln">  10 </span><span class="pp-pln">        </span><span class="pp-tag">api-ref</span><span class="pp-pln"> wizzi.util.file</span></div><div class="L1"><span class="pp-ln">  11 </span><span class="pp-pln">      </span><span class="pp-tag">{</span><span class="pp-pln"> errors</span></div><div class="L2"><span class="pp-ln">  12 </span><span class="pp-pln">        </span><span class="pp-tag">api-ref</span><span class="pp-pln"> wizzi.errors</span></div><div class="L3"><span class="pp-ln">  13 </span><span class="pp-pln">    </span><span class="pp-tag">...</span></div><div class="L4"><span class="pp-ln">  14 </span><span class="pp-pln">    </span><span class="pp-tag">return</span></div><div class="L5"><span class="pp-ln">  15 </span><span class="pp-pln">      </span><span class="pp-tag">func</span><span class="pp-pln"> loadModel</span></div><div class="L6"><span class="pp-ln">  16 </span><span class="pp-pln">        </span><span class="pp-tag">#</span><span class="pp-pln"> This returned function require a complex 'loadContext'</span></div><div class="L7"><span class="pp-ln">  17 </span><span class="pp-pln">        </span><span class="pp-tag">#</span><span class="pp-pln"> parameter with a lot of interfaces passed.</span></div><div class="L8"><span class="pp-ln">  18 </span><span class="pp-pln">        </span><span class="pp-tag">#</span><span class="pp-pln"> It will be called by the wizzi.WizziFactory instance and</span></div><div class="L9"><span class="pp-ln">  19 </span><span class="pp-pln">        </span><span class="pp-tag">#</span><span class="pp-pln"> not directly from client code.</span></div><div class="L0"><span class="pp-ln">  20 </span><span class="pp-pln">        </span><span class="pp-tag">string</span><span class="pp-pln"> ittfDocumentUri</span></div><div class="L1"><span class="pp-ln">  21 </span><span class="pp-pln">          </span><span class="pp-tag">#</span><span class="pp-pln"> The path to the primary ittf document from which</span></div><div class="L2"><span class="pp-ln">  22 </span><span class="pp-pln">          </span><span class="pp-tag">#</span><span class="pp-pln"> the mTree will be loaded</span></div><div class="L3"><span class="pp-ln">  23 </span><span class="pp-pln">        </span><span class="pp-tag">{</span><span class="pp-pln"> loadContext</span></div><div class="L4"><span class="pp-ln">  24 </span><span class="pp-pln">          </span><span class="pp-tag">{</span><span class="pp-pln"> __productionManager</span></div><div class="L5"><span class="pp-ln">  25 </span><span class="pp-pln">            </span><span class="pp-tag">api-ref</span><span class="pp-pln"> wizzi.production.productionManager</span></div><div class="L6"><span class="pp-ln">  26 </span><span class="pp-pln">            </span><span class="pp-tag">{</span><span class="pp-pln"> productionContext</span></div><div class="L7"><span class="pp-ln">  27 </span><span class="pp-pln">              </span><span class="pp-tag">api-ref</span><span class="pp-pln"> wizzi.production.productionContext</span></div><div class="L8"><span class="pp-ln">  28 </span><span class="pp-pln">              </span><span class="pp-tag">{</span><span class="pp-pln"> aclstat</span></div><div class="L9"><span class="pp-ln">  29 </span><span class="pp-pln">                </span><span class="pp-tag">api-ref</span><span class="pp-pln"> wizzi.production.aclstat</span></div><div class="L0"><span class="pp-ln">  30 </span><span class="pp-pln">          </span><span class="pp-tag">{</span><span class="pp-pln"> __ittfDocumentStore</span></div><div class="L1"><span class="pp-ln">  31 </span><span class="pp-pln">            </span><span class="pp-tag">api-ref</span><span class="pp-pln"> wizzi-repo.ittfDocumentStore</span></div><div class="L2"><span class="pp-ln">  32 </span><span class="pp-pln">          </span><span class="pp-tag">{</span><span class="pp-pln"> mTreeBuildUpContext</span></div><div class="L3"><span class="pp-ln">  33 </span><span class="pp-pln">            </span><span class="pp-tag">optional</span></div><div class="L4"><span class="pp-ln">  34 </span><span class="pp-pln">            </span><span class="pp-tag">|</span><span class="pp-pln"> api-ref wizzi-plugin.wizziModel</span></div><div class="L5"><span class="pp-ln">  35 </span><span class="pp-pln">            </span><span class="pp-tag">|</span><span class="pp-pln"> POJO</span></div><div class="L6"><span class="pp-ln">  36 </span><span class="pp-pln">        </span><span class="pp-tag">callback</span></div></div>
                     </code></pre></div>
                 </div>
             </article>
@@ -202,25 +202,25 @@
             <div class="aside-right">
                 <div style="padding-top: 40px;"></div>
                 <ul>
-                    <li><a href="https://wizzifactory.github.io/docs/concepts.html">Concepts</a>
+                    <li><a href="http://127.0.0.1:5501/docs/concepts.html">Concepts</a>
                     </li>
-                    <li><a href="https://wizzifactory.github.io/docs/ittfdocuments.html">Ittf documents</a>
+                    <li><a href="http://127.0.0.1:5501/docs/ittfdocuments.html">Ittf documents</a>
                     </li>
-                    <li><a href="https://wizzifactory.github.io/docs/jswizzi.html">JsWizzi</a>
+                    <li><a href="http://127.0.0.1:5501/docs/jswizzi.html">JsWizzi</a>
                     </li>
-                    <li><a href="https://wizzifactory.github.io/docs/mtrees.html">mTrees</a>
+                    <li><a href="http://127.0.0.1:5501/docs/mtrees.html">mTrees</a>
                     </li>
-                    <li><a href="https://wizzifactory.github.io/docs/wizzischemas.html">Wizzi schemas</a>
+                    <li><a href="http://127.0.0.1:5501/docs/wizzischemas.html">Wizzi schemas</a>
                     </li>
-                    <li class="current"><a href="https://wizzifactory.github.io/docs/wizzimodels.html">Wizzi models</a>
+                    <li class="current"><a href="http://127.0.0.1:5501/docs/wizzimodels.html">Wizzi models</a>
                     </li>
-                    <li><a href="https://wizzifactory.github.io/docs/artifacts.html">Artifacts</a>
+                    <li><a href="http://127.0.0.1:5501/docs/artifacts.html">Artifacts</a>
                     </li>
-                    <li><a href="https://wizzifactory.github.io/docs/wizzifactoryclass.html">Wizzi factory class</a>
+                    <li><a href="http://127.0.0.1:5501/docs/wizzifactoryclass.html">Wizzi factory class</a>
                     </li>
-                    <li><a href="https://wizzifactory.github.io/docs/wizzijobs.html">Wizzi jobs</a>
+                    <li><a href="http://127.0.0.1:5501/docs/wizzijobs.html">Wizzi jobs</a>
                     </li>
-                    <li><a href="https://wizzifactory.github.io/docs/wizziplugins.html">Wizzi plugins</a>
+                    <li><a href="http://127.0.0.1:5501/docs/wizziplugins.html">Wizzi plugins</a>
                     </li>
                 </ul>
             </div>

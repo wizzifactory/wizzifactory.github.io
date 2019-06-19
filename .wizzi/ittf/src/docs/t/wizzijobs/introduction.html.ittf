@@ -15,7 +15,7 @@
 
         p They are configured using `wfjob` ITTF documents, and are execute using
             \b the `executeWizziJob` method of a 
-            to-docs( wizzi.wizziFactory )
+            to-docs( wizzi.WizziFactory )
             span \b instance or the `wizzi`
                 \b command of the `
             to-plugin( wizzi-cli )
